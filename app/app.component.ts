@@ -1,10 +1,15 @@
 import {Component}  			from 'angular2/core';
+import {TopNavComponent}		from "./top-nav.component";
 import {Cake}       			from "./cake";
 import {AddCakeFormComponent} 	from "./add-cake-form.component";
+// Need to be imported later on for some reason
+import {ViewEncapsulation} 		from "angular2/core";
 
 @Component({
 	selector: 'my-app',
 	template: `
+		<top-nav></top-nav>
+
 		<h1>{{title}}</h1>
 		<h2>Caker Profile</h2>
 		<h3>My Cakes</h3>
@@ -19,7 +24,6 @@ import {AddCakeFormComponent} 	from "./add-cake-form.component";
 		</ul>
 		<br>
 
-		<!--<div *ngIf="currentCake">-->
 		<div *ngIf="currentCake">
 			<h4>Details: {{currentCake.name}}</h4>
 			<ul><label><b>Ingredients</b></label>
@@ -34,7 +38,9 @@ import {AddCakeFormComponent} 	from "./add-cake-form.component";
 			</ol>
 		</div>
 		`,
-    directives: [AddCakeFormComponent]
+	styleUrls: ["app/main.css"],
+	encapsulation: ViewEncapsulation.None,
+    directives: [TopNavComponent, AddCakeFormComponent]
 })
 
 export class AppComponent {
@@ -62,6 +68,5 @@ export class AppComponent {
 	onSelect(cake: Cake){
 		this.currentCake = cake;
 	}
-
 }
 
