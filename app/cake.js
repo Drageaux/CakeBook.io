@@ -4,9 +4,11 @@ System.register([], function(exports_1) {
         setters:[],
         execute: function() {
             Cake = (function () {
-                function Cake(id, name) {
+                function Cake(id, name, ingredients, steps) {
                     this.id = id;
                     this.name = name;
+                    this.ingredients = ingredients;
+                    this.steps = steps;
                 }
                 return Cake;
             })();

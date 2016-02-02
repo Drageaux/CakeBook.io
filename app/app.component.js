@@ -26,18 +26,26 @@ System.register(['angular2/core', "./cake", "./add-cake-form.component"], functi
                 function AppComponent() {
                     this.title = "Cake Book";
                     this.cakes = [
-                        new cake_1.Cake(1, "Slow Cooker Chocolate Lava Cake"),
-                        new cake_1.Cake(2, "S’mores Pizza Roll-Up"),
-                        new cake_1.Cake(3, "S'mores Dip"),
-                        new cake_1.Cake(4, "Easy No-Bake Chocolate-Ricotta Cake"),
-                        new cake_1.Cake(5, "Chocolate Mousse")
+                        new cake_1.Cake(1, "Slow Cooker Chocolate Lava Cake", [], []),
+                        new cake_1.Cake(2, "S’mores Pizza Roll-Up", [], []),
+                        new cake_1.Cake(3, "S'mores Dip", [], []),
+                        new cake_1.Cake(4, "Easy No-Bake Chocolate-Ricotta Cake", [
+                            "combine 2 parts melted semi sweet chocolate with 3 parts ricotta cheese",
+                            "layer with chocolate graham crackers until your selected dish is full",
+                            "refrigerate at least 8 hours, up to 48"
+                        ], [
+                            "8 oz semi sweet chocolate",
+                            "chocolate graham crackers",
+                            "12 oz ricotta cheese",
+                        ]),
+                        new cake_1.Cake(5, "Chocolate Mousse", [], [])
                     ];
-                    this.currentCake = this.cakes[0];
+                    this.currentCake = this.cakes[3];
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n\t\t<h1>{{title}}</h1>\n\t\t<h2>Caker Profile</h2>\n\t\t<h3>My Cakes</h3>\n\t\t<ul>\n\t\t    <li>\n                <add-cake-form></add-cake-form>\n            </li>\n\t\t\t<li *ngFor=\"#cake of cakes\">\n\t\t\t\t{{cake.name}}\n\t\t\t</li>\n\t\t</ul>\n\t\t",
+                        template: "\n\t\t<h1>{{title}}</h1>\n\t\t<h2>Caker Profile</h2>\n\t\t<h3>My Cakes</h3>\n\t\t<ul>\n\t\t    <li>\n                <add-cake-form></add-cake-form>\n            </li>\n\t\t\t<li *ngFor=\"#cake of cakes\">\n\t\t\t\t{{cake.id}} {{cake.name}}\n\t\t\t</li>\n\t\t</ul>\n\t\t<br>\n\n\t\t<!--<div *ngIf=\"currentCake\">-->\n\t\t<div>\n\t\t\t<h4>Details: {{currentCake.name}}</h4>\n\t\t\t<ul><label><b>Ingredients</b></label>\n\t\t\t\t<li *ngFor=\"#ingr of currentCake.ingredients\">\n\t\t\t\t\t{{ingr}}\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t\t<ul><label><b>Steps</b></label>\n\t\t\t\t<li *ngFor=\"#step of currentCake.steps\">\n\t\t\t\t\t{{step}}\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t</div>\n\t\t",
                         directives: [add_cake_form_component_1.AddCakeFormComponent]
                     }), 
                     __metadata('design:paramtypes', [])

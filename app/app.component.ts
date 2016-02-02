@@ -1,6 +1,6 @@
-import {Component}  from 'angular2/core';
-import {Cake}       from "./cake";
-import {AddCakeFormComponent} from "./add-cake-form.component";
+import {Component}  			from 'angular2/core';
+import {Cake}       			from "./cake";
+import {AddCakeFormComponent} 	from "./add-cake-form.component";
 
 @Component({
 	selector: 'my-app',
@@ -13,9 +13,25 @@ import {AddCakeFormComponent} from "./add-cake-form.component";
                 <add-cake-form></add-cake-form>
             </li>
 			<li *ngFor="#cake of cakes">
-				{{cake.name}}
+				{{cake.id}} {{cake.name}}
 			</li>
 		</ul>
+		<br>
+
+		<!--<div *ngIf="currentCake">-->
+		<div>
+			<h4>Details: {{currentCake.name}}</h4>
+			<ul><label><b>Ingredients</b></label>
+				<li *ngFor="#ingr of currentCake.ingredients">
+					{{ingr}}
+				</li>
+			</ul>
+			<ul><label><b>Steps</b></label>
+				<li *ngFor="#step of currentCake.steps">
+					{{step}}
+				</li>
+			</ul>
+		</div>
 		`,
     directives: [AddCakeFormComponent]
 })
@@ -23,12 +39,22 @@ import {AddCakeFormComponent} from "./add-cake-form.component";
 export class AppComponent {
 	title = "Cake Book";
 	cakes = [
-		new Cake(1, "Slow Cooker Chocolate Lava Cake"),
-		new Cake(2,"S’mores Pizza Roll-Up"),
-		new Cake(3,"S'mores Dip"),
-		new Cake(4,"Easy No-Bake Chocolate-Ricotta Cake"),
-		new Cake(5,"Chocolate Mousse")
+		new Cake(1, "Slow Cooker Chocolate Lava Cake", [], []),
+		new Cake(2,"S’mores Pizza Roll-Up", [], []),
+		new Cake(3,"S'mores Dip", [], []),
+		new Cake(4,"Easy No-Bake Chocolate-Ricotta Cake",
+			[
+				"combine 2 parts melted semi sweet chocolate with 3 parts ricotta cheese",
+				"layer with chocolate graham crackers until your selected dish is full",
+				"refrigerate at least 8 hours, up to 48"
+			],
+			[
+				"8 oz semi sweet chocolate",
+				"chocolate graham crackers",
+				"12 oz ricotta cheese",
+			]),
+		new Cake(5,"Chocolate Mousse", [], [])
 	];
-	currentCake = this.cakes[0];
+	currentCake = this.cakes[3];
 }
 
