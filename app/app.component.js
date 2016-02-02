@@ -40,12 +40,14 @@ System.register(['angular2/core', "./cake", "./add-cake-form.component"], functi
                         ]),
                         new cake_1.Cake(5, "Chocolate Mousse", [], [])
                     ];
-                    this.currentCake = this.cakes[3];
                 }
+                AppComponent.prototype.onSelect = function (cake) {
+                    this.currentCake = cake;
+                };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n\t\t<h1>{{title}}</h1>\n\t\t<h2>Caker Profile</h2>\n\t\t<h3>My Cakes</h3>\n\t\t<ul>\n\t\t    <li>\n                <add-cake-form></add-cake-form>\n            </li>\n\t\t\t<li *ngFor=\"#cake of cakes\">\n\t\t\t\t{{cake.id}} {{cake.name}}\n\t\t\t</li>\n\t\t</ul>\n\t\t<br>\n\n\t\t<!--<div *ngIf=\"currentCake\">-->\n\t\t<div>\n\t\t\t<h4>Details: {{currentCake.name}}</h4>\n\t\t\t<ul><label><b>Ingredients</b></label>\n\t\t\t\t<li *ngFor=\"#ingr of currentCake.ingredients\">\n\t\t\t\t\t{{ingr}}\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t\t<ul><label><b>Steps</b></label>\n\t\t\t\t<li *ngFor=\"#step of currentCake.steps\">\n\t\t\t\t\t{{step}}\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t</div>\n\t\t",
+                        template: "\n\t\t<h1>{{title}}</h1>\n\t\t<h2>Caker Profile</h2>\n\t\t<h3>My Cakes</h3>\n\t\t<ul>\n\t\t    <li>\n                <add-cake-form></add-cake-form>\n            </li>\n\t\t\t<li *ngFor=\"#cake of cakes\"\n\t            (click)=\"onSelect(cake)\">\n\t\t\t\t<a href=\"#\">{{cake.name}}</a>\n\t\t\t</li>\n\t\t</ul>\n\t\t<br>\n\n\t\t<!--<div *ngIf=\"currentCake\">-->\n\t\t<div *ngIf=\"currentCake\">\n\t\t\t<h4>Details: {{currentCake.name}}</h4>\n\t\t\t<ul><label><b>Ingredients</b></label>\n\t\t\t\t<li *ngFor=\"#ingr of currentCake.ingredients\">\n\t\t\t\t\t{{ingr}}\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t\t<ol><label><b>Steps</b></label>\n\t\t\t\t<li *ngFor=\"#step of currentCake.steps\">\n\t\t\t\t\t{{step}}\n\t\t\t\t</li>\n\t\t\t</ol>\n\t\t</div>\n\t\t",
                         directives: [add_cake_form_component_1.AddCakeFormComponent]
                     }), 
                     __metadata('design:paramtypes', [])
