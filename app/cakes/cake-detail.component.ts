@@ -1,5 +1,9 @@
 import {Component} from "angular2/core";
 import {Cake} from "../cake";
+import {Router} from "angular2/router";
+import {RouteParams} from "angular2/router";
+import {CakeService} from "./cake.service";
+import {OnInit} from "angular2/core";
 
 @Component({
     selector: "cake-detail",
@@ -17,10 +21,24 @@ import {Cake} from "../cake";
 				</li>
 			</ol>
 		</div>
+		<button (click)="gotoCakes()">Back</button>
         `,
-    inputs: ["cake"]
 })
 
-export class CakeDetailComponent {
-    public cake:Cake;
+export class CakeDetailComponent implements OnInit {
+    cake:Cake;
+
+    constructor(private _router:Router,
+                private _routeParams:RouteParams,
+                private _service:CakeService) {
+    }
+
+    ngOnInit() {
+        let id = this._routeParams.get('id');
+        this._service.getCake(id).then(cake => this.cake = cake);
+    }
+
+    gotoCakes() {
+        this._router.navigate(["Cakes"]);
+    }
 }

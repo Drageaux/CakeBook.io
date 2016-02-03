@@ -9,27 +9,26 @@ System.register(['angular2/core'], function(exports_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var TopNavComponent;
+    var HomeComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            TopNavComponent = (function () {
-                function TopNavComponent() {
+            HomeComponent = (function () {
+                function HomeComponent() {
                 }
-                TopNavComponent = __decorate([
+                HomeComponent = __decorate([
                     core_1.Component({
-                        selector: "top-nav",
-                        templateUrl: "app/top-nav.component.html"
+                        template: "\n        <h2>Welcome to Cake Book!</h2>\n        "
                     }), 
                     __metadata('design:paramtypes', [])
-                ], TopNavComponent);
-                return TopNavComponent;
+                ], HomeComponent);
+                return HomeComponent;
             })();
-            exports_1("TopNavComponent", TopNavComponent);
+            exports_1("HomeComponent", HomeComponent);
         }
     }
 });
-//# sourceMappingURL=top-nav.component.js.map
+//# sourceMappingURL=home.component.js.map

@@ -1,9 +1,10 @@
-import {Component}              from 'angular2/core';
-import {TopNavComponent}        from "./top-nav.component";
-import {Cake}                   from "./cake";
+import {Component} from 'angular2/core';
+import {RouteConfig, ROUTER_DIRECTIVES} from "angular2/router";
+
+import {HomeComponent}          from "./home.component";
+import {ProfileComponent}       from "./profile.component";
 import {CakeDetailComponent}    from "./cakes/cake-detail.component";
 import {CakeService}            from "./cakes/cake.service";
-import {AddCakeFormComponent}   from "./add-cake-form.component";
 
 // Need to be imported later on for some reason
 import {ViewEncapsulation}        from "angular2/core";
@@ -11,44 +12,24 @@ import {ViewEncapsulation}        from "angular2/core";
 @Component({
     selector: 'my-app',
     template: `
-		<top-nav></top-nav>
-
-		<h2>Caker Profile</h2>
-		<h3>My Cakes</h3>
-		<ul>
-		    <li>
-                <add-cake-form></add-cake-form>
-            </li>
-			<li *ngFor="#cake of cakes"
-	            (click)="onSelect(cake)">
-				<a>{{cake.name}}</a>
-			</li>
-		</ul>
-		<hr>
-		<cake-detail [cake]="currentCake"></cake-detail>
+        <nav>
+            <a [routerLink]="['Home']">Home</a> |
+            <a [routerLink]="['Cakes']">Profile</a>
+        </nav>
+        <router-outlet></router-outlet>
 		`,
-    styleUrls: ["app/main.css"],
+    styleUrls: ["app/style.css"],
     encapsulation: ViewEncapsulation.None,
-    directives: [TopNavComponent, CakeDetailComponent, AddCakeFormComponent],
-    providers: [CakeService]
+    providers: [CakeService],
+    directives: [ROUTER_DIRECTIVES]
 })
 
+@RouteConfig([
+    {path: "/home", name: "Home", component: HomeComponent, useAsDefault: true},
+    {path: "/cakes", name: "Cakes", component: ProfileComponent},
+    {path: "/cake/:id", name: "CakeDetail", component: CakeDetailComponent}
+])
+
 export class AppComponent {
-    public cakes: Cake[];
-    currentCake:Cake;
-
-    constructor(private _cakeService: CakeService) { }
-
-    getCakes() {
-        this._cakeService.getCakes().then(cakes => this.cakes = cakes);
-    }
-
-    onSelect(cake:Cake) {
-        this.currentCake = cake;
-    }
-
-    ngOnInit() {
-        this.getCakes();
-    }
 }
 

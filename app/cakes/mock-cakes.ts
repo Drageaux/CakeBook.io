@@ -1,6 +1,6 @@
 import {Cake} from "../cake";
 
-export var CAKES: Cake[] = [
+export var CAKES:Cake[] = [
     new Cake(1, "Slow Cooker Chocolate Lava Cake", [], []),
     new Cake(2, "S’mores Pizza Roll-Up", [], []),
     new Cake(3, "S'mores Dip", [], []),

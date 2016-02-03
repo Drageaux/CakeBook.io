@@ -4,6 +4,12 @@ import {CAKES} from "./mock-cakes";
 @Injectable()
 export class CakeService {
     getCakes() {
-        return Promise.resolve(CAKES);
+        return cakesPromise;
+    }
+
+    getCake(id:number | String) {
+        return cakesPromise.then(cakes => cakes.filter(c => c.id === +id)[0]);
     }
 }
+
+var cakesPromise = Promise.resolve(CAKES);

@@ -9,7 +9,7 @@ System.register(['angular2/core', "./mock-cakes"], function(exports_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, mock_cakes_1;
-    var CakeService;
+    var CakeService, cakesPromise;
     return {
         setters:[
             function (core_1_1) {
@@ -23,7 +23,10 @@ System.register(['angular2/core', "./mock-cakes"], function(exports_1) {
                 function CakeService() {
                 }
                 CakeService.prototype.getCakes = function () {
-                    return Promise.resolve(mock_cakes_1.CAKES);
+                    return cakesPromise;
+                };
+                CakeService.prototype.getCake = function (id) {
+                    return cakesPromise.then(function (cakes) { return cakes.filter(function (c) { return c.id === +id; })[0]; });
                 };
                 CakeService = __decorate([
                     core_1.Injectable(), 
@@ -32,6 +35,7 @@ System.register(['angular2/core', "./mock-cakes"], function(exports_1) {
                 return CakeService;
             })();
             exports_1("CakeService", CakeService);
+            cakesPromise = Promise.resolve(mock_cakes_1.CAKES);
         }
     }
 });
