@@ -18,7 +18,8 @@ import {AddCakeFormComponent}   from "./add-cake-form.component";
 				<a>{{cake.name}}</a>
 			</li>
 		</ul>
-        `
+        `,
+    directives: [AddCakeFormComponent]
 })
 
 export class ProfileComponent implements OnInit {
