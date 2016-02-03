@@ -29,7 +29,7 @@ import {ViewEncapsulation}        from "angular2/core";
 		`,
     styleUrls: ["app/main.css"],
     encapsulation: ViewEncapsulation.None,
-    directives: [TopNavComponent, AddCakeFormComponent, CakeDetailComponent],
+    directives: [TopNavComponent, CakeDetailComponent, AddCakeFormComponent],
     providers: [CakeService]
 })
 

@@ -1,4 +1,7 @@
+{{diagnostic}}
 <form>
-    <input type="text">
-    <button>Add Cake</button>
+    <input type="text" class="form-control" required
+        [(ngModel)]="model.name"><br>
+        <p>TODO: remove this: {{model.name}}</p>
+    <button type="submit">Add Cake</button>
 </form>

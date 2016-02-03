@@ -51,7 +51,7 @@ System.register(['angular2/core', "./top-nav.component", "./cakes/cake-detail.co
                         template: "\n\t\t<top-nav></top-nav>\n\n\t\t<h2>Caker Profile</h2>\n\t\t<h3>My Cakes</h3>\n\t\t<ul>\n\t\t    <li>\n                <add-cake-form></add-cake-form>\n            </li>\n\t\t\t<li *ngFor=\"#cake of cakes\"\n\t            (click)=\"onSelect(cake)\">\n\t\t\t\t<a>{{cake.name}}</a>\n\t\t\t</li>\n\t\t</ul>\n\t\t<hr>\n\t\t<cake-detail [cake]=\"currentCake\"></cake-detail>\n\t\t",
                         styleUrls: ["app/main.css"],
                         encapsulation: core_2.ViewEncapsulation.None,
-                        directives: [top_nav_component_1.TopNavComponent, add_cake_form_component_1.AddCakeFormComponent, cake_detail_component_1.CakeDetailComponent],
+                        directives: [top_nav_component_1.TopNavComponent, cake_detail_component_1.CakeDetailComponent, add_cake_form_component_1.AddCakeFormComponent],
                         providers: [cake_service_1.CakeService]
                     }), 
                     __metadata('design:paramtypes', [cake_service_1.CakeService])

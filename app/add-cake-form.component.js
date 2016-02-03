@@ -20,7 +20,14 @@ System.register(['angular2/core'], function(exports_1) {
                 function AddCakeFormComponent() {
                     this.submitted = false;
                 }
-                AddCakeFormComponent.prototype.onSubmit = function () { this.submitted = true; };
+                AddCakeFormComponent.prototype.addCake = function (newCake, CakeList) {
+                    if (newCake) {
+                        CakeList.push(newCake);
+                    }
+                };
+                AddCakeFormComponent.prototype.onSubmit = function () {
+                    this.submitted = true;
+                };
                 AddCakeFormComponent = __decorate([
                     core_1.Component({
                         selector: "add-cake-form",

@@ -8,9 +8,15 @@ import {Cake}       from "./cake";
 })
 
 export class AddCakeFormComponent {
-
-
     submitted = false;
 
-    onSubmit() { this.submitted = true; }
+    addCake(newCake:Cake, CakeList:Cake[]) {
+        if (newCake) {
+            CakeList.push(newCake);
+        }
+    }
+
+    onSubmit() {
+        this.submitted = true;
+    }
 }
