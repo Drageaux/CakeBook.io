@@ -1,15 +1,47 @@
 import {Injectable} from 'angular2/core';
+import {error} from "util";
+import {Observable} from "rxjs/Observable";
+import {Http} from "angular2/http";
+import {Response} from "angular2/http";
+import {Headers} from "angular2/http";
+import {RequestOptions} from "angular2/http";
+
+import {Cake} from "../cake";
 import {CAKES} from "./mock-cakes";
 
 @Injectable()
 export class CakeService {
+    constructor(private http:Http) {
+    }
+
+    private _cakesUrl = "app/cakes";
+
     getCakes() {
-        return cakesPromise;
+        return this.http.get(this._cakesUrl)
+            .map(res => <Cake[]> res.json().data)
+            .do(data => console.log(data))
+            .catch(this.handleError);
     }
 
     getCake(id:number | String) {
-        return cakesPromise.then(cakes => cakes.filter(c => c.id === +id)[0]);
+        return Promise.resolve(CAKES)
+            .then(cakes => cakes.filter(c => c.id === +id)[0]);
+    }
+
+    addCake(name:string):Observable<Cake> {
+        let body = JSON.stringify({name});
+        let headers = new Headers({"Content-Type": "application/json"});
+        let options = new RequestOptions({headers: headers});
+
+        return this.http.post(this._cakesUrl, body, options)
+            .map(res => <Cake> res.json().data)
+            .catch(this.handleError);
+    }
+
+    private handleError(error:Response) {
+        // in a real world app, we may send the server to some remote logging infrastructure
+        // instead of just logging it to the console
+        console.error(error);
+        return Observable.throw(error.json().error || 'Server error');
     }
 }
-
-var cakesPromise = Promise.resolve(CAKES);

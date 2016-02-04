@@ -4,6 +4,7 @@ import {Router} from "angular2/router";
 import {Cake}                   from "./cake";
 import {CakeService}            from "./cakes/cake.service";
 import {AddCakeFormComponent}   from "./add-cake-form.component";
+import {Observable} from "rxjs/Observable";
 
 @Component({
     template: `
@@ -11,7 +12,13 @@ import {AddCakeFormComponent}   from "./add-cake-form.component";
 		<h3>My Cakes</h3>
 		<ul>
 		    <li>
-                <add-cake-form></add-cake-form>
+                <input #newCake>
+                <button (click)="addCake(newCake.value); newCake.value=''">
+                    Add Cake
+                </button>
+                <div class="error" *ngIf="errorMessage">
+                    {{errorMessage}}
+                </div>
             </li>
 			<li *ngFor="#cake of cakes"
 	            (click)="onSelect(cake)">
@@ -19,24 +26,43 @@ import {AddCakeFormComponent}   from "./add-cake-form.component";
 			</li>
 		</ul>
         `,
+    styles: [`
+        .error {
+            color:red:
+        }
+        `],
     directives: [AddCakeFormComponent]
 })
 
 export class ProfileComponent implements OnInit {
+    errorMessage:string;
     cakes:Cake[];
 
     constructor(private _router:Router, private _cakeService:CakeService) {
-    }
-
-    getCakes() {
-        this._cakeService.getCakes().then(cakes => this.cakes = cakes);
     }
 
     ngOnInit() {
         this.getCakes();
     }
 
+    getCakes() {
+        this._cakeService.getCakes()
+            .subscribe(
+                cakes => this.cakes = cakes,
+                error => this.errorMessage = <any>error);
+    }
+
     onSelect(cake:Cake) {
-        this._router.navigate(['CakeDetail', {id: cake.id}]);
+        this._router.navigate(["CakeDetail", {id: cake.id}]);
+    }
+
+    addCake(name:string):Observable<Cake> {
+        if (!name) {
+            return;
+        }
+        this._cakeService.addCake(name)
+            .subscribe(
+                cake => this.cakes.push(cake),
+                error => this.errorMessage = <any>error);
     }
 }
