@@ -1,4 +1,4 @@
-System.register(["angular2/core", "angular2/http", "angular2/router", 'a2-in-memory-web-api/core', "./cakes/cake-data", "./home.component", "./profile.component", "./cakes/cake-detail.component", "./cakes/cake.service"], function(exports_1) {
+System.register(["angular2/core", "angular2/http", "angular2/router", 'a2-in-memory-web-api/core', "./home.component", "./profile.component", "./cakes/cake-data", "./cakes/cake-detail.component", "./cakes/cake.service"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(["angular2/core", "angular2/http", "angular2/router", 'a2-in-mem
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, router_1, http_2, core_2, cake_data_1, home_component_1, profile_component_1, cake_detail_component_1, cake_service_1, core_3;
+    var core_1, http_1, router_1, http_2, core_2, home_component_1, profile_component_1, cake_data_1, cake_detail_component_1, cake_service_1, core_3;
     var AppComponent;
     return {
         setters:[
@@ -26,14 +26,14 @@ System.register(["angular2/core", "angular2/http", "angular2/router", 'a2-in-mem
             function (core_2_1) {
                 core_2 = core_2_1;
             },
-            function (cake_data_1_1) {
-                cake_data_1 = cake_data_1_1;
-            },
             function (home_component_1_1) {
                 home_component_1 = home_component_1_1;
             },
             function (profile_component_1_1) {
                 profile_component_1 = profile_component_1_1;
+            },
+            function (cake_data_1_1) {
+                cake_data_1 = cake_data_1_1;
             },
             function (cake_detail_component_1_1) {
                 cake_detail_component_1 = cake_detail_component_1_1;
@@ -49,7 +49,7 @@ System.register(["angular2/core", "angular2/http", "angular2/router", 'a2-in-mem
                     core_1.Component({
                         selector: 'my-app',
                         template: "\n        <nav>\n            <a [routerLink]=\"['Home']\">Home</a> |\n            <a [routerLink]=\"['Cakes']\">Profile</a>\n        </nav>\n        <router-outlet></router-outlet>\n\t\t",
-                        styleUrls: ["app/style.css"],
+                        styleUrls: ["app/stylesheets/style.css"],
                         encapsulation: core_3.ViewEncapsulation.None,
                         providers: [
                             http_1.HTTP_PROVIDERS,

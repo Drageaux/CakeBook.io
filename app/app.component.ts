@@ -4,15 +4,15 @@ import {RouteConfig, ROUTER_DIRECTIVES} from "angular2/router";
 import {XHRBackend} from "angular2/http";// in-memory web api imports
 import {InMemoryBackendService, SEED_DATA} from 'a2-in-memory-web-api/core';
 
-import {CakeData}               from "./cakes/cake-data";
 import {HomeComponent}          from "./home.component";
 import {ProfileComponent}       from "./profile.component";
+import {Cake}                   from "./cakes/cake";
+import {CakeData}               from "./cakes/cake-data";
 import {CakeDetailComponent}    from "./cakes/cake-detail.component";
 import {CakeService}            from "./cakes/cake.service";
 
 // Need to be imported later on for some reason
 import {ViewEncapsulation}        from "angular2/core";
-import {Cake} from "./cake";
 
 @Component({
     selector: 'my-app',
@@ -23,7 +23,7 @@ import {Cake} from "./cake";
         </nav>
         <router-outlet></router-outlet>
 		`,
-    styleUrls: ["app/style.css"],
+    styleUrls: ["app/stylesheets/style.css"],
     encapsulation: ViewEncapsulation.None,
     providers: [
         HTTP_PROVIDERS,

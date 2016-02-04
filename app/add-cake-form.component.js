@@ -1,4 +1,4 @@
-System.register(['angular2/core', "./cake"], function(exports_1) {
+System.register(['angular2/core', "./cakes/cake"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -56,7 +56,7 @@ System.register(['angular2/core', "./cake"], function(exports_1) {
                 AddCakeFormComponent = __decorate([
                     core_1.Component({
                         selector: "add-cake-form",
-                        templateUrl: "app/add-cake-form.component.html"
+                        templateUrl: "app/templates/add-cake-form.component.html"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AddCakeFormComponent);

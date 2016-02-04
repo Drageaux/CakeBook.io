@@ -6,8 +6,7 @@ import {Response} from "angular2/http";
 import {Headers} from "angular2/http";
 import {RequestOptions} from "angular2/http";
 
-import {Cake} from "../cake";
-import {CAKES} from "./mock-cakes";
+import {Cake} from "cake";
 
 @Injectable()
 export class CakeService {
