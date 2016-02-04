@@ -19,13 +19,16 @@ export class CakeService {
     getCakes() {
         return this.http.get(this._cakesUrl)
             .map(res => <Cake[]> res.json().data)
-            .do(data => console.log(data))
+            .do(data => console.log(data)) // print out Cake list
             .catch(this.handleError);
     }
 
     getCake(id:number | String) {
-        return Promise.resolve(CAKES)
-            .then(cakes => cakes.filter(c => c.id === +id)[0]);
+        return this.http.get(this._cakesUrl)
+            .map(res => <Cake[]> res.json().data
+            .filter(c => c.id === +id)[0])
+            .catch(this.handleError);
+        //.then(cakes => cakes.filter(c => c.id === +id)[0]);
     }
 
     addCake(name:string):Observable<Cake> {

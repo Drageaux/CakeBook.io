@@ -4,11 +4,15 @@ import {Router} from "angular2/router";
 import {RouteParams} from "angular2/router";
 import {CakeService} from "./cake.service";
 import {OnInit} from "angular2/core";
+import {error} from "util";
 
 @Component({
     selector: "cake-detail",
     template: `
         <div *ngIf="cake">
+            <div class="error" *ngIf="errorMessage">
+                {{errorMessage}}
+            </div>
 			<h4>Details: {{cake.name}}</h4>
 			<ul><label><b>Ingredients</b></label>
 				<li *ngFor="#ingr of cake.ingredients">
@@ -22,7 +26,7 @@ import {OnInit} from "angular2/core";
 			</ol>
 		</div>
 		<button (click)="gotoCakes()">Back</button>
-        `,
+        `
 })
 
 export class CakeDetailComponent implements OnInit {
@@ -35,7 +39,10 @@ export class CakeDetailComponent implements OnInit {
 
     ngOnInit() {
         let id = this._routeParams.get('id');
-        this._service.getCake(id).then(cake => this.cake = cake);
+        this._service.getCake(id)
+            .subscribe(
+                cake => this.cake = cake,
+                error => this.errorMessage = <any>error);
     }
 
     gotoCakes() {

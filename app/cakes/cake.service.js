@@ -1,4 +1,4 @@
-System.register(['angular2/core', "rxjs/Observable", "angular2/http", "./mock-cakes"], function(exports_1) {
+System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http", "./mock-ca
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, Observable_1, http_1, http_2, http_3, mock_cakes_1;
+    var core_1, Observable_1, http_1, http_2, http_3;
     var CakeService;
     return {
         setters:[
@@ -22,9 +22,6 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http", "./mock-ca
                 http_1 = http_1_1;
                 http_2 = http_1_1;
                 http_3 = http_1_1;
-            },
-            function (mock_cakes_1_1) {
-                mock_cakes_1 = mock_cakes_1_1;
             }],
         execute: function() {
             CakeService = (function () {
@@ -35,12 +32,15 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http", "./mock-ca
                 CakeService.prototype.getCakes = function () {
                     return this.http.get(this._cakesUrl)
                         .map(function (res) { return res.json().data; })
-                        .do(function (data) { return console.log(data); })
+                        .do(function (data) { return console.log(data); }) // print out Cake list
                         .catch(this.handleError);
                 };
                 CakeService.prototype.getCake = function (id) {
-                    return Promise.resolve(mock_cakes_1.CAKES)
-                        .then(function (cakes) { return cakes.filter(function (c) { return c.id === +id; })[0]; });
+                    return this.http.get(this._cakesUrl)
+                        .map(function (res) { return res.json().data
+                        .filter(function (c) { return c.id === +id; })[0]; })
+                        .catch(this.handleError);
+                    //.then(cakes => cakes.filter(c => c.id === +id)[0]);
                 };
                 CakeService.prototype.addCake = function (name) {
                     var body = JSON.stringify({ name: name });
