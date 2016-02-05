@@ -1,15 +1,13 @@
-$main-theme-color: #DEBAA9; // cream
+// Theme Colors http://i.imgur.com/fAigKyc.png
+$_1st-brown-gray: #BAA99E;
+$_2nd-light-cream: #FCE9DC;
+$_3rd-cream: #DEBAA9;
+$_4th-coffee-red: #593836;
+$_5th-soft-pink: #DB8F8F;
 
 body {
     /* General */
-    font-family: "Crete Round", serif;
-
-    h2 {
-        color: blue;
-    }
-    h3 {
-        color: red;
-    }
+    font-family: "Crete Round", sans-serif;
 
     a:hover {
         cursor: pointer;
@@ -17,21 +15,51 @@ body {
 
     /* Top Nav */
     .navbar-default {
-        background-color: $main-theme-color;
+        //background-color: darken($_4th-coffee-red, 20%);
+        background-color: lighten(#FFD5A3, 2%);
+        font-family: 'Anton', sans-serif;
+        border-bottom-width: 3px;
+        border-bottom-style: solid;
+        border-color: $_4th-coffee-red;
 
         .navbar-nav {
-            .navbar-item {
-                background-color: $main-theme-color * 1.5;
+            background-color: $_4th-coffee-red;
+            li {
+                a {
+                    color: white;
+                }
+                a:hover,
+                a:focus {
+                    color: white;
+                    //background-color: darken($_5th-soft-pink, 5%);
+                    background-color: #AD4047;
+                    -webkit-border-radius: 5px;
+                    -moz-border-radius: 5px;
+                    border-radius: 5px;
+
+                    transition-duration: 0.2s;
+                }
             }
+
         }
     }
 
     /* Content */
     // not logged in
     .home-container {
-        padding-top: 150px;
+        padding-top: 100px;
         height: 100%;
-        background: #fff;
+        //background-color: lighten($_2nd-light-cream, 7%);
         text-align: center;
+
+        .welcome-poster {
+            font-family: 'Chewy', cursive;
+        }
+
+        img {
+            border-radius: 10px;
+            width: 60%;
+            height: auto;
+        }
     }
 }
