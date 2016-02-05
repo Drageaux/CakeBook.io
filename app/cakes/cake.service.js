@@ -37,8 +37,8 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
                 };
                 CakeService.prototype.getCake = function (id) {
                     return this.http.get(this._cakesUrl)
-                        .map(function (res) { return res.json().data
-                        .filter(function (c) { return c.id === +id; })[0]; })
+                        .map(function (res) { return (res.json().data
+                        .filter(function (c) { return c.id === +id; })[0]); })
                         .catch(this.handleError);
                     //.then(cakes => cakes.filter(c => c.id === +id)[0]);
                 };

@@ -6,7 +6,7 @@ import {Response} from "angular2/http";
 import {Headers} from "angular2/http";
 import {RequestOptions} from "angular2/http";
 
-import {Cake} from "cake";
+import {Cake} from "./cake";
 
 @Injectable()
 export class CakeService {
@@ -24,8 +24,8 @@ export class CakeService {
 
     getCake(id:number | String) {
         return this.http.get(this._cakesUrl)
-            .map(res => <Cake[]> res.json().data
-            .filter(c => c.id === +id)[0])
+            .map(res => (<Cake> res.json().data
+            .filter(c => c.id === +id)[0]))
             .catch(this.handleError);
         //.then(cakes => cakes.filter(c => c.id === +id)[0]);
     }
