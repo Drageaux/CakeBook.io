@@ -1,9 +1,23 @@
 import {Component}      from 'angular2/core';
-import {RouteConfig}    from "angular2/router";
 
 @Component({
     template: `
-        <h2>Welcome to Cake Book!</h2>
+        <div class="home-container">
+            <h2>Welcome to Cake Book!</h2>
+            <h2>Welcome to Cake Book!</h2>
+            <h2>Welcome to Cake Book!</h2>
+            <h2>Welcome to Cake Book!</h2>
+            <h2>Welcome to Cake Book!</h2>
+            <h2>Welcome to Cake Book!</h2>
+            <h2>Welcome to Cake Book!</h2>
+            <h2>Welcome to Cake Book!</h2>
+            <h2>Welcome to Cake Book!</h2>
+            <h2>Welcome to Cake Book!</h2>
+            <h2>Welcome to Cake Book!</h2>
+            <h2>Welcome to Cake Book!</h2>
+            <h2>Welcome to Cake Book!</h2>
+            <h2>Welcome to Cake Book!</h2>
+        </div>
         `
 })
 

@@ -22,7 +22,7 @@ import {Observable} from "rxjs/Observable";
             </li>
 			<li *ngFor="#cake of cakes"
 	            (click)="onSelect(cake)">
-				<a>{{cake.name}}</a>
+				<a class="url-list-item">{{cake.name}}</a>
 			</li>
 		</ul>
         `,

@@ -48,7 +48,7 @@ System.register(["angular2/core", "angular2/http", "angular2/router", 'a2-in-mem
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n        <nav>\n            <a [routerLink]=\"['Home']\">Home</a> |\n            <a [routerLink]=\"['Cakes']\">Profile</a>\n        </nav>\n        <router-outlet></router-outlet>\n\t\t",
+                        template: "\n        <nav class=\"navbar navbar-default navbar-fixed-top\">\n            <!-- Normal Menu -->\n            <ul class=\"nav navbar-nav\" id=\"normalMenu\">\n                <li><a class=\"navbar-item\" [routerLink]=\"['Home']\">Home</a></li>\n                <li><a class=\"navbar-item\" [routerLink]=\"['Cakes']\">Profile</a></li>\n            </ul>\n        </nav>\n\n        <router-outlet></router-outlet>\n\t\t",
                         styleUrls: ["app/stylesheets/style.css"],
                         encapsulation: core_3.ViewEncapsulation.None,
                         providers: [

@@ -1,10 +1,37 @@
+$main-theme-color: #DEBAA9; // cream
 
 body {
+    /* General */
+    font-family: "Crete Round", serif;
+
+    h2 {
+        color: blue;
+    }
     h3 {
         color: red;
     }
 
-    h2 {
-        color: blue;
+    a:hover {
+        cursor: pointer;
+    }
+
+    /* Top Nav */
+    .navbar-default {
+        background-color: $main-theme-color;
+
+        .navbar-nav {
+            .navbar-item {
+                background-color: $main-theme-color * 1.5;
+            }
+        }
+    }
+
+    /* Content */
+    // not logged in
+    .home-container {
+        padding-top: 150px;
+        height: 100%;
+        background: #fff;
+        text-align: center;
     }
 }

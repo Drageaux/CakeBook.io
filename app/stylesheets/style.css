@@ -1,6 +1,22 @@
-body h3 {
-  color: red; }
-body h2 {
-  color: blue; }
+body {
+  /* General */
+  font-family: "Crete Round", serif;
+  /* Top Nav */
+  /* Content */ }
+  body h2 {
+    color: blue; }
+  body h3 {
+    color: red; }
+  body a:hover {
+    cursor: pointer; }
+  body .navbar-default {
+    background-color: #DEBAA9; }
+    body .navbar-default .navbar-nav .navbar-item {
+      background-color: #fffffe; }
+  body .home-container {
+    padding-top: 150px;
+    height: 100%;
+    background: #fff;
+    text-align: center; }
 
 /*# sourceMappingURL=style.css.map */

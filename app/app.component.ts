@@ -17,10 +17,14 @@ import {ViewEncapsulation}        from "angular2/core";
 @Component({
     selector: 'my-app',
     template: `
-        <nav>
-            <a [routerLink]="['Home']">Home</a> |
-            <a [routerLink]="['Cakes']">Profile</a>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <!-- Normal Menu -->
+            <ul class="nav navbar-nav" id="normalMenu">
+                <li><a class="navbar-item" [routerLink]="['Home']">Home</a></li>
+                <li><a class="navbar-item" [routerLink]="['Cakes']">Profile</a></li>
+            </ul>
         </nav>
+
         <router-outlet></router-outlet>
 		`,
     styleUrls: ["app/stylesheets/style.css"],

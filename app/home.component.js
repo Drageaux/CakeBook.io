@@ -21,7 +21,7 @@ System.register(['angular2/core'], function(exports_1) {
                 }
                 HomeComponent = __decorate([
                     core_1.Component({
-                        template: "\n        <h2>Welcome to Cake Book!</h2>\n        "
+                        template: "\n        <div class=\"home-container\">\n            <h2>Welcome to Cake Book!</h2>\n            <h2>Welcome to Cake Book!</h2>\n            <h2>Welcome to Cake Book!</h2>\n            <h2>Welcome to Cake Book!</h2>\n            <h2>Welcome to Cake Book!</h2>\n            <h2>Welcome to Cake Book!</h2>\n            <h2>Welcome to Cake Book!</h2>\n            <h2>Welcome to Cake Book!</h2>\n            <h2>Welcome to Cake Book!</h2>\n            <h2>Welcome to Cake Book!</h2>\n            <h2>Welcome to Cake Book!</h2>\n            <h2>Welcome to Cake Book!</h2>\n            <h2>Welcome to Cake Book!</h2>\n            <h2>Welcome to Cake Book!</h2>\n        </div>\n        "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], HomeComponent);
