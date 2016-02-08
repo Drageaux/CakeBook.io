@@ -9,23 +9,25 @@ body {
     cursor: pointer; }
   body .navbar-default {
     font-size: 1.1em;
+    font-family: "Chewy", cursive;
     background-color: #FCE9DC;
-    font-family: 'Chewy', serif;
     border-bottom: 5px solid #AD4047; }
     body .navbar-default .navbar-nav {
       border-radius: 6px 6px 0 0; }
       body .navbar-default .navbar-nav li a {
-        background-color: #AD4047;
         color: white;
+        background-color: #AD4047;
         border-radius: 6px 6px 0 0;
-        border-right: 4px solid #6a272b; }
+        border-left: 6px solid #6a272b; }
       body .navbar-default .navbar-nav li a:hover,
       body .navbar-default .navbar-nav li a:focus {
         color: white;
         background-color: #6a272b;
-        transition-duration: 0.28s;
-        border-right: solid #6a272b;
-        padding: 15px 18px; }
+        border-left: solid #6a272b;
+        padding: 15px 18px;
+        transition-duration: 0.28s; }
+    body .navbar-default .navbar-right {
+      margin-right: 20%; }
   body .navbar-default:hover {
     border-bottom: 5px solid #6a272b; }
   body .home-container {
@@ -34,7 +36,7 @@ body {
     background-color: #fffefd;
     text-align: center; }
     body .home-container .welcome-poster {
-      font-family: 'Chewy', cursive; }
+      font-family: "Chewy", cursive; }
     body .home-container img {
       border-radius: 10px;
       width: 60%;

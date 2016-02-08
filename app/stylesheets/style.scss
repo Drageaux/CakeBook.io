@@ -5,10 +5,19 @@ $_3rd-cream: #DEBAA9;
 $_4th-coffee-red: #593836;
 $_5th-soft-pink: #DB8F8F;
 
+// Colors
+$topnav-color: $_2nd-light-cream;
+$topnav-item-color: #AD4047;
+$topnav-item-hovered-color: darken($topnav-item-color, 18%);
+
+// Fonts
+$topnav-font: "Chewy", cursive;
+$normal-font: "Marmelad", Arial;
+
 body {
     /* General */
     p {
-        font-family: "Marmelad", Arial;
+        font-family: $normal-font;
         font-size: 1.1em;
     }
 
@@ -19,30 +28,38 @@ body {
     /* Top Nav */
     .navbar-default {
         font-size: 1.1em;
-        background-color: $_2nd-light-cream;
-        font-family: 'Chewy', serif;
-        border-bottom: 5px solid #AD4047;
+        font-family: $topnav-font;
+        background-color: $topnav-color;
+        border-bottom: 5px solid $topnav-item-color;
 
         .navbar-nav {
             border-radius: 6px 6px 0 0;
 
             li {
                 a {
-                    background-color: #AD4047;
                     color: white;
+                    background-color: $topnav-item-color;
                     border-radius: 6px 6px 0 0;
-                    border-right: 4px solid darken(#AD4047, 18%);
+                    border-left: 6px solid $topnav-item-hovered-color;
                 }
                 a:hover,
                 a:focus {
                     color: white;
-                    background-color: darken(#AD4047, 18%);
-                    transition-duration: 0.28s;
-                    border-right: solid darken(#AD4047, 18%);
+                    background-color: $topnav-item-hovered-color;
+                    border-left: solid $topnav-item-hovered-color;
                     padding: 15px 18px;
+                    transition-duration: 0.28s;
                 }
             }
         }
+        .navbar-right {
+            margin-right: 20%;
+        }
+        //@media screen and (min-device-width: 768px), (min-width: 768px) {
+        //    .navbar-right {
+        //        margin-right: 20%;
+        //    }
+        //}
     }
     .navbar-default:hover {
         border-bottom: 5px solid darken(#AD4047, 18%);
@@ -57,7 +74,7 @@ body {
         text-align: center;
 
         .welcome-poster {
-            font-family: 'Chewy', cursive;
+            font-family: $topnav-font;
         }
 
         img {

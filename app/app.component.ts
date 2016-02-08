@@ -19,9 +19,22 @@ import {ViewEncapsulation}        from "angular2/core";
     template: `
         <nav class="navbar navbar-default navbar-fixed-top">
             <!-- Normal Menu -->
-            <ul class="nav navbar-nav" id="normalMenu">
-                <li><a class="navbar-item" [routerLink]="['Home']">Home</a></li>
-                <li><a class="navbar-item" [routerLink]="['Cakes']">Profile</a></li>
+            <ul class="nav navbar-nav navbar-right" id="normalMenu">
+                <li>
+                    <a class="navbar-item" [routerLink]="['Home']">
+                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Home
+                    </a>
+                </li>
+                <li>
+                    <a class="navbar-item" [routerLink]="['Cakes']">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Profile
+                    </a>
+                </li>
+                <li>
+                    <a class="navbar-item" href="#">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp;Settings
+                    </a>
+                </li>
             </ul>
         </nav>
 
@@ -33,8 +46,8 @@ import {ViewEncapsulation}        from "angular2/core";
         HTTP_PROVIDERS,
         CakeService,
         // in-memory web api providers
-        provide(XHRBackend, { useClass: InMemoryBackendService }), // in-mem server
-        provide(SEED_DATA,  { useClass: CakeData }) // in-mem server data
+        provide(XHRBackend, {useClass: InMemoryBackendService}), // in-mem server
+        provide(SEED_DATA, {useClass: CakeData}) // in-mem server data
     ],
     directives: [ROUTER_DIRECTIVES]
 })
