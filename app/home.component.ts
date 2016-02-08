@@ -18,6 +18,8 @@ import {Component}      from 'angular2/core';
             <!--<h2>Welcome to Cake Book!</h2>-->
             <!--<h2>Welcome to Cake Book!</h2>-->
             <img src="https://trello-attachments.s3.amazonaws.com/5615b20e9c16c07464530290/1001x563/7532ac9b9bd6cd632980e2b7c610b941/921d4acd-26ab-43c8-b056-11a6abdb7c28.jpg">
+            <br>
+            <p>This is a sample paragraph for testing fonts</p>
         </div>
         `
 })

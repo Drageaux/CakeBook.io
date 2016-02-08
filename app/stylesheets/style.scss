@@ -1,4 +1,4 @@
-// Theme Colors http://i.imgur.com/fAigKyc.png
+// Color Palette http://i.imgur.com/fAigKyc.png
 $_1st-brown-gray: #BAA99E;
 $_2nd-light-cream: #FCE9DC;
 $_3rd-cream: #DEBAA9;
@@ -7,7 +7,10 @@ $_5th-soft-pink: #DB8F8F;
 
 body {
     /* General */
-    font-family: "Crete Round", sans-serif;
+    p {
+        font-family: "Marmelad", Arial;
+        font-size: 1.1em;
+    }
 
     a:hover {
         cursor: pointer;
@@ -15,33 +18,34 @@ body {
 
     /* Top Nav */
     .navbar-default {
-        //background-color: darken($_4th-coffee-red, 20%);
-        background-color: lighten(#FFD5A3, 2%);
-        font-family: 'Anton', sans-serif;
-        border-bottom-width: 3px;
-        border-bottom-style: solid;
-        border-color: $_4th-coffee-red;
+        font-size: 1.1em;
+        background-color: $_2nd-light-cream;
+        font-family: 'Chewy', serif;
+        border-bottom: 5px solid #AD4047;
 
         .navbar-nav {
-            background-color: $_4th-coffee-red;
+            border-radius: 6px 6px 0 0;
+
             li {
                 a {
+                    background-color: #AD4047;
                     color: white;
+                    border-radius: 6px 6px 0 0;
+                    border-right: 4px solid darken(#AD4047, 18%);
                 }
                 a:hover,
                 a:focus {
                     color: white;
-                    //background-color: darken($_5th-soft-pink, 5%);
-                    background-color: #AD4047;
-                    -webkit-border-radius: 5px;
-                    -moz-border-radius: 5px;
-                    border-radius: 5px;
-
-                    transition-duration: 0.2s;
+                    background-color: darken(#AD4047, 18%);
+                    transition-duration: 0.28s;
+                    border-right: solid darken(#AD4047, 18%);
+                    padding: 15px 18px;
                 }
             }
-
         }
+    }
+    .navbar-default:hover {
+        border-bottom: 5px solid darken(#AD4047, 18%);
     }
 
     /* Content */
@@ -49,7 +53,7 @@ body {
     .home-container {
         padding-top: 100px;
         height: 100%;
-        //background-color: lighten($_2nd-light-cream, 7%);
+        background-color: lighten($_2nd-light-cream, 7%);
         text-align: center;
 
         .welcome-poster {

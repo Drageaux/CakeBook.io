@@ -1,31 +1,37 @@
 body {
   /* General */
-  font-family: "Crete Round", sans-serif;
   /* Top Nav */
   /* Content */ }
+  body p {
+    font-family: "Marmelad", Arial;
+    font-size: 1.1em; }
   body a:hover {
     cursor: pointer; }
   body .navbar-default {
-    background-color: #ffdaad;
-    font-family: 'Anton', sans-serif;
-    border-bottom-width: 3px;
-    border-bottom-style: solid;
-    border-color: #593836; }
+    font-size: 1.1em;
+    background-color: #FCE9DC;
+    font-family: 'Chewy', serif;
+    border-bottom: 5px solid #AD4047; }
     body .navbar-default .navbar-nav {
-      background-color: #593836; }
+      border-radius: 6px 6px 0 0; }
       body .navbar-default .navbar-nav li a {
-        color: white; }
+        background-color: #AD4047;
+        color: white;
+        border-radius: 6px 6px 0 0;
+        border-right: 4px solid #6a272b; }
       body .navbar-default .navbar-nav li a:hover,
       body .navbar-default .navbar-nav li a:focus {
         color: white;
-        background-color: #AD4047;
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        border-radius: 5px;
-        transition-duration: 0.2s; }
+        background-color: #6a272b;
+        transition-duration: 0.28s;
+        border-right: solid #6a272b;
+        padding: 15px 18px; }
+  body .navbar-default:hover {
+    border-bottom: 5px solid #6a272b; }
   body .home-container {
     padding-top: 100px;
     height: 100%;
+    background-color: #fffefd;
     text-align: center; }
     body .home-container .welcome-poster {
       font-family: 'Chewy', cursive; }
