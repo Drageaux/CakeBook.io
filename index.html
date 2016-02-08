@@ -4,7 +4,7 @@
     <base href="/">
     <title>Cake Book</title>
 
-    <!-- 1. Load libraries -->
+    <!-- Load libraries -->
     <!-- IE required polyfills, in this exact order -->
     <script src="node_modules/es6-shim/es6-shim.min.js"></script>
     <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
@@ -17,10 +17,15 @@
     <script src="node_modules/angular2/bundles/http.dev.js"></script> <!-- Server Communication -->
     <script src="node_modules/a2-in-memory-web-api/web-api.js"></script> <!-- In-Memory Web API Simulator -->
 
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="node_modules/bootstrap/js/carousel.js"></script> <!-- Bootstrap JS module -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
     <link href='https://fonts.googleapis.com/css?family=Chewy|Marmelad|Puritan' rel='stylesheet' type='text/css'>
 
-    <!-- 2. Configure SystemJS -->
+    <!-- Configure SystemJS -->
     <script>
         System.config({
             packages: {
@@ -36,7 +41,7 @@
 
 </head>
 
-<!-- 3. Display the application -->
+<!-- Display the application -->
 <body>
 <my-app>Loading...</my-app>
 </body>

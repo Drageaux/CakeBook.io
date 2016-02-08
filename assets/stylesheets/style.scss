@@ -18,7 +18,7 @@ body {
     /* General */
     p {
         font-family: $normal-font;
-        font-size: 1.1em;
+        font-size: 1.2em;
     }
 
     a:hover {
@@ -42,14 +42,14 @@ body {
                     background-color: $topnav-item-color;
                     border-radius: 6px 6px 0 0;
                     border-right: 6px solid $topnav-item-hovered-color;
-                    padding: 12.8px 16px;
+                    padding: 15px 16px 11px 16px;
                 }
                 a:hover,
                 a:focus {
                     color: white;
                     background-color: $topnav-item-hovered-color;
                     border-right: solid $topnav-item-hovered-color;
-                    padding: 12.8px 19px;
+                    padding: 15px 16px 11px 16px;
                     transition-duration: 0.28s;
                 }
             }
@@ -78,17 +78,20 @@ body {
     .home-container {
         @extend .general-container;
         text-align: center;
-        padding-top: 60px;
 
         .welcome-poster {
             font-family: $topnav-font;
         }
 
-        img {
+        .carousel {
+            background-color: transparent;
             position: relative;
-            border-radius: 10px;
             width: 100%;
             height: auto;
+
+            img {
+                border-radius: 10px;
+            }
         }
     }
 }

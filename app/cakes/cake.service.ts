@@ -27,7 +27,6 @@ export class CakeService {
             .map(res => (<Cake> res.json().data
             .filter(c => c.id === +id)[0]))
             .catch(this.handleError);
-        //.then(cakes => cakes.filter(c => c.id === +id)[0]);
     }
 
     addCake(name:string):Observable<Cake> {

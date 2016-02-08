@@ -40,7 +40,6 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
                         .map(function (res) { return (res.json().data
                         .filter(function (c) { return c.id === +id; })[0]); })
                         .catch(this.handleError);
-                    //.then(cakes => cakes.filter(c => c.id === +id)[0]);
                 };
                 CakeService.prototype.addCake = function (name) {
                     var body = JSON.stringify({ name: name });

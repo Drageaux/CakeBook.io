@@ -4,7 +4,7 @@ body {
   /* Content */ }
   body p {
     font-family: "Marmelad", Arial;
-    font-size: 1.1em; }
+    font-size: 1.2em; }
   body a:hover {
     cursor: pointer; }
   body .navbar-default {
@@ -20,13 +20,13 @@ body {
         background-color: #AD4047;
         border-radius: 6px 6px 0 0;
         border-right: 6px solid #6a272b;
-        padding: 12.8px 16px; }
+        padding: 15px 16px 11px 16px; }
       body .navbar-default .navbar-nav li a:hover,
       body .navbar-default .navbar-nav li a:focus {
         color: white;
         background-color: #6a272b;
         border-right: solid #6a272b;
-        padding: 12.8px 19px;
+        padding: 15px 16px 11px 16px;
         transition-duration: 0.28s; }
     @media screen and (min-width: 768px) {
       body .navbar-default .navbar-right {
@@ -40,14 +40,15 @@ body {
     background-color: #fffefd;
     padding-top: 80px; }
   body .home-container {
-    text-align: center;
-    padding-top: 60px; }
+    text-align: center; }
     body .home-container .welcome-poster {
       font-family: "Chewy", cursive; }
-    body .home-container img {
+    body .home-container .carousel {
+      background-color: transparent;
       position: relative;
-      border-radius: 10px;
       width: 100%;
       height: auto; }
+      body .home-container .carousel img {
+        border-radius: 10px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -40,7 +40,7 @@ import {ViewEncapsulation}        from "angular2/core";
 
         <router-outlet></router-outlet>
 		`,
-    styleUrls: ["app/stylesheets/style.css"],
+    styleUrls: ["assets/stylesheets/style.css"],
     encapsulation: ViewEncapsulation.None,
     providers: [
         HTTP_PROVIDERS,
