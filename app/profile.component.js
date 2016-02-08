@@ -51,7 +51,7 @@ System.register(['angular2/core', "angular2/router", "./cakes/cake.service", "./
                 };
                 ProfileComponent = __decorate([
                     core_1.Component({
-                        template: "\n\t\t<h2>Caker Profile</h2>\n\t\t<h3>My Cakes</h3>\n\t\t<ul>\n\t\t    <li>\n                <input #newCake>\n                <button (click)=\"addCake(newCake.value); newCake.value=''\">\n                    Add Cake\n                </button>\n                <div class=\"error\" *ngIf=\"errorMessage\">\n                    {{errorMessage}}\n                </div>\n            </li>\n\t\t\t<li *ngFor=\"#cake of cakes\"\n\t            (click)=\"onSelect(cake)\">\n\t\t\t\t<a class=\"url-list-item\">{{cake.name}}</a>\n\t\t\t</li>\n\t\t</ul>\n        ",
+                        template: "\n        <div class=\"general-container\">\n            <h2>Caker Profile</h2>\n            <h3>My Cakes</h3>\n            <ul>\n                <li>\n                    <input #newCake>\n                    <button (click)=\"addCake(newCake.value); newCake.value=''\">\n                        Add Cake\n                    </button>\n                    <div class=\"error\" *ngIf=\"errorMessage\">\n                        {{errorMessage}}\n                    </div>\n                </li>\n                <li *ngFor=\"#cake of cakes\"\n                    (click)=\"onSelect(cake)\">\n                    <a class=\"url-list-item\">{{cake.name}}</a>\n                </li>\n            </ul>\n        </div>\n        ",
                         styles: ["\n        .error {\n            color:red:\n        }\n        "],
                         directives: [add_cake_form_component_1.AddCakeFormComponent]
                     }), 

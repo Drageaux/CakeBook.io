@@ -31,6 +31,7 @@ body {
         font-family: $topnav-font;
         background-color: $topnav-color;
         border-bottom: 5px solid $topnav-item-color;
+        height: 40px;
 
         .navbar-nav {
             border-radius: 6px 6px 0 0;
@@ -40,46 +41,53 @@ body {
                     color: white;
                     background-color: $topnav-item-color;
                     border-radius: 6px 6px 0 0;
-                    border-left: 6px solid $topnav-item-hovered-color;
+                    border-right: 6px solid $topnav-item-hovered-color;
+                    padding: 12.8px 16px;
                 }
                 a:hover,
                 a:focus {
                     color: white;
                     background-color: $topnav-item-hovered-color;
-                    border-left: solid $topnav-item-hovered-color;
-                    padding: 15px 18px;
+                    border-right: solid $topnav-item-hovered-color;
+                    padding: 12.8px 19px;
                     transition-duration: 0.28s;
                 }
             }
         }
-        .navbar-right {
-            margin-right: 20%;
+        @media screen and (min-width: 768px) {
+            .navbar-right {
+                margin-right: 20%;
+            }
         }
-        //@media screen and (min-device-width: 768px), (min-width: 768px) {
-        //    .navbar-right {
-        //        margin-right: 20%;
-        //    }
-        //}
     }
     .navbar-default:hover {
         border-bottom: 5px solid darken(#AD4047, 18%);
+        transition-duration: 0.4s;
     }
 
+
     /* Content */
+    .general-container {
+        margin-left: 20%;
+        margin-right: 20%;
+        background-color: lighten($_2nd-light-cream, 7%);
+        padding-top: 80px;
+    }
+
     // not logged in
     .home-container {
-        padding-top: 100px;
-        height: 100%;
-        background-color: lighten($_2nd-light-cream, 7%);
+        @extend .general-container;
         text-align: center;
+        padding-top: 60px;
 
         .welcome-poster {
             font-family: $topnav-font;
         }
 
         img {
+            position: relative;
             border-radius: 10px;
-            width: 60%;
+            width: 100%;
             height: auto;
         }
     }

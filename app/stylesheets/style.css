@@ -11,35 +11,43 @@ body {
     font-size: 1.1em;
     font-family: "Chewy", cursive;
     background-color: #FCE9DC;
-    border-bottom: 5px solid #AD4047; }
+    border-bottom: 5px solid #AD4047;
+    height: 40px; }
     body .navbar-default .navbar-nav {
       border-radius: 6px 6px 0 0; }
       body .navbar-default .navbar-nav li a {
         color: white;
         background-color: #AD4047;
         border-radius: 6px 6px 0 0;
-        border-left: 6px solid #6a272b; }
+        border-right: 6px solid #6a272b;
+        padding: 12.8px 16px; }
       body .navbar-default .navbar-nav li a:hover,
       body .navbar-default .navbar-nav li a:focus {
         color: white;
         background-color: #6a272b;
-        border-left: solid #6a272b;
-        padding: 15px 18px;
+        border-right: solid #6a272b;
+        padding: 12.8px 19px;
         transition-duration: 0.28s; }
-    body .navbar-default .navbar-right {
-      margin-right: 20%; }
+    @media screen and (min-width: 768px) {
+      body .navbar-default .navbar-right {
+        margin-right: 20%; } }
   body .navbar-default:hover {
-    border-bottom: 5px solid #6a272b; }
-  body .home-container {
-    padding-top: 100px;
-    height: 100%;
+    border-bottom: 5px solid #6a272b;
+    transition-duration: 0.4s; }
+  body .general-container, body .home-container {
+    margin-left: 20%;
+    margin-right: 20%;
     background-color: #fffefd;
-    text-align: center; }
+    padding-top: 80px; }
+  body .home-container {
+    text-align: center;
+    padding-top: 60px; }
     body .home-container .welcome-poster {
       font-family: "Chewy", cursive; }
     body .home-container img {
+      position: relative;
       border-radius: 10px;
-      width: 60%;
+      width: 100%;
       height: auto; }
 
 /*# sourceMappingURL=style.css.map */

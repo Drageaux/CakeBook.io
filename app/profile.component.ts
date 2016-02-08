@@ -8,23 +8,25 @@ import {Observable} from "rxjs/Observable";
 
 @Component({
     template: `
-		<h2>Caker Profile</h2>
-		<h3>My Cakes</h3>
-		<ul>
-		    <li>
-                <input #newCake>
-                <button (click)="addCake(newCake.value); newCake.value=''">
-                    Add Cake
-                </button>
-                <div class="error" *ngIf="errorMessage">
-                    {{errorMessage}}
-                </div>
-            </li>
-			<li *ngFor="#cake of cakes"
-	            (click)="onSelect(cake)">
-				<a class="url-list-item">{{cake.name}}</a>
-			</li>
-		</ul>
+        <div class="general-container">
+            <h2>Caker Profile</h2>
+            <h3>My Cakes</h3>
+            <ul>
+                <li>
+                    <input #newCake>
+                    <button (click)="addCake(newCake.value); newCake.value=''">
+                        Add Cake
+                    </button>
+                    <div class="error" *ngIf="errorMessage">
+                        {{errorMessage}}
+                    </div>
+                </li>
+                <li *ngFor="#cake of cakes"
+                    (click)="onSelect(cake)">
+                    <a class="url-list-item">{{cake.name}}</a>
+                </li>
+            </ul>
+        </div>
         `,
     styles: [`
         .error {

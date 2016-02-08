@@ -22,17 +22,17 @@ import {ViewEncapsulation}        from "angular2/core";
             <ul class="nav navbar-nav navbar-right" id="normalMenu">
                 <li>
                     <a class="navbar-item" [routerLink]="['Home']">
-                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Home
+                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Home&nbsp;
                     </a>
                 </li>
                 <li>
                     <a class="navbar-item" [routerLink]="['Cakes']">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Profile
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Profile&nbsp;
                     </a>
                 </li>
                 <li>
                     <a class="navbar-item" href="#">
-                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp;Settings
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp;Settings&nbsp;
                     </a>
                 </li>
             </ul>
