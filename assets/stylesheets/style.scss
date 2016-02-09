@@ -74,8 +74,8 @@ body {
         padding-top: 80px;
     }
 
-    /* Home Page */
-    .home-container {
+    /* Login Page */
+    .login-container {
         @extend .general-container;
         text-align: center;
 
@@ -105,5 +105,11 @@ body {
                 top: 50%;
             }
         }
+    }
+
+    /* Home Page */
+    .home-container {
+        @extend .general-container;
+        text-align: center;
     }
 }
