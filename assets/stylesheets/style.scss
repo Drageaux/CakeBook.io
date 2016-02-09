@@ -74,7 +74,7 @@ body {
         padding-top: 80px;
     }
 
-    // not logged in
+    /* Home Page */
     .home-container {
         @extend .general-container;
         text-align: center;
@@ -87,7 +87,7 @@ body {
             background-color: transparent;
             position: relative;
             width: 100%;
-            height: 50vh;
+            height: 80vh;
             overflow: hidden;
 
             .right.carousel-control {
@@ -103,7 +103,6 @@ body {
                 margin-right: auto;
                 vertical-align: middle;
                 top: 50%;
-                position: absolute; 
             }
         }
     }
