@@ -26,7 +26,7 @@ body {
         color: white;
         background-color: #6a272b;
         border-right: solid #6a272b;
-        padding: 15px 16px 11px 16px;
+        padding: 15px 21px 11px 20px;
         transition-duration: 0.28s; }
     @media screen and (min-width: 768px) {
       body .navbar-default .navbar-right {
