@@ -1,4 +1,4 @@
-System.register(["angular2/core", "angular2/http", "angular2/router", 'a2-in-memory-web-api/core', "./home.component", "./profile.component", "./cakes/cake-data", "./cakes/cake-detail.component", "./cakes/cake.service"], function(exports_1) {
+System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-jwt", 'a2-in-memory-web-api/core', "./home.component", "./profile.component", "./cakes/cake-data", "./cakes/cake-detail.component", "./cakes/cake.service"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(["angular2/core", "angular2/http", "angular2/router", 'a2-in-mem
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, router_1, http_2, core_2, home_component_1, profile_component_1, cake_data_1, cake_detail_component_1, cake_service_1, core_3;
+    var core_1, http_1, router_1, angular2_jwt_1, http_2, core_2, home_component_1, profile_component_1, cake_data_1, cake_detail_component_1, cake_service_1, core_3;
     var AppComponent;
     return {
         setters:[
@@ -22,6 +22,9 @@ System.register(["angular2/core", "angular2/http", "angular2/router", 'a2-in-mem
             },
             function (router_1_1) {
                 router_1 = router_1_1;
+            },
+            function (angular2_jwt_1_1) {
+                angular2_jwt_1 = angular2_jwt_1_1;
             },
             function (core_2_1) {
                 core_2 = core_2_1;
@@ -44,11 +47,28 @@ System.register(["angular2/core", "angular2/http", "angular2/router", 'a2-in-mem
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
+                    this.lock = new Auth0Lock('1w9uIYPLBxZzbciPImlhyG39EPDqzv8e', 'drageaux.auth0.com');
                 }
+                AppComponent.prototype.login = function () {
+                    this.lock.show(function (err, profile, id_token) {
+                        if (err) {
+                            throw new Error(err);
+                        }
+                        localStorage.setItem('profile', JSON.stringify(profile));
+                        localStorage.setItem('id_token', id_token);
+                    });
+                };
+                AppComponent.prototype.logout = function () {
+                    localStorage.removeItem('profile');
+                    localStorage.removeItem('id_token');
+                };
+                AppComponent.prototype.loggedIn = function () {
+                    return angular2_jwt_1.tokenNotExpired();
+                };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n        <nav class=\"navbar navbar-default navbar-fixed-top\">\n            <!-- Normal Menu -->\n            <ul class=\"nav navbar-nav navbar-right\" id=\"normalMenu\">\n                <li>\n                    <a class=\"navbar-item\" [routerLink]=\"['Home']\">\n                        <span class=\"glyphicon glyphicon-home\" aria-hidden=\"true\"></span>&nbsp;Home&nbsp;\n                    </a>\n                </li>\n                <li>\n                    <a class=\"navbar-item\" [routerLink]=\"['Cakes']\">\n                        <span class=\"glyphicon glyphicon-user\" aria-hidden=\"true\"></span>&nbsp;Profile&nbsp;\n                    </a>\n                </li>\n                <li>\n                    <a class=\"navbar-item\" href=\"#\">\n                        <span class=\"glyphicon glyphicon-cog\" aria-hidden=\"true\"></span>&nbsp;Settings&nbsp;\n                    </a>\n                </li>\n            </ul>\n        </nav>\n\n        <router-outlet></router-outlet>\n\t\t",
+                        template: "\n        <nav class=\"navbar navbar-default navbar-fixed-top\">\n            <!-- Normal Menu -->\n            <ul class=\"nav navbar-nav navbar-right\" id=\"normalMenu\">\n                <li>\n                    <a class=\"navbar-item\" [routerLink]=\"['Home']\">\n                        <span class=\"glyphicon glyphicon-home\" aria-hidden=\"true\"></span>&nbsp;Home&nbsp;\n                    </a>\n                </li>\n                <li>\n                    <a class=\"navbar-item\" [routerLink]=\"['Cakes']\">\n                        <span class=\"glyphicon glyphicon-user\" aria-hidden=\"true\"></span>&nbsp;Profile&nbsp;\n                    </a>\n                </li>\n                <li>\n                    <a class=\"navbar-item\" href=\"#\">\n                        <span class=\"glyphicon glyphicon-cog\" aria-hidden=\"true\"></span>&nbsp;Settings&nbsp;\n                    </a>\n                </li>\n            </ul>\n        </nav>\n\n        <!--<h1>Welcome to Angular2 with Auth0</h1>-->\n        <!--<button *ngIf=\"!loggedIn()\" (click)=\"login()\">Login</button>-->\n        <!--<button *ngIf=\"loggedIn()\" (click)=\"logout()\">Logout</button>-->\n\n        <!--<router-outlet></router-outlet>-->\n\t\t",
                         styleUrls: ["assets/stylesheets/style.css"],
                         encapsulation: core_3.ViewEncapsulation.None,
                         providers: [
@@ -61,6 +81,7 @@ System.register(["angular2/core", "angular2/http", "angular2/router", 'a2-in-mem
                         directives: [router_1.ROUTER_DIRECTIVES]
                     }),
                     router_1.RouteConfig([
+                        //{path: "/login", name: "Login", component: LoginComponent},
                         { path: "/home", name: "Home", component: home_component_1.HomeComponent, useAsDefault: true },
                         { path: "/cakes", name: "Cakes", component: profile_component_1.ProfileComponent },
                         { path: "/cake/:id", name: "CakeDetail", component: cake_detail_component_1.CakeDetailComponent }

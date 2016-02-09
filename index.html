@@ -4,6 +4,9 @@
     <base href="/">
     <title>Cake Book</title>
 
+    <!-- Setting the right viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
     <!-- Load libraries -->
     <!-- IE required polyfills, in this exact order -->
     <script src="node_modules/es6-shim/es6-shim.min.js"></script>
@@ -16,6 +19,7 @@
     <script src="node_modules/angular2/bundles/router.dev.js"></script> <!-- Routing and Navigation -->
     <script src="node_modules/angular2/bundles/http.dev.js"></script> <!-- Server Communication -->
     <script src="node_modules/a2-in-memory-web-api/web-api.js"></script> <!-- In-Memory Web API Simulator -->
+    <script src="//cdn.auth0.com/js/lock-8.2.min.js"></script> <!-- Auth0 Lock script -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -23,6 +27,7 @@
     <script src="node_modules/bootstrap/js/carousel.js"></script> <!-- Bootstrap JS module -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 
+    <!-- Google Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Chewy|Marmelad|Puritan' rel='stylesheet' type='text/css'>
 
     <!-- Configure SystemJS -->
@@ -33,6 +38,9 @@
                     format: 'register',
                     defaultExtension: 'js'
                 }
+            },
+            map: {
+                "angular2-jwt": "node_modules/angular2-jwt/angular2-jwt.js"
             }
         });
         System.import('app/main')

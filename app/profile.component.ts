@@ -1,10 +1,10 @@
-import {Component, OnInit}              from 'angular2/core';
+import {Component, OnInit} from 'angular2/core';
 import {Router} from "angular2/router";
+import {Observable} from "rxjs/Observable";
 
 import {Cake}                   from "./cakes/cake";
 import {CakeService}            from "./cakes/cake.service";
 import {AddCakeFormComponent}   from "./add-cake-form.component";
-import {Observable} from "rxjs/Observable";
 
 @Component({
     template: `
