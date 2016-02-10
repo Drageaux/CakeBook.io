@@ -1,6 +1,7 @@
 import {Component, OnInit} from 'angular2/core';
 import {Router} from "angular2/router";
 import {Observable} from "rxjs/Observable";
+import {tokenNotExpired} from "angular2-jwt";
 
 import {Cake}                   from "./cakes/cake";
 import {CakeService}            from "./cakes/cake.service";
@@ -44,6 +45,11 @@ export class ProfileComponent implements OnInit {
     }
 
     ngOnInit() {
+        if (!tokenNotExpired()) {
+            console.log("Token expired");
+            this._router.navigate(["Login"]);
+        }
+
         this.getCakes();
     }
 

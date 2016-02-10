@@ -1,4 +1,4 @@
-System.register(['angular2/core', "angular2/router", "./cakes/cake.service", "./add-cake-form.component"], function(exports_1) {
+System.register(['angular2/core', "angular2/router", "angular2-jwt", "./cakes/cake.service", "./add-cake-form.component"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', "angular2/router", "./cakes/cake.service", "./
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, cake_service_1, add_cake_form_component_1;
+    var core_1, router_1, angular2_jwt_1, cake_service_1, add_cake_form_component_1;
     var ProfileComponent;
     return {
         setters:[
@@ -17,6 +17,9 @@ System.register(['angular2/core', "angular2/router", "./cakes/cake.service", "./
             },
             function (router_1_1) {
                 router_1 = router_1_1;
+            },
+            function (angular2_jwt_1_1) {
+                angular2_jwt_1 = angular2_jwt_1_1;
             },
             function (cake_service_1_1) {
                 cake_service_1 = cake_service_1_1;
@@ -31,6 +34,10 @@ System.register(['angular2/core', "angular2/router", "./cakes/cake.service", "./
                     this._cakeService = _cakeService;
                 }
                 ProfileComponent.prototype.ngOnInit = function () {
+                    if (!angular2_jwt_1.tokenNotExpired()) {
+                        console.log("Token expired");
+                        this._router.navigate(["Login"]);
+                    }
                     this.getCakes();
                 };
                 ProfileComponent.prototype.getCakes = function () {

@@ -3,6 +3,7 @@ import {Router} from "angular2/router";
 import {RouteParams} from "angular2/router";
 import {OnInit} from "angular2/core";
 import {error} from "util";
+import {tokenNotExpired} from "angular2-jwt";
 
 import {Cake} from "./cake";
 import {CakeService} from "./cake.service";
@@ -40,6 +41,10 @@ export class CakeDetailComponent implements OnInit {
     }
 
     ngOnInit() {
+        if (!tokenNotExpired()) {
+            this._router.navigate(["Login"]);
+        }
+
         let id = this._routeParams.get('id');
         this._service.getCake(id)
             .subscribe(

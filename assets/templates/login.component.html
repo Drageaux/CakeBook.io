@@ -1,0 +1,5 @@
+<div *ngIf="!loggedIn()" class="login-container">
+    <h1>Welcome to Cake Book</h1>
+    <button *ngIf="!loggedIn()" (click)="login()">Login</button>
+    <button *ngIf="loggedIn()" (click)="logout()">Logout</button>
+</div>
