@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', 'angular2-jwt'], function(exports_1) {
+System.register(['angular2/core'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,54 +8,20 @@ System.register(['angular2/core', 'angular2/router', 'angular2-jwt'], function(e
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, angular2_jwt_1;
+    var core_1;
     var LoginComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (router_1_1) {
-                router_1 = router_1_1;
-            },
-            function (angular2_jwt_1_1) {
-                angular2_jwt_1 = angular2_jwt_1_1;
             }],
         execute: function() {
             LoginComponent = (function () {
-                function LoginComponent(authHttp, _router) {
-                    this.authHttp = authHttp;
-                    this._router = _router;
-                    this.lock = new Auth0Lock('1w9uIYPLBxZzbciPImlhyG39EPDqzv8e', 'drageaux.auth0.com');
+                function LoginComponent() {
                 }
-                LoginComponent.prototype.ngOnInit = function () {
-                    if (this.loggedIn()) {
-                        this._router.navigate(["Home"]);
-                    }
-                };
-                LoginComponent.prototype.login = function () {
-                    this.lock.show(function (err, profile, id_token) {
-                        if (err) {
-                            throw new Error(err);
-                        }
-                        localStorage.setItem('profile', JSON.stringify(profile));
-                        localStorage.setItem('id_token', id_token);
-                    });
-                    this._router.navigate(["Home"]).then(function () { return console.log("redirected"); });
-                };
-                LoginComponent.prototype.logout = function () {
-                    localStorage.removeItem('profile');
-                    localStorage.removeItem('id_token');
-                    this._router.navigate(["Login"]);
-                };
-                LoginComponent.prototype.loggedIn = function () {
-                    return angular2_jwt_1.tokenNotExpired();
-                };
                 LoginComponent = __decorate([
-                    core_1.Component({
-                        templateUrl: "assets/templates/login.component.html"
-                    }), 
-                    __metadata('design:paramtypes', [angular2_jwt_1.AuthHttp, router_1.Router])
+                    core_1.Component({}), 
+                    __metadata('design:paramtypes', [])
                 ], LoginComponent);
                 return LoginComponent;
             })();

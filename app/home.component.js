@@ -8,7 +8,7 @@ System.register(['angular2/core', "angular2-jwt", "angular2/router"], function(e
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, angular2_jwt_1, router_1, router_2;
+    var core_1, angular2_jwt_1, router_1;
     var HomeComponent;
     return {
         setters:[
@@ -20,24 +20,17 @@ System.register(['angular2/core', "angular2-jwt", "angular2/router"], function(e
             },
             function (router_1_1) {
                 router_1 = router_1_1;
-                router_2 = router_1_1;
             }],
         execute: function() {
             HomeComponent = (function () {
-                function HomeComponent(_router) {
-                    this._router = _router;
+                function HomeComponent() {
                 }
-                HomeComponent.prototype.ngOnInit = function () {
-                    if (!angular2_jwt_1.tokenNotExpired()) {
-                        this._router.navigate(["Login"]);
-                    }
-                };
                 HomeComponent = __decorate([
                     core_1.Component({
                         templateUrl: "assets/templates/home.component.html"
                     }),
                     router_1.CanActivate(function () { return angular2_jwt_1.tokenNotExpired(); }), 
-                    __metadata('design:paramtypes', [router_2.Router])
+                    __metadata('design:paramtypes', [])
                 ], HomeComponent);
                 return HomeComponent;
             })();

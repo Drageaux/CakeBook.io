@@ -1,4 +1,4 @@
-System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake.service"], function(exports_1) {
+System.register(["angular2/core", "angular2/router", "./cake.service"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake.ser
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, router_2, angular2_jwt_1, cake_service_1;
+    var core_1, router_1, router_2, cake_service_1;
     var CakeDetailComponent;
     return {
         setters:[
@@ -18,9 +18,6 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake.ser
             function (router_1_1) {
                 router_1 = router_1_1;
                 router_2 = router_1_1;
-            },
-            function (angular2_jwt_1_1) {
-                angular2_jwt_1 = angular2_jwt_1_1;
             },
             function (cake_service_1_1) {
                 cake_service_1 = cake_service_1_1;
@@ -34,9 +31,6 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake.ser
                 }
                 CakeDetailComponent.prototype.ngOnInit = function () {
                     var _this = this;
-                    if (!angular2_jwt_1.tokenNotExpired()) {
-                        this._router.navigate(["Login"]);
-                    }
                     var id = this._routeParams.get('id');
                     this._service.getCake(id)
                         .subscribe(function (cake) { return _this.cake = cake; }, function (error) { return _this.errorMessage = error; });

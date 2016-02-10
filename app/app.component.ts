@@ -23,6 +23,13 @@ declare var Auth0Lock;
 @Component({
     selector: 'my-app',
     template: `
+
+        <div *ngIf="!loggedIn()" class="login-container">
+            <h1>Welcome to Angular2 with Auth0</h1>
+            <button *ngIf="!loggedIn()" (click)="login()">Login</button>
+            <button *ngIf="loggedIn()" (click)="logout()">Logout</button>
+        </div>
+
         <div *ngIf="loggedIn()">
             <nav class="navbar navbar-default navbar-fixed-top">
                 <!-- Normal Menu -->
@@ -49,25 +56,32 @@ declare var Auth0Lock;
                     </li>
                 </ul>
             </nav>
+            <router-outlet></router-outlet>
         </div>
-
-        <router-outlet></router-outlet>
 		`,
     styleUrls: ["assets/stylesheets/style.css"],
     encapsulation: ViewEncapsulation.None,
     providers: [
+        HTTP_PROVIDERS,
         CakeService,
         // in-memory web api providers
         provide(XHRBackend, {useClass: InMemoryBackendService}), // in-mem server
         provide(SEED_DATA, {useClass: CakeData}), // in-mem server data
+        provide(AuthHttp, {
+            useFactory: (http) => {
+                return new AuthHttp(new AuthConfig(), http);
+            },
+            deps: [Http]
+        })
     ],
     directives: [ROUTER_DIRECTIVES]
 })
 
 @RouteConfig([
-    {path: "/login", name: "Login", component: LoginComponent, useAsDefault: true},
-    {path: "/...", redirectTo: ['/Login']},
-    {path: "/home", name: "Home", component: HomeComponent},
+    //{path: "/login", name: "Login", component: LoginComponent},
+    {path: "/...", redirectTo: ['/Home']},
+    {path: "/", redirectTo: ['/Home']},
+    {path: "/home", name: "Home", component: HomeComponent, useAsDefault: true},
     {path: "/cakes", name: "Cakes", component: ProfileComponent},
     {path: "/cake/:id", name: "CakeDetail", component: CakeDetailComponent}
 ])
@@ -78,10 +92,21 @@ export class AppComponent {
     constructor(public authHttp:AuthHttp, private http:Http, private _router:Router) {
     }
 
+    login() {
+        this.lock.show(
+            function (err:string, profile:string, id_token:string) {
+                if (err) {
+                    throw new Error(err);
+                }
+
+                localStorage.setItem('profile', JSON.stringify(profile));
+                localStorage.setItem('id_token', id_token);
+            });
+    }
+
     logout() {
         localStorage.removeItem('profile');
         localStorage.removeItem('id_token');
-        this._router.navigate(["Login"]);
     }
 
     loggedIn() {
