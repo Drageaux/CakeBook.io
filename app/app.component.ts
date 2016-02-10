@@ -17,6 +17,7 @@ import {CakeService}            from "./cakes/cake.service";
 
 // Need to be imported later on for some reason
 import {ViewEncapsulation}        from "angular2/core";
+import {LoggedInRouterOutlet} from "./loggedin-outlet";
 
 @Component({
     selector: 'my-app',
@@ -61,12 +62,12 @@ import {ViewEncapsulation}        from "angular2/core";
         provide(XHRBackend, {useClass: InMemoryBackendService}), // in-mem server
         provide(SEED_DATA, {useClass: CakeData}), // in-mem server data
     ],
-    directives: [ROUTER_DIRECTIVES]
+    directives: [ROUTER_DIRECTIVES, LoggedInRouterOutlet]
 })
 
 @RouteConfig([
     {path: "/login", name: "Login", component: LoginComponent, useAsDefault: true},
-    //{path: "/...", redirectTo: ['/Home']},
+    {path: "/...", redirectTo: ['/Login']},
     {path: "/home", name: "Home", component: HomeComponent},
     {path: "/cakes", name: "Cakes", component: ProfileComponent},
     {path: "/cake/:id", name: "CakeDetail", component: CakeDetailComponent}

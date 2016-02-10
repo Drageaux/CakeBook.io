@@ -1,4 +1,4 @@
-System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-jwt", 'a2-in-memory-web-api/core', "./login.component", "./home.component", "./profile.component", "./cakes/cake-data", "./cakes/cake-detail.component", "./cakes/cake.service"], function(exports_1) {
+System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-jwt", 'a2-in-memory-web-api/core', "./login.component", "./home.component", "./profile.component", "./cakes/cake-data", "./cakes/cake-detail.component", "./cakes/cake.service", "./loggedin-outlet"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, router_1, angular2_jwt_1, http_2, core_2, login_component_1, home_component_1, profile_component_1, cake_data_1, cake_detail_component_1, cake_service_1, core_3;
+    var core_1, http_1, router_1, angular2_jwt_1, http_2, core_2, login_component_1, home_component_1, profile_component_1, cake_data_1, cake_detail_component_1, cake_service_1, core_3, loggedin_outlet_1;
     var AppComponent;
     return {
         setters:[
@@ -46,6 +46,9 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
             },
             function (cake_service_1_1) {
                 cake_service_1 = cake_service_1_1;
+            },
+            function (loggedin_outlet_1_1) {
+                loggedin_outlet_1 = loggedin_outlet_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -82,11 +85,11 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                             core_1.provide(http_2.XHRBackend, { useClass: core_2.InMemoryBackendService }),
                             core_1.provide(core_2.SEED_DATA, { useClass: cake_data_1.CakeData }),
                         ],
-                        directives: [router_1.ROUTER_DIRECTIVES]
+                        directives: [router_1.ROUTER_DIRECTIVES, loggedin_outlet_1.LoggedInRouterOutlet]
                     }),
                     router_1.RouteConfig([
                         { path: "/login", name: "Login", component: login_component_1.LoginComponent, useAsDefault: true },
-                        //{path: "/...", redirectTo: ['/Home']},
+                        { path: "/...", redirectTo: ['/Login'] },
                         { path: "/home", name: "Home", component: home_component_1.HomeComponent },
                         { path: "/cakes", name: "Cakes", component: profile_component_1.ProfileComponent },
                         { path: "/cake/:id", name: "CakeDetail", component: cake_detail_component_1.CakeDetailComponent }
