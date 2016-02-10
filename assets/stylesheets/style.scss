@@ -12,6 +12,7 @@ $topnav-item-hovered-color: darken($topnav-item-color, 18%);
 
 // Fonts
 $topnav-font: "Chewy", cursive;
+$welcome-font: "Lobster", cursive;
 $normal-font: "Marmelad", Arial;
 
 body {
@@ -19,6 +20,10 @@ body {
     p {
         font-family: $normal-font;
         font-size: 1.2em;
+    }
+
+    h1.welcome-poster {
+        font-family: $welcome-font;
     }
 
     a:hover {
@@ -64,7 +69,6 @@ body {
         border-bottom: 5px solid darken(#AD4047, 18%);
         transition-duration: 0.4s;
     }
-
 
     /* Content */
     .general-container {

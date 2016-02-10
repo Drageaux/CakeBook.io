@@ -7,6 +7,8 @@ body {
   body p {
     font-family: "Marmelad", Arial;
     font-size: 1.2em; }
+  body h1.welcome-poster {
+    font-family: "Lobster", cursive; }
   body a:hover {
     cursor: pointer; }
   body .navbar-default {
