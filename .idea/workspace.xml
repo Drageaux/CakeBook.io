@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="5c6e8010-6205-445d-814d-3a5f6fec0bb4" name="Default" comment="">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/templates/login.component.html" />
+=======
+      <change type="DELETED" beforePath="$PROJECT_DIR$/npm-debug.log" afterPath="" />
+>>>>>>> parent of 36602d3... Minor change
 =======
       <change type="DELETED" beforePath="$PROJECT_DIR$/npm-debug.log" afterPath="" />
 >>>>>>> parent of 36602d3... Minor change
@@ -11,6 +15,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.component.js" afterPath="$PROJECT_DIR$/app/app.component.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.component.js.map" afterPath="$PROJECT_DIR$/app/app.component.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.component.ts" afterPath="$PROJECT_DIR$/app/app.component.ts" />
+<<<<<<< HEAD
 <<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cakes/cake-detail.component.js" afterPath="$PROJECT_DIR$/app/cakes/cake-detail.component.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cakes/cake-detail.component.js.map" afterPath="$PROJECT_DIR$/app/cakes/cake-detail.component.js.map" />
@@ -27,6 +32,11 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/profile.component.js" afterPath="$PROJECT_DIR$/app/profile.component.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/profile.component.js.map" afterPath="$PROJECT_DIR$/app/profile.component.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/profile.component.ts" afterPath="$PROJECT_DIR$/app/profile.component.ts" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/home.component.js" afterPath="$PROJECT_DIR$/app/home.component.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/home.component.js.map" afterPath="$PROJECT_DIR$/app/home.component.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/home.component.ts" afterPath="$PROJECT_DIR$/app/home.component.ts" />
+>>>>>>> parent of 36602d3... Minor change
 =======
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/home.component.js" afterPath="$PROJECT_DIR$/app/home.component.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/home.component.js.map" afterPath="$PROJECT_DIR$/app/home.component.js.map" />
@@ -56,6 +66,7 @@
         <entry file="file://$PROJECT_DIR$/app/app.component.ts">
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <state vertical-scroll-proportion="-0.47727272">
               <caret line="71" column="45" selection-start-line="71" selection-start-column="45" selection-end-line="71" selection-end-column="45" />
               <folding>
@@ -74,6 +85,11 @@
             <state vertical-scroll-proportion="0.4722222">
               <caret line="81" column="13" selection-start-line="81" selection-start-column="13" selection-end-line="81" selection-end-column="13" />
               <folding>
+=======
+            <state vertical-scroll-proportion="0.4722222">
+              <caret line="81" column="13" selection-start-line="81" selection-start-column="13" selection-end-line="81" selection-end-column="13" />
+              <folding>
+>>>>>>> parent of 36602d3... Minor change
                 <marker date="1455083206675" expanded="true" signature="1153:1367" placeholder="..." />
                 <marker date="1455083206675" expanded="true" signature="1401:2716" placeholder="..." />
                 <marker date="1455083206675" expanded="true" signature="1466:2657" placeholder="..." />
@@ -86,6 +102,9 @@
                 <marker date="1455083206675" expanded="true" signature="2186:2328" placeholder="..." />
                 <marker date="1455083206675" expanded="true" signature="2379:2616" placeholder="..." />
                 <marker date="1455083206675" expanded="true" signature="2446:2590" placeholder="..." />
+<<<<<<< HEAD
+>>>>>>> parent of 36602d3... Minor change
+=======
 >>>>>>> parent of 36602d3... Minor change
               </folding>
             </state>
@@ -898,6 +917,7 @@
     <entry file="file://$PROJECT_DIR$/app/profile.component.ts">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
           <caret line="48" column="41" selection-start-line="48" selection-start-column="41" selection-end-line="48" selection-end-column="41" />
           <folding>
@@ -908,6 +928,8 @@
             <marker date="1455117694760" expanded="true" signature="772:840" placeholder="..." />
             <marker date="1455117694760" expanded="true" signature="907:1037" placeholder="..." />
 =======
+=======
+>>>>>>> parent of 36602d3... Minor change
         <state vertical-scroll-proportion="0.4722222">
           <caret line="81" column="13" selection-start-line="81" selection-start-column="13" selection-end-line="81" selection-end-column="13" />
           <folding>
@@ -923,6 +945,9 @@
             <marker date="1455083206675" expanded="true" signature="2186:2328" placeholder="..." />
             <marker date="1455083206675" expanded="true" signature="2379:2616" placeholder="..." />
             <marker date="1455083206675" expanded="true" signature="2446:2590" placeholder="..." />
+<<<<<<< HEAD
+>>>>>>> parent of 36602d3... Minor change
+=======
 >>>>>>> parent of 36602d3... Minor change
           </folding>
         </state>

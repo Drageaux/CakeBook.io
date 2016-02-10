@@ -78,19 +78,6 @@ export class AppComponent {
     constructor(public authHttp:AuthHttp, private http:Http, private _router:Router) {
     }
 
-    login() {
-        this.lock.show(function (err:string, profile:string, id_token:string) {
-
-            if (err) {
-                throw new Error(err);
-            }
-
-            localStorage.setItem('profile', JSON.stringify(profile));
-            localStorage.setItem('id_token', id_token);
-        });
-        this._router.navigate(["Home"]);
-    }
-
     logout() {
         localStorage.removeItem('profile');
         localStorage.removeItem('id_token');
