@@ -80,6 +80,7 @@ declare var Auth0Lock;
 @RouteConfig([
     //{path: "/login", name: "Login", component: LoginComponent},
     {path: "/...", redirectTo: ['/Home']},
+    {path: "/", redirectTo: ['/Home']},
     {path: "/home", name: "Home", component: HomeComponent, useAsDefault: true},
     {path: "/cakes", name: "Cakes", component: ProfileComponent},
     {path: "/cake/:id", name: "CakeDetail", component: CakeDetailComponent}
@@ -92,16 +93,15 @@ export class AppComponent {
     }
 
     login() {
-        this.lock.show(function (err:string, profile:string, id_token:string) {
+        this.lock.show(
+            function (err:string, profile:string, id_token:string) {
+                if (err) {
+                    throw new Error(err);
+                }
 
-            if (err) {
-                throw new Error(err);
-            }
-
-            localStorage.setItem('profile', JSON.stringify(profile));
-            localStorage.setItem('id_token', id_token);
-        });
-        this._router.navigate(["Home"]);
+                localStorage.setItem('profile', JSON.stringify(profile));
+                localStorage.setItem('id_token', id_token);
+            });
     }
 
     logout() {
