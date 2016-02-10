@@ -28,11 +28,6 @@ import {AddCakeFormComponent}   from "./add-cake-form.component";
             </ul>
         </div>
         `,
-    styles: [`
-        .error {
-            color:red:
-        }
-        `],
     directives: [AddCakeFormComponent]
 })
 

@@ -1,6 +1,6 @@
 import {Component, provide} from "angular2/core";
 import {HTTP_PROVIDERS, Http} from "angular2/http";
-import {RouteConfig, Router, APP_BASE_HREF, ROUTER_PROVIDERS, ROUTER_DIRECTIVES, CanActivate} from 'angular2/router';
+import {Location, RouteConfig, Router, APP_BASE_HREF, ROUTER_PROVIDERS, ROUTER_DIRECTIVES, CanActivate} from 'angular2/router';
 import {FORM_PROVIDERS} from 'angular2/common';
 import {AuthHttp, tokenNotExpired, JwtHelper, AuthConfig} from "angular2-jwt";
 // in-memory web api imports
@@ -18,18 +18,9 @@ import {CakeService}            from "./cakes/cake.service";
 // Need to be imported later on for some reason
 import {ViewEncapsulation}        from "angular2/core";
 
-declare var Auth0Lock;
-
 @Component({
     selector: 'my-app',
     template: `
-
-        <div *ngIf="!loggedIn()" class="login-container">
-            <h1>Welcome to Angular2 with Auth0</h1>
-            <button *ngIf="!loggedIn()" (click)="login()">Login</button>
-            <button *ngIf="loggedIn()" (click)="logout()">Logout</button>
-        </div>
-
         <div *ngIf="loggedIn()">
             <nav class="navbar navbar-default navbar-fixed-top">
                 <!-- Normal Menu -->
@@ -56,63 +47,47 @@ declare var Auth0Lock;
                     </li>
                 </ul>
             </nav>
-            <router-outlet></router-outlet>
         </div>
+
+        <router-outlet></router-outlet>
 		`,
     styleUrls: ["assets/stylesheets/style.css"],
     encapsulation: ViewEncapsulation.None,
     providers: [
-        HTTP_PROVIDERS,
         CakeService,
+        ROUTER_PROVIDERS,
+        HTTP_PROVIDERS,
         // in-memory web api providers
         provide(XHRBackend, {useClass: InMemoryBackendService}), // in-mem server
         provide(SEED_DATA, {useClass: CakeData}), // in-mem server data
-        provide(AuthHttp, {
-            useFactory: (http) => {
-                return new AuthHttp(new AuthConfig(), http);
-            },
-            deps: [Http]
-        })
     ],
     directives: [ROUTER_DIRECTIVES]
 })
 
 @RouteConfig([
-    //{path: "/login", name: "Login", component: LoginComponent},
-    {path: "/...", redirectTo: ['/Home']},
-    {path: "/home", name: "Home", component: HomeComponent, useAsDefault: true},
+    {path: "/login", name: "Login", component: LoginComponent, useAsDefault: true},
+    //{path: "/...", redirectTo: ['/Home']},
+    {path: "/home", name: "Home", component: HomeComponent},
     {path: "/cakes", name: "Cakes", component: ProfileComponent},
     {path: "/cake/:id", name: "CakeDetail", component: CakeDetailComponent}
 ])
 
 export class AppComponent {
-    lock = new Auth0Lock('1w9uIYPLBxZzbciPImlhyG39EPDqzv8e', 'drageaux.auth0.com');
-
-    constructor(public authHttp:AuthHttp, private http:Http, private _router:Router) {
-    }
-
-    login() {
-        this.lock.show(function (err:string, profile:string, id_token:string) {
-
-            if (err) {
-                throw new Error(err);
-            }
-
-            localStorage.setItem('profile', JSON.stringify(profile));
-            localStorage.setItem('id_token', id_token);
-        });
-        this._router.navigate(["Home"]);
+    constructor(public authHttp:AuthHttp,
+                private http:Http,
+                private _router:Router,
+                private _location:Location) {
     }
 
     logout() {
         localStorage.removeItem('profile');
         localStorage.removeItem('id_token');
+        this._router.navigate(["Login"]);
     }
 
     loggedIn() {
         return tokenNotExpired();
     }
-
 
     /* Template for Getting Things */
     getSecretThing() {

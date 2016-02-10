@@ -6,6 +6,6 @@ import {CanActivate} from "angular2/router";
     templateUrl: "assets/templates/home.component.html"
 })
 
-@CanActivate(() => tokenNotExpired())
+//@CanActivate(() => tokenNotExpired())
 export class HomeComponent {
 }
