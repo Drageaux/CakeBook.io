@@ -26,7 +26,8 @@ System.register(['angular2/core', "angular2/router", "./cakes/cake.service", "./
             }],
         execute: function() {
             ProfileComponent = (function () {
-                function ProfileComponent(_router, _cakeService) {
+                function ProfileComponent(_location, _router, _cakeService) {
+                    this._location = _location;
                     this._router = _router;
                     this._cakeService = _cakeService;
                 }
@@ -52,10 +53,9 @@ System.register(['angular2/core', "angular2/router", "./cakes/cake.service", "./
                 ProfileComponent = __decorate([
                     core_1.Component({
                         template: "\n        <div class=\"general-container\">\n            <h2>Caker Profile</h2>\n            <h3>My Cakes</h3>\n            <ul>\n                <li>\n                    <input #newCake>\n                    <button (click)=\"addCake(newCake.value); newCake.value=''\">\n                        Add Cake\n                    </button>\n                    <div class=\"error\" *ngIf=\"errorMessage\">\n                        {{errorMessage}}\n                    </div>\n                </li>\n                <li *ngFor=\"#cake of cakes\"\n                    (click)=\"onSelect(cake)\">\n                    <a class=\"url-list-item\">{{cake.name}}</a>\n                </li>\n            </ul>\n        </div>\n        ",
-                        styles: ["\n        .error {\n            color:red:\n        }\n        "],
                         directives: [add_cake_form_component_1.AddCakeFormComponent]
                     }), 
-                    __metadata('design:paramtypes', [router_1.Router, cake_service_1.CakeService])
+                    __metadata('design:paramtypes', [Location, router_1.Router, cake_service_1.CakeService])
                 ], ProfileComponent);
                 return ProfileComponent;
             })();

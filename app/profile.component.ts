@@ -35,7 +35,9 @@ export class ProfileComponent implements OnInit {
     errorMessage:string;
     cakes:Cake[];
 
-    constructor(private _router:Router, private _cakeService:CakeService) {
+    constructor(private _location:Location,
+                private _router:Router,
+                private _cakeService:CakeService) {
     }
 
     ngOnInit() {
