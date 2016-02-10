@@ -79,6 +79,7 @@ declare var Auth0Lock;
 
 @RouteConfig([
     //{path: "/login", name: "Login", component: LoginComponent},
+    {path: "/...", redirectTo: ['/Home']},
     {path: "/home", name: "Home", component: HomeComponent, useAsDefault: true},
     {path: "/cakes", name: "Cakes", component: ProfileComponent},
     {path: "/cake/:id", name: "CakeDetail", component: CakeDetailComponent}
@@ -87,7 +88,7 @@ declare var Auth0Lock;
 export class AppComponent {
     lock = new Auth0Lock('1w9uIYPLBxZzbciPImlhyG39EPDqzv8e', 'drageaux.auth0.com');
 
-    constructor(public authHttp:AuthHttp) {
+    constructor(public authHttp:AuthHttp, private http:Http, private _router:Router) {
     }
 
     login() {
@@ -99,8 +100,8 @@ export class AppComponent {
 
             localStorage.setItem('profile', JSON.stringify(profile));
             localStorage.setItem('id_token', id_token);
-
         });
+        this._router.navigate(["Home"]);
     }
 
     logout() {

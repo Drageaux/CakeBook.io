@@ -46,8 +46,10 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
             }],
         execute: function() {
             AppComponent = (function () {
-                function AppComponent(authHttp) {
+                function AppComponent(authHttp, http, _router) {
                     this.authHttp = authHttp;
+                    this.http = http;
+                    this._router = _router;
                     this.lock = new Auth0Lock('1w9uIYPLBxZzbciPImlhyG39EPDqzv8e', 'drageaux.auth0.com');
                 }
                 AppComponent.prototype.login = function () {
@@ -58,6 +60,7 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                         localStorage.setItem('profile', JSON.stringify(profile));
                         localStorage.setItem('id_token', id_token);
                     });
+                    this._router.navigate(["Home"]);
                 };
                 AppComponent.prototype.logout = function () {
                     localStorage.removeItem('profile');
@@ -94,11 +97,12 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                     }),
                     router_1.RouteConfig([
                         //{path: "/login", name: "Login", component: LoginComponent},
+                        { path: "/...", redirectTo: ['/Home'] },
                         { path: "/home", name: "Home", component: home_component_1.HomeComponent, useAsDefault: true },
                         { path: "/cakes", name: "Cakes", component: profile_component_1.ProfileComponent },
                         { path: "/cake/:id", name: "CakeDetail", component: cake_detail_component_1.CakeDetailComponent }
                     ]), 
-                    __metadata('design:paramtypes', [angular2_jwt_1.AuthHttp])
+                    __metadata('design:paramtypes', [angular2_jwt_1.AuthHttp, http_1.Http, router_1.Router])
                 ], AppComponent);
                 return AppComponent;
             })();
