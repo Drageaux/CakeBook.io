@@ -60,6 +60,7 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                         localStorage.setItem('profile', JSON.stringify(profile));
                         localStorage.setItem('id_token', id_token);
                     });
+                    this._router.navigate(["Home"]);
                 };
                 AppComponent.prototype.logout = function () {
                     localStorage.removeItem('profile');
@@ -97,7 +98,6 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                     router_1.RouteConfig([
                         //{path: "/login", name: "Login", component: LoginComponent},
                         { path: "/...", redirectTo: ['/Home'] },
-                        { path: "/", redirectTo: ['/Home'] },
                         { path: "/home", name: "Home", component: home_component_1.HomeComponent, useAsDefault: true },
                         { path: "/cakes", name: "Cakes", component: profile_component_1.ProfileComponent },
                         { path: "/cake/:id", name: "CakeDetail", component: cake_detail_component_1.CakeDetailComponent }
