@@ -55,6 +55,16 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                     this._router = _router;
                     this.lock = new Auth0Lock('1w9uIYPLBxZzbciPImlhyG39EPDqzv8e', 'drageaux.auth0.com');
                 }
+                AppComponent.prototype.login = function () {
+                    this.lock.show(function (err, profile, id_token) {
+                        if (err) {
+                            throw new Error(err);
+                        }
+                        localStorage.setItem('profile', JSON.stringify(profile));
+                        localStorage.setItem('id_token', id_token);
+                    });
+                    this._router.navigate(["Home"]);
+                };
                 AppComponent.prototype.logout = function () {
                     localStorage.removeItem('profile');
                     localStorage.removeItem('id_token');
