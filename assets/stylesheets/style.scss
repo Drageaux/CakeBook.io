@@ -83,16 +83,45 @@ body {
         @extend .general-container;
         text-align: center;
 
+    }
+
+    /* Home Page */
+    .home-container {
+        @extend .general-container;
+        text-align: center;
+        height: 80vh;
+
+        /* might belong in the login page later */
         .welcome-poster {
-            font-family: $topnav-font;
+            font-family: $welcome-font;
         }
 
         .carousel {
-            background-color: transparent;
-            position: relative;
+            background-color: lightgray;
+            height: 80%;
             width: 100%;
-            height: 80vh;
+            position: relative;
             overflow: hidden;
+            border-style: solid;
+            border-width: 10px;
+
+            .carousel-inner {
+                position: relative;
+
+                img {
+                    display: table-cell;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-top: auto;
+                    margin-bottom: auto;
+                    vertical-align: middle;
+                    width: auto;
+                    height: auto;
+                    max-height: 60vh;
+                    border-radius: 10px;
+                    //position: absolute;
+                }
+            }
 
             .right.carousel-control {
                 border-radius: 0 10px 10px 0;
@@ -100,20 +129,6 @@ body {
             .left.carousel-control {
                 border-radius: 10px 0 0 10px;
             }
-
-            img {
-                display: table-cell;
-                margin-left: auto;
-                margin-right: auto;
-                vertical-align: middle;
-                top: 50%;
-            }
         }
-    }
-
-    /* Home Page */
-    .home-container {
-        @extend .general-container;
-        text-align: center;
     }
 }
