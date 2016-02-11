@@ -91,6 +91,12 @@ body {
           width: auto;
           height: auto;
           max-height: 90vh; }
+    body .login-container .dim-background {
+      opacity: 0.5;
+      z-index: 10;
+      width: 100vw;
+      height: 100vh;
+      position: absolute; }
   @media screen and (max-device-width: 375px) {
     body .login-container {
       height: 90vh; } }
