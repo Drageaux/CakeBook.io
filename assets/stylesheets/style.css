@@ -35,42 +35,66 @@ body {
     @media screen and (min-width: 768px) {
       body .navbar-default .navbar-right {
         margin-right: 20%; } }
-  body .navbar-default:hover {
+  body .navbar-default.topnav:hover {
     border-bottom: 5px solid #6a272b;
     transition-duration: 0.4s; }
+  body .navbar-default.login-topnav {
+    height: 13vh; }
+  body .navbar-default.login-botnav {
+    display: block;
+    height: 7vh;
+    border-top: 5px solid #AD4047;
+    border-bottom-width: 0; }
+  @media screen and (max-device-width: 375px) {
+    body .navbar-default.login-botnav {
+      display: none; } }
   body .general-container, body .login-container, body .home-container {
     margin-left: 20%;
     margin-right: 20%;
     background-color: #fffefd;
     padding-top: 80px; }
   body .login-container {
-    text-align: center; }
-  body .home-container {
     text-align: center;
-    height: 80vh;
+    padding-top: 12vh;
+    margin: 0;
+    height: 95vh;
     /* might belong in the login page later */ }
-    body .home-container .welcome-poster {
+    body .login-container .welcome-poster {
       font-family: "Lobster", cursive; }
-    body .home-container .carousel {
-      background-color: #ededed;
-      height: 80%;
+    body .login-container .carousel {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+      height: 100%;
       width: 100%;
       position: relative;
       overflow: hidden;
-      border-style: solid;
-      border-width: 0.2em;
-      border-radius: 1em; }
-      body .home-container .carousel .carousel-inner {
+      align-content: center;
+      text-align: center; }
+      body .login-container .carousel .login-button {
+        background-color: transparent;
+        color: white;
+        font-size: 1em;
+        z-index: 1;
+        position: absolute;
+        bottom: 50px;
+        width: 20vh;
+        margin-left: -10vh;
+        -ms-text-overflow: clip;
+        text-overflow: clip; }
+      body .login-container .carousel .carousel-inner {
         position: relative;
-        vertical-align: middle;
         top: 50%;
         transform: translateY(-50%); }
-        body .home-container .carousel .carousel-inner img {
+        body .login-container .carousel .carousel-inner img {
           display: table-cell;
           margin-left: auto;
           margin-right: auto;
           width: auto;
           height: auto;
-          max-height: 60vh; }
+          max-height: 90vh; }
+  @media screen and (max-device-width: 375px) {
+    body .login-container {
+      height: 90vh; } }
+  body .home-container {
+    text-align: center; }
 
 /*# sourceMappingURL=style.css.map */

@@ -65,10 +65,27 @@ body {
             }
         }
     }
-    .navbar-default:hover {
+    .navbar-default.topnav:hover {
         border-bottom: 5px solid darken(#AD4047, 18%);
         transition-duration: 0.4s;
     }
+
+    .navbar-default.login-topnav {
+        height: 13vh;
+    }
+    .navbar-default.login-botnav {
+        display: block;
+        height: 7vh;
+        border-top: 5px solid $topnav-item-color;
+        border-bottom-width: 0;
+    }
+    @media screen and (max-device-width: 375px) {
+        .navbar-default.login-botnav {
+            display: none;
+        }
+    }
+
+
 
     /* Content */
     .general-container {
@@ -82,14 +99,9 @@ body {
     .login-container {
         @extend .general-container;
         text-align: center;
-
-    }
-
-    /* Home Page */
-    .home-container {
-        @extend .general-container;
-        text-align: center;
-        height: 80vh;
+        padding-top: 12vh;
+        margin: 0;
+        height: 95vh;
 
         /* might belong in the login page later */
         .welcome-poster {
@@ -97,18 +109,29 @@ body {
         }
 
         .carousel {
-            background-color: lighten(lightgray, 10%);
-            height: 80%;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+            height: 100%;
             width: 100%;
             position: relative;
             overflow: hidden;
-            border-style: solid;
-            border-width: 0.2em;
-            border-radius: 1em;
+            align-content: center;
+            text-align: center;
+
+            .login-button {
+                background-color: transparent;
+                color: white;
+                font-size: 1em;
+                z-index: 1;
+                position: absolute;
+                bottom: 50px;
+                width: 20vh;
+                margin-left: -10vh;
+                -ms-text-overflow: clip;
+                text-overflow: clip;
+            }
 
             .carousel-inner {
                 position: relative;
-                vertical-align: middle;
                 top: 50%;
                 transform: translateY(-50%);
 
@@ -118,16 +141,29 @@ body {
                     margin-right: auto;
                     width: auto;
                     height: auto;
-                    max-height: 60vh;
+                    max-height: 90vh;
                 }
             }
 
             //.right.carousel-control {
             //    border-radius: 0 10px 10px 0;
+            //    background: linear-gradient(to left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
             //}
             //.left.carousel-control {
             //    border-radius: 10px 0 0 10px;
+            //    background: linear-gradient(to right,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
             //}
         }
+    }
+    @media screen and (max-device-width: 375px) {
+        .login-container {
+            height: 90vh;
+        }
+    }
+
+    /* Home Page */
+    .home-container {
+        @extend .general-container;
+        text-align: center;
     }
 }

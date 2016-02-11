@@ -23,7 +23,7 @@ import {LoggedInRouterOutlet} from "./loggedin-outlet";
     selector: 'my-app',
     template: `
         <div *ngIf="loggedIn()">
-            <nav class="navbar navbar-default navbar-fixed-top">
+            <nav class="navbar navbar-default navbar-fixed-top navtop">
                 <!-- Normal Menu -->
                 <ul class="nav navbar-nav navbar-right" id="normalMenu">
                     <li>

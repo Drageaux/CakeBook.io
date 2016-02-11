@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log("login init");
         if (this.loggedIn()) {
             this._router.navigate(["Home"]);
         }

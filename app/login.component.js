@@ -29,7 +29,6 @@ System.register(['angular2/core', 'angular2/router', 'angular2-jwt'], function(e
                     this.lock = new Auth0Lock('1w9uIYPLBxZzbciPImlhyG39EPDqzv8e', 'drageaux.auth0.com');
                 }
                 LoginComponent.prototype.ngOnInit = function () {
-                    console.log("login init");
                     if (this.loggedIn()) {
                         this._router.navigate(["Home"]);
                     }

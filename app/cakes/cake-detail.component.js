@@ -41,7 +41,7 @@ System.register(["angular2/core", "angular2/router", "./cake.service"], function
                 CakeDetailComponent = __decorate([
                     core_1.Component({
                         selector: "cake-detail",
-                        template: "\n        <div *ngIf=\"cake\">\n            <div class=\"error\" *ngIf=\"errorMessage\">\n                {{errorMessage}}\n            </div>\n\t\t\t<h4>Details: {{cake.name}}</h4>\n\t\t\t<ul><label><b>Ingredients</b></label>\n\t\t\t\t<li *ngFor=\"#ingr of cake.ingredients\">\n\t\t\t\t\t{{ingr}}\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t\t<ol><label><b>Steps</b></label>\n\t\t\t\t<li *ngFor=\"#step of cake.steps\">\n\t\t\t\t\t{{step}}\n\t\t\t\t</li>\n\t\t\t</ol>\n\t\t</div>\n\t\t<button (click)=\"gotoCakes()\">Back</button>\n        "
+                        template: "\n        <div class=\"general-container\">\n            <div *ngIf=\"cake\">\n                <div class=\"error\" *ngIf=\"errorMessage\">\n                    {{errorMessage}}\n                </div>\n                <h4>Details: {{cake.name}}</h4>\n                <ul><label><b>Ingredients</b></label>\n                    <li *ngFor=\"#ingr of cake.ingredients\">\n                        {{ingr}}\n                    </li>\n                </ul>\n                <ol><label><b>Steps</b></label>\n                    <li *ngFor=\"#step of cake.steps\">\n                        {{step}}\n                    </li>\n                </ol>\n            </div>\n\n            <button (click)=\"gotoCakes()\">Back</button>\n        </div>\n        "
                     }), 
                     __metadata('design:paramtypes', [router_1.Router, router_2.RouteParams, cake_service_1.CakeService])
                 ], CakeDetailComponent);

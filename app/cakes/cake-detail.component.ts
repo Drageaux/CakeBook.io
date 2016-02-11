@@ -10,23 +10,26 @@ import {CakeService} from "./cake.service";
 @Component({
     selector: "cake-detail",
     template: `
-        <div *ngIf="cake">
-            <div class="error" *ngIf="errorMessage">
-                {{errorMessage}}
+        <div class="general-container">
+            <div *ngIf="cake">
+                <div class="error" *ngIf="errorMessage">
+                    {{errorMessage}}
+                </div>
+                <h4>Details: {{cake.name}}</h4>
+                <ul><label><b>Ingredients</b></label>
+                    <li *ngFor="#ingr of cake.ingredients">
+                        {{ingr}}
+                    </li>
+                </ul>
+                <ol><label><b>Steps</b></label>
+                    <li *ngFor="#step of cake.steps">
+                        {{step}}
+                    </li>
+                </ol>
             </div>
-			<h4>Details: {{cake.name}}</h4>
-			<ul><label><b>Ingredients</b></label>
-				<li *ngFor="#ingr of cake.ingredients">
-					{{ingr}}
-				</li>
-			</ul>
-			<ol><label><b>Steps</b></label>
-				<li *ngFor="#step of cake.steps">
-					{{step}}
-				</li>
-			</ol>
-		</div>
-		<button (click)="gotoCakes()">Back</button>
+
+            <button (click)="gotoCakes()">Back</button>
+        </div>
         `
 })
 
