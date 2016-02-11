@@ -97,38 +97,37 @@ body {
         }
 
         .carousel {
-            background-color: lightgray;
+            background-color: lighten(lightgray, 10%);
             height: 80%;
             width: 100%;
             position: relative;
             overflow: hidden;
             border-style: solid;
-            border-width: 10px;
+            border-width: 0.2em;
+            border-radius: 1em;
 
             .carousel-inner {
                 position: relative;
+                vertical-align: middle;
+                top: 50%;
+                transform: translateY(-50%);
 
                 img {
                     display: table-cell;
                     margin-left: auto;
                     margin-right: auto;
-                    margin-top: auto;
-                    margin-bottom: auto;
-                    vertical-align: middle;
                     width: auto;
                     height: auto;
                     max-height: 60vh;
-                    border-radius: 10px;
-                    //position: absolute;
                 }
             }
 
-            .right.carousel-control {
-                border-radius: 0 10px 10px 0;
-            }
-            .left.carousel-control {
-                border-radius: 10px 0 0 10px;
-            }
+            //.right.carousel-control {
+            //    border-radius: 0 10px 10px 0;
+            //}
+            //.left.carousel-control {
+            //    border-radius: 10px 0 0 10px;
+            //}
         }
     }
 }
