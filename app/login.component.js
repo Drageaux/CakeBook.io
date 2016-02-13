@@ -45,6 +45,9 @@ System.register(['angular2/core', 'angular2/router', 'angular2-jwt'], function(e
                 LoginComponent.prototype.loggedIn = function () {
                     return angular2_jwt_1.tokenNotExpired();
                 };
+                LoginComponent.prototype.atLoginPage = function () {
+                    return this._location.path() == "/login";
+                };
                 LoginComponent = __decorate([
                     core_1.Component({
                         templateUrl: "assets/templates/login.component.html"

@@ -2,6 +2,7 @@ import {Component} from 'angular2/core';
 import {Location, RouteConfig, Router, APP_BASE_HREF, ROUTER_PROVIDERS, ROUTER_DIRECTIVES, CanActivate} from 'angular2/router';
 import {AuthHttp, tokenNotExpired, JwtHelper} from 'angular2-jwt';
 import {OnInit} from "angular2/core";
+import {HomeComponent} from "./home.component";
 
 declare var Auth0Lock;
 
@@ -34,6 +35,10 @@ export class LoginComponent implements OnInit {
 
     loggedIn() {
         return tokenNotExpired();
+    }
+
+    atLoginPage() {
+        return this._location.path() == "/login";
     }
 
 }

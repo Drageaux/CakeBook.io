@@ -22,7 +22,7 @@ import {LoggedInRouterOutlet} from "./loggedin-outlet";
 @Component({
     selector: 'my-app',
     template: `
-        <div *ngIf="loggedIn()">
+        <div *ngIf="loggedIn() && !atLoginPage()">
             <nav class="navbar navbar-default navbar-fixed-top navtop">
                 <!-- Normal Menu -->
                 <ul class="nav navbar-nav navbar-right" id="normalMenu">
@@ -87,7 +87,12 @@ export class AppComponent {
     }
 
     loggedIn() {
+        console.log(tokenNotExpired() && this._location.path() != "/login");
         return tokenNotExpired();
+    }
+
+    atLoginPage() {
+        return this._location.path() == "/login";
     }
 
     /* Template for Getting Things */

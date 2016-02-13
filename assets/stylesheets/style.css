@@ -59,6 +59,9 @@ body {
     margin: 0;
     height: 95vh;
     /* might belong in the login page later */ }
+    body .login-container a#redirect-button {
+      margin-left: auto;
+      margin-right: auto; }
     body .login-container .welcome-poster {
       font-family: "Lobster", cursive; }
     body .login-container .carousel {

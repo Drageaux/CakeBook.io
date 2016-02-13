@@ -101,6 +101,11 @@ body {
         margin: 0;
         height: 95vh;
 
+        a#redirect-button {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         /* might belong in the login page later */
         .welcome-poster {
             font-family: $welcome-font;

@@ -64,7 +64,11 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                     this._router.navigate(["Login"]);
                 };
                 AppComponent.prototype.loggedIn = function () {
+                    console.log(angular2_jwt_1.tokenNotExpired() && this._location.path() != "/login");
                     return angular2_jwt_1.tokenNotExpired();
+                };
+                AppComponent.prototype.atLoginPage = function () {
+                    return this._location.path() == "/login";
                 };
                 /* Template for Getting Things */
                 AppComponent.prototype.getSecretThing = function () {
@@ -74,7 +78,7 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n        <div *ngIf=\"loggedIn()\">\n            <nav class=\"navbar navbar-default navbar-fixed-top navtop\">\n                <!-- Normal Menu -->\n                <ul class=\"nav navbar-nav navbar-right\" id=\"normalMenu\">\n                    <li>\n                        <a class=\"navbar-item\" [routerLink]=\"['Home']\">\n                            <span class=\"glyphicon glyphicon-home\" aria-hidden=\"true\"></span>&nbsp;Home&nbsp;\n                        </a>\n                    </li>\n                    <li>\n                        <a class=\"navbar-item\" [routerLink]=\"['Cakes']\">\n                            <span class=\"glyphicon glyphicon-user\" aria-hidden=\"true\"></span>&nbsp;Profile&nbsp;\n                        </a>\n                    </li>\n                    <li>\n                        <a class=\"navbar-item\" href=\"#\">\n                            <span class=\"glyphicon glyphicon-cog\" aria-hidden=\"true\"></span>&nbsp;Settings&nbsp;\n                        </a>\n                    </li>\n                    <li>\n                        <a class=\"navbar-item\" (click)=\"logout()\">\n                            <span class=\"glyphicon glyphicon-log-out\" aria-hidden=\"true\"></span>&nbsp;Logout&nbsp;\n                        </a>\n                    </li>\n                </ul>\n            </nav>\n        </div>\n\n        <router-outlet></router-outlet>\n\t\t",
+                        template: "\n        <div *ngIf=\"loggedIn() && !atLoginPage()\">\n            <nav class=\"navbar navbar-default navbar-fixed-top navtop\">\n                <!-- Normal Menu -->\n                <ul class=\"nav navbar-nav navbar-right\" id=\"normalMenu\">\n                    <li>\n                        <a class=\"navbar-item\" [routerLink]=\"['Home']\">\n                            <span class=\"glyphicon glyphicon-home\" aria-hidden=\"true\"></span>&nbsp;Home&nbsp;\n                        </a>\n                    </li>\n                    <li>\n                        <a class=\"navbar-item\" [routerLink]=\"['Cakes']\">\n                            <span class=\"glyphicon glyphicon-user\" aria-hidden=\"true\"></span>&nbsp;Profile&nbsp;\n                        </a>\n                    </li>\n                    <li>\n                        <a class=\"navbar-item\" href=\"#\">\n                            <span class=\"glyphicon glyphicon-cog\" aria-hidden=\"true\"></span>&nbsp;Settings&nbsp;\n                        </a>\n                    </li>\n                    <li>\n                        <a class=\"navbar-item\" (click)=\"logout()\">\n                            <span class=\"glyphicon glyphicon-log-out\" aria-hidden=\"true\"></span>&nbsp;Logout&nbsp;\n                        </a>\n                    </li>\n                </ul>\n            </nav>\n        </div>\n\n        <router-outlet></router-outlet>\n\t\t",
                         styleUrls: ["assets/stylesheets/style.css"],
                         encapsulation: core_3.ViewEncapsulation.None,
                         providers: [
