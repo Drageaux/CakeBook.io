@@ -1,11 +1,13 @@
-<div *ngIf="!loggedIn()">
-    <nav class="navbar navbar-default navbar-fixed-top login-topnav"></nav>
+<div *ngIf="!loggedIn()" xmlns="http://www.w3.org/1999/html">
+    <nav class="navbar navbar-default navbar-fixed-top login-topnav">
+        <a href="#" class="navbar-brand">Cake Book</a>
+    </nav>
 
     <div class="login-container">
         <!-- Bootstrap Carousel -->
         <div id="login-carousel" class="carousel slide" data-ride="carousel">
             <!-- Login Button -->
-            <a *ngIf="!loggedIn()" (click)="login()" class="login-button btn btn-default">Get Started</a>
+            <a *ngIf="!loggedIn()" (click)="login()" class="login-button btn btn-default"><span>Get Started</span></a>
 
             <!-- Indicators -->
             <ol class="carousel-indicators">
@@ -57,6 +59,6 @@
     <nav class="navbar navbar-default navbar-fixed-bottom login-botnav"></nav>
 </div>
 
-<div *ngIf="loggedIn() && atLoginPage()" class="general-container">
-    <a class="btn btn-default btn-success" id="redirect-button" href="#">Login Successful</a>
+<div *ngIf="loggedIn() && atLoginPage()" class="login-container">
+    <a class="btn btn-default btn-success" id="redirect-button" href="#">Login Successful<br>(click here)</a>
 </div>

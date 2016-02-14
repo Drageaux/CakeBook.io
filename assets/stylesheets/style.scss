@@ -72,12 +72,25 @@ body {
 
     .navbar-default.login-topnav {
         height: 13vh;
+        overflow: hidden;
+        white-space: nowrap;
+
+        /* Logo */
+        .navbar-brand,
+        .navbar-brand:hover,
+        .navbar-brand:focus {
+            color: $_4th-coffee-red;
+            font-size: 7vh;
+            position: relative;
+            bottom: -19%;
+            text-overflow: clip;
+        }
     }
     .navbar-default.login-botnav {
         display: block;
         height: 7vh;
-        border-top: 5px solid $topnav-item-color;
         border-bottom-width: 0;
+        z-index: -1;
     }
     @media screen and (max-device-width: 375px) {
         .navbar-default.login-botnav {
@@ -102,8 +115,15 @@ body {
         height: 95vh;
 
         a#redirect-button {
-            margin-left: auto;
             margin-right: auto;
+            margin-left: -15vh;
+            color: white;
+            font-size: 1em;
+            position: absolute;
+            width: 30vh;
+            top: 50%;
+            -ms-text-overflow: clip;
+            text-overflow: clip;
         }
 
         /* might belong in the login page later */
@@ -119,18 +139,24 @@ body {
             overflow: hidden;
             align-content: center;
             text-align: center;
+            border-bottom: 5px solid $topnav-item-color;
 
             .login-button {
-                background-color: transparent;
+                background-color: rgba(0, 0, 0, 0.6);
                 color: white;
-                font-size: 1em;
+                font-size: 3vh;
                 z-index: 1;
                 position: absolute;
-                bottom: 50px;
-                width: 20vh;
-                margin-left: -10vh;
+                bottom: 7vh;
+                width: 30vh;
+                height: 7vh;
+                margin-left: -15vh;
                 -ms-text-overflow: clip;
                 text-overflow: clip;
+            }
+
+            .carousel-indicators {
+                bottom: 1vh;
             }
 
             .carousel-inner {
@@ -144,7 +170,7 @@ body {
                     margin-right: auto;
                     width: auto;
                     height: auto;
-                    max-height: 90vh;
+                    max-height: 95vh;
                 }
             }
             //.right.carousel-control {
