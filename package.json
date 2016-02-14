@@ -1,8 +1,9 @@
 {
   "name": "angular2-cake-book",
   "version": "1.0.1",
+  "author": "David Thong Nguyen",
   "scripts": {
-	"tsd": "tsd install",
+	"tsd": "npm tsd install",
 	"tsc": "tsc",
 	"tsc:w": "tsc -w",
 	"lite": "lite-server",
