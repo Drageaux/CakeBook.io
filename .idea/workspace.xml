@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="488cec99-ddf5-4f67-9a37-f9054f020f41" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/stylesheets/style.css" afterPath="$PROJECT_DIR$/assets/stylesheets/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/stylesheets/style.css.map" afterPath="$PROJECT_DIR$/assets/stylesheets/style.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/stylesheets/style.scss" afterPath="$PROJECT_DIR$/assets/stylesheets/style.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/templates/login.component.html" afterPath="$PROJECT_DIR$/assets/templates/login.component.html" />
-    </list>
+    <list default="true" id="488cec99-ddf5-4f67-9a37-f9054f020f41" name="Default" comment="" />
     <ignored path="cake-book.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
