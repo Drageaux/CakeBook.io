@@ -1,4 +1,5 @@
 System.register(["angular2/platform/browser", "./app.component", "angular2/router", "rxjs/Rx", "angular2/http", "angular2-jwt", "angular2/core"], function(exports_1) {
+    "use strict";
     var browser_1, app_component_1, router_1, http_1, angular2_jwt_1, core_1, http_2;
     return {
         setters:[

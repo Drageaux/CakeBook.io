@@ -1,4 +1,5 @@
 System.register([], function(exports_1) {
+    "use strict";
     var Cake;
     return {
         setters:[],
@@ -11,7 +12,7 @@ System.register([], function(exports_1) {
                     this.steps = steps;
                 }
                 return Cake;
-            })();
+            }());
             exports_1("Cake", Cake);
         }
     }
