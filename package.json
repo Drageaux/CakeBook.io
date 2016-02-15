@@ -3,7 +3,7 @@
     "version": "1.0.1",
     "author": "David Thong Nguyen",
     "scripts": {
-        "prestart": "echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p",
+        "prestart": "echo fs.inotify.max_user_watches=524288 | tee -a /etc/sysctl.conf && sysctl -p",
         "tsd": "npm tsd install",
         "tsc": "tsc",
         "tsc:w": "tsc -w",
