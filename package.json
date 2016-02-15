@@ -4,7 +4,6 @@
     "author": "David Thong Nguyen",
     "scripts": {
         "prestart": "npm install -g http-server",
-        "postinstall": "npm run typings install",
         "tsd": "npm tsd install",
         "tsc": "tsc",
         "tsc:w": "tsc -w",
