@@ -1,5 +1,0 @@
-{
-  "ui": false,
-  "files": ["./src/**/*.{html,htm,css,js}"],
-  "server": { "baseDir": "./" }
-}

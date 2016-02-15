@@ -3,11 +3,13 @@
     "version": "1.0.1",
     "author": "David Thong Nguyen",
     "scripts": {
+        "preinstall": "npm install http-server",
         "tsd": "npm tsd install",
         "tsc": "tsc",
         "tsc:w": "tsc -w",
         "lite": "lite-server",
-        "start": "npm run lite"
+        "httpserver": "http-server",
+        "start": "npm run httpserver"
     },
     "license": "ISC",
     "dependencies": {
