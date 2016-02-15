@@ -1,31 +1,31 @@
 {
-    "name": "angular2-cake-book",
-    "version": "1.0.1",
-    "author": "David Thong Nguyen",
-    "scripts": {
-        "tsd": "npm tsd install",
-        "tsc": "tsc",
-        "tsc:w": "tsc -w",
-        "lite": "lite-server",
-        "httpserver": "http-server",
-        "start": "httpserver"
-    },
-    "license": "ISC",
-    "dependencies": {
-        "a2-in-memory-web-api": "^0.1.5",
-        "angular2": "^2.0.0-beta.6",
-        "angular2-jwt": "^0.1.6",
-        "bootstrap": "^3.3.6",
-        "concurrently": "^1.0.0",
-        "es6-promise": "^3.1.2",
-        "es6-shim": "^0.33.3",
-        "http-server": "^0.8.5",
-        "lite-server": "^2.0.1",
-        "reflect-metadata": "0.1.2",
-        "rxjs": "5.0.0-beta.0",
-        "systemjs": "0.19.6",
-        "tsd": "^0.6.5",
-        "typescript": "^1.8.0",
-        "zone.js": "^0.5.10"
-    }
+	"name": "angular2-cake-book",
+	"version": "1.0.1",
+	"author": "David Thong Nguyen",
+	"scripts": {
+		"prestart": "npm install http-server",
+		"tsd": "npm tsd install",
+		"tsc": "tsc",
+		"tsc:w": "tsc -w",
+		"lite": "lite-server",
+		"httpserver": "http-server",
+		"start": "httpserver"
+	},
+	"license": "ISC",
+	"dependencies": {
+		"a2-in-memory-web-api": "^0.1.5",
+		"angular2": "^2.0.0-beta.6",
+		"angular2-jwt": "^0.1.6",
+		"bootstrap": "^3.3.6",
+		"concurrently": "^1.0.0",
+		"es6-promise": "^3.1.2",
+		"es6-shim": "^0.33.3",
+		"lite-server": "^2.0.1",
+		"reflect-metadata": "0.1.2",
+		"rxjs": "5.0.0-beta.0",
+		"systemjs": "0.19.6",
+		"tsd": "^0.6.5",
+		"typescript": "^1.8.0",
+		"zone.js": "^0.5.10"
+	}
 }
