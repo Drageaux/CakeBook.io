@@ -1,5 +1,4 @@
 System.register(['angular2/core', "angular2/router", "./cakes/cake.service", "./add-cake-form.component"], function(exports_1) {
-    "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -59,7 +58,7 @@ System.register(['angular2/core', "angular2/router", "./cakes/cake.service", "./
                     __metadata('design:paramtypes', [router_1.Location, router_1.Router, cake_service_1.CakeService])
                 ], ProfileComponent);
                 return ProfileComponent;
-            }());
+            })();
             exports_1("ProfileComponent", ProfileComponent);
         }
     }

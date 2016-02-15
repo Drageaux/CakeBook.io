@@ -1,5 +1,4 @@
 import {Injectable} from 'angular2/core';
-import {error} from "util";
 import {Observable} from "rxjs/Observable";
 import {Http} from "angular2/http";
 import {Response} from "angular2/http";

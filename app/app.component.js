@@ -1,5 +1,4 @@
 System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-jwt", 'a2-in-memory-web-api/core', "./login.component", "./home.component", "./profile.component", "./cakes/cake-data", "./cakes/cake-detail.component", "./cakes/cake.service", "./loggedin-outlet"], function(exports_1) {
-    "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -102,7 +101,7 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                     __metadata('design:paramtypes', [angular2_jwt_1.AuthHttp, http_1.Http, router_1.Router, router_1.Location])
                 ], AppComponent);
                 return AppComponent;
-            }());
+            })();
             exports_1("AppComponent", AppComponent);
         }
     }

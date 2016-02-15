@@ -2,7 +2,6 @@ import {Component} from "angular2/core";
 import {Router} from "angular2/router";
 import {RouteParams} from "angular2/router";
 import {OnInit} from "angular2/core";
-import {error} from "util";
 
 import {Cake} from "./cake";
 import {CakeService} from "./cake.service";
