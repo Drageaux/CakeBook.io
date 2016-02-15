@@ -9,7 +9,7 @@
         "tsc:w": "tsc -w",
         "lite": "lite-server",
         "httpserver": "http-server",
-        "start": "npm run httpserver"
+        "start": "httpserver"
     },
     "license": "ISC",
     "dependencies": {
