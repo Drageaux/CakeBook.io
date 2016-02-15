@@ -3,6 +3,7 @@
     "version": "1.0.1",
     "author": "David Thong Nguyen",
     "scripts": {
+        "preinstall": "npm dedupe",
         "tsd": "npm tsd install",
         "tsc": "tsc",
         "tsc:w": "tsc -w",
