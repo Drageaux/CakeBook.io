@@ -1,12 +1,14 @@
-import {Component, provide} from "angular2/core";
+import {Component, provide, OnInit} from "angular2/core";
 import {HTTP_PROVIDERS, Http} from "angular2/http";
 import {Location, RouteConfig, Router, APP_BASE_HREF, ROUTER_PROVIDERS, ROUTER_DIRECTIVES, CanActivate} from 'angular2/router';
 import {FORM_PROVIDERS} from 'angular2/common';
 import {AuthHttp, tokenNotExpired, JwtHelper, AuthConfig} from "angular2-jwt";
+
 // in-memory web api imports
 import {XHRBackend} from "angular2/http";
 import {InMemoryBackendService, SEED_DATA} from 'a2-in-memory-web-api/core';
 
+import {LoggedInRouterOutlet} from "./loggedin-outlet";
 import {LoginComponent}         from "./login.component";
 import {HomeComponent}          from "./home.component";
 import {ProfileComponent}       from "./profile.component";
@@ -17,7 +19,9 @@ import {CakeService}            from "./cakes/cake.service";
 
 // Need to be imported later on for some reason
 import {ViewEncapsulation}        from "angular2/core";
-import {LoggedInRouterOutlet} from "./loggedin-outlet";
+import {enableProdMode} from 'angular2/core';
+enableProdMode();
+
 
 @Component({
     selector: 'my-app',
@@ -103,11 +107,15 @@ import {LoggedInRouterOutlet} from "./loggedin-outlet";
     {path: "/cake/:id", name: "CakeDetail", component: CakeDetailComponent}
 ])
 
-export class AppComponent {
+export class AppComponent implements OnInit {
     constructor(public authHttp:AuthHttp,
                 private http:Http,
                 private _router:Router,
                 private _location:Location) {
+    }
+
+    ngOnInit() {
+        //Connection.
     }
 
     logout() {

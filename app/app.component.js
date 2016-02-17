@@ -1,4 +1,4 @@
-System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-jwt", 'a2-in-memory-web-api/core', "./login.component", "./home.component", "./profile.component", "./cakes/cake-data", "./cakes/cake-detail.component", "./cakes/cake.service", "./loggedin-outlet"], function(exports_1) {
+System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-jwt", 'a2-in-memory-web-api/core', "./loggedin-outlet", "./login.component", "./home.component", "./profile.component", "./cakes/cake-data", "./cakes/cake-detail.component", "./cakes/cake.service", 'angular2/core'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, router_1, angular2_jwt_1, http_2, core_2, login_component_1, home_component_1, profile_component_1, cake_data_1, cake_detail_component_1, cake_service_1, core_3, loggedin_outlet_1;
+    var core_1, http_1, router_1, angular2_jwt_1, http_2, core_2, loggedin_outlet_1, login_component_1, home_component_1, profile_component_1, cake_data_1, cake_detail_component_1, cake_service_1, core_3, core_4;
     var AppComponent;
     return {
         setters:[
@@ -29,6 +29,9 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
             function (core_2_1) {
                 core_2 = core_2_1;
             },
+            function (loggedin_outlet_1_1) {
+                loggedin_outlet_1 = loggedin_outlet_1_1;
+            },
             function (login_component_1_1) {
                 login_component_1 = login_component_1_1;
             },
@@ -47,10 +50,11 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
             function (cake_service_1_1) {
                 cake_service_1 = cake_service_1_1;
             },
-            function (loggedin_outlet_1_1) {
-                loggedin_outlet_1 = loggedin_outlet_1_1;
+            function (core_4_1) {
+                core_4 = core_4_1;
             }],
         execute: function() {
+            core_4.enableProdMode();
             AppComponent = (function () {
                 function AppComponent(authHttp, http, _router, _location) {
                     this.authHttp = authHttp;
@@ -58,6 +62,9 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                     this._router = _router;
                     this._location = _location;
                 }
+                AppComponent.prototype.ngOnInit = function () {
+                    //Connection.
+                };
                 AppComponent.prototype.logout = function () {
                     localStorage.removeItem('profile');
                     localStorage.removeItem('id_token');
