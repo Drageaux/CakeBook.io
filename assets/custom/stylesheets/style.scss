@@ -145,6 +145,8 @@ body {
         height: 13vh;
         overflow: hidden;
         white-space: nowrap;
+        border-bottom-width: 0;
+        z-index: 1;
 
         /* Logo */
         .navbar-brand,
@@ -155,17 +157,6 @@ body {
             position: relative;
             bottom: -19%;
             text-overflow: clip;
-        }
-    }
-    .navbar-default.login-botnav {
-        display: block;
-        height: 7vh;
-        border-bottom-width: 0;
-        z-index: -1;
-    }
-    @media screen and (max-device-width: 375px) {
-        .navbar-default.login-botnav {
-            display: none;
         }
     }
 
@@ -203,7 +194,7 @@ body {
         }
 
         .carousel {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+            background: #333;
             height: 100%;
             width: 100%;
             position: relative;
@@ -211,6 +202,8 @@ body {
             align-content: center;
             text-align: center;
             border-bottom: 5px solid $topnav-item-color;
+            border-top: 5px solid $topnav-item-color;
+            z-index: 2;
 
             .login-button {
                 background-color: rgba(0, 0, 0, 0.6);
@@ -274,4 +267,9 @@ body {
         @extend .general-container;
         text-align: center;
     }
+}
+
+.login-body {
+    height: 100vh;
+    background-color: $_2nd-light-cream;
 }

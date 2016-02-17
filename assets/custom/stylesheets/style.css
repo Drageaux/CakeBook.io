@@ -89,6 +89,8 @@ body {
     height: 13vh;
     overflow: hidden;
     white-space: nowrap;
+    border-bottom-width: 0;
+    z-index: 1;
     /* Logo */ }
     body .navbar-default.login-topnav .navbar-brand,
     body .navbar-default.login-topnav .navbar-brand:hover,
@@ -98,14 +100,6 @@ body {
       position: relative;
       bottom: -19%;
       text-overflow: clip; }
-  body .navbar-default.login-botnav {
-    display: block;
-    height: 7vh;
-    border-bottom-width: 0;
-    z-index: -1; }
-  @media screen and (max-device-width: 375px) {
-    body .navbar-default.login-botnav {
-      display: none; } }
   body .general-container, body .login-container, body .home-container {
     margin-left: 20%;
     margin-right: 20%;
@@ -130,14 +124,16 @@ body {
     body .login-container .welcome-poster {
       font-family: "Lobster", cursive; }
     body .login-container .carousel {
-      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+      background: #333;
       height: 100%;
       width: 100%;
       position: relative;
       overflow: hidden;
       align-content: center;
       text-align: center;
-      border-bottom: 5px solid #AD4047; }
+      border-bottom: 5px solid #AD4047;
+      border-top: 5px solid #AD4047;
+      z-index: 2; }
       body .login-container .carousel .login-button {
         background-color: rgba(0, 0, 0, 0.6);
         color: white;
@@ -174,5 +170,9 @@ body {
       height: 90vh; } }
   body .home-container {
     text-align: center; }
+
+.login-body {
+  height: 100vh;
+  background-color: #FCE9DC; }
 
 /*# sourceMappingURL=style.css.map */

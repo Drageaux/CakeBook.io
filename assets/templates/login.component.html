@@ -1,4 +1,4 @@
-<div *ngIf="!loggedIn()" xmlns="http://www.w3.org/1999/html">
+<div *ngIf="!loggedIn()" class="login-body">
     <nav class="navbar navbar-default navbar-fixed-top login-topnav">
         <a href="#" class="navbar-brand">Cake Book</a>
     </nav>
@@ -53,10 +53,8 @@
         </div>
 
         <!-- Dimmed Background-->
-        <div class="dimmed-background">&nbsp;</div>
+        <!--<div class="dimmed-background">&nbsp;</div>-->
     </div>
-
-    <nav class="navbar navbar-default navbar-fixed-bottom login-botnav"></nav>
 </div>
 
 <div *ngIf="loggedIn() && atLoginPage()" class="login-container">
