@@ -38,30 +38,88 @@ body {
         border-bottom: 5px solid $topnav-item-color;
         height: 40px;
 
-        .navbar-nav {
-            border-radius: 6px 6px 0 0;
 
-            li {
-                a {
-                    color: white;
-                    background-color: $topnav-item-color;
-                    border-radius: 6px 6px 0 0;
-                    border-right: 6px solid $topnav-item-hovered-color;
-                    padding: 15px 16px 11px 16px;
-                }
-                a:hover,
-                a:focus {
-                    color: white;
-                    background-color: $topnav-item-hovered-color;
-                    border-right: solid $topnav-item-hovered-color;
-                    padding: 15px 21px 11px 21px;
-                    transition-duration: 0.28s;
+        /* Normal Menu */
+        @media screen and (min-width: 480px) {
+            .navbar-nav#normalMenu {
+                border-radius: 6px 6px 0 0;
+                margin-right: 10%;
+
+                li {
+                    a {
+                        color: white;
+                        background-color: $topnav-item-color;
+                        border-radius: 6px 6px 0 0;
+                        border-right: 6px solid $topnav-item-hovered-color;
+                        padding: 15px 16px 11px 16px;
+                    }
+                    a:hover,
+                    a:focus {
+                        color: white;
+                        background-color: $topnav-item-hovered-color;
+                        border-right: solid $topnav-item-hovered-color;
+                        padding: 15px 21px 11px 21px;
+                        transition-duration: 0.28s;
+                    }
                 }
             }
         }
         @media screen and (min-width: 768px) {
-            .navbar-right {
+            .navbar-nav#normalMenu {
                 margin-right: 20%;
+            }
+        }
+
+        /* Dropdown Menu */
+        .btn-group#dropdownMenu {
+            display: none;
+        }
+
+        @media screen and (max-width: 480px) {
+            /* Normal Menu */
+            .navbar-nav#normalMenu {
+                display: none;
+            }
+
+            /* Dropdown Menu */
+            .btn-group#dropdownMenu {
+                display: block;
+                float: right;
+
+                button {
+                    padding: 10px 22px 5px 22px;
+                    border-width: 0px;
+                    background: #341315;
+                    font-size: 25px;
+
+                    span {
+                        color: white;
+                    }
+                }
+                button:hover {
+                    background: #AD4047;
+                }
+
+                ul {
+                    padding: 0;
+                    background-color: #3D001F;
+
+                    li {
+                        background-color: #341315;
+                        font-size: 20px;
+
+                        a {
+                            padding-top: 7px;
+                            padding-bottom: 7px;
+                            color: white;
+                            font-size: 16px;
+                            font-family: "Arial";
+                        }
+                        a:hover {
+                            background-color: #AD4047;
+                        }
+                    }
+                }
             }
         }
     }

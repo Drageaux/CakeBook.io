@@ -24,6 +24,7 @@ import {LoggedInRouterOutlet} from "./loggedin-outlet";
     template: `
         <div *ngIf="loggedIn() && !atLoginPage()">
             <nav class="navbar navbar-default navbar-fixed-top navtop">
+
                 <!-- Normal Menu -->
                 <ul class="nav navbar-nav navbar-right" id="normalMenu">
                     <li>
@@ -47,12 +48,23 @@ import {LoggedInRouterOutlet} from "./loggedin-outlet";
                         </a>
                     </li>
                 </ul>
+
+                <div class="btn-group" id="dropdownMenu">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="glyphicon glyphicon-list"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a class="navbar-item" href="#">About</a></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
             </nav>
         </div>
 
         <router-outlet></router-outlet>
 		`,
-    styleUrls: ["assets/stylesheets/style.css"],
+    styleUrls: ["assets/custom/stylesheets/style.css"],
     encapsulation: ViewEncapsulation.None,
     providers: [
         CakeService,
