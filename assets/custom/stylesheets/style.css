@@ -42,37 +42,43 @@ body {
     body .navbar-default .btn-group#dropdownMenu {
       display: none; }
     @media screen and (max-width: 480px) {
-      body .navbar-default {
-        /* Normal Menu */
-        /* Dropdown Menu */ }
-        body .navbar-default .navbar-nav#normalMenu {
-          display: none; }
-        body .navbar-default .btn-group#dropdownMenu {
-          display: block;
-          float: right; }
-          body .navbar-default .btn-group#dropdownMenu button {
-            padding: 10px 22px 5px 22px;
-            border-width: 0px;
-            background: #341315;
-            font-size: 25px; }
-            body .navbar-default .btn-group#dropdownMenu button span {
-              color: white; }
-          body .navbar-default .btn-group#dropdownMenu button:hover {
-            background: #AD4047; }
-          body .navbar-default .btn-group#dropdownMenu ul {
-            padding: 0;
-            background-color: #3D001F; }
-            body .navbar-default .btn-group#dropdownMenu ul li {
-              background-color: #341315;
-              font-size: 20px; }
-              body .navbar-default .btn-group#dropdownMenu ul li a {
-                padding-top: 7px;
-                padding-bottom: 7px;
-                color: white;
-                font-size: 16px;
-                font-family: "Arial"; }
-              body .navbar-default .btn-group#dropdownMenu ul li a:hover {
-                background-color: #AD4047; } }
+      body .navbar-default .navbar-nav#normalMenu {
+        display: none; }
+      body .navbar-default .btn-group#dropdownMenu {
+        display: block;
+        float: right;
+        color: white; }
+        body .navbar-default .btn-group#dropdownMenu button {
+          color: white;
+          padding: 10px 22px;
+          border-width: 0px;
+          background-color: #AD4047;
+          font-size: 25px;
+          border-radius: 6px 6px 0 0;
+          border-right: 6px solid #6a272b; }
+        body .navbar-default .btn-group#dropdownMenu button:hover,
+        body .navbar-default .btn-group#dropdownMenu button:focus {
+          color: white;
+          padding: 10px 22px 10px 28px;
+          background-color: #6a272b;
+          transition-duration: 0.28s; }
+        body .navbar-default .btn-group#dropdownMenu ul {
+          padding: 0;
+          background: transparent;
+          border-width: 0; }
+          body .navbar-default .btn-group#dropdownMenu ul li {
+            background-color: #AD4047;
+            font-size: 20px;
+            border-radius: 8px 0 8px 8px; }
+            body .navbar-default .btn-group#dropdownMenu ul li a {
+              color: white;
+              padding: 9px 21px 11px 21px; }
+            body .navbar-default .btn-group#dropdownMenu ul li a:hover {
+              color: white;
+              background-color: #6a272b;
+              padding: 9px 25px 11px 25px;
+              transition-duration: 0.28s;
+              border-radius: 8px 0 8px 8px; } }
   body .navbar-default.topnav:hover {
     border-bottom: 5px solid #6a272b;
     transition-duration: 0.4s; }

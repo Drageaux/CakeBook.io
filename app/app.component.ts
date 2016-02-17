@@ -23,7 +23,7 @@ import {LoggedInRouterOutlet} from "./loggedin-outlet";
     selector: 'my-app',
     template: `
         <div *ngIf="loggedIn() && !atLoginPage()">
-            <nav class="navbar navbar-default navbar-fixed-top navtop">
+            <nav class="navbar navbar-default navbar-fixed-top topnav">
 
                 <!-- Normal Menu -->
                 <ul class="nav navbar-nav navbar-right" id="normalMenu">
@@ -49,6 +49,7 @@ import {LoggedInRouterOutlet} from "./loggedin-outlet";
                     </li>
                 </ul>
 
+                <!-- Dropdown Menu -->
                 <div class="btn-group" id="dropdownMenu">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="glyphicon glyphicon-list"></span>
@@ -99,7 +100,6 @@ export class AppComponent {
     }
 
     loggedIn() {
-        console.log(tokenNotExpired() && this._location.path() != "/login");
         return tokenNotExpired();
     }
 
