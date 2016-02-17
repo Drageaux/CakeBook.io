@@ -115,7 +115,7 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit() {
-        //Connection.
+        //Connection to database.
     }
 
     logout() {
