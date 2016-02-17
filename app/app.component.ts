@@ -55,9 +55,26 @@ import {LoggedInRouterOutlet} from "./loggedin-outlet";
                         <span class="glyphicon glyphicon-list"></span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
-                        <li><a class="navbar-item" href="#">About</a></li>
-                        <li></li>
-                        <li></li>
+                        <li>
+                            <a class="navbar-item" [routerLink]="['Home']">
+                                <span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Home&nbsp;
+                            </a>
+                        </li>
+                        <li>
+                            <a class="navbar-item" [routerLink]="['Cakes']">
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Profile&nbsp;
+                            </a>
+                        </li>
+                        <li>
+                            <a class="navbar-item" href="#">
+                                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp;Settings&nbsp;
+                            </a>
+                        </li>
+                        <li>
+                            <a class="navbar-item" (click)="logout()">
+                                <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Logout&nbsp;
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </nav>

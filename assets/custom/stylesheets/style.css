@@ -64,21 +64,24 @@ body {
           transition-duration: 0.28s; }
         body .navbar-default .btn-group#dropdownMenu ul {
           padding: 0;
-          background: transparent;
-          border-width: 0; }
+          background-color: #AD4047;
+          border-width: 0;
+          border-radius: 8px 0 8px 8px; }
           body .navbar-default .btn-group#dropdownMenu ul li {
-            background-color: #AD4047;
-            font-size: 20px;
-            border-radius: 8px 0 8px 8px; }
+            font-size: 1.1em;
+            align-content: center; }
             body .navbar-default .btn-group#dropdownMenu ul li a {
               color: white;
-              padding: 9px 21px 11px 21px; }
+              padding: 8px 10px 6px 57px; }
             body .navbar-default .btn-group#dropdownMenu ul li a:hover {
               color: white;
               background-color: #6a272b;
-              padding: 9px 25px 11px 25px;
-              transition-duration: 0.28s;
-              border-radius: 8px 0 8px 8px; } }
+              padding: 10px 10px 8px 30px;
+              transition-duration: 0.28s; }
+          body .navbar-default .btn-group#dropdownMenu ul li:first-child a {
+            border-radius: 8px 0 8px 8px; }
+          body .navbar-default .btn-group#dropdownMenu ul li:last-child a {
+            border-radius: 0 0 8px 8px; } }
   body .navbar-default.topnav:hover {
     border-bottom: 5px solid #6a272b;
     transition-duration: 0.4s; }

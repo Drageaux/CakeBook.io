@@ -103,24 +103,33 @@ body {
 
                 ul {
                     padding: 0;
-                    background: transparent;
+                    background-color: $topnav-item-color;
                     border-width: 0;
+                    border-radius: 8px 0 8px 8px;
 
                     li {
-                        background-color: $topnav-item-color;
-                        font-size: 20px;
-                        border-radius: 8px 0 8px 8px;
+                        font-size: 1.1em;
+                        align-content: center;
 
                         a {
                             color: white;
-                            padding: 9px 21px 11px 21px;
+                            padding: 8px 10px 6px 57px;
                         }
                         a:hover {
                             color: white;
                             background-color: $topnav-item-hovered-color;
-                            padding: 9px 25px 11px 25px;
+                            padding: 10px 10px 8px 30px;
                             transition-duration: 0.28s;
+                        }
+                    }
+                    li:first-child {
+                        a {
                             border-radius: 8px 0 8px 8px;
+                        }
+                    }
+                    li:last-child {
+                        a {
+                            border-radius: 0 0 8px 8px;
                         }
                     }
                 }
