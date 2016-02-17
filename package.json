@@ -4,7 +4,6 @@
   "author": "David Thong Nguyen",
   "scripts": {
     "preinstall": "npm install -g live-server",
-    "prestart": "npm run tsc",
     "tsd": "npm tsd install",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
