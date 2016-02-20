@@ -50,7 +50,7 @@ System.register(['angular2/core', 'angular2/router', 'angular2-jwt'], function(e
                 };
                 LoginComponent = __decorate([
                     core_1.Component({
-                        templateUrl: "assets/templates/login.component.html"
+                        templateUrl: "templates/login.component.html"
                     }), 
                     __metadata('design:paramtypes', [router_1.Router, router_1.Location])
                 ], LoginComponent);

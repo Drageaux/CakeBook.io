@@ -4,7 +4,7 @@ import {Cake}       from "./cakes/cake";
 
 @Component({
     selector: "add-cake-form",
-    templateUrl: "assets/templates/add-cake-form.component.html"
+    templateUrl: "templates/add-cake-form.component.html"
 })
 
 export class AddCakeFormComponent {

@@ -56,7 +56,7 @@ System.register(['angular2/core', "./cakes/cake"], function(exports_1) {
                 AddCakeFormComponent = __decorate([
                     core_1.Component({
                         selector: "add-cake-form",
-                        templateUrl: "assets/templates/add-cake-form.component.html"
+                        templateUrl: "templates/add-cake-form.component.html"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AddCakeFormComponent);

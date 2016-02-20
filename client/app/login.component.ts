@@ -7,7 +7,7 @@ import {HomeComponent} from "./home.component";
 declare var Auth0Lock;
 
 @Component({
-    templateUrl: "assets/templates/login.component.html"
+    templateUrl: "templates/login.component.html"
 })
 
 export class LoginComponent implements OnInit {

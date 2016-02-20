@@ -5,7 +5,7 @@ import {OnActivate} from "angular2/router";
 import {OnInit} from "angular2/core";
 
 @Component({
-    templateUrl: "assets/templates/home.component.html"
+    templateUrl: "templates/home.component.html"
 })
 
 export class HomeComponent {

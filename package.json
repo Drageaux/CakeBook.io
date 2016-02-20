@@ -8,7 +8,7 @@
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "lite": "lite-server",
-    "start": "live-server --entry-file=index.html"
+    "start": "node server.js"
   },
   "license": "ISC",
   "dependencies": {
