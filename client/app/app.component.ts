@@ -107,15 +107,11 @@ enableProdMode();
     {path: "/cake/:id", name: "CakeDetail", component: CakeDetailComponent}
 ])
 
-export class AppComponent implements OnInit {
+export class AppComponent {
     constructor(public authHttp:AuthHttp,
                 private http:Http,
                 private _router:Router,
                 private _location:Location) {
-    }
-
-    ngOnInit() {
-        //Connection to database.
     }
 
     logout() {

@@ -62,9 +62,6 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                     this._router = _router;
                     this._location = _location;
                 }
-                AppComponent.prototype.ngOnInit = function () {
-                    //Connection to database.
-                };
                 AppComponent.prototype.logout = function () {
                     localStorage.removeItem('profile');
                     localStorage.removeItem('id_token');
