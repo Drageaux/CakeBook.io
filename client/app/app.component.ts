@@ -91,10 +91,7 @@ enableProdMode();
     providers: [
         CakeService,
         ROUTER_PROVIDERS,
-        HTTP_PROVIDERS,
-        // in-memory web api providers
-        provide(XHRBackend, {useClass: InMemoryBackendService}), // in-mem server
-        provide(SEED_DATA, {useClass: CakeData}), // in-mem server data
+        HTTP_PROVIDERS
     ],
     directives: [ROUTER_DIRECTIVES, LoggedInRouterOutlet]
 })
