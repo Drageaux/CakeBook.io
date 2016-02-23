@@ -40,7 +40,7 @@ System.register(['angular2/core', "angular2/router", "./cakes/cake.service", "./
                         .subscribe(function (cakes) { return _this.cakes = cakes; }, function (error) { return _this.errorMessage = error; });
                 };
                 ProfileComponent.prototype.onSelect = function (cake) {
-                    this._router.navigate(["CakeDetail", { id: cake.id }]);
+                    this._router.navigate(["CakeDetail", { id: cake._id }]);
                 };
                 ProfileComponent.prototype.addCake = function (name) {
                     var _this = this;

@@ -27,24 +27,22 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
             CakeService = (function () {
                 function CakeService(http) {
                     this.http = http;
-                    this._cakesUrl = "/api/cakes";
                 }
                 CakeService.prototype.getCakes = function () {
-                    return this.http.get(this._cakesUrl)
+                    return this.http.get("/api/cakes")
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };
                 CakeService.prototype.getCake = function (id) {
-                    return this.http.get(this._cakesUrl)
-                        .map(function (res) { return (res.json().data
-                        .filter(function (c) { return c.id === +id; })[0]); })
+                    return this.http.get("/api/cake/" + id)
+                        .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };
                 CakeService.prototype.addCake = function (name) {
                     var body = JSON.stringify({ name: name });
                     var headers = new http_2.Headers({ "Content-Type": "application/json" });
                     var options = new http_3.RequestOptions({ headers: headers });
-                    return this.http.post(this._cakesUrl, body, options)
+                    return this.http.post("/api/cakes", body, options)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };

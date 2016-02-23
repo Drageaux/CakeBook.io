@@ -52,7 +52,7 @@ export class ProfileComponent implements OnInit {
     }
 
     onSelect(cake:Cake) {
-        this._router.navigate(["CakeDetail", {id: cake.id}]);
+        this._router.navigate(["CakeDetail", {id: cake._id}]);
     }
 
     addCake(name:string):Observable<Cake> {

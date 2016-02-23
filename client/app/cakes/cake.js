@@ -4,8 +4,8 @@ System.register([], function(exports_1) {
         setters:[],
         execute: function() {
             Cake = (function () {
-                function Cake(id, name, ingredients, steps) {
-                    this.id = id;
+                function Cake(_id, name, ingredients, steps) {
+                    this._id = _id;
                     this.name = name;
                     this.ingredients = ingredients;
                     this.steps = steps;
