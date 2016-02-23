@@ -48,7 +48,7 @@ System.register(['angular2/core', "angular2/router", "./cakes/cake.service", "./
                         return;
                     }
                     this._cakeService.addCake(name)
-                        .subscribe(function (cake) { return _this.cakes.push(cake); }, function (error) { return _this.errorMessage = error; });
+                        .subscribe(function (cake) { return _this.cakes.push(cake) && console.log(cake); }, function (error) { return _this.errorMessage = error; });
                 };
                 ProfileComponent = __decorate([
                     core_1.Component({

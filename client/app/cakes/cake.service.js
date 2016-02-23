@@ -27,12 +27,11 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
             CakeService = (function () {
                 function CakeService(http) {
                     this.http = http;
-                    this._cakesUrl = "app/cakes";
+                    this._cakesUrl = "/api/cakes";
                 }
                 CakeService.prototype.getCakes = function () {
                     return this.http.get(this._cakesUrl)
-                        .map(function (res) { return res.json().data; })
-                        .do(function (data) { return console.log(data); }) // print out Cake list
+                        .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };
                 CakeService.prototype.getCake = function (id) {
@@ -46,7 +45,7 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
                     var headers = new http_2.Headers({ "Content-Type": "application/json" });
                     var options = new http_3.RequestOptions({ headers: headers });
                     return this.http.post(this._cakesUrl, body, options)
-                        .map(function (res) { return res.json().data; })
+                        .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };
                 CakeService.prototype.handleError = function (error) {

@@ -61,7 +61,7 @@ export class ProfileComponent implements OnInit {
         }
         this._cakeService.addCake(name)
             .subscribe(
-                cake => this.cakes.push(cake),
+                cake => this.cakes.push(cake) && console.log(cake),
                 error => this.errorMessage = <any>error);
     }
 }

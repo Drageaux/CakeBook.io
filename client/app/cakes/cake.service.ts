@@ -12,12 +12,12 @@ export class CakeService {
     constructor(private http:Http) {
     }
 
-    private _cakesUrl = "app/cakes";
+    private _cakesUrl = "/api/cakes";
 
     getCakes() {
         return this.http.get(this._cakesUrl)
-            .map(res => <Cake[]> res.json().data)
-            .do(data => console.log(data)) // print out Cake list
+            .map(res => <Cake[]> res.json())
+            //.do(data => console.log(data)) // print out Cake list
             .catch(this.handleError);
     }
 
@@ -34,7 +34,7 @@ export class CakeService {
         let options = new RequestOptions({headers: headers});
 
         return this.http.post(this._cakesUrl, body, options)
-            .map(res => <Cake> res.json().data)
+            .map(res => <Cake> res.json())
             .catch(this.handleError);
     }
 
