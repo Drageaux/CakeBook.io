@@ -36,7 +36,7 @@ System.register(["angular2/core", "angular2/router", "./cake.service"], function
                         .subscribe(function (cake) { return _this.cake = cake; }, function (error) { return _this.errorMessage = error; });
                 };
                 CakeDetailComponent.prototype.gotoCakes = function () {
-                    this._router.navigate(["Cakes"]);
+                    this._router.navigate(["Home"]);
                 };
                 CakeDetailComponent = __decorate([
                     core_1.Component({

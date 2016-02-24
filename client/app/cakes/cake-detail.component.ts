@@ -50,6 +50,6 @@ export class CakeDetailComponent implements OnInit {
     }
 
     gotoCakes() {
-        this._router.navigate(["Cakes"]);
+        this._router.navigate(["Home"]);
     }
 }

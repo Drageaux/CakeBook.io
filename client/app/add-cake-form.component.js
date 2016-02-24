@@ -47,16 +47,10 @@ System.register(['angular2/core', "./cakes/cake"], function(exports_1) {
                     this.active = false;
                     setTimeout(function () { return _this.active = true; }, 0);
                 };
-                Object.defineProperty(AddCakeFormComponent.prototype, "diagnostic", {
-                    // TODO: Remove this when we're done
-                    get: function () { return JSON.stringify(this.model); },
-                    enumerable: true,
-                    configurable: true
-                });
                 AddCakeFormComponent = __decorate([
                     core_1.Component({
                         selector: "add-cake-form",
-                        templateUrl: "../templates/add-cake-form.component.html"
+                        templateUrl: "templates/add-cake-form.component.html"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AddCakeFormComponent);

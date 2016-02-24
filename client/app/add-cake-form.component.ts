@@ -4,10 +4,11 @@ import {Cake}       from "./cakes/cake";
 
 @Component({
     selector: "add-cake-form",
-    templateUrl: "../templates/add-cake-form.component.html"
+    templateUrl: "templates/add-cake-form.component.html"
 })
 
 export class AddCakeFormComponent {
+
 
     model = new Cake(10, "Easy Chocolate Chip Brownie Cheesecake", [
         "1 box of brownie mix, and ingredients needed to make them",
@@ -38,5 +39,5 @@ export class AddCakeFormComponent {
     }
 
     // TODO: Remove this when we're done
-    get diagnostic() { return JSON.stringify(this.model); }
+    //get diagnostic() { return JSON.stringify(this.model); }
 }

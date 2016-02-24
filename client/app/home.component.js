@@ -1,4 +1,4 @@
-System.register(['angular2/core', "angular2/router", "./cakes/cake.service", "./add-cake-form.component.ts"], function(exports_1) {
+System.register(['angular2/core', "angular2/router", "./cakes/cake.service"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', "angular2/router", "./cakes/cake.service", "./
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, cake_service_1, add_cake_form_component_ts_1;
+    var core_1, router_1, cake_service_1;
     var HomeComponent;
     return {
         setters:[
@@ -20,9 +20,6 @@ System.register(['angular2/core', "angular2/router", "./cakes/cake.service", "./
             },
             function (cake_service_1_1) {
                 cake_service_1 = cake_service_1_1;
-            },
-            function (add_cake_form_component_ts_1_1) {
-                add_cake_form_component_ts_1 = add_cake_form_component_ts_1_1;
             }],
         execute: function() {
             HomeComponent = (function () {
@@ -53,7 +50,6 @@ System.register(['angular2/core', "angular2/router", "./cakes/cake.service", "./
                 HomeComponent = __decorate([
                     core_1.Component({
                         template: "\n        <div class=\"general-container\">\n            <h2>Home</h2>\n            <h3>My Cakes</h3>\n            <ul>\n                <li>\n                    <input #newCake>\n                    <button (click)=\"addCake(newCake.value); newCake.value=''\">\n                        Add Cake\n                    </button>\n                    <div class=\"error\" *ngIf=\"errorMessage\">\n                        {{errorMessage}}\n                    </div>\n                </li>\n                <li *ngFor=\"#cake of cakes\"\n                    (click)=\"onSelect(cake)\">\n                    <a class=\"url-list-item\">{{cake.name}}</a>\n                </li>\n            </ul>\n        </div>\n        ",
-                        directives: [add_cake_form_component_ts_1.AddCakeFormComponent]
                     }), 
                     __metadata('design:paramtypes', [router_1.Location, router_1.Router, cake_service_1.CakeService])
                 ], HomeComponent);

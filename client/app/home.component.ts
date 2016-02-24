@@ -28,7 +28,7 @@ import {AddCakeFormComponent}   from "./add-cake-form.component.ts";
             </ul>
         </div>
         `,
-    directives: [AddCakeFormComponent]
+    //directives: [AddCakeFormComponent]
 })
 
 export class HomeComponent implements OnInit {
