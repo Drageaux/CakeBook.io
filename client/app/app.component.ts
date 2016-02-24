@@ -8,13 +8,14 @@ import {AuthHttp, tokenNotExpired, JwtHelper, AuthConfig} from "angular2-jwt";
 import {XHRBackend} from "angular2/http";
 import {InMemoryBackendService, SEED_DATA} from 'a2-in-memory-web-api/core';
 
-import {LoggedInRouterOutlet} from "./loggedin-outlet";
+import {LoggedInRouterOutlet}   from "./loggedin-outlet";
 import {LoginComponent}         from "./login.component";
 import {HomeComponent}          from "./home.component";
-import {ProfileComponent}       from "./profile.component";
+//import {ProfileComponent}       from "./profile.component";
 import {Cake}                   from "./cakes/cake";
 import {CakeData}               from "./cakes/cake-data";
 import {CakeDetailComponent}    from "./cakes/cake-detail.component";
+import {AddCakeFormComponent}   from "./add-cake-form.component";
 import {CakeService}            from "./cakes/cake.service";
 
 // Need to be imported later on for some reason
@@ -100,8 +101,9 @@ enableProdMode();
     {path: "/login", name: "Login", component: LoginComponent, useAsDefault: true},
     {path: "/...", redirectTo: ['/Login']},
     {path: "/home", name: "Home", component: HomeComponent},
-    {path: "/cakes", name: "Cakes", component: ProfileComponent},
-    {path: "/cake/:id", name: "CakeDetail", component: CakeDetailComponent}
+    //{path: "/cakes", name: "Cakes", component: ProfileComponent},
+    {path: "/cake/:id", name: "CakeDetail", component: CakeDetailComponent},
+    {path: "/addCakeForm/", name: "AddCakeForm", component: AddCakeFormComponent}
 ])
 
 export class AppComponent {

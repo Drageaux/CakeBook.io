@@ -1,66 +1,68 @@
-System.register(['angular2/core', "angular2/router", "./cakes/cake.service", "./add-cake-form.component"], function(exports_1) {
-    var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-        return c > 3 && r && Object.defineProperty(target, key, r), r;
-    };
-    var __metadata = (this && this.__metadata) || function (k, v) {
-        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-    };
-    var core_1, router_1, cake_service_1, add_cake_form_component_1;
-    var ProfileComponent;
-    return {
-        setters:[
-            function (core_1_1) {
-                core_1 = core_1_1;
-            },
-            function (router_1_1) {
-                router_1 = router_1_1;
-            },
-            function (cake_service_1_1) {
-                cake_service_1 = cake_service_1_1;
-            },
-            function (add_cake_form_component_1_1) {
-                add_cake_form_component_1 = add_cake_form_component_1_1;
-            }],
-        execute: function() {
-            ProfileComponent = (function () {
-                function ProfileComponent(_location, _router, _cakeService) {
-                    this._location = _location;
-                    this._router = _router;
-                    this._cakeService = _cakeService;
-                }
-                ProfileComponent.prototype.ngOnInit = function () {
-                    this.getCakes();
-                };
-                ProfileComponent.prototype.getCakes = function () {
-                    var _this = this;
-                    this._cakeService.getCakes()
-                        .subscribe(function (cakes) { return _this.cakes = cakes; }, function (error) { return _this.errorMessage = error; });
-                };
-                ProfileComponent.prototype.onSelect = function (cake) {
-                    this._router.navigate(["CakeDetail", { id: cake._id }]);
-                };
-                ProfileComponent.prototype.addCake = function (name) {
-                    var _this = this;
-                    if (!name) {
-                        return;
-                    }
-                    this._cakeService.addCake(name)
-                        .subscribe(function (cake) { return _this.cakes.push(cake) && console.log(cake); }, function (error) { return _this.errorMessage = error; });
-                };
-                ProfileComponent = __decorate([
-                    core_1.Component({
-                        template: "\n        <div class=\"general-container\">\n            <h2>Caker Profile</h2>\n            <h3>My Cakes</h3>\n            <ul>\n                <li>\n                    <input #newCake>\n                    <button (click)=\"addCake(newCake.value); newCake.value=''\">\n                        Add Cake\n                    </button>\n                    <div class=\"error\" *ngIf=\"errorMessage\">\n                        {{errorMessage}}\n                    </div>\n                </li>\n                <li *ngFor=\"#cake of cakes\"\n                    (click)=\"onSelect(cake)\">\n                    <a class=\"url-list-item\">{{cake.name}}</a>\n                </li>\n            </ul>\n        </div>\n        ",
-                        directives: [add_cake_form_component_1.AddCakeFormComponent]
-                    }), 
-                    __metadata('design:paramtypes', [router_1.Location, router_1.Router, cake_service_1.CakeService])
-                ], ProfileComponent);
-                return ProfileComponent;
-            })();
-            exports_1("ProfileComponent", ProfileComponent);
-        }
-    }
-});
+//import {Component, OnInit} from 'angular2/core';
+//import {Location, Router} from "angular2/router";
+//import {Observable} from "rxjs/Observable";
+//
+//import {Cake}                   from "./cakes/cake";
+//import {CakeService}            from "./cakes/cake.service";
+//import {AddCakeFormComponent}   from "./cakes/add-cake-form.component.ts";
+//
+//@Component({
+//    template: `
+//        <div class="general-container">
+//            <h2>Caker Profile</h2>
+//            <h3>My Cakes</h3>
+//            <ul>
+//                <li>
+//                    <input #newCake>
+//                    <button (click)="addCake(newCake.value); newCake.value=''">
+//                        Add Cake
+//                    </button>
+//                    <div class="error" *ngIf="errorMessage">
+//                        {{errorMessage}}
+//                    </div>
+//                </li>
+//                <li *ngFor="#cake of cakes"
+//                    (click)="onSelect(cake)">
+//                    <a class="url-list-item">{{cake.name}}</a>
+//                </li>
+//            </ul>
+//        </div>
+//        `,
+//    directives: [AddCakeFormComponent]
+//})
+//
+//export class ProfileComponent implements OnInit {
+//    errorMessage:string;
+//    cakes:Cake[];
+//
+//    constructor(private _location:Location,
+//                private _router:Router,
+//                private _cakeService:CakeService) {
+//    }
+//
+//    ngOnInit() {
+//        this.getCakes();
+//    }
+//
+//    getCakes() {
+//        this._cakeService.getCakes()
+//            .subscribe(
+//                cakes => this.cakes = cakes,
+//                error => this.errorMessage = <any>error);
+//    }
+//
+//    onSelect(cake:Cake) {
+//        this._router.navigate(["CakeDetail", {id: cake._id}]);
+//    }
+//
+//    addCake(name:string):Observable<Cake> {
+//        if (!name) {
+//            return;
+//        }
+//        this._cakeService.addCake(name)
+//            .subscribe(
+//                cake => this.cakes.push(cake) && console.log(cake),
+//                error => this.errorMessage = <any>error);
+//    }
+//}
 //# sourceMappingURL=profile.component.js.map
