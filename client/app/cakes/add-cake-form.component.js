@@ -29,16 +29,10 @@ System.register(['angular2/core', "./cake", "./cake.service", "angular2/core"], 
                 function AddCakeFormComponent(_cakeService) {
                     this._cakeService = _cakeService;
                     this.saved = new core_1.EventEmitter();
-                    this.ingrList = [
-                        { "value": "" },
-                        { "value": "" },
-                        { "value": "" }
-                    ];
-                    this.stepList = [
-                        { "value": "" },
-                        { "value": "" },
-                        { "value": "" }
-                    ];
+                    this.ingrList = [];
+                    this.currIngr = { "value": "" };
+                    this.stepList = [];
+                    this.currStep = { "value": "" };
                     this.model = new cake_1.Cake(0, "", [], []);
                     this.active = false;
                 }
@@ -74,20 +68,41 @@ System.register(['angular2/core', "./cake", "./cake.service", "angular2/core"], 
                 };
                 AddCakeFormComponent.prototype.addIngredient = function () {
                     // prevent spamming ingredient creation
-                    var lastIndex = Object.keys(this.ingrList[this.ingrList.length - 1]).length;
-                    if (lastIndex == 0) {
+                    if (this.currIngr.value != "") {
+                        this.ingrList.push(this.currIngr);
+                        this.currIngr = { "value": "" };
+                    }
+                };
+                AddCakeFormComponent.prototype.removeIngredient = function (index) {
+                    if (this.ingrList.length <= 0) {
                         return;
                     }
-                    this.ingrList.push({});
+                    return this.ingrList.splice(index, 1);
                 };
                 AddCakeFormComponent.prototype.addStep = function () {
-                    // prevent spamming ingredient creation
-                    var lastIndex = Object.keys(this.stepList[this.stepList.length - 1]).length;
-                    if (lastIndex == 0) {
+                    // prevent spamming step creation
+                    if (this.currStep.value != "") {
+                        this.stepList.push(this.currStep);
+                        this.currStep = { "value": "" };
+                    }
+                };
+                AddCakeFormComponent.prototype.removeStep = function (index) {
+                    if (this.stepList.length <= 0) {
                         return;
                     }
-                    this.stepList.push({});
+                    return this.stepList.splice(index, 1);
                 };
+                AddCakeFormComponent.prototype.isEmptyString = function (str) {
+                    return str == "" || str == null;
+                };
+                Object.defineProperty(AddCakeFormComponent.prototype, "diagnostic", {
+                    // TODO: Remove this when we're done
+                    get: function () {
+                        return JSON.stringify(this.model);
+                    },
+                    enumerable: true,
+                    configurable: true
+                });
                 __decorate([
                     core_2.Output(), 
                     __metadata('design:type', Object)

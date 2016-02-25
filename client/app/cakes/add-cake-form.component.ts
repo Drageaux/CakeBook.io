@@ -16,16 +16,11 @@ export class AddCakeFormComponent {
 
     @Output() saved = new EventEmitter<Cake>();
 
-    ingrList:Object[] = [
-        {"value": ""},
-        {"value": ""},
-        {"value": ""}
-    ];
-    stepList:Object[] = [
-        {"value": ""},
-        {"value": ""},
-        {"value": ""}
-    ];
+    ingrList:Object[] = [];
+    currIngr = {"value": ""};
+    stepList:Object[] = [];
+    currStep = {"value": ""};
+
     model = new Cake(0, "", [], []);
     active = false;
 
@@ -69,24 +64,40 @@ export class AddCakeFormComponent {
 
     addIngredient() {
         // prevent spamming ingredient creation
-        let lastIndex = Object.keys(this.ingrList[this.ingrList.length - 1]).length;
-        if (lastIndex == 0) {
+        if (this.currIngr.value != "") {
+            this.ingrList.push(this.currIngr);
+            this.currIngr = {"value": ""};
+        }
+    }
+
+    removeIngredient(index:number) {
+        if (this.ingrList.length <= 0) {
             return;
         }
-        this.ingrList.push({});
+        return this.ingrList.splice(index, 1);
     }
 
     addStep() {
-        // prevent spamming ingredient creation
-        let lastIndex = Object.keys(this.stepList[this.stepList.length - 1]).length;
-        if (lastIndex == 0) {
+        // prevent spamming step creation
+        if (this.currStep.value != "") {
+            this.stepList.push(this.currStep);
+            this.currStep = {"value": ""};
+        }
+    }
+
+    removeStep(index:number) {
+        if (this.stepList.length <= 0) {
             return;
         }
-        this.stepList.push({});
+        return this.stepList.splice(index, 1);
+    }
+
+    isEmptyString(str:string) {
+        return str == "" || str == null;
     }
 
     // TODO: Remove this when we're done
-    //get diagnostic() {
-    //    return JSON.stringify(this.model);
-    //}
+    get diagnostic() {
+        return JSON.stringify(this.model);
+    }
 }

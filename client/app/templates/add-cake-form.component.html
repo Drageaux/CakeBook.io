@@ -1,4 +1,3 @@
-{{diagnostic}}
 <div *ngIf="!active">
     <button class="btn btn-primary" (click)="openForm()">Make New Cake</button>
 </div>
@@ -17,15 +16,22 @@
 
         <!-- Ingredient list -->
         <div class="form-group">
+            <label>Ingredients</label>
+            <input type="text" class="form-control" placeholder="(optional)"
+                   [(ngModel)]="currIngr.value">
+            <button type="button" class="btn btn-primary"
+                    [class.disabled]="isEmptyString(currIngr.value)"
+                    (click)="addIngredient()">
+                Add
+            </button>
             <ul>
-                <label>Ingredients</label>
                 <li *ngFor="#ingr of ingrList; #idx = index">
-                    <input [(ngModel)]="ingr.value" type="text" class="form-control"
-                           placeholder="(optional)">
+                    {{ingr.value}}
+                    <button type="button" class="btn btn-danger"
+                            (click)="removeIngredient(idx)">
+                        Remove
+                    </button>
                 </li>
-                <button type="button" class="btn btn-default" (click)="addIngredient()">
-                    Add More Ingredient
-                </button>
                 <!--<div [hidden]="name.valid || name.pristine" class="alert alert-danger">-->
                 <!--</div>-->
             </ul>
@@ -33,21 +39,34 @@
 
         <!-- Instruction steps -->
         <div class="form-group">
-            <ul>
-                <label>Steps</label>
+            <label>Steps</label>
+            <input type="text" class="form-control" placeholder="(optional)"
+                   [(ngModel)]="currStep.value">
+            <button type="button" class="btn btn-primary"
+                    [class.disabled]="isEmptyString(currStep.value)"
+                    (click)="addStep()">
+                Add
+            </button>
+            <ol>
                 <li *ngFor="#step of stepList; #idx = index">
-                    <input [(ngModel)]="step.value" type="text" class="form-control"
-                           placeholder="(optional)">
+                    {{step.value}}
+                    <button type="button" class="btn btn-danger"
+                            (click)="removeStep(idx)">
+                        Remove
+                    </button>
                 </li>
-                <button type="button" class="btn btn-default" (click)="addStep()">
-                    Add More Step
-                </button>
                 <!--<div [hidden]="name.valid || name.pristine" class="alert alert-danger">-->
                 <!--</div>-->
-            </ul>
+            </ol>
         </div>
 
-        <button type="submit" class="btn btn-success">Submit</button>
-        <button type="button" class="btn btn-danger" (click)="closeForm()">Cancel</button>
+        <button type="submit" class="btn btn-success"
+                [class.disabled]="isEmptyString(model.name)">
+            Submit
+        </button>
+        <button type="button" class="btn btn-danger"
+                (click)="closeForm()">
+            Cancel
+        </button>
     </form>
 </div>
