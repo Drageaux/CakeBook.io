@@ -41,8 +41,9 @@ body {
     @media screen and (min-width: 768px) {
       body .navbar-default .navbar-nav#normalMenu {
         margin-right: 20%; } }
-    body .navbar-default .btn-group#dropdownMenu {
-      display: none; }
+    @media screen and (min-width: 480px) {
+      body .navbar-default .btn-group#dropdownMenu {
+        display: none; } }
     @media screen and (max-width: 480px) {
       body .navbar-default .navbar-nav#normalMenu {
         display: none; }

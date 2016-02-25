@@ -73,8 +73,10 @@ body {
         }
 
         /* Dropdown Menu */
-        .btn-group#dropdownMenu {
-            display: none;
+        @media screen and (min-width: 480px) {
+            .btn-group#dropdownMenu {
+                display: none;
+            }
         }
         @media screen and (max-width: 480px) {
             // Hiding normal menu
@@ -389,7 +391,6 @@ body {
                     //        border-color: #ddd;
                     //    }
                     //}
-
                 }
             }
         }
