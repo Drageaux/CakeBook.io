@@ -17,12 +17,18 @@
 
         <!-- Ingredient list -->
         <div class="form-group">
+            <ul>
             <label>Ingredient List</label>
-            <input type="text" class="form-control"
-                   [(ngModel)]="model.ingredients" placeholder="(optional)">
+                <li *ngFor="#ingr of ingrList; #idx = index">{{idx}}
+                    <input [(ngModel)]="ingr.value" type="text" class="form-control"
+                           placeholder="(optional)">
+                    <button type="button" (click)="addIngredient()"></button>
+                </li>
+
             <!--<div [hidden]="name.valid || name.pristine" class="alert alert-danger">-->
             <!--At least 1 ingredient is required-->
             <!--</div>-->
+            </ul>
         </div>
 
         <!-- Instruction steps -->

@@ -28,9 +28,19 @@ System.register(['angular2/core', "./cake", "./cake.service", "angular2/core"], 
             AddCakeFormComponent = (function () {
                 function AddCakeFormComponent(_cakeService) {
                     this._cakeService = _cakeService;
-                    this.model = new cake_1.Cake(0, "", [""], [""]);
+                    this.ingrList = [
+                        {
+                            "value": "lol"
+                        },
+                        {
+                            "value": "what"
+                        }
+                    ];
+                    this.stepList = [""];
+                    this.model = new cake_1.Cake(0, "", [], []);
                     this.active = false;
                     this.saved = new core_1.EventEmitter();
+                    console.log(this.ingrList);
                 }
                 AddCakeFormComponent.prototype.openForm = function () {
                     this.active = true;
@@ -49,6 +59,15 @@ System.register(['angular2/core', "./cake", "./cake.service", "angular2/core"], 
                     // TODO: Remove when there's a better way
                     this.model = new cake_1.Cake(0, "", [""], [""]);
                     this.closeForm();
+                };
+                AddCakeFormComponent.prototype.addIngredient = function () {
+                    // prevent spamming ingredient creation
+                    var lastIndex = Object.keys(this.ingrList[this.ingrList.length - 1]).length;
+                    if (lastIndex == 0) {
+                        return;
+                    }
+                    this.ingrList.push({});
+                    console.log(this.ingrList);
                 };
                 __decorate([
                     core_2.Output(), 

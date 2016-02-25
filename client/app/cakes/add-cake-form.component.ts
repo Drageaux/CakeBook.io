@@ -5,6 +5,7 @@ import {Observable} from "rxjs/Observable";
 import {CakeService} from "./cake.service";
 import {Output} from "angular2/core";
 import {OnInit} from "angular2/core";
+import {Json} from "angular2/src/facade/lang";
 
 @Component({
     selector: "add-cake-form",
@@ -13,11 +14,21 @@ import {OnInit} from "angular2/core";
 
 export class AddCakeFormComponent {
 
-    model = new Cake(0, "", [""], [""]);
+    ingrList:Object[] = [
+        {
+            "value": "lol"
+        },
+        {
+            "value": "what"
+        }
+    ];
+    stepList = [""];
+    model = new Cake(0, "", [], []);
     active = false;
     @Output() saved = new EventEmitter<Cake>();
 
     constructor(private _cakeService:CakeService) {
+        console.log(this.ingrList)
     }
 
     openForm() {
@@ -39,6 +50,16 @@ export class AddCakeFormComponent {
         // TODO: Remove when there's a better way
         this.model = new Cake(0, "", [""], [""]);
         this.closeForm();
+    }
+
+    addIngredient(){
+        // prevent spamming ingredient creation
+        let lastIndex = Object.keys(this.ingrList[this.ingrList.length-1]).length;
+        if (lastIndex == 0){
+            return;
+        }
+        this.ingrList.push({});
+        console.log(this.ingrList)
     }
 
     // TODO: Remove this when we're done
