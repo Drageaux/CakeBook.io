@@ -25,7 +25,7 @@ export class CakeService {
     }
 
     addCake(name:string):Observable<Cake> {
-        let body = JSON.stringify({name});
+        let body = name;
         let headers = new Headers({"Content-Type": "application/json"});
         let options = new RequestOptions({headers: headers});
 

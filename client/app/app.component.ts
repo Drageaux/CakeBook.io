@@ -1,15 +1,23 @@
 import {Component, provide, OnInit} from "angular2/core";
 import {HTTP_PROVIDERS, Http} from "angular2/http";
-import {Location, RouteConfig, Router, APP_BASE_HREF, ROUTER_PROVIDERS, ROUTER_DIRECTIVES, CanActivate} from 'angular2/router';
+import {Location,
+    RouteConfig,
+    Router,
+    APP_BASE_HREF,
+    ROUTER_PROVIDERS,
+    ROUTER_DIRECTIVES,
+    CanActivate} from 'angular2/router';
 import {FORM_PROVIDERS} from 'angular2/common';
-import {AuthHttp, tokenNotExpired, JwtHelper, AuthConfig} from "angular2-jwt";
+import {AuthHttp,
+    tokenNotExpired,
+    JwtHelper,
+    AuthConfig} from "angular2-jwt";
 
 // in-memory web api imports
 import {XHRBackend} from "angular2/http";
 import {InMemoryBackendService, SEED_DATA} from 'a2-in-memory-web-api/core';
 
 
-//import {AddCakeFormComponent}   from "./add-cake-form.component";
 import {LoggedInRouterOutlet}   from "./loggedin-outlet";
 import {LoginComponent}         from "./login.component";
 import {HomeComponent}          from "./home.component";
@@ -17,11 +25,12 @@ import {HomeComponent}          from "./home.component";
 import {Cake}                   from "./cakes/cake";
 import {CakeData}               from "./cakes/cake-data";
 import {CakeDetailComponent}    from "./cakes/cake-detail.component";
+import {AddCakeFormComponent}   from "./cakes/add-cake-form.component";
 import {CakeService}            from "./cakes/cake.service";
 
 // Need to be imported later on for some reason
-import {ViewEncapsulation}        from "angular2/core";
-import {enableProdMode} from 'angular2/core';
+import {ViewEncapsulation}      from "angular2/core";
+import {enableProdMode}         from 'angular2/core';
 enableProdMode();
 
 
@@ -104,7 +113,7 @@ enableProdMode();
     {path: "/home", name: "Home", component: HomeComponent},
     //{path: "/cakes", name: "Cakes", component: ProfileComponent},
     {path: "/cake/:id", name: "CakeDetail", component: CakeDetailComponent},
-    //{path: "/addCakeForm", name: "AddCakeForm", component: AddCakeFormComponent}
+    {path: "/addCakeForm", name: "AddCakeForm", component: AddCakeFormComponent}
 ])
 
 export class AppComponent {

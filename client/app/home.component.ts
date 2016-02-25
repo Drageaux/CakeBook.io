@@ -3,8 +3,8 @@ import {Location, Router} from "angular2/router";
 import {Observable} from "rxjs/Observable";
 
 import {Cake}                   from "./cakes/cake";
+import {AddCakeFormComponent}   from "./cakes/add-cake-form.component";
 import {CakeService}            from "./cakes/cake.service";
-import {AddCakeFormComponent}   from "./add-cake-form.component.ts";
 
 @Component({
     template: `
@@ -12,15 +12,17 @@ import {AddCakeFormComponent}   from "./add-cake-form.component.ts";
             <h2>Home</h2>
             <h3>My Cakes</h3>
             <ul>
-                <li>
-                    <input #newCake>
-                    <button (click)="addCake(newCake.value); newCake.value=''">
-                        Add Cake
-                    </button>
-                    <div class="error" *ngIf="errorMessage">
-                        {{errorMessage}}
-                    </div>
-                </li>
+                <!--<button>Make New Cake</button>-->
+                <add-cake-form></add-cake-form>
+                <!--<add-cake-form (saved)="getCakes()"></add-cake-form>-->
+                <!--<li>-->
+                    <!--<button (click)="addCake(newCake.value); newCake.value=''">-->
+                        <!--Add Cake-->
+                    <!--</button>-->
+                    <!--<div class="error" *ngIf="errorMessage">-->
+                        <!--{{errorMessage}}-->
+                    <!--</div>-->
+                <!--</li>-->
                 <li *ngFor="#cake of cakes"
                     (click)="onSelect(cake)">
                     <a class="url-list-item">{{cake.name}}</a>
@@ -28,7 +30,7 @@ import {AddCakeFormComponent}   from "./add-cake-form.component.ts";
             </ul>
         </div>
         `,
-    //directives: [AddCakeFormComponent]
+    directives: [AddCakeFormComponent]
 })
 
 export class HomeComponent implements OnInit {
@@ -55,13 +57,7 @@ export class HomeComponent implements OnInit {
         this._router.navigate(["CakeDetail", {id: cake._id}]);
     }
 
-    addCake(name:string):Observable<Cake> {
-        if (!name) {
-            return;
-        }
-        this._cakeService.addCake(name)
-            .subscribe(
-                cake => this.cakes.push(cake) && console.log(cake),
-                error => this.errorMessage = <any>error);
-    }
+    //onSaved() {
+    //    this._router.navigate(["Home"]);
+    //}
 }
