@@ -1,0 +1,82 @@
+<div *ngIf="!active">
+    <button class="btn btn-primary" (click)="openForm()">Make New Cake</button>
+</div>
+
+<div *ngIf="active" class="add-cake-form">
+    <h4>Make a Cake</h4>
+    <form (ngSubmit)="addCake(model.name)" #addCakeForm="ngForm">
+        <!-- Cake name -->
+        <div class="form-group">
+            <label>Cake Name</label>
+            <input type="text" class="form-control" required
+                   [(ngModel)]="model.name">
+            <!--<div [hidden]="name.valid || name.pristine" class="alert alert-danger">-->
+            <!--Name is required-->
+            <!--</div>-->
+        </div>
+        <hr>
+
+        <!-- Ingredient list -->
+        <div class="form-group">
+            <label>Ingredients</label><br>
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-primary"
+                            [class.disabled]="isEmptyString(currIngr.value)"
+                            (click)="addIngredient()">
+                        Add
+                    </button>
+                </span>
+                <input type="text" class="form-control" placeholder="(optional)"
+                       [(ngModel)]="currIngr.value">
+            </div>
+            <ul class="list-group add-cake-list">
+                <li *ngFor="#ingr of ingrList; #idx = index" class="list-group-item">
+                    <div class="number-label"><span>{{idx+1}}</span></div>
+                    <div class="list-group-item-name">{{ingr.value}}</div>
+                    <button type="button" class="btn btn-danger remove-button"
+                            (click)="removeIngredient(idx)">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <hr>
+
+        <!-- Instruction steps -->
+        <div class="form-group">
+            <label>Steps</label><br>
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-primary"
+                            [class.disabled]="isEmptyString(currStep.value)"
+                            (click)="addStep()">
+                        Add
+                    </button>
+                </span>
+                <input type="text" class="form-control" placeholder="(optional)"
+                       [(ngModel)]="currStep.value">
+            </div>
+            <ul class="list-group add-cake-list">
+                <li *ngFor="#step of stepList; #idx = index" class="list-group-item">
+                    <div class="number-label"><span>{{idx+1}}</span></div>
+                    <div class="list-group-item-name">{{step.value}}</div>
+                    <button type="button" class="btn btn-danger remove-button"
+                            (click)="removeStep(idx)">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Main form buttons -->
+        <button type="submit" class="btn btn-success"
+                [class.disabled]="isEmptyString(model.name)">
+            Submit
+        </button>
+        <button type="button" class="btn btn-danger"
+                (click)="closeForm()">
+            Cancel
+        </button>
+    </form>
+</div>
