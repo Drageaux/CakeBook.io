@@ -13,16 +13,10 @@ import {CakeService}            from "./cakes/cake.service";
             <h3>My Cakes</h3>
             <ul>
                 <!--<button>Make New Cake</button>-->
-                <add-cake-form></add-cake-form>
-                <!--<add-cake-form (saved)="getCakes()"></add-cake-form>-->
-                <!--<li>-->
-                    <!--<button (click)="addCake(newCake.value); newCake.value=''">-->
-                        <!--Add Cake-->
-                    <!--</button>-->
-                    <!--<div class="error" *ngIf="errorMessage">-->
-                        <!--{{errorMessage}}-->
-                    <!--</div>-->
-                <!--</li>-->
+                <add-cake-form (saved)="onAdded($event)"></add-cake-form>
+                <!--<div class="error" *ngIf="errorMessage">-->
+                    <!--{{errorMessage}}-->
+                <!--</div>-->
                 <li *ngFor="#cake of cakes"
                     (click)="onSelect(cake)">
                     <a class="url-list-item">{{cake.name}}</a>
@@ -57,7 +51,7 @@ export class HomeComponent implements OnInit {
         this._router.navigate(["CakeDetail", {id: cake._id}]);
     }
 
-    //onSaved() {
-    //    this._router.navigate(["Home"]);
-    //}
+    onAdded(cake:Cake) {
+        this.cakes.push(cake);
+    }
 }

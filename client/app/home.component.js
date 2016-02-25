@@ -42,9 +42,12 @@ System.register(['angular2/core', "angular2/router", "./cakes/add-cake-form.comp
                 HomeComponent.prototype.onSelect = function (cake) {
                     this._router.navigate(["CakeDetail", { id: cake._id }]);
                 };
+                HomeComponent.prototype.onAdded = function (cake) {
+                    this.cakes.push(cake);
+                };
                 HomeComponent = __decorate([
                     core_1.Component({
-                        template: "\n        <div class=\"general-container\">\n            <h2>Home</h2>\n            <h3>My Cakes</h3>\n            <ul>\n                <!--<button>Make New Cake</button>-->\n                <add-cake-form></add-cake-form>\n                <!--<add-cake-form (saved)=\"getCakes()\"></add-cake-form>-->\n                <!--<li>-->\n                    <!--<button (click)=\"addCake(newCake.value); newCake.value=''\">-->\n                        <!--Add Cake-->\n                    <!--</button>-->\n                    <!--<div class=\"error\" *ngIf=\"errorMessage\">-->\n                        <!--{{errorMessage}}-->\n                    <!--</div>-->\n                <!--</li>-->\n                <li *ngFor=\"#cake of cakes\"\n                    (click)=\"onSelect(cake)\">\n                    <a class=\"url-list-item\">{{cake.name}}</a>\n                </li>\n            </ul>\n        </div>\n        ",
+                        template: "\n        <div class=\"general-container\">\n            <h2>Home</h2>\n            <h3>My Cakes</h3>\n            <ul>\n                <!--<button>Make New Cake</button>-->\n                <add-cake-form (saved)=\"onAdded($event)\"></add-cake-form>\n                <!--<div class=\"error\" *ngIf=\"errorMessage\">-->\n                    <!--{{errorMessage}}-->\n                <!--</div>-->\n                <li *ngFor=\"#cake of cakes\"\n                    (click)=\"onSelect(cake)\">\n                    <a class=\"url-list-item\">{{cake.name}}</a>\n                </li>\n            </ul>\n        </div>\n        ",
                         directives: [add_cake_form_component_1.AddCakeFormComponent]
                     }), 
                     __metadata('design:paramtypes', [router_1.Location, router_1.Router, cake_service_1.CakeService])

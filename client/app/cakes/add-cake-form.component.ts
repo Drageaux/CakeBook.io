@@ -14,31 +14,28 @@ import {OnInit} from "angular2/core";
 export class AddCakeFormComponent {
 
     model = new Cake(0, "", [""], [""]);
-    //@Output() saved = new EventEmitter();
+    active = false;
+    @Output() saved = new EventEmitter<Cake>();
 
     constructor(private _cakeService:CakeService) {
     }
 
-    submitted = false;
-    onSubmit() {
-        this.submitted = true;
+    openForm() {
+        this.active = true;
     }
 
-    active = true;
-    //addCake() {
-    //    this.model = new Cake(10, "", [], []);
-    //    this.active = false;
-    //    setTimeout(() => this.active=true, 0);
-    //}
+    closeForm() {
+        this.active = false;
+    }
+
     addCake(name:string):Observable<Cake> {
         if (!name) {
             return;
         }
         this._cakeService.addCake(JSON.stringify(this.model))
-            .subscribe(res => console.log(res));
+            .subscribe(res => this.saved.emit(res));
 
-        this.active = false;
-        setTimeout(() => this.active = true, 0);
+        this.closeForm();
     }
 
     // TODO: Remove this when we're done

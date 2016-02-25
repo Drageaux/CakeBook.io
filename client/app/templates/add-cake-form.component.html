@@ -1,29 +1,38 @@
 {{diagnostic}}
-<form *ngIf="active" (ngSubmit)="onSubmit()" #addCakeForm="ngForm">
-    <!-- Cake name -->
-    <div class="form-group">
-        <input type="text" class="form-control" required
-               [(ngModel)]="model.name">
-        <!--<div [hidden]="name.valid || name.pristine" class="alert alert-danger">-->
+<div *ngIf="!active">
+    <button class="btn btn-primary" (click)="openForm()">Make New Cake</button>
+</div>
+
+<div *ngIf="active">
+    <form (ngSubmit)="addCake(model.name)" #addCakeForm="ngForm">
+        <!-- Cake name -->
+        <div class="form-group">
+            <label>Cake Name</label>
+            <input type="text" class="form-control" required
+                   [(ngModel)]="model.name">
+            <!--<div [hidden]="name.valid || name.pristine" class="alert alert-danger">-->
             <!--Name is required-->
-        <!--</div>-->
-    </div>
+            <!--</div>-->
+        </div>
 
-    <!-- Ingredient list -->
-    <div class="form-group">
-        <input type="text" class="form-control"
-               [(ngModel)]="model.ingredients">
-        <!--<div [hidden]="name.valid || name.pristine" class="alert alert-danger">-->
+        <!-- Ingredient list -->
+        <div class="form-group">
+            <label>Ingredient List</label>
+            <input type="text" class="form-control"
+                   [(ngModel)]="model.ingredients" placeholder="(optional)">
+            <!--<div [hidden]="name.valid || name.pristine" class="alert alert-danger">-->
             <!--At least 1 ingredient is required-->
-        <!--</div>-->
-    </div>
+            <!--</div>-->
+        </div>
 
-    <!-- Instruction steps -->
-    <div class="form-group">
-        <input type="text" class="form-control"
-               [(ngModel)]="model.steps" placeholder="(optional)">
-    </div>
+        <!-- Instruction steps -->
+        <div class="form-group">
+            <label>Instruction Steps</label>
+            <input type="text" class="form-control"
+                   [(ngModel)]="model.steps" placeholder="(optional)">
+        </div>
 
-    <button type="submit" class="btn btn-default"
-            (click)="addCake(model.name)">New Cake</button>
-</form>
+        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="button" class="btn btn-danger" (click)="closeForm()">Cancel</button>
+    </form>
+</div>

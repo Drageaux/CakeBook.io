@@ -1,4 +1,4 @@
-System.register(['angular2/core', "./cake", "./cake.service"], function(exports_1) {
+System.register(['angular2/core', "./cake", "./cake.service", "angular2/core"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', "./cake", "./cake.service"], function(exports_
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, cake_1, cake_service_1;
+    var core_1, cake_1, cake_service_1, core_2;
     var AddCakeFormComponent;
     return {
         setters:[
@@ -20,34 +20,37 @@ System.register(['angular2/core', "./cake", "./cake.service"], function(exports_
             },
             function (cake_service_1_1) {
                 cake_service_1 = cake_service_1_1;
+            },
+            function (core_2_1) {
+                core_2 = core_2_1;
             }],
         execute: function() {
             AddCakeFormComponent = (function () {
-                //@Output() saved = new EventEmitter();
                 function AddCakeFormComponent(_cakeService) {
                     this._cakeService = _cakeService;
                     this.model = new cake_1.Cake(0, "", [""], [""]);
-                    this.submitted = false;
-                    this.active = true;
+                    this.active = false;
+                    this.saved = new core_1.EventEmitter();
                 }
-                AddCakeFormComponent.prototype.onSubmit = function () {
-                    this.submitted = true;
+                AddCakeFormComponent.prototype.openForm = function () {
+                    this.active = true;
                 };
-                //addCake() {
-                //    this.model = new Cake(10, "", [], []);
-                //    this.active = false;
-                //    setTimeout(() => this.active=true, 0);
-                //}
+                AddCakeFormComponent.prototype.closeForm = function () {
+                    this.active = false;
+                };
                 AddCakeFormComponent.prototype.addCake = function (name) {
                     var _this = this;
                     if (!name) {
                         return;
                     }
                     this._cakeService.addCake(JSON.stringify(this.model))
-                        .subscribe(function (res) { return console.log(res); });
-                    this.active = false;
-                    setTimeout(function () { return _this.active = true; }, 0);
+                        .subscribe(function (res) { return _this.saved.emit(res); });
+                    this.closeForm();
                 };
+                __decorate([
+                    core_2.Output(), 
+                    __metadata('design:type', Object)
+                ], AddCakeFormComponent.prototype, "saved", void 0);
                 AddCakeFormComponent = __decorate([
                     core_1.Component({
                         selector: "add-cake-form",
