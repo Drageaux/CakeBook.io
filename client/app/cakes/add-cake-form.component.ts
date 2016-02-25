@@ -14,21 +14,13 @@ import {Json} from "angular2/src/facade/lang";
 
 export class AddCakeFormComponent {
 
-    ingrList:Object[] = [
-        {
-            "value": "lol"
-        },
-        {
-            "value": "what"
-        }
-    ];
+    ingrList:Object[] = [{"value": ""}];
     stepList = [""];
     model = new Cake(0, "", [], []);
     active = false;
     @Output() saved = new EventEmitter<Cake>();
 
     constructor(private _cakeService:CakeService) {
-        console.log(this.ingrList)
     }
 
     openForm() {
@@ -43,23 +35,28 @@ export class AddCakeFormComponent {
         if (!name) {
             return;
         }
+
+        // parse lists of ingredients and steps and insert to the model
+        for (let i = 0; i < this.ingrList.length; i++) {
+            let currIngr = this.ingrList[i]["value"];
+            this.model.ingredients.push(currIngr);
+        }
+
         this._cakeService.addCake(JSON.stringify(this.model))
             .subscribe(res => this.saved.emit(res));
 
-        // Reset the model
-        // TODO: Remove when there's a better way
+        // TODO: Remove when there's a better way to reset the model
         this.model = new Cake(0, "", [""], [""]);
         this.closeForm();
     }
 
-    addIngredient(){
+    addIngredient() {
         // prevent spamming ingredient creation
-        let lastIndex = Object.keys(this.ingrList[this.ingrList.length-1]).length;
-        if (lastIndex == 0){
+        let lastIndex = Object.keys(this.ingrList[this.ingrList.length - 1]).length;
+        if (lastIndex == 0) {
             return;
         }
         this.ingrList.push({});
-        console.log(this.ingrList)
     }
 
     // TODO: Remove this when we're done
