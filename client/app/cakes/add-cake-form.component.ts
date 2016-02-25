@@ -35,6 +35,9 @@ export class AddCakeFormComponent {
         this._cakeService.addCake(JSON.stringify(this.model))
             .subscribe(res => this.saved.emit(res));
 
+        // Reset the model
+        // TODO: Remove when there's a better way
+        this.model = new Cake(0, "", [""], [""]);
         this.closeForm();
     }
 

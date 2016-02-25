@@ -45,6 +45,9 @@ System.register(['angular2/core', "./cake", "./cake.service", "angular2/core"], 
                     }
                     this._cakeService.addCake(JSON.stringify(this.model))
                         .subscribe(function (res) { return _this.saved.emit(res); });
+                    // Reset the model
+                    // TODO: Remove when there's a better way
+                    this.model = new cake_1.Cake(0, "", [""], [""]);
                     this.closeForm();
                 };
                 __decorate([
