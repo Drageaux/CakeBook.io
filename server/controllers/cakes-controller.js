@@ -15,6 +15,8 @@ module.exports.get = function (req, res) {
 module.exports.create = function (req, res) {
     var cake = new Cake();
     cake.name = req.body.name;
+    cake.ingredients = req.body.ingredients;
+    cake.steps = req.body.steps;
 
     cake.save(function (err, cake) {
         res.json(cake);

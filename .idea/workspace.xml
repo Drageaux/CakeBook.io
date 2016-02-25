@@ -3,19 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="488cec99-ddf5-4f67-9a37-f9054f020f41" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/add-cake-form.component.js" afterPath="$PROJECT_DIR$/client/app/add-cake-form.component.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/add-cake-form.component.js.map" afterPath="$PROJECT_DIR$/client/app/add-cake-form.component.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/add-cake-form.component.ts" afterPath="$PROJECT_DIR$/client/app/add-cake-form.component.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/app.component.js" afterPath="$PROJECT_DIR$/client/app/app.component.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/app.component.js.map" afterPath="$PROJECT_DIR$/client/app/app.component.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/app.component.ts" afterPath="$PROJECT_DIR$/client/app/app.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/cakes/cake-detail.component.js" afterPath="$PROJECT_DIR$/client/app/cakes/cake-detail.component.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/cakes/cake-detail.component.js.map" afterPath="$PROJECT_DIR$/client/app/cakes/cake-detail.component.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/cakes/cake-detail.component.ts" afterPath="$PROJECT_DIR$/client/app/cakes/cake-detail.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/cakes/cake.service.js" afterPath="$PROJECT_DIR$/client/app/cakes/cake.service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/cakes/cake.service.js.map" afterPath="$PROJECT_DIR$/client/app/cakes/cake.service.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/cakes/cake.service.ts" afterPath="$PROJECT_DIR$/client/app/cakes/cake.service.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/home.component.js" afterPath="$PROJECT_DIR$/client/app/home.component.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/home.component.js.map" afterPath="$PROJECT_DIR$/client/app/home.component.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/home.component.ts" afterPath="$PROJECT_DIR$/client/app/home.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/templates/add-cake-form.component.html" afterPath="$PROJECT_DIR$/client/app/templates/add-cake-form.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/templates/home.component.html" afterPath="$PROJECT_DIR$/client/app/templates/home.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/controllers/cakes-controller.js" afterPath="$PROJECT_DIR$/server/controllers/cakes-controller.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/app/add-cake-form.component.js" afterPath="$PROJECT_DIR$/client/app/cakes/add-cake-form.component.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/app/add-cake-form.component.js.map" afterPath="$PROJECT_DIR$/client/app/cakes/add-cake-form.component.js.map" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/client/app/add-cake-form.component.ts" afterPath="$PROJECT_DIR$/client/app/cakes/add-cake-form.component.ts" />
     </list>
     <ignored path="cake-book.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,87 +42,64 @@
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/app/app.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="8.659091">
-              <caret line="34" column="71" selection-start-line="34" selection-start-column="71" selection-end-line="34" selection-end-column="71" />
-              <folding>
-                <marker date="1456348150180" expanded="true" signature="1334:4165" placeholder="..." />
-                <marker date="1456348150180" expanded="true" signature="1406:4150" placeholder="..." />
-                <marker date="1456348150180" expanded="false" signature="1517:2563" placeholder="..." />
-                <marker date="1456348150180" expanded="true" signature="1542:1779" placeholder="..." />
-                <marker date="1456348150180" expanded="true" signature="1614:1753" placeholder="..." />
-                <marker date="1456348150180" expanded="true" signature="1804:2029" placeholder="..." />
-                <marker date="1456348150180" expanded="true" signature="1861:2003" placeholder="..." />
-                <marker date="1456348150180" expanded="true" signature="2054:2279" placeholder="..." />
-                <marker date="1456348150180" expanded="true" signature="2111:2253" placeholder="..." />
-                <marker date="1456348150180" expanded="true" signature="2304:2541" placeholder="..." />
-                <marker date="1456348150180" expanded="true" signature="2371:2515" placeholder="..." />
-                <marker date="1456348150180" expanded="false" signature="2661:4131" placeholder="..." />
-                <marker date="1456348150180" expanded="true" signature="2810:2911" placeholder="..." />
-                <marker date="1456348150180" expanded="true" signature="2978:4108" placeholder="..." />
-                <marker date="1456348150180" expanded="true" signature="3007:3260" placeholder="..." />
-                <marker date="1456348150180" expanded="true" signature="3083:3230" placeholder="..." />
-                <marker date="1456348150180" expanded="true" signature="3289:3530" placeholder="..." />
-                <marker date="1456348150180" expanded="true" signature="3350:3500" placeholder="..." />
-                <marker date="1456348150180" expanded="true" signature="3559:3800" placeholder="..." />
-                <marker date="1456348150180" expanded="true" signature="3620:3770" placeholder="..." />
-                <marker date="1456348150180" expanded="true" signature="3829:4082" placeholder="..." />
-                <marker date="1456348150180" expanded="true" signature="3900:4052" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home.component.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="home.component.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/app/home.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="31" column="2" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="2" />
+            <state vertical-scroll-proportion="0.15974441">
+              <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
               <folding>
-                <marker date="1456348078726" expanded="true" signature="395:1028" placeholder="..." />
-                <marker date="1456348078726" expanded="true" signature="468:1013" placeholder="..." />
-                <marker date="1456348078726" expanded="true" signature="489:820" placeholder="..." />
-                <marker date="1456348078726" expanded="true" signature="606:669" placeholder="..." />
-                <marker date="1456348078726" expanded="true" signature="730:798" placeholder="..." />
-                <marker date="1456348078726" expanded="true" signature="865:995" placeholder="..." />
+                <marker date="1456357375829" expanded="true" signature="398:1228" placeholder="..." />
+                <marker date="1456357375829" expanded="true" signature="471:1213" placeholder="..." />
+                <marker date="1456357375829" expanded="true" signature="674:1017" placeholder="..." />
+                <marker date="1456357375829" expanded="true" signature="761:838" placeholder="..." />
+                <marker date="1456357375829" expanded="true" signature="906:988" placeholder="..." />
+                <marker date="1456357375829" expanded="true" signature="1065:1195" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/app/templates/home.component.html">
+      <file leaf-file-name="add-cake-form.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/app/cakes/add-cake-form.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-22.15909">
+              <caret line="39" column="56" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="56" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
+      <file leaf-file-name="add-cake-form.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/app/templates/add-cake-form.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5882353">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state vertical-scroll-proportion="-5.1282053">
+              <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cake.service.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cake.service.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/app/cakes/cake.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.600639">
-              <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
+            <state vertical-scroll-proportion="-6.9772725">
+              <caret line="38" column="52" selection-start-line="38" selection-start-column="45" selection-end-line="38" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cakes-controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/controllers/cakes-controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -165,17 +144,19 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/client/app/login.component.ts" />
         <option value="$PROJECT_DIR$/client/app/cakes/cakes.json" />
-        <option value="$PROJECT_DIR$/client/app/cakes/cake.ts" />
         <option value="$PROJECT_DIR$/server/models/cake.js" />
-        <option value="$PROJECT_DIR$/server/controllers/cakes-controller.js" />
-        <option value="$PROJECT_DIR$/client/app/cakes/cake.service.ts" />
         <option value="$PROJECT_DIR$/client/app/profile.component.ts" />
-        <option value="$PROJECT_DIR$/client/app/cakes/add-cake-form.component.ts" />
-        <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/client/app/add-cake-form.component.ts" />
-        <option value="$PROJECT_DIR$/client/app/home.component.ts" />
-        <option value="$PROJECT_DIR$/client/app/app.component.ts" />
         <option value="$PROJECT_DIR$/client/app/cakes/cake-detail.component.ts" />
+        <option value="$PROJECT_DIR$/client/app/app.component.ts" />
+        <option value="$PROJECT_DIR$/client/app/templates/home.component.html" />
+        <option value="$PROJECT_DIR$/client/app/cakes/cake.ts" />
+        <option value="$PROJECT_DIR$/client/app/home.component.ts" />
+        <option value="$PROJECT_DIR$/client/app/cakes/cake.service.ts" />
+        <option value="$PROJECT_DIR$/server/controllers/cakes-controller.js" />
+        <option value="$PROJECT_DIR$/client/app/templates/add-cake-form.component.html" />
+        <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/client/app/cakes/add-cake-form.component.ts" />
       </list>
     </option>
   </component>
@@ -281,6 +262,28 @@
               <option name="myItemId" value="server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cake-book" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cakebook.io" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -356,6 +359,32 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="cakes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cake-book" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cakebook.io" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cakes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="add-cake-form.component.ts" />
+              <option name="myItemType" value="com.intellij.lang.typescript.compiler.ui.projectView.TypeScriptNestingTreeNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -484,7 +513,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -754,41 +785,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/cakes/cake.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.079872206">
-          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/models/cake.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/app/login.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/templates/home.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5882353">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -809,14 +809,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/app/cakes/cake-detail.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.0766773">
@@ -833,73 +825,121 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/home.component.ts">
+    <entry file="file://$PROJECT_DIR$/client/app/templates/home.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="2" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="2" />
-          <folding>
-            <marker date="1456348078726" expanded="true" signature="395:1028" placeholder="..." />
-            <marker date="1456348078726" expanded="true" signature="468:1013" placeholder="..." />
-            <marker date="1456348078726" expanded="true" signature="489:820" placeholder="..." />
-            <marker date="1456348078726" expanded="true" signature="606:669" placeholder="..." />
-            <marker date="1456348078726" expanded="true" signature="730:798" placeholder="..." />
-            <marker date="1456348078726" expanded="true" signature="865:995" placeholder="..." />
-          </folding>
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="4" selection-end-line="5" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/add-cake-form.component.ts">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23961662">
-          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+        <state vertical-scroll-proportion="-0.033783782">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/app/app.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="8.659091">
-          <caret line="34" column="71" selection-start-line="34" selection-start-column="71" selection-end-line="34" selection-end-column="71" />
+        <state vertical-scroll-proportion="2.1136363">
+          <caret line="97" column="19" selection-start-line="97" selection-start-column="19" selection-end-line="97" selection-end-column="19" />
           <folding>
-            <marker date="1456348150180" expanded="true" signature="1334:4165" placeholder="..." />
-            <marker date="1456348150180" expanded="true" signature="1406:4150" placeholder="..." />
-            <marker date="1456348150180" expanded="false" signature="1517:2563" placeholder="..." />
-            <marker date="1456348150180" expanded="true" signature="1542:1779" placeholder="..." />
-            <marker date="1456348150180" expanded="true" signature="1614:1753" placeholder="..." />
-            <marker date="1456348150180" expanded="true" signature="1804:2029" placeholder="..." />
-            <marker date="1456348150180" expanded="true" signature="1861:2003" placeholder="..." />
-            <marker date="1456348150180" expanded="true" signature="2054:2279" placeholder="..." />
-            <marker date="1456348150180" expanded="true" signature="2111:2253" placeholder="..." />
-            <marker date="1456348150180" expanded="true" signature="2304:2541" placeholder="..." />
-            <marker date="1456348150180" expanded="true" signature="2371:2515" placeholder="..." />
-            <marker date="1456348150180" expanded="false" signature="2661:4131" placeholder="..." />
-            <marker date="1456348150180" expanded="true" signature="2810:2911" placeholder="..." />
-            <marker date="1456348150180" expanded="true" signature="2978:4108" placeholder="..." />
-            <marker date="1456348150180" expanded="true" signature="3007:3260" placeholder="..." />
-            <marker date="1456348150180" expanded="true" signature="3083:3230" placeholder="..." />
-            <marker date="1456348150180" expanded="true" signature="3289:3530" placeholder="..." />
-            <marker date="1456348150180" expanded="true" signature="3350:3500" placeholder="..." />
-            <marker date="1456348150180" expanded="true" signature="3559:3800" placeholder="..." />
-            <marker date="1456348150180" expanded="true" signature="3620:3770" placeholder="..." />
-            <marker date="1456348150180" expanded="true" signature="3829:4082" placeholder="..." />
-            <marker date="1456348150180" expanded="true" signature="3900:4052" placeholder="..." />
+            <marker date="1456348758329" expanded="true" signature="1380:4211" placeholder="..." />
+            <marker date="1456348758329" expanded="true" signature="1452:4196" placeholder="..." />
+            <marker date="1456348758329" expanded="false" signature="1563:2609" placeholder="..." />
+            <marker date="1456348758329" expanded="true" signature="1588:1825" placeholder="..." />
+            <marker date="1456348758329" expanded="true" signature="1660:1799" placeholder="..." />
+            <marker date="1456348758329" expanded="true" signature="1850:2075" placeholder="..." />
+            <marker date="1456348758329" expanded="true" signature="1907:2049" placeholder="..." />
+            <marker date="1456348758329" expanded="true" signature="2100:2325" placeholder="..." />
+            <marker date="1456348758329" expanded="true" signature="2157:2299" placeholder="..." />
+            <marker date="1456348758329" expanded="true" signature="2350:2587" placeholder="..." />
+            <marker date="1456348758329" expanded="true" signature="2417:2561" placeholder="..." />
+            <marker date="1456348758329" expanded="false" signature="2707:4177" placeholder="..." />
+            <marker date="1456348758329" expanded="true" signature="2856:2957" placeholder="..." />
+            <marker date="1456348758329" expanded="true" signature="3024:4154" placeholder="..." />
+            <marker date="1456348758329" expanded="true" signature="3053:3306" placeholder="..." />
+            <marker date="1456348758329" expanded="true" signature="3129:3276" placeholder="..." />
+            <marker date="1456348758329" expanded="true" signature="3335:3576" placeholder="..." />
+            <marker date="1456348758329" expanded="true" signature="3396:3546" placeholder="..." />
+            <marker date="1456348758329" expanded="true" signature="3605:3846" placeholder="..." />
+            <marker date="1456348758329" expanded="true" signature="3666:3816" placeholder="..." />
+            <marker date="1456348758329" expanded="true" signature="3875:4128" placeholder="..." />
+            <marker date="1456348758329" expanded="true" signature="3946:4098" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/controllers/cakes-controller.js">
+    <entry file="file://$PROJECT_DIR$/server/models/cake.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.600639">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.11980831">
+          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/cakes/cake.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="19" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/templates/add-cake-form.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.1282053">
+          <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/app/cakes/cake.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.600639">
-          <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
+        <state vertical-scroll-proportion="-6.9772725">
+          <caret line="38" column="52" selection-start-line="38" selection-start-column="45" selection-end-line="38" selection-end-column="52" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/controllers/cakes-controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/cakes/add-cake-form.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-22.15909">
+          <caret line="39" column="56" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/home.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15974441">
+          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+          <folding>
+            <marker date="1456357375829" expanded="true" signature="398:1228" placeholder="..." />
+            <marker date="1456357375829" expanded="true" signature="471:1213" placeholder="..." />
+            <marker date="1456357375829" expanded="true" signature="674:1017" placeholder="..." />
+            <marker date="1456357375829" expanded="true" signature="761:838" placeholder="..." />
+            <marker date="1456357375829" expanded="true" signature="906:988" placeholder="..." />
+            <marker date="1456357375829" expanded="true" signature="1065:1195" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

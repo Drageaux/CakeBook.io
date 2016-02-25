@@ -39,7 +39,7 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
                         .catch(this.handleError);
                 };
                 CakeService.prototype.addCake = function (name) {
-                    var body = JSON.stringify({ name: name });
+                    var body = name;
                     var headers = new http_2.Headers({ "Content-Type": "application/json" });
                     var options = new http_3.RequestOptions({ headers: headers });
                     return this.http.post("/api/cakes", body, options)
