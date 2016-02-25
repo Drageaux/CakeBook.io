@@ -12,7 +12,6 @@ import {CakeService}            from "./cakes/cake.service";
             <h2>Home</h2>
             <h3>My Cakes</h3>
             <ul>
-                <!--<button>Make New Cake</button>-->
                 <add-cake-form (saved)="onAdded($event)"></add-cake-form>
                 <!--<div class="error" *ngIf="errorMessage">-->
                     <!--{{errorMessage}}-->
