@@ -33,7 +33,7 @@
             <ul class="list-group add-cake-list">
                 <!--<span *ngIf="isEmptyString(currIngr.value)">There's nothing in here yet</span>-->
                 <li *ngFor="#ingr of ingrList; #idx = index" class="list-group-item">
-                    <div class="number-button"><span>{{idx+1}}</span></div>
+                    <div class="number-label"><span>{{idx+1}}</span></div>
                     <div class="list-group-item-name">{{ingr.value}}</div>
                     <button type="button" class="btn btn-danger remove-button"
                             (click)="removeIngredient(idx)">

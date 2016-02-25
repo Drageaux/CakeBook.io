@@ -18,7 +18,7 @@ $normal-font: "Marmelad", Arial;
 body {
     /* General */
     min-width: 480px;
-    
+
     p {
         font-family: $normal-font;
         font-size: 1.2em;
@@ -276,7 +276,7 @@ body {
         }
 
         ul.cake-list {
-            padding-left: 15px;
+            padding-left: 25px;
         }
 
         div.add-cake-form {
@@ -320,14 +320,12 @@ body {
                         cursor: pointer;
                         overflow: hidden;
 
-                        .number-button {
+                        .number-label {
                             color: white;
                             background-color: $topnav-item-color;
                             top: 0;
                             float: left;
-                            vertical-align: middle;
                             padding: 8px;
-                            border-radius: 4px 0 0 4px;
                             width: 24px;
                             height: 100%;
                             position: absolute;
@@ -355,6 +353,22 @@ body {
                             position: relative;
                         }
                     }
+                    .list-group-item:first-child {
+                        .number-label {
+                            border-radius: 4px 0 0 0;
+                        }
+                    }
+                    .list-group-item:not(:first-child):not(:last-child) {
+                        .number-label {
+                            border-radius: 0;
+                        }
+                    }
+                    .list-group-item:last-child {
+                        .number-label {
+                            border-radius: 0 0 0 4px;
+                        }
+                    }
+
                     //.list-group-item:hover,
                     //.list-group-item:focus {
                     //    color: white;

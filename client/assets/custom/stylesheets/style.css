@@ -174,7 +174,7 @@ body {
   body .home-container button {
     margin: 5px auto; }
   body .home-container ul.cake-list {
-    padding-left: 15px; }
+    padding-left: 25px; }
   body .home-container div.add-cake-form {
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -203,18 +203,16 @@ body {
           margin: 2px 20px 2px 20px;
           cursor: pointer;
           overflow: hidden; }
-          body .home-container div.add-cake-form .form-group .list-group .list-group-item .number-button {
+          body .home-container div.add-cake-form .form-group .list-group .list-group-item .number-label {
             color: white;
             background-color: #AD4047;
             top: 0;
             float: left;
-            vertical-align: middle;
             padding: 8px;
-            border-radius: 4px 0 0 4px;
             width: 24px;
             height: 100%;
             position: absolute; }
-            body .home-container div.add-cake-form .form-group .list-group .list-group-item .number-button span {
+            body .home-container div.add-cake-form .form-group .list-group .list-group-item .number-label span {
               line-height: 5px;
               top: 46%;
               position: absolute; }
@@ -230,6 +228,12 @@ body {
             font-size: 10px;
             vertical-align: baseline;
             position: relative; }
+        body .home-container div.add-cake-form .form-group .list-group .list-group-item:first-child .number-label {
+          border-radius: 4px 0 0 0; }
+        body .home-container div.add-cake-form .form-group .list-group .list-group-item:not(:first-child):not(:last-child) .number-label {
+          border-radius: 0; }
+        body .home-container div.add-cake-form .form-group .list-group .list-group-item:last-child .number-label {
+          border-radius: 0 0 0 4px; }
   @media screen and (max-width: 768px) {
     body .home-container {
       margin-left: 10%;
