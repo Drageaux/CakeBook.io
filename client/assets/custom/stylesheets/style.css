@@ -1,5 +1,6 @@
 body {
   /* General */
+  min-width: 480px;
   /* Top Nav */
   /* Content */
   /* Login Page */
@@ -8,7 +9,8 @@ body {
     font-family: "Marmelad", Arial;
     font-size: 1.2em; }
   body h1.welcome-poster {
-    font-family: "Lobster", cursive; }
+    font-family: "Lobster", cursive;
+    text-align: center; }
   body a:hover {
     cursor: pointer; }
   body .navbar-default {
@@ -50,7 +52,7 @@ body {
         color: white; }
         body .navbar-default .btn-group#dropdownMenu button {
           color: white;
-          padding: 10px 22px;
+          padding: 10px 22px 1px 22px;
           border-width: 0px;
           background-color: #AD4047;
           font-size: 25px;
@@ -59,7 +61,7 @@ body {
         body .navbar-default .btn-group#dropdownMenu button:hover,
         body .navbar-default .btn-group#dropdownMenu button:focus {
           color: white;
-          padding: 10px 22px 10px 28px;
+          padding: 10px 22px 1px 28px;
           background-color: #6a272b;
           transition-duration: 0.28s; }
         body .navbar-default .btn-group#dropdownMenu ul {
@@ -79,7 +81,7 @@ body {
               padding: 10px 10px 8px 30px;
               transition-duration: 0.28s; }
           body .navbar-default .btn-group#dropdownMenu ul li:first-child a {
-            border-radius: 8px 0 8px 8px; }
+            border-radius: 8px 0 0 0; }
           body .navbar-default .btn-group#dropdownMenu ul li:last-child a {
             border-radius: 0 0 8px 8px; } }
   body .navbar-default.topnav:hover {
@@ -103,7 +105,6 @@ body {
   body .general-container, body .login-container, body .home-container {
     margin-left: 20%;
     margin-right: 20%;
-    background-color: #fffefd;
     padding-top: 80px; }
   body .login-container {
     text-align: center;
@@ -168,8 +169,75 @@ body {
   @media screen and (max-device-width: 375px) {
     body .login-container {
       height: 90vh; } }
-  body .home-container {
-    text-align: center; }
+  body .home-container h4 {
+    margin-bottom: 6px; }
+  body .home-container button {
+    margin: 5px auto; }
+  body .home-container ul.cake-list {
+    padding-left: 15px; }
+  body .home-container div.add-cake-form {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 20px;
+    left: -10px;
+    position: relative; }
+    body .home-container div.add-cake-form .form-group {
+      margin-bottom: 8px; }
+      body .home-container div.add-cake-form .form-group button {
+        margin: 0; }
+      body .home-container div.add-cake-form .form-group .input-group .input-group-btn:first-child button {
+        margin-right: 5px;
+        border-radius: 4px; }
+      body .home-container div.add-cake-form .form-group .input-group .form-control:last-child {
+        border-radius: 4px; }
+      body .home-container div.add-cake-form .form-group .list-group {
+        margin-top: 5px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background-color: #eee;
+        min-height: 20px; }
+        body .home-container div.add-cake-form .form-group .list-group .list-group-item {
+          font-size: 1em;
+          word-wrap: break-word;
+          padding: 8px 15px 8px 0;
+          margin: 2px 20px 2px 20px;
+          cursor: pointer;
+          overflow: hidden; }
+          body .home-container div.add-cake-form .form-group .list-group .list-group-item .number-button {
+            color: white;
+            background-color: #AD4047;
+            top: 0;
+            float: left;
+            vertical-align: middle;
+            padding: 8px;
+            border-radius: 4px 0 0 4px;
+            width: 24px;
+            height: 100%;
+            position: absolute; }
+            body .home-container div.add-cake-form .form-group .list-group .list-group-item .number-button span {
+              line-height: 5px;
+              top: 46%;
+              position: absolute; }
+          body .home-container div.add-cake-form .form-group .list-group .list-group-item .list-group-item-name {
+            display: inline-block;
+            width: 90%;
+            right: 0;
+            padding-left: 30px;
+            margin-right: 0; }
+          body .home-container div.add-cake-form .form-group .list-group .list-group-item .remove-button {
+            float: right;
+            padding: 3px 7px 1px 7px;
+            font-size: 10px;
+            vertical-align: baseline;
+            position: relative; }
+  @media screen and (max-width: 768px) {
+    body .home-container {
+      margin-left: 10%;
+      margin-right: 10%; } }
+  @media screen and (max-width: 480px) {
+    body .home-container {
+      margin-left: 20px;
+      margin-right: 20px; } }
 
 .login-body {
   height: 100vh;

@@ -17,6 +17,8 @@ $normal-font: "Marmelad", Arial;
 
 body {
     /* General */
+    min-width: 480px;
+    
     p {
         font-family: $normal-font;
         font-size: 1.2em;
@@ -24,6 +26,7 @@ body {
 
     h1.welcome-poster {
         font-family: $welcome-font;
+        text-align: center;
     }
 
     a:hover {
@@ -86,7 +89,7 @@ body {
 
                 button {
                     color: white;
-                    padding: 10px 22px;
+                    padding: 10px 22px 1px 22px;
                     border-width: 0px;
                     background-color: $topnav-item-color;
                     font-size: 25px;
@@ -96,7 +99,7 @@ body {
                 button:hover,
                 button:focus {
                     color: white;
-                    padding: 10px 22px 10px 28px;
+                    padding: 10px 22px 1px 28px;
                     background-color: $topnav-item-hovered-color;
                     transition-duration: 0.28s;
                 }
@@ -164,7 +167,6 @@ body {
     .general-container {
         margin-left: 20%;
         margin-right: 20%;
-        background-color: lighten($_2nd-light-cream, 7%);
         padding-top: 80px;
     }
 
@@ -265,7 +267,130 @@ body {
     /* Home Page */
     .home-container {
         @extend .general-container;
-        text-align: center;
+        h4 {
+            margin-bottom: 6px;
+        }
+
+        button {
+            margin: 5px auto;
+        }
+
+        ul.cake-list {
+            padding-left: 15px;
+        }
+
+        div.add-cake-form {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 20px;
+            left: -10px;
+            position: relative;
+
+            .form-group {
+                margin-bottom: 8px;
+
+                button {
+                    margin: 0;
+                }
+
+                .input-group {
+                    .input-group-btn:first-child {
+                        button {
+                            margin-right: 5px;
+                            border-radius: 4px;
+                        }
+                    }
+                    .form-control:last-child {
+                        border-radius: 4px;
+                    }
+                }
+
+                .list-group {
+                    margin-top: 5px;
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
+                    background-color: #eee;
+                    min-height: 20px;
+
+                    .list-group-item {
+                        font-size: 1em;
+                        word-wrap: break-word;
+                        padding: 8px 15px 8px 0;
+                        margin: 2px 20px 2px 20px;
+                        cursor: pointer;
+                        overflow: hidden;
+
+                        .number-button {
+                            color: white;
+                            background-color: $topnav-item-color;
+                            top: 0;
+                            float: left;
+                            vertical-align: middle;
+                            padding: 8px;
+                            border-radius: 4px 0 0 4px;
+                            width: 24px;
+                            height: 100%;
+                            position: absolute;
+
+                            span {
+                                line-height: 5px;
+                                top: 46%;
+                                position: absolute;
+                            }
+                        }
+
+                        .list-group-item-name {
+                            display: inline-block;
+                            width: 90%;
+                            right: 0;
+                            padding-left: 30px;
+                            margin-right: 0;
+                        }
+
+                        .remove-button {
+                            float: right;
+                            padding: 3px 7px 1px 7px;
+                            font-size: 10px;
+                            vertical-align: baseline;
+                            position: relative;
+                        }
+                    }
+                    //.list-group-item:hover,
+                    //.list-group-item:focus {
+                    //    color: white;
+                    //    background-color: $topnav-item-color;
+                    //    transition-duration: 0.2s;
+                    //
+                    //    .remove-button {
+                    //        background-color: white;
+                    //        border-color: white;
+                    //        transition-duration: 0.2s;
+                    //
+                    //        span {
+                    //            color: #c9302c;
+                    //        }
+                    //    }
+                    //    .remove-button:hover {
+                    //        background-color: #ddd;
+                    //        border-color: #ddd;
+                    //    }
+                    //}
+
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .home-container {
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+    }
+    @media screen and (max-width: 480px) {
+        .home-container {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
     }
 }
 

@@ -30,14 +30,14 @@ System.register([], function(exports_1) {
                             "id": 4,
                             "name": "Easy No-Bake Chocolate-Ricotta Cake",
                             "ingredients": [
+                                "8 oz semi sweet chocolate",
+                                "chocolate graham crackers",
+                                "12 oz ricotta cheese"
+                            ],
+                            "steps": [
                                 "combine 2 parts melted semi sweet chocolate with 3 parts ricotta cheese",
                                 "layer with chocolate graham crackers until your selected dish is full",
                                 "refrigerate at least 8 hours, up to 48"
-                            ],
-                            "steps": [
-                                "8 oz semi sweet chocolate",
-                                "chocolate graham crackers",
-                                "12 oz ricotta cheese",
                             ]
                         },
                         {

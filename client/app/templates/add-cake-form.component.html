@@ -2,7 +2,8 @@
     <button class="btn btn-primary" (click)="openForm()">Make New Cake</button>
 </div>
 
-<div *ngIf="active">
+<div *ngIf="active" class="add-cake-form">
+    <h4>Make a Cake</h4>
     <form (ngSubmit)="addCake(model.name)" #addCakeForm="ngForm">
         <!-- Cake name -->
         <div class="form-group">
@@ -13,40 +14,48 @@
             <!--Name is required-->
             <!--</div>-->
         </div>
+        <hr>
 
         <!-- Ingredient list -->
         <div class="form-group">
-            <label>Ingredients</label>
-            <input type="text" class="form-control" placeholder="(optional)"
-                   [(ngModel)]="currIngr.value">
-            <button type="button" class="btn btn-primary"
-                    [class.disabled]="isEmptyString(currIngr.value)"
-                    (click)="addIngredient()">
-                Add
-            </button>
-            <ul>
-                <li *ngFor="#ingr of ingrList; #idx = index">
-                    {{ingr.value}}
-                    <button type="button" class="btn btn-danger"
+            <label>Ingredients</label><br>
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-primary"
+                            [class.disabled]="isEmptyString(currIngr.value)"
+                            (click)="addIngredient()">
+                        Add
+                    </button>
+                </span>
+                <input type="text" class="form-control" placeholder="(optional)"
+                       [(ngModel)]="currIngr.value">
+            </div>
+            <ul class="list-group add-cake-list">
+                <!--<span *ngIf="isEmptyString(currIngr.value)">There's nothing in here yet</span>-->
+                <li *ngFor="#ingr of ingrList; #idx = index" class="list-group-item">
+                    <div class="number-button"><span>{{idx+1}}</span></div>
+                    <div class="list-group-item-name">{{ingr.value}}</div>
+                    <button type="button" class="btn btn-danger remove-button"
                             (click)="removeIngredient(idx)">
-                        Remove
+                        <span class="glyphicon glyphicon-remove"></span>
                     </button>
                 </li>
                 <!--<div [hidden]="name.valid || name.pristine" class="alert alert-danger">-->
                 <!--</div>-->
             </ul>
         </div>
+        <hr>
 
         <!-- Instruction steps -->
         <div class="form-group">
-            <label>Steps</label>
-            <input type="text" class="form-control" placeholder="(optional)"
-                   [(ngModel)]="currStep.value">
+            <label>Steps</label><br>
             <button type="button" class="btn btn-primary"
                     [class.disabled]="isEmptyString(currStep.value)"
                     (click)="addStep()">
                 Add
             </button>
+            <input type="text" class="form-control" placeholder="(optional)"
+                   [(ngModel)]="currStep.value">
             <ol>
                 <li *ngFor="#step of stepList; #idx = index">
                     {{step.value}}

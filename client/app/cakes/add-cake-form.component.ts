@@ -25,6 +25,7 @@ export class AddCakeFormComponent {
     active = false;
 
     constructor(private _cakeService:CakeService) {
+        this.ingrList.push({"value": "combine 2 parts melted semi sweet chocolate with 3 parts ricotta cheese"})
     }
 
     openForm() {

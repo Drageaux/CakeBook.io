@@ -35,6 +35,7 @@ System.register(['angular2/core', "./cake", "./cake.service", "angular2/core"], 
                     this.currStep = { "value": "" };
                     this.model = new cake_1.Cake(0, "", [], []);
                     this.active = false;
+                    this.ingrList.push({ "value": "combine 2 parts melted semi sweet chocolate with 3 parts ricotta cheese" });
                 }
                 AddCakeFormComponent.prototype.openForm = function () {
                     this.active = true;
