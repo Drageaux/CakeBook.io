@@ -14,11 +14,20 @@ import {Json} from "angular2/src/facade/lang";
 
 export class AddCakeFormComponent {
 
-    ingrList:Object[] = [{"value": ""}];
-    stepList = [""];
+    @Output() saved = new EventEmitter<Cake>();
+
+    ingrList:Object[] = [
+        {"value": ""},
+        {"value": ""},
+        {"value": ""}
+    ];
+    stepList:Object[] = [
+        {"value": ""},
+        {"value": ""},
+        {"value": ""}
+    ];
     model = new Cake(0, "", [], []);
     active = false;
-    @Output() saved = new EventEmitter<Cake>();
 
     constructor(private _cakeService:CakeService) {
     }
@@ -39,7 +48,15 @@ export class AddCakeFormComponent {
         // parse lists of ingredients and steps and insert to the model
         for (let i = 0; i < this.ingrList.length; i++) {
             let currIngr = this.ingrList[i]["value"];
-            this.model.ingredients.push(currIngr);
+            if (currIngr != "") {
+                this.model.ingredients.push(currIngr);
+            }
+        }
+        for (let i = 0; i < this.stepList.length; i++) {
+            let currStep = this.stepList[i]["value"];
+            if (currStep != "") {
+                this.model.steps.push(currStep);
+            }
         }
 
         this._cakeService.addCake(JSON.stringify(this.model))
@@ -57,6 +74,15 @@ export class AddCakeFormComponent {
             return;
         }
         this.ingrList.push({});
+    }
+
+    addStep() {
+        // prevent spamming ingredient creation
+        let lastIndex = Object.keys(this.stepList[this.stepList.length - 1]).length;
+        if (lastIndex == 0) {
+            return;
+        }
+        this.stepList.push({});
     }
 
     // TODO: Remove this when we're done

@@ -17,25 +17,34 @@
 
         <!-- Ingredient list -->
         <div class="form-group">
-            <ul><label>Ingredient List</label>
+            <ul>
+                <label>Ingredients</label>
                 <li *ngFor="#ingr of ingrList; #idx = index">
                     <input [(ngModel)]="ingr.value" type="text" class="form-control"
                            placeholder="(optional)">
-                    <button type="button" class="btn btn-default" (click)="addIngredient()">
-                        Add More Ingredient
-                    </button>
                 </li>
-            <!--<div [hidden]="name.valid || name.pristine" class="alert alert-danger">-->
-            <!--At least 1 ingredient is required-->
-            <!--</div>-->
+                <button type="button" class="btn btn-default" (click)="addIngredient()">
+                    Add More Ingredient
+                </button>
+                <!--<div [hidden]="name.valid || name.pristine" class="alert alert-danger">-->
+                <!--</div>-->
             </ul>
         </div>
 
         <!-- Instruction steps -->
         <div class="form-group">
-            <label>Instruction Steps</label>
-            <input type="text" class="form-control"
-                   [(ngModel)]="model.steps" placeholder="(optional)">
+            <ul>
+                <label>Steps</label>
+                <li *ngFor="#step of stepList; #idx = index">
+                    <input [(ngModel)]="step.value" type="text" class="form-control"
+                           placeholder="(optional)">
+                </li>
+                <button type="button" class="btn btn-default" (click)="addStep()">
+                    Add More Step
+                </button>
+                <!--<div [hidden]="name.valid || name.pristine" class="alert alert-danger">-->
+                <!--</div>-->
+            </ul>
         </div>
 
         <button type="submit" class="btn btn-success">Submit</button>

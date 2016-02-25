@@ -28,11 +28,19 @@ System.register(['angular2/core', "./cake", "./cake.service", "angular2/core"], 
             AddCakeFormComponent = (function () {
                 function AddCakeFormComponent(_cakeService) {
                     this._cakeService = _cakeService;
-                    this.ingrList = [{ "value": "" }];
-                    this.stepList = [""];
+                    this.saved = new core_1.EventEmitter();
+                    this.ingrList = [
+                        { "value": "" },
+                        { "value": "" },
+                        { "value": "" }
+                    ];
+                    this.stepList = [
+                        { "value": "" },
+                        { "value": "" },
+                        { "value": "" }
+                    ];
                     this.model = new cake_1.Cake(0, "", [], []);
                     this.active = false;
-                    this.saved = new core_1.EventEmitter();
                 }
                 AddCakeFormComponent.prototype.openForm = function () {
                     this.active = true;
@@ -48,7 +56,15 @@ System.register(['angular2/core', "./cake", "./cake.service", "angular2/core"], 
                     // parse lists of ingredients and steps and insert to the model
                     for (var i = 0; i < this.ingrList.length; i++) {
                         var currIngr = this.ingrList[i]["value"];
-                        this.model.ingredients.push(currIngr);
+                        if (currIngr != "") {
+                            this.model.ingredients.push(currIngr);
+                        }
+                    }
+                    for (var i = 0; i < this.stepList.length; i++) {
+                        var currStep = this.stepList[i]["value"];
+                        if (currStep != "") {
+                            this.model.steps.push(currStep);
+                        }
                     }
                     this._cakeService.addCake(JSON.stringify(this.model))
                         .subscribe(function (res) { return _this.saved.emit(res); });
@@ -63,6 +79,14 @@ System.register(['angular2/core', "./cake", "./cake.service", "angular2/core"], 
                         return;
                     }
                     this.ingrList.push({});
+                };
+                AddCakeFormComponent.prototype.addStep = function () {
+                    // prevent spamming ingredient creation
+                    var lastIndex = Object.keys(this.stepList[this.stepList.length - 1]).length;
+                    if (lastIndex == 0) {
+                        return;
+                    }
+                    this.stepList.push({});
                 };
                 __decorate([
                     core_2.Output(), 
