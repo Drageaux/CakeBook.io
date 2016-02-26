@@ -281,6 +281,7 @@ body {
             padding-left: 25px;
         }
 
+        /* Add Cake Form */
         div.add-cake-form {
             border: 1px solid #ddd;
             border-radius: 4px;
@@ -312,7 +313,7 @@ body {
                     border: 1px solid #ddd;
                     border-radius: 4px;
                     background-color: #eee;
-                    min-height: 20px;
+                    height: auto !important;
                     padding: 5px 0;
 
                     .list-group-item {
@@ -324,6 +325,7 @@ body {
                         border-left-width: 0;
                         cursor: pointer;
                         overflow: hidden;
+                        height: auto !important;
 
                         .number-label {
                             color: white;

@@ -30,10 +30,8 @@
                 <input type="text" class="form-control" placeholder="(optional)"
                        [(ngModel)]="currIngr.value">
             </div>
-            <ul *ngIf="ingrList.length>0" class="list-group add-cake-list"
-                [ngGrid]>
-                <li *ngFor="#ingr of ingrList; #idx = index" class="list-group-item"
-                    [ngGridItem]>
+            <ul *ngIf="ingrList.length>0" class="list-group add-cake-list grid">
+                <li *ngFor="#ingr of ingrList; #idx = index" class="list-group-item grid-item">
                     <div class="number-label"><span>{{idx+1}}</span></div>
                     <div class="list-group-item-name">{{ingr.value}}</div>
                     <button type="button" class="btn btn-danger remove-button"
