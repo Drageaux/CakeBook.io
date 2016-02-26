@@ -26,7 +26,6 @@
 
     <script src="assets/bootstrap/js/bootstrap.min.js"></script> <!-- Bootstrap JS -->
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"> <!-- Bootstrap CSS -->
-
     <link href='https://fonts.googleapis.com/css?family=Chewy|Marmelad|Lobster' rel='stylesheet' type='text/css'> <!-- Google Fonts -->
 
     <!-- Configure SystemJS -->
@@ -39,7 +38,8 @@
                 }
             },
             map: {
-                "angular2-jwt": "node_modules/angular2-jwt/angular2-jwt.js"
+                "angular2-jwt": "node_modules/angular2-jwt/angular2-jwt.js",
+                "angular2-grid": "node_modules/angular2-grid/dist/NgGrid.js"
             }
         });
         System.import('app/main')

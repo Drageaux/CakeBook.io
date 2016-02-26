@@ -49,9 +49,8 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
         execute: function() {
             core_3.enableProdMode();
             AppComponent = (function () {
-                function AppComponent(authHttp, http, _router, _location) {
+                function AppComponent(authHttp, _router, _location) {
                     this.authHttp = authHttp;
-                    this.http = http;
                     this._router = _router;
                     this._location = _location;
                 }
@@ -92,7 +91,7 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                         { path: "/cake/:id", name: "CakeDetail", component: cake_detail_component_1.CakeDetailComponent },
                         { path: "/addCakeForm", name: "AddCakeForm", component: add_cake_form_component_1.AddCakeFormComponent }
                     ]), 
-                    __metadata('design:paramtypes', [angular2_jwt_1.AuthHttp, http_1.Http, router_1.Router, router_1.Location])
+                    __metadata('design:paramtypes', [angular2_jwt_1.AuthHttp, router_1.Router, router_1.Location])
                 ], AppComponent);
                 return AppComponent;
             })();

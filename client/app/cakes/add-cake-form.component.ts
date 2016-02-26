@@ -1,4 +1,4 @@
-import {Component,EventEmitter}  from 'angular2/core';
+import {Component,EventEmitter}  from "angular2/core";
 import {NgForm}     from "angular2/common";
 import {Cake}       from "./cake";
 import {Observable} from "rxjs/Observable";
@@ -6,10 +6,12 @@ import {CakeService} from "./cake.service";
 import {Output} from "angular2/core";
 import {OnInit} from "angular2/core";
 import {Json} from "angular2/src/facade/lang";
+import {NgGrid, NgGridItem} from "angular2-grid";
 
 @Component({
     selector: "add-cake-form",
-    templateUrl: "templates/add-cake-form.component.html"
+    templateUrl: "templates/add-cake-form.component.html",
+    directives: [NgGrid, NgGridItem]
 })
 
 export class AddCakeFormComponent {
@@ -25,6 +27,7 @@ export class AddCakeFormComponent {
     active = false;
 
     constructor(private _cakeService:CakeService) {
+        this.ingrList.push({"value": "somethig"});
     }
 
     openForm() {

@@ -13,11 +13,6 @@ import {AuthHttp,
     JwtHelper,
     AuthConfig} from "angular2-jwt";
 
-// in-memory web api imports
-import {XHRBackend} from "angular2/http";
-import {InMemoryBackendService, SEED_DATA} from 'a2-in-memory-web-api/core';
-
-
 import {LoggedInRouterOutlet}   from "./loggedin-outlet";
 import {LoginComponent}         from "./login.component";
 import {HomeComponent}          from "./home.component";
@@ -32,7 +27,6 @@ import {CakeService}            from "./cakes/cake.service";
 import {ViewEncapsulation}      from "angular2/core";
 import {enableProdMode}         from 'angular2/core';
 enableProdMode();
-
 
 @Component({
     selector: 'my-app',
@@ -118,7 +112,6 @@ enableProdMode();
 
 export class AppComponent {
     constructor(public authHttp:AuthHttp,
-                private http:Http,
                 private _router:Router,
                 private _location:Location) {
     }

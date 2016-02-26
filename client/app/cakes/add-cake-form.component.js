@@ -1,4 +1,4 @@
-System.register(['angular2/core', "./cake", "./cake.service", "angular2/core"], function(exports_1) {
+System.register(["angular2/core", "./cake", "./cake.service", "angular2-grid"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,12 +8,13 @@ System.register(['angular2/core', "./cake", "./cake.service", "angular2/core"], 
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, cake_1, cake_service_1, core_2;
+    var core_1, cake_1, cake_service_1, core_2, angular2_grid_1;
     var AddCakeFormComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+                core_2 = core_1_1;
             },
             function (cake_1_1) {
                 cake_1 = cake_1_1;
@@ -21,8 +22,8 @@ System.register(['angular2/core', "./cake", "./cake.service", "angular2/core"], 
             function (cake_service_1_1) {
                 cake_service_1 = cake_service_1_1;
             },
-            function (core_2_1) {
-                core_2 = core_2_1;
+            function (angular2_grid_1_1) {
+                angular2_grid_1 = angular2_grid_1_1;
             }],
         execute: function() {
             AddCakeFormComponent = (function () {
@@ -35,6 +36,7 @@ System.register(['angular2/core', "./cake", "./cake.service", "angular2/core"], 
                     this.currStep = { "value": "" };
                     this.model = new cake_1.Cake(0, "", [], []);
                     this.active = false;
+                    this.ingrList.push({ "value": "somethig" });
                 }
                 AddCakeFormComponent.prototype.openForm = function () {
                     this.active = true;
@@ -110,7 +112,8 @@ System.register(['angular2/core', "./cake", "./cake.service", "angular2/core"], 
                 AddCakeFormComponent = __decorate([
                     core_1.Component({
                         selector: "add-cake-form",
-                        templateUrl: "templates/add-cake-form.component.html"
+                        templateUrl: "templates/add-cake-form.component.html",
+                        directives: [angular2_grid_1.NgGrid, angular2_grid_1.NgGridItem]
                     }), 
                     __metadata('design:paramtypes', [cake_service_1.CakeService])
                 ], AddCakeFormComponent);
