@@ -30,7 +30,7 @@
                 <input type="text" class="form-control" placeholder="(optional)"
                        [(ngModel)]="currIngr.value">
             </div>
-            <ul class="list-group add-cake-list">
+            <ul *ngIf="ingrList.length>0" class="list-group add-cake-list">
                 <li *ngFor="#ingr of ingrList; #idx = index" class="list-group-item">
                     <div class="number-label"><span>{{idx+1}}</span></div>
                     <div class="list-group-item-name">{{ingr.value}}</div>
@@ -57,7 +57,7 @@
                 <input type="text" class="form-control" placeholder="(optional)"
                        [(ngModel)]="currStep.value">
             </div>
-            <ul class="list-group add-cake-list">
+            <ul *ngIf="stepList.length>0" class="list-group add-cake-list">
                 <li *ngFor="#step of stepList; #idx = index" class="list-group-item">
                     <div class="number-label"><span>{{idx+1}}</span></div>
                     <div class="list-group-item-name">{{step.value}}</div>

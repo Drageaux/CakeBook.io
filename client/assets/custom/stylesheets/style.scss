@@ -307,28 +307,31 @@ body {
                     }
                 }
 
-                .list-group {
+                .list-group.add-cake-list {
                     margin-top: 5px;
                     border: 1px solid #ddd;
                     border-radius: 4px;
                     background-color: #eee;
                     min-height: 20px;
+                    padding: 5px 0;
 
                     .list-group-item {
+                        background-color: darken(white, 2%);
                         font-size: 1em;
                         word-wrap: break-word;
-                        padding: 8px 15px 8px 0;
+                        padding: 6px 15px 6px 0;
                         margin: 2px 20px 2px 20px;
+                        border-left-width: 0;
                         cursor: pointer;
                         overflow: hidden;
 
                         .number-label {
                             color: white;
-                            background-color: $topnav-item-color;
+                            background-color: darken(lightgray, 2%);
                             top: 0;
                             float: left;
-                            padding: 8px;
-                            width: 24px;
+                            padding: 10px;
+                            width: 30px;
                             height: 100%;
                             position: absolute;
 
@@ -343,7 +346,7 @@ body {
                             display: inline-block;
                             width: 90%;
                             right: 0;
-                            padding-left: 30px;
+                            padding-left: 38px;
                             margin-right: 0;
                         }
 
@@ -353,6 +356,19 @@ body {
                             font-size: 10px;
                             vertical-align: baseline;
                             position: relative;
+                        }
+                        .remove-button:hover {
+                            background-color: white;
+                            border-color: white;
+                            transition-duration: 0.2s;
+                            span {
+                                color: #c9302c;
+                            }
+                        }
+                    }
+                    .list-group-item:first-child:last-child {
+                        .number-label {
+                            border-radius: 4px 0 0 4px;
                         }
                     }
                     .list-group-item:first-child {
@@ -370,27 +386,16 @@ body {
                             border-radius: 0 0 0 4px;
                         }
                     }
+                    .list-group-item:hover,
+                    .list-group-item:focus {
+                        background-color: white;
+                        transition-duration: 0.2s;
 
-                    //.list-group-item:hover,
-                    //.list-group-item:focus {
-                    //    color: white;
-                    //    background-color: $topnav-item-color;
-                    //    transition-duration: 0.2s;
-                    //
-                    //    .remove-button {
-                    //        background-color: white;
-                    //        border-color: white;
-                    //        transition-duration: 0.2s;
-                    //
-                    //        span {
-                    //            color: #c9302c;
-                    //        }
-                    //    }
-                    //    .remove-button:hover {
-                    //        background-color: #ddd;
-                    //        border-color: #ddd;
-                    //    }
-                    //}
+                        .number-label {
+                            background-color: $topnav-item-color;
+                            transition-duration: 0.2s;
+                        }
+                    }
                 }
             }
         }
