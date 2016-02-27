@@ -31,13 +31,27 @@
                        [(ngModel)]="currIngr.value">
             </div>
             <ul *ngIf="ingrList.length>0" class="list-group add-cake-list">
-                <li *ngFor="#ingr of ingrList; #idx = index" class="list-group-item">
-                    <div class="number-label"><span>{{idx+1}}</span></div>
-                    <div class="list-group-item-name">{{ingr.value}}</div>
-                    <button type="button" class="btn btn-danger remove-button"
-                            (click)="removeIngredient(idx)">
-                        <span class="glyphicon glyphicon-remove"></span>
-                    </button>
+                <li *ngFor="#ingr of ingrList; #idx = index" class="list-group-item"
+                    (click)="editIngredient(idx)">
+                    <div>
+                        <div class="number-label"><span>{{idx+1}}</span></div>
+                        <div class="list-group-item-name">
+                            <span [class.hidden]="isEditing(idx)">
+                                {{ingr.value}}
+                            </span>
+                            <input type="text" class="form-control edit-item"
+                                   [class.hidden]="!isEditing(idx)" value="{{ingr.value}}" autofocus>
+                        </div>
+                        <button type="button" class="btn btn-danger remove-button"
+                                [class.hidden]="isEditing(idx)" (click)="removeIngredient(idx)">
+                            <span class="glyphicon glyphicon-minus"></span>
+                        </button>
+                        <div class="save-cancel" [class.hidden]="!isEditing(idx)">
+                            <button><span class="glyphicon glyphicon-check"></span></button>
+                            <button><span class="glyphicon glyphicon-remove"></span></button>
+                        </div>
+                    </div>
+
                 </li>
             </ul>
         </div>

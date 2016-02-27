@@ -28,12 +28,12 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     this._cakeService = _cakeService;
                     this.saved = new core_1.EventEmitter();
                     this.ingrList = [];
-                    this.currIngr = { "value": "" };
+                    this.currIngr = { "value": "", "editing": false };
                     this.stepList = [];
                     this.currStep = { "value": "" };
                     this.model = new cake_1.Cake(0, "", [], []);
                     this.active = false;
-                    this.ingrList.push({ "value": "somethig" });
+                    this.ingrList.push({ "value": "somethig", "editing": false });
                 }
                 AddCakeFormComponent.prototype.openForm = function () {
                     this.active = true;
@@ -69,7 +69,7 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     // prevent spamming ingredient creation
                     if (this.currIngr.value != "") {
                         this.ingrList.push(this.currIngr);
-                        this.currIngr = { "value": "" };
+                        this.currIngr = { "value": "", "editing": false };
                     }
                 };
                 AddCakeFormComponent.prototype.removeIngredient = function (index) {
@@ -77,6 +77,10 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                         return;
                     }
                     return this.ingrList.splice(index, 1);
+                };
+                AddCakeFormComponent.prototype.editIngredient = function (index) {
+                    console.log("clicked");
+                    this.ingrList[index]["editing"] = true;
                 };
                 AddCakeFormComponent.prototype.addStep = function () {
                     // prevent spamming step creation
@@ -93,6 +97,9 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                 };
                 AddCakeFormComponent.prototype.isEmptyString = function (str) {
                     return str == "" || str == null;
+                };
+                AddCakeFormComponent.prototype.isEditing = function (index) {
+                    return this.ingrList[index]["editing"];
                 };
                 Object.defineProperty(AddCakeFormComponent.prototype, "diagnostic", {
                     // TODO: Remove this when we're done

@@ -319,7 +319,6 @@ body {
                     .list-group-item {
                         background-color: darken(white, 2%);
                         font-size: 1em;
-                        word-wrap: break-word;
                         padding: 6px 15px 6px 0;
                         margin: 2px 20px 2px 20px;
                         border-left-width: 0;
@@ -336,6 +335,7 @@ body {
                             width: 28px;
                             height: 100%;
                             position: absolute;
+                            word-wrap: break-word;
 
                             span {
                                 line-height: 5px;
@@ -346,10 +346,18 @@ body {
 
                         .list-group-item-name {
                             display: inline-block;
-                            width: 90%;
                             right: 0;
                             padding-left: 38px;
                             margin-right: 0;
+                            width: 100%;
+
+                            span {
+                                width: 90%;
+                            }
+
+                            .edit-item {
+                                width: 75%;
+                            }
                         }
 
                         .remove-button {
@@ -366,6 +374,10 @@ body {
                             span {
                                 color: #c9302c;
                             }
+                        }
+
+                        .save-cancel {
+                            float: right;
                         }
                     }
                     .list-group-item:first-child:last-child {

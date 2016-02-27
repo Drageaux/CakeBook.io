@@ -17,7 +17,7 @@ export class AddCakeFormComponent {
     @Output() saved = new EventEmitter<Cake>();
 
     ingrList:Object[] = [];
-    currIngr = {"value": ""};
+    currIngr = {"value": "", "editing": false};
     stepList:Object[] = [];
     currStep = {"value": ""};
 
@@ -25,7 +25,7 @@ export class AddCakeFormComponent {
     active = false;
 
     constructor(private _cakeService:CakeService) {
-        this.ingrList.push({"value": "somethig"});
+        this.ingrList.push({"value": "somethig", "editing": false});
     }
 
     openForm() {
@@ -67,7 +67,7 @@ export class AddCakeFormComponent {
         // prevent spamming ingredient creation
         if (this.currIngr.value != "") {
             this.ingrList.push(this.currIngr);
-            this.currIngr = {"value": ""};
+            this.currIngr = {"value": "", "editing": false};
         }
     }
 
@@ -76,6 +76,11 @@ export class AddCakeFormComponent {
             return;
         }
         return this.ingrList.splice(index, 1);
+    }
+
+    editIngredient(index:number) {
+        console.log("clicked");
+        this.ingrList[index]["editing"] = true;
     }
 
     addStep() {
@@ -95,6 +100,10 @@ export class AddCakeFormComponent {
 
     isEmptyString(str:string) {
         return str == "" || str == null;
+    }
+
+    isEditing(index:number) {
+        return this.ingrList[index]["editing"];
     }
 
     // TODO: Remove this when we're done
