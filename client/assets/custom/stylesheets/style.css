@@ -1,6 +1,5 @@
 body {
   /* General */
-  min-width: 480px;
   /* Top Nav */
   /* Content */
   /* Login Page */
@@ -183,7 +182,8 @@ body {
       border-radius: 4px;
       padding: 20px;
       left: -10px;
-      position: relative; }
+      position: relative;
+      min-width: 480px; }
       body .home-container div.add-cake-form .form-group {
         margin-bottom: 8px; }
         body .home-container div.add-cake-form .form-group button {

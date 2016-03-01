@@ -17,7 +17,6 @@ $normal-font: "Marmelad", Arial;
 
 body {
     /* General */
-    min-width: 480px;
 
     p {
         font-family: $normal-font;
@@ -288,6 +287,7 @@ body {
             padding: 20px;
             left: -10px;
             position: relative;
+            min-width: 480px;
 
             .form-group {
                 margin-bottom: 8px;
