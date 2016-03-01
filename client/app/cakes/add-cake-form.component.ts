@@ -25,7 +25,7 @@ export class AddCakeFormComponent {
     active = false;
 
     constructor(private _cakeService:CakeService) {
-        this.ingrList.push({"value": "somethig", "editing": false});
+        this.ingrList.push({"value": "something", "editing": false});
     }
 
     openForm() {
@@ -79,7 +79,6 @@ export class AddCakeFormComponent {
     }
 
     editIngredient(index:number) {
-        console.log("clicked");
         this.ingrList[index]["editing"] = true;
     }
 
@@ -102,8 +101,19 @@ export class AddCakeFormComponent {
         return str == "" || str == null;
     }
 
+
+    /* Editing Ingredients and Steps */
     isEditing(index:number) {
         return this.ingrList[index]["editing"];
+    }
+
+    saveEdit(index:number) {
+        return this.ingrList[index]["editing"] = false;
+        //console.log(this.ingrList);
+    }
+
+    cancelEdit(index:number) {
+        this.ingrList[index]["editing"] = false;
     }
 
     // TODO: Remove this when we're done

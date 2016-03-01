@@ -8,7 +8,7 @@
         <!-- Cake name -->
         <div class="form-group">
             <label>Cake Name</label>
-            <input type="text" class="form-control" required
+            <input type="text" class="form-control" required placeholder="(required)"
                    [(ngModel)]="model.name">
             <!--<div [hidden]="name.valid || name.pristine" class="alert alert-danger">-->
             <!--Name is required-->
@@ -20,6 +20,8 @@
         <div class="form-group">
             <label>Ingredients</label><br>
             <div class="input-group">
+                <input type="text" class="form-control" placeholder="(optional)"
+                       [(ngModel)]="currIngr.value">
                 <span class="input-group-btn">
                     <button type="button" class="btn btn-primary"
                             [class.disabled]="isEmptyString(currIngr.value)"
@@ -27,14 +29,13 @@
                         Add
                     </button>
                 </span>
-                <input type="text" class="form-control" placeholder="(optional)"
-                       [(ngModel)]="currIngr.value">
             </div>
             <ul *ngIf="ingrList.length>0" class="list-group add-cake-list">
-                <li *ngFor="#ingr of ingrList; #idx = index" class="list-group-item"
-                    (click)="editIngredient(idx)">
+                <li *ngFor="#ingr of ingrList; #idx = index" class="list-group-item">
                     <div>
+                        <!-- Item number -->
                         <div class="number-label"><span>{{idx+1}}</span></div>
+                        <!-- Item name -->
                         <div class="list-group-item-name" [class.edit-item]="isEditing(idx)">
                             <span [class.hidden]="isEditing(idx)">
                                 {{ingr.value}}
@@ -42,13 +43,22 @@
                             <input type="text" class="form-control"
                                    [class.hidden]="!isEditing(idx)" value="{{ingr.value}}" autofocus>
                         </div>
-                        <button type="button" class="btn btn-danger remove-button"
-                                [class.hidden]="isEditing(idx)" (click)="removeIngredient(idx)">
-                            <span class="glyphicon glyphicon-minus"></span>
-                        </button>
+                        <!-- Item buttons -->
+                        <div class="edit-remove" [class.hidden]="isEditing(idx)">
+                            <button type="button" class="btn edit-button"
+                                    [class.hidden]="isEditing(idx)" (click)="editIngredient(idx)">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </button>
+                            <button type="button" class="btn remove-button"
+                                    [class.hidden]="isEditing(idx)" (click)="removeIngredient(idx)">
+                                <span class="glyphicon glyphicon-minus"></span>
+                            </button>
+                        </div>
                         <div class="save-cancel" [class.hidden]="!isEditing(idx)">
-                            <button class="save-button"><span class="glyphicon glyphicon-check"></span></button>
-                            <button class="cancel-button"><span class="glyphicon glyphicon-remove"></span></button>
+                            <button type="button" class="btn btn-success save-button" (click)="saveEdit(idx)">
+                                <span class="glyphicon glyphicon-check"></span></button>
+                            <button type="button" class="btn btn-danger cancel-button" (click)="cancelEdit(idx)">
+                                <span class="glyphicon glyphicon-remove"></span></button>
                         </div>
                     </div>
                 </li>

@@ -33,7 +33,7 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     this.currStep = { "value": "" };
                     this.model = new cake_1.Cake(0, "", [], []);
                     this.active = false;
-                    this.ingrList.push({ "value": "somethig", "editing": false });
+                    this.ingrList.push({ "value": "something", "editing": false });
                 }
                 AddCakeFormComponent.prototype.openForm = function () {
                     this.active = true;
@@ -79,7 +79,6 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     return this.ingrList.splice(index, 1);
                 };
                 AddCakeFormComponent.prototype.editIngredient = function (index) {
-                    console.log("clicked");
                     this.ingrList[index]["editing"] = true;
                 };
                 AddCakeFormComponent.prototype.addStep = function () {
@@ -98,8 +97,16 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                 AddCakeFormComponent.prototype.isEmptyString = function (str) {
                     return str == "" || str == null;
                 };
+                /* Editing Ingredients and Steps */
                 AddCakeFormComponent.prototype.isEditing = function (index) {
                     return this.ingrList[index]["editing"];
+                };
+                AddCakeFormComponent.prototype.saveEdit = function (index) {
+                    return this.ingrList[index]["editing"] = false;
+                    //console.log(this.ingrList);
+                };
+                AddCakeFormComponent.prototype.cancelEdit = function (index) {
+                    this.ingrList[index]["editing"] = false;
                 };
                 Object.defineProperty(AddCakeFormComponent.prototype, "diagnostic", {
                     // TODO: Remove this when we're done

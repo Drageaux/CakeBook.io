@@ -285,9 +285,8 @@ body {
             border: 1px solid #ddd;
             border-radius: 4px;
             padding: 20px;
-            left: -10px;
+            left: -20px;
             position: relative;
-            min-width: 480px;
 
             .form-group {
                 margin-bottom: 8px;
@@ -322,7 +321,6 @@ body {
                         padding: 6px 15px 6px 0;
                         margin: 2px 20px 2px 20px;
                         border-left-width: 0;
-                        cursor: pointer;
                         overflow: hidden;
                         height: auto !important;
 
@@ -349,42 +347,59 @@ body {
                             right: 0;
                             padding-left: 38px;
                             margin-right: auto;
-                            width: 90%;
+                            width: 78%;
+                            word-break: break-all;
                         }
                         .list-group-item-name.edit-item {
-                            width: 80%;
-
+                            width: 76%;
                             input {
                                 height: 26px;
                             }
                         }
 
-                        .remove-button {
-                            float: right;
+                        /* Edit and Remove */
+                        .btn {
                             padding: 3px 7px 1px 7px;
                             font-size: 10px;
                             vertical-align: baseline;
                             position: relative;
-                        }
-                        .remove-button:hover {
-                            background-color: white;
-                            border-color: white;
                             transition-duration: 0.2s;
-                            span {
-                                color: #c9302c;
+                        }
+                        .edit-remove {
+                            float: right;
+                            .edit-button:hover {
+                                background-color: white;
+                                border-color: white;
+                                span {
+                                    color: #5bc0de;
+                                }
+                            }.remove-button:hover {
+                                background-color: white;
+                                border-color: white;
+                                span {
+                                    color: #c9302c;
+                                }
                             }
                         }
-
                         .save-cancel {
                             float: right;
-                            vertical-align: middle;
-                            top: 30%;
-
-                            .save-button {
-                                color: green;
+                            color: white;
+                            .btn {
+                                height: 26px;
                             }
-                            .cancel-button {
-                                color: red;
+                            .save-button:hover {
+                                background-color: white;
+                                border-color: white;
+                                span {
+                                    color: #5cb85c;
+                                }
+                            }
+                            .cancel-button:hover {
+                                background-color: white;
+                                border-color: white;
+                                span {
+                                    color: #c9302c;
+                                }
                             }
                         }
                     }
@@ -421,6 +436,8 @@ body {
                 }
             }
         }
+        @media screen and (min-device-width: 480px) {
+        }
     }
     @media screen and (max-width: 768px) {
         .home-container {
@@ -430,8 +447,15 @@ body {
     }
     @media screen and (max-width: 480px) {
         .home-container {
+            min-width: 440px;
             margin-left: 20px;
             margin-right: 20px;
+        }
+    }
+    @media screen and (max-width: 380px) {
+        .home-container {
+            margin-left: 2px;
+            margin-right: 2px;
         }
     }
 }
