@@ -35,11 +35,11 @@
                     (click)="editIngredient(idx)">
                     <div>
                         <div class="number-label"><span>{{idx+1}}</span></div>
-                        <div class="list-group-item-name">
+                        <div class="list-group-item-name" [class.edit-item]="isEditing(idx)">
                             <span [class.hidden]="isEditing(idx)">
                                 {{ingr.value}}
                             </span>
-                            <input type="text" class="form-control edit-item"
+                            <input type="text" class="form-control"
                                    [class.hidden]="!isEditing(idx)" value="{{ingr.value}}" autofocus>
                         </div>
                         <button type="button" class="btn btn-danger remove-button"
@@ -47,11 +47,10 @@
                             <span class="glyphicon glyphicon-minus"></span>
                         </button>
                         <div class="save-cancel" [class.hidden]="!isEditing(idx)">
-                            <button><span class="glyphicon glyphicon-check"></span></button>
-                            <button><span class="glyphicon glyphicon-remove"></span></button>
+                            <button class="save-button"><span class="glyphicon glyphicon-check"></span></button>
+                            <button class="cancel-button"><span class="glyphicon glyphicon-remove"></span></button>
                         </div>
                     </div>
-
                 </li>
             </ul>
         </div>

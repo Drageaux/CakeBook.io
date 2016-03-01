@@ -227,12 +227,12 @@ body {
               display: inline-block;
               right: 0;
               padding-left: 38px;
-              margin-right: 0;
-              width: 100%; }
-              body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .list-group-item-name span {
-                width: 90%; }
-              body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .list-group-item-name .edit-item {
-                width: 75%; }
+              margin-right: auto;
+              width: 90%; }
+            body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .list-group-item-name.edit-item {
+              width: 80%; }
+              body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .list-group-item-name.edit-item input {
+                height: 26px; }
             body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .remove-button {
               float: right;
               padding: 3px 7px 1px 7px;
@@ -246,7 +246,13 @@ body {
               body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .remove-button:hover span {
                 color: #c9302c; }
             body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .save-cancel {
-              float: right; }
+              float: right;
+              vertical-align: middle;
+              top: 30%; }
+              body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .save-cancel .save-button {
+                color: green; }
+              body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .save-cancel .cancel-button {
+                color: red; }
           body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item:first-child:last-child .number-label {
             border-radius: 4px 0 0 4px; }
           body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item:first-child .number-label {

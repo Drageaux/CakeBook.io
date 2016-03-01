@@ -348,15 +348,14 @@ body {
                             display: inline-block;
                             right: 0;
                             padding-left: 38px;
-                            margin-right: 0;
-                            width: 100%;
+                            margin-right: auto;
+                            width: 90%;
+                        }
+                        .list-group-item-name.edit-item {
+                            width: 80%;
 
-                            span {
-                                width: 90%;
-                            }
-
-                            .edit-item {
-                                width: 75%;
+                            input {
+                                height: 26px;
                             }
                         }
 
@@ -378,6 +377,15 @@ body {
 
                         .save-cancel {
                             float: right;
+                            vertical-align: middle;
+                            top: 30%;
+
+                            .save-button {
+                                color: green;
+                            }
+                            .cancel-button {
+                                color: red;
+                            }
                         }
                     }
                     .list-group-item:first-child:last-child {
