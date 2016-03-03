@@ -9,7 +9,7 @@ import {CakeService}            from "./cakes/cake.service";
 @Component({
     template: `
         <div class="home-container">
-            <h1 class="welcome-poster">I'm at my Ballmer peak!</h1>
+            <h1 class="welcome-poster">Welcome to Cake Book!</h1>
             <h2>Home</h2>
             <h3>My Cakes</h3>
             <ul class="cake-list">
