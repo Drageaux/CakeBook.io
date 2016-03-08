@@ -25,7 +25,7 @@
                 <span class="input-group-btn">
                     <button type="button" class="btn btn-primary"
                             [class.disabled]="isEmptyString(currIngr.value)"
-                            (click)="addIngredient()">
+                            (click)="addOptionalItem('ingr')">
                         Add
                     </button>
                 </span>
@@ -36,28 +36,33 @@
                         <!-- Item number -->
                         <div class="number-label"><span>{{idx+1}}</span></div>
                         <!-- Item name -->
-                        <div class="list-group-item-name" [class.edit-item]="isEditing(idx)">
-                            <span [class.hidden]="isEditing(idx)">
+                        <div class="list-group-item-name" [class.edit-item]="isEditing('ingr', idx)">
+                            <span [class.hidden]="isEditing('ingr', idx)">
                                 {{ingr.value}}
                             </span>
-                            <input type="text" class="form-control"
-                                   [class.hidden]="!isEditing(idx)" value="{{ingr.value}}" autofocus>
+                            <input #editValue type="text" class="form-control"
+                                   [class.hidden]="!isEditing('ingr', idx)"
+                                   [value]="ingr.value" autofocus>
                         </div>
                         <!-- Item buttons -->
-                        <div class="edit-remove" [class.hidden]="isEditing(idx)">
+                        <div class="edit-remove" [class.hidden]="isEditing('ingr', idx)">
                             <button type="button" class="btn edit-button"
-                                    [class.hidden]="isEditing(idx)" (click)="editIngredient(idx)">
+                                    [class.hidden]="isEditing('ingr', idx)"
+                                    (click)="editOptionalItem('ingr', idx)">
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </button>
                             <button type="button" class="btn remove-button"
-                                    [class.hidden]="isEditing(idx)" (click)="removeIngredient(idx)">
+                                    [class.hidden]="isEditing('ingr', idx)"
+                                    (click)="removeOptionalItem('ingr', idx)">
                                 <span class="glyphicon glyphicon-minus"></span>
                             </button>
                         </div>
-                        <div class="save-cancel" [class.hidden]="!isEditing(idx)">
-                            <button type="button" class="btn btn-success save-button" (click)="saveEdit(idx)">
+                        <div class="save-cancel" [class.hidden]="!isEditing('ingr', idx)">
+                            <button type="button" class="btn btn-success save-button"
+                                    (click)="saveEdit('ingr', idx, editValue.value)">
                                 <span class="glyphicon glyphicon-check"></span></button>
-                            <button type="button" class="btn btn-danger cancel-button" (click)="cancelEdit(idx)">
+                            <button type="button" class="btn btn-danger cancel-button"
+                                    (click)="cancelEdit('ingr', idx)">
                                 <span class="glyphicon glyphicon-remove"></span></button>
                         </div>
                     </div>
@@ -73,7 +78,7 @@
                 <span class="input-group-btn">
                     <button type="button" class="btn btn-primary"
                             [class.disabled]="isEmptyString(currStep.value)"
-                            (click)="addStep()">
+                            (click)="addOptionalItem('step')">
                         Add
                     </button>
                 </span>
@@ -85,7 +90,7 @@
                     <div class="number-label"><span>{{idx+1}}</span></div>
                     <div class="list-group-item-name">{{step.value}}</div>
                     <button type="button" class="btn btn-danger remove-button"
-                            (click)="removeStep(idx)">
+                            (click)="removeOptionalItem('step', idx)">
                         <span class="glyphicon glyphicon-remove"></span>
                     </button>
                 </li>

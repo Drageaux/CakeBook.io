@@ -382,8 +382,8 @@ body {
                                     color: white;
                                 }
                             }.remove-button:hover {
-                                background-color: #c9302c;;
-                                border-color: #c9302c;;
+                                background-color: #c9302c;
+                                border-color: #c9302c;
                                 span {
                                     color: white;
                                 }
@@ -393,17 +393,21 @@ body {
                             float: right;
                             .btn {
                                 height: 26px;
+                                background-color: white;
+                                border-color: white !important;
+                            }
+                            .save-button:hover {
+                                background-color: #71c171 !important;
                             }
                             .save-button:not(:hover) {
-                                background-color: white;
-                                border-color: white;
                                 span {
                                     color: #5cb85c;
                                 }
                             }
+                            .cancel-button:hover {
+                                background-color: #d64843 !important;
+                            }
                             .cancel-button:not(:hover) {
-                                background-color: white;
-                                border-color: white;
                                 span {
                                     color: #c9302c;
                                 }

@@ -65,48 +65,75 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     this.model = new cake_1.Cake(0, "", [""], [""]);
                     this.closeForm();
                 };
-                AddCakeFormComponent.prototype.addIngredient = function () {
-                    // prevent spamming ingredient creation
-                    if (this.currIngr.value != "") {
-                        this.ingrList.push(this.currIngr);
-                        this.currIngr = { "value": "", "editing": false };
+                /* Ingredients and Steps */
+                AddCakeFormComponent.prototype.addOptionalItem = function (itemType) {
+                    if (itemType == "ingr") {
+                        // prevent spamming creation
+                        if (this.currIngr.value != "") {
+                            this.ingrList.push(this.currIngr);
+                            this.currIngr = { "value": "", "editing": false };
+                        }
+                    }
+                    else if (itemType == "step") {
+                        // prevent spamming creation
+                        if (this.currStep.value != "") {
+                            this.stepList.push(this.currStep);
+                            this.currStep = { "value": "" };
+                        }
                     }
                 };
-                AddCakeFormComponent.prototype.removeIngredient = function (index) {
-                    if (this.ingrList.length <= 0) {
-                        return;
+                AddCakeFormComponent.prototype.removeOptionalItem = function (itemType, index) {
+                    if (itemType == "ingr") {
+                        if (this.ingrList.length <= 0) {
+                            return;
+                        }
+                        return this.ingrList.splice(index, 1);
                     }
-                    return this.ingrList.splice(index, 1);
-                };
-                AddCakeFormComponent.prototype.editIngredient = function (index) {
-                    this.ingrList[index]["editing"] = true;
-                };
-                AddCakeFormComponent.prototype.addStep = function () {
-                    // prevent spamming step creation
-                    if (this.currStep.value != "") {
-                        this.stepList.push(this.currStep);
-                        this.currStep = { "value": "" };
+                    else if (itemType == "step") {
+                        if (this.stepList.length <= 0) {
+                            return;
+                        }
+                        return this.stepList.splice(index, 1);
                     }
                 };
-                AddCakeFormComponent.prototype.removeStep = function (index) {
-                    if (this.stepList.length <= 0) {
-                        return;
+                AddCakeFormComponent.prototype.editOptionalItem = function (itemType, index) {
+                    if (itemType == "ingr") {
+                        this.ingrList[index]["editing"] = true;
                     }
-                    return this.stepList.splice(index, 1);
+                    else if (itemType == "step") {
+                        this.stepList[index]["editing"] = true;
+                    }
+                };
+                /* Editing Ingredients and Steps */
+                AddCakeFormComponent.prototype.saveEdit = function (itemType, index, value) {
+                    if (itemType == "ingr") {
+                        this.ingrList[index]["value"] = value;
+                        this.ingrList[index]["editing"] = false;
+                    }
+                    else if (itemType == "step") {
+                        this.stepList[index]["value"] = value;
+                        this.stepList[index]["editing"] = false;
+                    }
+                };
+                AddCakeFormComponent.prototype.cancelEdit = function (itemType, index) {
+                    if (itemType == "ingr") {
+                        this.ingrList[index]["editing"] = false;
+                    }
+                    else if (itemType == "step") {
+                        this.stepList[index]["editing"] = false;
+                    }
+                };
+                /* Checks */
+                AddCakeFormComponent.prototype.isEditing = function (itemType, index) {
+                    if (itemType == "ingr") {
+                        return this.ingrList[index]["editing"];
+                    }
+                    else if (itemType == "step") {
+                        return this.stepList[index]["editing"];
+                    }
                 };
                 AddCakeFormComponent.prototype.isEmptyString = function (str) {
                     return str == "" || str == null;
-                };
-                /* Editing Ingredients and Steps */
-                AddCakeFormComponent.prototype.isEditing = function (index) {
-                    return this.ingrList[index]["editing"];
-                };
-                AddCakeFormComponent.prototype.saveEdit = function (index) {
-                    return this.ingrList[index]["editing"] = false;
-                    //console.log(this.ingrList);
-                };
-                AddCakeFormComponent.prototype.cancelEdit = function (index) {
-                    this.ingrList[index]["editing"] = false;
                 };
                 Object.defineProperty(AddCakeFormComponent.prototype, "diagnostic", {
                     // TODO: Remove this when we're done

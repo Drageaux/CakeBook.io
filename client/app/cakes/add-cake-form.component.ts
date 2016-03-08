@@ -13,7 +13,6 @@ import {Json} from "angular2/src/facade/lang";
 })
 
 export class AddCakeFormComponent {
-
     @Output() saved = new EventEmitter<Cake>();
 
     ingrList:Object[] = [];
@@ -31,7 +30,6 @@ export class AddCakeFormComponent {
     openForm() {
         this.active = true;
     }
-
     closeForm() {
         this.active = false;
     }
@@ -63,57 +61,81 @@ export class AddCakeFormComponent {
         this.closeForm();
     }
 
-    addIngredient() {
-        // prevent spamming ingredient creation
-        if (this.currIngr.value != "") {
-            this.ingrList.push(this.currIngr);
-            this.currIngr = {"value": "", "editing": false};
+    /* Ingredients and Steps */
+    addOptionalItem(itemType:string) {
+        if (itemType == "ingr") {
+            // prevent spamming creation
+            if (this.currIngr.value != "") {
+                this.ingrList.push(this.currIngr);
+                this.currIngr = {"value": "", "editing": false};
+            }
+        }
+        else if (itemType == "step") {
+            // prevent spamming creation
+            if (this.currStep.value != "") {
+                this.stepList.push(this.currStep);
+                this.currStep = {"value": ""};
+            }
         }
     }
 
-    removeIngredient(index:number) {
-        if (this.ingrList.length <= 0) {
-            return;
+    removeOptionalItem(itemType:string, index:number) {
+        if (itemType == "ingr") {
+            if (this.ingrList.length <= 0) {
+                return;
+            }
+            return this.ingrList.splice(index, 1);
         }
-        return this.ingrList.splice(index, 1);
-    }
-
-    editIngredient(index:number) {
-        this.ingrList[index]["editing"] = true;
-    }
-
-    addStep() {
-        // prevent spamming step creation
-        if (this.currStep.value != "") {
-            this.stepList.push(this.currStep);
-            this.currStep = {"value": ""};
+        else if (itemType == "step") {
+            if (this.stepList.length <= 0) {
+                return;
+            }
+            return this.stepList.splice(index, 1);
         }
     }
 
-    removeStep(index:number) {
-        if (this.stepList.length <= 0) {
-            return;
+    editOptionalItem(itemType:string, index:number) {
+        if (itemType == "ingr") {
+            this.ingrList[index]["editing"] = true;
         }
-        return this.stepList.splice(index, 1);
+        else if (itemType == "step") {
+            this.stepList[index]["editing"] = true;
+        }
+    }
+
+    /* Editing Ingredients and Steps */
+    saveEdit(itemType:string, index:number, value:string) {
+        if (itemType == "ingr") {
+            this.ingrList[index]["value"] = value;
+            this.ingrList[index]["editing"] = false;
+        }
+        else if (itemType == "step") {
+            this.stepList[index]["value"] = value;
+            this.stepList[index]["editing"] = false;
+        }
+    }
+
+    cancelEdit(itemType:string, index:number) {
+        if (itemType == "ingr") {
+            this.ingrList[index]["editing"] = false;
+        }
+        else if (itemType == "step") {
+            this.stepList[index]["editing"] = false;
+        }
+    }
+
+    /* Checks */
+    isEditing(itemType:string, index:number) {
+        if (itemType == "ingr") {
+            return this.ingrList[index]["editing"];
+        }
+        else if (itemType == "step") {
+            return this.stepList[index]["editing"];
+        }
     }
 
     isEmptyString(str:string) {
         return str == "" || str == null;
-    }
-
-
-    /* Editing Ingredients and Steps */
-    isEditing(index:number) {
-        return this.ingrList[index]["editing"];
-    }
-
-    saveEdit(index:number) {
-        return this.ingrList[index]["editing"] = false;
-        //console.log(this.ingrList);
-    }
-
-    cancelEdit(index:number) {
-        this.ingrList[index]["editing"] = false;
     }
 
     // TODO: Remove this when we're done

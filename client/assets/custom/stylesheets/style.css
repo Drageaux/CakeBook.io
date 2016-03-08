@@ -259,17 +259,17 @@ body {
             body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .save-cancel {
               float: right; }
               body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .save-cancel .btn {
-                height: 26px; }
-              body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .save-cancel .save-button:not(:hover) {
+                height: 26px;
                 background-color: white;
-                border-color: white; }
-                body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .save-cancel .save-button:not(:hover) span {
-                  color: #5cb85c; }
-              body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .save-cancel .cancel-button:not(:hover) {
-                background-color: white;
-                border-color: white; }
-                body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .save-cancel .cancel-button:not(:hover) span {
-                  color: #c9302c; }
+                border-color: white !important; }
+              body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .save-cancel .save-button:hover {
+                background-color: #71c171 !important; }
+              body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .save-cancel .save-button:not(:hover) span {
+                color: #5cb85c; }
+              body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .save-cancel .cancel-button:hover {
+                background-color: #d64843 !important; }
+              body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .save-cancel .cancel-button:not(:hover) span {
+                color: #c9302c; }
           body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item:first-child:last-child .number-label {
             border-radius: 4px 0 0 4px; }
           body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item:first-child .number-label {
