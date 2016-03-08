@@ -5,6 +5,7 @@ import {OnInit} from "angular2/core";
 
 import {Cake} from "./cake";
 import {CakeService} from "./cake.service";
+import {subscribeOn} from "rxjs/operator/subscribeOn";
 
 @Component({
     selector: "cake-detail",
@@ -27,7 +28,8 @@ import {CakeService} from "./cake.service";
                 </ol>
             </div>
 
-            <button (click)="gotoCakes()">Back</button>
+            <button class="btn btn-default" (click)="gotoCakes()">Back</button>
+            <button style="{float:right}" class="btn btn-danger" (click)="deleteCake(cake._id)">Remove This Cake</button>
         </div>
         `
 })
@@ -47,6 +49,12 @@ export class CakeDetailComponent implements OnInit {
             .subscribe(
                 cake => this.cake = cake,
                 error => this.errorMessage = <any>error);
+    }
+
+    deleteCake(id:number) {
+        this._service.deleteCake(id)
+            .subscribe(
+                res => this._router.navigate(["Home"]));
     }
 
     gotoCakes() {

@@ -46,6 +46,10 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };
+                CakeService.prototype.deleteCake = function (id) {
+                    return this.http.get("/api/cake/delete/" + id)
+                        .catch(this.handleError);
+                };
                 CakeService.prototype.handleError = function (error) {
                     // in a real world app, we may send the server to some remote logging infrastructure
                     // instead of just logging it to the console

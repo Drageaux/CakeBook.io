@@ -33,7 +33,7 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     this.currStep = { "value": "" };
                     this.model = new cake_1.Cake(0, "", [], []);
                     this.active = false;
-                    this.ingrList.push({ "value": "something", "editing": false });
+                    this.ingrList.push({ "value": "", "editing": false });
                 }
                 AddCakeFormComponent.prototype.openForm = function () {
                     this.active = true;

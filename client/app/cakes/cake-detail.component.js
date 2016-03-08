@@ -35,13 +35,18 @@ System.register(["angular2/core", "angular2/router", "./cake.service"], function
                     this._service.getCake(id)
                         .subscribe(function (cake) { return _this.cake = cake; }, function (error) { return _this.errorMessage = error; });
                 };
+                CakeDetailComponent.prototype.deleteCake = function (id) {
+                    var _this = this;
+                    this._service.deleteCake(id)
+                        .subscribe(function (res) { return _this._router.navigate(["Home"]); });
+                };
                 CakeDetailComponent.prototype.gotoCakes = function () {
                     this._router.navigate(["Home"]);
                 };
                 CakeDetailComponent = __decorate([
                     core_1.Component({
                         selector: "cake-detail",
-                        template: "\n        <div class=\"general-container\">\n            <div *ngIf=\"cake\">\n                <div class=\"error\" *ngIf=\"errorMessage\">\n                    {{errorMessage}}\n                </div>\n                <h4>Details: {{cake.name}}</h4>\n                <ul><label><b>Ingredients</b></label>\n                    <li *ngFor=\"#ingr of cake.ingredients\">\n                        {{ingr}}\n                    </li>\n                </ul>\n                <ol><label><b>Steps</b></label>\n                    <li *ngFor=\"#step of cake.steps\">\n                        {{step}}\n                    </li>\n                </ol>\n            </div>\n\n            <button (click)=\"gotoCakes()\">Back</button>\n        </div>\n        "
+                        template: "\n        <div class=\"general-container\">\n            <div *ngIf=\"cake\">\n                <div class=\"error\" *ngIf=\"errorMessage\">\n                    {{errorMessage}}\n                </div>\n                <h4>Details: {{cake.name}}</h4>\n                <ul><label><b>Ingredients</b></label>\n                    <li *ngFor=\"#ingr of cake.ingredients\">\n                        {{ingr}}\n                    </li>\n                </ul>\n                <ol><label><b>Steps</b></label>\n                    <li *ngFor=\"#step of cake.steps\">\n                        {{step}}\n                    </li>\n                </ol>\n            </div>\n\n            <button class=\"btn btn-default\" (click)=\"gotoCakes()\">Back</button>\n            <button style=\"{float:right}\" class=\"btn btn-danger\" (click)=\"deleteCake(cake._id)\">Remove This Cake</button>\n        </div>\n        "
                     }), 
                     __metadata('design:paramtypes', [router_1.Router, router_2.RouteParams, cake_service_1.CakeService])
                 ], CakeDetailComponent);

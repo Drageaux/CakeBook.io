@@ -24,7 +24,7 @@ export class AddCakeFormComponent {
     active = false;
 
     constructor(private _cakeService:CakeService) {
-        this.ingrList.push({"value": "something", "editing": false});
+        this.ingrList.push({"value": "", "editing": false});
     }
 
     openForm() {

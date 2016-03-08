@@ -18,7 +18,6 @@ import {LoginComponent}         from "./login.component";
 import {HomeComponent}          from "./home.component";
 //import {ProfileComponent}       from "./profile.component";
 import {Cake}                   from "./cakes/cake";
-import {CakeData}               from "./cakes/cake-data";
 import {CakeDetailComponent}    from "./cakes/cake-detail.component";
 import {AddCakeFormComponent}   from "./cakes/add-cake-form.component";
 import {CakeService}            from "./cakes/cake.service";

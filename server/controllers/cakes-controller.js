@@ -22,3 +22,9 @@ module.exports.create = function (req, res) {
         res.json(cake);
     });
 }
+
+module.exports.remove = function (req, res) {
+    Cake.remove({"_id" : req.params.id}, function(err) {
+        res.send((err === null) ? { msg: '' } : { msg:'error: ' + err });
+    });
+}
