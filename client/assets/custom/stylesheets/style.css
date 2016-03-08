@@ -235,9 +235,9 @@ body {
                 height: 26px; }
             @media screen and (min-device-width: 768px) {
               body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .list-group-item-name {
-                width: 86%; }
+                width: 82%; }
               body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .list-group-item-name.edit-item {
-                width: 86%; } }
+                width: 82%; } }
             body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .btn {
               padding: 3px 7px 1px 7px;
               font-size: 10px;
