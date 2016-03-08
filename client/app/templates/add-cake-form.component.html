@@ -75,6 +75,8 @@
         <div class="form-group">
             <label>Steps</label><br>
             <div class="input-group">
+                <input type="text" class="form-control" placeholder="(optional)"
+                       [(ngModel)]="currStep.value">
                 <span class="input-group-btn">
                     <button type="button" class="btn btn-primary"
                             [class.disabled]="isEmptyString(currStep.value)"
@@ -82,17 +84,43 @@
                         Add
                     </button>
                 </span>
-                <input type="text" class="form-control" placeholder="(optional)"
-                       [(ngModel)]="currStep.value">
             </div>
             <ul *ngIf="stepList.length>0" class="list-group add-cake-list">
                 <li *ngFor="#step of stepList; #idx = index" class="list-group-item">
-                    <div class="number-label"><span>{{idx+1}}</span></div>
-                    <div class="list-group-item-name">{{step.value}}</div>
-                    <button type="button" class="btn btn-danger remove-button"
-                            (click)="removeOptionalItem('step', idx)">
-                        <span class="glyphicon glyphicon-remove"></span>
-                    </button>
+                    <div>
+                        <!-- Item number -->
+                        <div class="number-label"><span>{{idx+1}}</span></div>
+                        <!-- Item name -->
+                        <div class="list-group-item-name" [class.edit-item]="isEditing('step', idx)">
+                            <span [class.hidden]="isEditing('step', idx)">
+                                {{step.value}}
+                            </span>
+                            <input #editValue type="text" class="form-control"
+                                   [class.hidden]="!isEditing('step', idx)"
+                                   [value]="step.value" autofocus>
+                        </div>
+                        <!-- Item buttons -->
+                        <div class="edit-remove" [class.hidden]="isEditing('step', idx)">
+                            <button type="button" class="btn edit-button"
+                                    [class.hidden]="isEditing('step', idx)"
+                                    (click)="editOptionalItem('step', idx)">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </button>
+                            <button type="button" class="btn remove-button"
+                                    [class.hidden]="isEditing('step', idx)"
+                                    (click)="removeOptionalItem('step', idx)">
+                                <span class="glyphicon glyphicon-minus"></span>
+                            </button>
+                        </div>
+                        <div class="save-cancel" [class.hidden]="!isEditing('step', idx)">
+                            <button type="button" class="btn btn-success save-button"
+                                    (click)="saveEdit('step', idx, editValue.value)">
+                                <span class="glyphicon glyphicon-check"></span></button>
+                            <button type="button" class="btn btn-danger cancel-button"
+                                    (click)="cancelEdit('step', idx)">
+                                <span class="glyphicon glyphicon-remove"></span></button>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>
