@@ -351,9 +351,17 @@ body {
                             word-break: break-all;
                         }
                         .list-group-item-name.edit-item {
-                            width: 76%;
+                            width: 77%;
                             input {
                                 height: 26px;
+                            }
+                        }
+                        @media screen and (min-device-width: 768px) {
+                            .list-group-item-name {
+                                width: 86%;
+                            }
+                            .list-group-item-name.edit-item {
+                                width: 86%;
                             }
                         }
 
@@ -368,33 +376,32 @@ body {
                         .edit-remove {
                             float: right;
                             .edit-button:hover {
-                                background-color: white;
-                                border-color: white;
+                                background-color: #5bc0de;
+                                border-color: #5bc0de;
                                 span {
-                                    color: #5bc0de;
+                                    color: white;
                                 }
                             }.remove-button:hover {
-                                background-color: white;
-                                border-color: white;
+                                background-color: #c9302c;;
+                                border-color: #c9302c;;
                                 span {
-                                    color: #c9302c;
+                                    color: white;
                                 }
                             }
                         }
                         .save-cancel {
                             float: right;
-                            color: white;
                             .btn {
                                 height: 26px;
                             }
-                            .save-button:hover {
+                            .save-button:not(:hover) {
                                 background-color: white;
                                 border-color: white;
                                 span {
                                     color: #5cb85c;
                                 }
                             }
-                            .cancel-button:hover {
+                            .cancel-button:not(:hover) {
                                 background-color: white;
                                 border-color: white;
                                 span {
@@ -435,8 +442,6 @@ body {
                     }
                 }
             }
-        }
-        @media screen and (min-device-width: 480px) {
         }
     }
     @media screen and (max-width: 768px) {
