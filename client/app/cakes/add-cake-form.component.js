@@ -30,10 +30,9 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     this.ingrList = [];
                     this.currIngr = { "value": "", "editing": false };
                     this.stepList = [];
-                    this.currStep = { "value": "" };
+                    this.currStep = { "value": "", "editing": false };
                     this.model = new cake_1.Cake(0, "", [], []);
                     this.active = false;
-                    this.ingrList.push({ "value": "", "editing": false });
                 }
                 AddCakeFormComponent.prototype.openForm = function () {
                     this.active = true;
@@ -78,7 +77,7 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                         // prevent spamming creation
                         if (this.currStep.value != "") {
                             this.stepList.push(this.currStep);
-                            this.currStep = { "value": "" };
+                            this.currStep = { "value": "", "editing": false };
                         }
                     }
                 };

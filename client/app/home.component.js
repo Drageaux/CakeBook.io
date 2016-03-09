@@ -45,9 +45,28 @@ System.register(['angular2/core', "angular2/router", "./cakes/add-cake-form.comp
                 HomeComponent.prototype.onAdded = function (cake) {
                     this.cakes.push(cake);
                 };
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Array)
+                ], HomeComponent.prototype, "cakes", void 0);
                 HomeComponent = __decorate([
                     core_1.Component({
-                        template: "\n        <div class=\"home-container\">\n            <h1 class=\"welcome-poster\">Welcome to Cake Book!</h1>\n            <h2>Home</h2>\n            <h3>My Cakes</h3>\n            <ul class=\"cake-list\">\n                <add-cake-form (saved)=\"onAdded($event)\"></add-cake-form>\n                <!--<div class=\"error\" *ngIf=\"errorMessage\">-->\n                    <!--{{errorMessage}}-->\n                <!--</div>-->\n                <li *ngFor=\"#cake of cakes\"\n                    (click)=\"onSelect(cake)\">\n                    <a class=\"url-list-item\">{{cake.name}}</a>\n                </li>\n            </ul>\n        </div>\n        ",
+                        //template: `
+                        //    <div class="home-container">
+                        //        <h1 class="welcome-poster">Welcome to Cake Book!</h1>
+                        //        <h2>Home</h2>
+                        //        <h3>My Cakes</h3>
+                        //        <div class="cake-list list-group">
+                        //            <add-cake-form (saved)="onAdded($event)"></add-cake-form>
+                        //            <!--<div class="error" *ngIf="errorMessage">-->
+                        //                <!--{{errorMessage}}-->
+                        //            <!--</div>-->
+                        //            <a class="list-group-item" *ngFor="#cake of cakes"
+                        //            (click)="onSelect(cake)">{{cake.name}}</a>
+                        //        </div>
+                        //    </div>
+                        //    `,
+                        templateUrl: "templates/home.component.html",
                         directives: [add_cake_form_component_1.AddCakeFormComponent]
                     }), 
                     __metadata('design:paramtypes', [router_1.Location, router_1.Router, cake_service_1.CakeService])

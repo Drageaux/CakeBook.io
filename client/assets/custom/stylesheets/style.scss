@@ -277,8 +277,12 @@ body {
             margin: 5px auto;
         }
 
-        ul.cake-list {
-            padding-left: 25px;
+        .cake-list {
+            padding-left: 15px;
+
+            li {
+                cursor: pointer;
+            }
         }
 
         /* Add Cake Form */
@@ -286,7 +290,6 @@ body {
             border: 1px solid #ddd;
             border-radius: 4px;
             padding: 20px;
-            left: -20px;
             position: relative;
 
             .form-group {

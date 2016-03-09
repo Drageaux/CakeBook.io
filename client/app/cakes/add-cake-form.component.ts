@@ -18,13 +18,12 @@ export class AddCakeFormComponent {
     ingrList:Object[] = [];
     currIngr = {"value": "", "editing": false};
     stepList:Object[] = [];
-    currStep = {"value": ""};
+    currStep = {"value": "", "editing": false};
 
     model = new Cake(0, "", [], []);
     active = false;
 
     constructor(private _cakeService:CakeService) {
-        this.ingrList.push({"value": "", "editing": false});
     }
 
     openForm() {
@@ -74,7 +73,7 @@ export class AddCakeFormComponent {
             // prevent spamming creation
             if (this.currStep.value != "") {
                 this.stepList.push(this.currStep);
-                this.currStep = {"value": ""};
+                this.currStep = {"value": "", "editing": false};
             }
         }
     }
