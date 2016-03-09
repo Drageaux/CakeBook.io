@@ -175,10 +175,8 @@ body {
       margin-bottom: 6px; }
     body .home-container button {
       margin: 5px auto; }
-    body .home-container .cake-list {
-      padding-left: 15px; }
-      body .home-container .cake-list li {
-        cursor: pointer; }
+    body .home-container .cake-list li {
+      cursor: pointer; }
     body .home-container div.add-cake-form {
       border: 1px solid #ddd;
       border-radius: 4px;

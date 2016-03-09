@@ -51,21 +51,6 @@ System.register(['angular2/core', "angular2/router", "./cakes/add-cake-form.comp
                 ], HomeComponent.prototype, "cakes", void 0);
                 HomeComponent = __decorate([
                     core_1.Component({
-                        //template: `
-                        //    <div class="home-container">
-                        //        <h1 class="welcome-poster">Welcome to Cake Book!</h1>
-                        //        <h2>Home</h2>
-                        //        <h3>My Cakes</h3>
-                        //        <div class="cake-list list-group">
-                        //            <add-cake-form (saved)="onAdded($event)"></add-cake-form>
-                        //            <!--<div class="error" *ngIf="errorMessage">-->
-                        //                <!--{{errorMessage}}-->
-                        //            <!--</div>-->
-                        //            <a class="list-group-item" *ngFor="#cake of cakes"
-                        //            (click)="onSelect(cake)">{{cake.name}}</a>
-                        //        </div>
-                        //    </div>
-                        //    `,
                         templateUrl: "templates/home.component.html",
                         directives: [add_cake_form_component_1.AddCakeFormComponent]
                     }), 

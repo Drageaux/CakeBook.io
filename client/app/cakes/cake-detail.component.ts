@@ -16,17 +16,25 @@ import {subscribeOn} from "rxjs/operator/subscribeOn";
                     {{errorMessage}}
                 </div>
                 <h4>Details: {{cake.name}}</h4>
-                <ul><label><b>Ingredients</b></label>
+                <hr>
+                <label><b>Ingredients</b></label>
+                <ul>
                     <li *ngFor="#ingr of cake.ingredients">
                         {{ingr}}
                     </li>
                 </ul>
-                <ol><label><b>Steps</b></label>
+                <span *ngIf="cake.ingredients.length == 0">(no ingredients specified)</span>
+                <br>
+                <br>
+                <label><b>Steps</b></label>
+                <ol>
                     <li *ngFor="#step of cake.steps">
                         {{step}}
                     </li>
                 </ol>
+                <span *ngIf="cake.steps.length == 0">(no ingredients specified)</span>
             </div>
+            <hr>
 
             <button class="btn btn-default" (click)="gotoCakes()">Back</button>
             <button style="{float:right}" class="btn btn-danger" (click)="deleteCake(cake._id)">Remove This Cake</button>
