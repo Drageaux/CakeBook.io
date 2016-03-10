@@ -26,6 +26,6 @@ app.use("/*", function (req, res) {
     res.sendFile(__dirname + "/index.html");
 });
 
-app.listen(5000, '0.0.0.0', function () {
+app.listen(process.env.PORT || 5000, '0.0.0.0', function () {
     console.log("I'm listening")
 });

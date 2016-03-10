@@ -3,11 +3,9 @@
   "version": "1.1.0",
   "author": "David Thong Nguyen",
   "scripts": {
-    "preinstall": "npm install -g live-server",
     "tsd": "npm tsd install",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "lite": "lite-server",
     "start": "node server.js"
   },
   "license": "ISC",
