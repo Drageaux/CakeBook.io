@@ -35,7 +35,7 @@ export class CakeService {
     }
 
     deleteCake(id:number | String) {
-        return this.http.get("/api/cake/delete/" + id)
+        return this.http.delete("/api/cake/" + id)
             .catch(this.handleError);
     }
 

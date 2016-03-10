@@ -47,7 +47,7 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
                         .catch(this.handleError);
                 };
                 CakeService.prototype.deleteCake = function (id) {
-                    return this.http.get("/api/cake/delete/" + id)
+                    return this.http.delete("/api/cake/" + id)
                         .catch(this.handleError);
                 };
                 CakeService.prototype.addCakeDetail = function (id, detailType, detailName) {
