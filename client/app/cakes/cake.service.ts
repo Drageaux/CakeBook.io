@@ -39,12 +39,12 @@ export class CakeService {
             .catch(this.handleError);
     }
 
-    addIngredient(id:number, ingr:string):Observable<Cake> {
-        let body = JSON.stringify({"ingr": ingr});
+    addCakeDetail(id:number, detailType:string, detailName:string):Observable<Cake> {
+        let body = JSON.stringify({type: detailType, name: detailName});
         let headers = new Headers({"Content-Type": "application/json"});
         let options = new RequestOptions({headers: headers});
 
-        return this.http.post("/api/cake/" + id + "/ingredient", body, options)
+        return this.http.post("/api/cake/" + id + "/detail", body, options)
             .map(res => <Cake> res.json())
             .catch(this.handleError);
     }

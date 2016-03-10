@@ -38,17 +38,21 @@ System.register(["angular2/core", "angular2/router", "./cake", "./cake.service"]
                     this._service.getCake(id)
                         .subscribe(function (cake) { return _this.cake = cake; }, function (error) { return _this.errorMessage = error; });
                 };
-                CakeDetailComponent.prototype.addIngredient = function () {
+                CakeDetailComponent.prototype.addDetail = function (detailType) {
                     var _this = this;
-                    if (!this.isEmptyString(this.currIngr)) {
-                        this._service.addIngredient(this.cake._id, this.currIngr)
-                            .subscribe(function (cake) { return _this.cake = cake; });
-                        this.currIngr = "";
+                    if (detailType == "ingr") {
+                        if (!this.isEmptyString(this.currIngr)) {
+                            this._service.addCakeDetail(this.cake._id, "ingr", this.currIngr)
+                                .subscribe(function (cake) { return _this.cake = cake; });
+                            this.currIngr = "";
+                        }
                     }
-                };
-                CakeDetailComponent.prototype.addStep = function () {
-                    if (!this.isEmptyString(this.currStep)) {
-                        console.log(this.currStep);
+                    else if (detailType == "step") {
+                        if (!this.isEmptyString(this.currStep)) {
+                            this._service.addCakeDetail(this.cake._id, "step", this.currStep)
+                                .subscribe(function (cake) { return _this.cake = cake; });
+                            this.currStep = "";
+                        }
                     }
                 };
                 CakeDetailComponent.prototype.deleteCake = function (id) {

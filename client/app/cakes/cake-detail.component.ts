@@ -31,18 +31,22 @@ export class CakeDetailComponent implements OnInit {
                 error => this.errorMessage = <any>error);
     }
 
-    addIngredient(){
-        if (!this.isEmptyString(this.currIngr)) {
-            this._service.addIngredient(this.cake._id, this.currIngr)
-                .subscribe(cake => this.cake = cake);
-            this.currIngr = "";
+    addDetail(detailType:string){
+        if (detailType == "ingr") {
+            if (!this.isEmptyString(this.currIngr)) {
+                this._service.addCakeDetail(this.cake._id, "ingr", this.currIngr)
+                    .subscribe(cake => this.cake = cake);
+                this.currIngr = "";
+            }
         }
-    }
+        else if (detailType == "step"){
+            if (!this.isEmptyString(this.currStep)) {
+                this._service.addCakeDetail(this.cake._id, "step", this.currStep)
+                    .subscribe(cake => this.cake = cake);
+                this.currStep = "";
+            }
+        }
 
-    addStep() {
-        if (!this.isEmptyString(this.currStep)) {
-            console.log(this.currStep);
-        }
     }
 
     deleteCake(id:number) {

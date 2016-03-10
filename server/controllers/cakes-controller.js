@@ -29,9 +29,14 @@ module.exports.remove = function (req, res) {
     });
 }
 
-module.exports.addIngredient = function (req, res) {
+module.exports.addDetail = function (req, res) {
     Cake.findById(req.params.id, function (err, cake) {
-        cake.ingredients.push(req.body.ingr);
+        if (req.body.type == "ingr") {
+            cake.ingredients.push(req.body.name);
+        }
+        else if (req.body.type == "step") {
+            cake.steps.push(req.body.name);
+        }
         cake.save();
         res.json(cake);
     });

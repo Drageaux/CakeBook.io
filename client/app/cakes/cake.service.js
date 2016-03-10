@@ -50,11 +50,11 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
                     return this.http.get("/api/cake/delete/" + id)
                         .catch(this.handleError);
                 };
-                CakeService.prototype.addIngredient = function (id, ingr) {
-                    var body = JSON.stringify({ "ingr": ingr });
+                CakeService.prototype.addCakeDetail = function (id, detailType, detailName) {
+                    var body = JSON.stringify({ type: detailType, name: detailName });
                     var headers = new http_2.Headers({ "Content-Type": "application/json" });
                     var options = new http_3.RequestOptions({ headers: headers });
-                    return this.http.post("/api/cake/" + id + "/ingredient", body, options)
+                    return this.http.post("/api/cake/" + id + "/detail", body, options)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };

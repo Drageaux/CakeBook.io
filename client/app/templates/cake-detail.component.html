@@ -20,7 +20,7 @@
                         <span class="input-group-btn">
                             <button type="submit" class="btn btn-primary"
                                     [class.disabled]="isEmptyString(currIngr)"
-                                    (click)="addIngredient()">
+                                    (click)="addDetail('ingr')">
                                 Add
                             </button>
                         </span>
@@ -28,7 +28,7 @@
                 </form>
             </li>
         </ul>
-        
+
         <label><b>Steps</b></label>
         <ol>
             <li *ngFor="#step of cake.steps">
@@ -44,7 +44,7 @@
                         <span class="input-group-btn">
                             <button type="submit" class="btn btn-primary"
                                     [class.disabled]="isEmptyString(currStep)"
-                                    (click)="addStep()">
+                                    (click)="addDetail('step')">
                                 Add
                             </button>
                         </span>
