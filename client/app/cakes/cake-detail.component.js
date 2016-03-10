@@ -39,8 +39,11 @@ System.register(["angular2/core", "angular2/router", "./cake", "./cake.service"]
                         .subscribe(function (cake) { return _this.cake = cake; }, function (error) { return _this.errorMessage = error; });
                 };
                 CakeDetailComponent.prototype.addIngredient = function () {
+                    var _this = this;
                     if (!this.isEmptyString(this.currIngr)) {
-                        console.log(this.currIngr);
+                        this._service.addIngredient(this.cake._id, this.currIngr)
+                            .subscribe(function (cake) { return _this.cake = cake; });
+                        this.currIngr = "";
                     }
                 };
                 CakeDetailComponent.prototype.addStep = function () {

@@ -15,7 +15,8 @@
             <li style="list-style: none">
                 <form class="form-group">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="(add new ingredient)">
+                        <input type="text" class="form-control" placeholder="(add new ingredient)"
+                               [(ngModel)]="currIngr">
                         <span class="input-group-btn">
                             <button type="submit" class="btn btn-primary"
                                     [class.disabled]="isEmptyString(currIngr)"
@@ -27,9 +28,7 @@
                 </form>
             </li>
         </ul>
-
-
-        <br>
+        
         <label><b>Steps</b></label>
         <ol>
             <li *ngFor="#step of cake.steps">

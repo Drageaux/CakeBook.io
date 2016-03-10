@@ -19,6 +19,7 @@ app.get("/api/cakes", cakesController.list);
 app.get("/api/cake/:id", cakesController.get);
 app.post("/api/cakes", cakesController.create);
 app.get("/api/cake/delete/:id", cakesController.remove);
+app.post("/api/cake/:id/ingredient", cakesController.addIngredient);
 
 // All routes will serve this index page
 app.use("/*", function (req, res) {

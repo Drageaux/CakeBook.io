@@ -38,8 +38,8 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };
-                CakeService.prototype.addCake = function (name) {
-                    var body = name;
+                CakeService.prototype.addCake = function (cake) {
+                    var body = cake;
                     var headers = new http_2.Headers({ "Content-Type": "application/json" });
                     var options = new http_3.RequestOptions({ headers: headers });
                     return this.http.post("/api/cakes", body, options)
@@ -48,6 +48,14 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
                 };
                 CakeService.prototype.deleteCake = function (id) {
                     return this.http.get("/api/cake/delete/" + id)
+                        .catch(this.handleError);
+                };
+                CakeService.prototype.addIngredient = function (id, ingr) {
+                    var body = JSON.stringify({ "ingr": ingr });
+                    var headers = new http_2.Headers({ "Content-Type": "application/json" });
+                    var options = new http_3.RequestOptions({ headers: headers });
+                    return this.http.post("/api/cake/" + id + "/ingredient", body, options)
+                        .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };
                 CakeService.prototype.handleError = function (error) {

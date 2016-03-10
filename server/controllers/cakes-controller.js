@@ -28,3 +28,11 @@ module.exports.remove = function (req, res) {
         res.send((err === null) ? { msg: '' } : { msg:'error: ' + err });
     });
 }
+
+module.exports.addIngredient = function (req, res) {
+    Cake.findById(req.params.id, function (err, cake) {
+        cake.ingredients.push(req.body.ingr);
+        cake.save();
+        res.json(cake);
+    });
+}

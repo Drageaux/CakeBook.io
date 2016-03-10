@@ -5,6 +5,7 @@ import {OnInit} from "angular2/core";
 
 import {Cake} from "./cake";
 import {CakeService} from "./cake.service";
+import {Observable} from "rxjs/Observable";
 
 @Component({
     selector: "cake-detail",
@@ -30,9 +31,11 @@ export class CakeDetailComponent implements OnInit {
                 error => this.errorMessage = <any>error);
     }
 
-    addIngredient() {
+    addIngredient(){
         if (!this.isEmptyString(this.currIngr)) {
-            console.log(this.currIngr);
+            this._service.addIngredient(this.cake._id, this.currIngr)
+                .subscribe(cake => this.cake = cake);
+            this.currIngr = "";
         }
     }
 

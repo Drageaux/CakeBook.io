@@ -24,8 +24,8 @@ export class CakeService {
             .catch(this.handleError);
     }
 
-    addCake(name:string):Observable<Cake> {
-        let body = name;
+    addCake(cake:string):Observable<Cake> {
+        let body = cake;
         let headers = new Headers({"Content-Type": "application/json"});
         let options = new RequestOptions({headers: headers});
 
@@ -36,6 +36,16 @@ export class CakeService {
 
     deleteCake(id:number | String) {
         return this.http.get("/api/cake/delete/" + id)
+            .catch(this.handleError);
+    }
+
+    addIngredient(id:number, ingr:string):Observable<Cake> {
+        let body = JSON.stringify({"ingr": ingr});
+        let headers = new Headers({"Content-Type": "application/json"});
+        let options = new RequestOptions({headers: headers});
+
+        return this.http.post("/api/cake/" + id + "/ingredient", body, options)
+            .map(res => <Cake> res.json())
             .catch(this.handleError);
     }
 
