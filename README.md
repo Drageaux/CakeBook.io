@@ -1,5 +1,5 @@
 #CakeBook.io
-###An easy-to-use recipe book for cake lovers
+####An easy-to-use recipe book for cake lovers
 
 ##Development Instructions:
 1. Clone the repo https://github.com/Drageaux/cake-book.git 
