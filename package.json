@@ -12,7 +12,6 @@
   "dependencies": {
     "a2-in-memory-web-api": "^0.1.5",
     "angular2": "^2.0.0-beta.6",
-    "angular2-grid": "^0.4.4",
     "angular2-jwt": "^0.1.6",
     "body-parser": "^1.15.0",
     "concurrently": "^1.0.0",
@@ -20,7 +19,6 @@
     "es6-shim": "^0.33.3",
     "express": "^4.13.4",
     "foreman": "1.4.1",
-    "lite-server": "^2.0.1",
     "mongoose": "^4.4.4",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.2",
