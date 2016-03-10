@@ -21,6 +21,7 @@
     "es6-promise": "^3.1.2",
     "es6-shim": "^0.33.3",
     "express": "^4.13.4",
+    "foreman": "1.4.1",
     "lite-server": "^2.0.1",
     "mongoose": "^4.4.4",
     "reflect-metadata": "0.1.2",

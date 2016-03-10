@@ -4,7 +4,7 @@ var express = require("express"),
     mongoose = require("mongoose"),
     cakesController = require("./server/controllers/cakes-controller.js");
 
-mongoose.connect("mongodb://localhost:27017/cake-book");
+mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost:27017/cake-book");
 
 app.use(bodyParser.json());
 
@@ -26,6 +26,6 @@ app.use("/*", function (req, res) {
     res.sendFile(__dirname + "/index.html");
 });
 
-app.listen(8080, '0.0.0.0', function () {
+app.listen(5000, '0.0.0.0', function () {
     console.log("I'm listening")
 });
