@@ -1,0 +1,61 @@
+<div class="general-container">
+    <div *ngIf="cake">
+        <div class="error" *ngIf="errorMessage">
+            {{errorMessage}}
+        </div>
+        <h4>Details: {{cake.name}}</h4>
+        <hr>
+        <label><b>Ingredients</b></label>
+        <ul>
+            <li *ngFor="#ingr of cake.ingredients">
+                {{ingr}}
+            </li>
+            <li style="list-style: none" *ngIf="cake.ingredients.length == 0">(no ingredients specified)</li>
+            <br>
+            <li style="list-style: none">
+                <form class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="(add new ingredient)">
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-primary"
+                                    [class.disabled]="isEmptyString(currIngr)"
+                                    (click)="addIngredient()">
+                                Add
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </li>
+        </ul>
+
+
+        <br>
+        <label><b>Steps</b></label>
+        <ol>
+            <li *ngFor="#step of cake.steps">
+                {{step}}
+            </li>
+            <li style="list-style: none" *ngIf="cake.steps.length == 0">(no steps specified)</li>
+            <br>
+            <li style="list-style: none">
+                <form class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="(add new step)"
+                               [(ngModel)]="currStep">
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-primary"
+                                    [class.disabled]="isEmptyString(currStep)"
+                                    (click)="addStep()">
+                                Add
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </li>
+        </ol>
+    </div>
+    <hr>
+
+    <button class="btn btn-default" (click)="gotoCakes()">Back</button>
+    <button class="btn btn-danger" (click)="deleteCake(cake._id)">Remove This Cake</button>
+</div>

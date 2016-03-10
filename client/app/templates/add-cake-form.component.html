@@ -14,16 +14,17 @@
             <!--Name is required-->
             <!--</div>-->
         </div>
+        <div></div>
         <hr>
 
         <!-- Ingredient list -->
-        <div class="form-group">
+        <form class="form-group">
             <label>Ingredients</label><br>
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="(optional)"
                        [(ngModel)]="currIngr.value">
                 <span class="input-group-btn">
-                    <button type="button" class="btn btn-primary"
+                    <button type="submit" class="btn btn-primary"
                             [class.disabled]="isEmptyString(currIngr.value)"
                             (click)="addOptionalItem('ingr')">
                         Add
@@ -68,17 +69,17 @@
                     </div>
                 </li>
             </ul>
-        </div>
+        </form>
         <hr>
 
         <!-- Instruction steps -->
-        <div class="form-group">
+        <form class="form-group">
             <label>Steps</label><br>
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="(optional)"
                        [(ngModel)]="currStep.value">
                 <span class="input-group-btn">
-                    <button type="button" class="btn btn-primary"
+                    <button type="submit" class="btn btn-primary"
                             [class.disabled]="isEmptyString(currStep.value)"
                             (click)="addOptionalItem('step')">
                         Add
@@ -123,7 +124,7 @@
                     </div>
                 </li>
             </ul>
-        </div>
+        </form>
         <hr>
 
         <!-- Main form buttons -->
