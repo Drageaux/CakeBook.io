@@ -7,7 +7,7 @@ import {Directive, Attribute, ElementRef, DynamicComponentLoader} from 'angular2
 import {Router, RouterOutlet, ComponentInstruction} from 'angular2/router';
 
 @Directive({
-    selector: 'router-outlet'
+    selector: 'loggedin-router-outlet'
 })
 
 export class LoggedInRouterOutlet extends RouterOutlet {

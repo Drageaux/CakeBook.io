@@ -88,7 +88,7 @@ enableProdMode();
             </nav>
         </div>
 
-        <router-outlet></router-outlet>
+        <loggedin-router-outlet></loggedin-router-outlet>
 		`,
     styleUrls: ["assets/custom/stylesheets/style.css"],
     encapsulation: ViewEncapsulation.None,

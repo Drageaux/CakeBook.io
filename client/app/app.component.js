@@ -1,4 +1,6 @@
-System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-jwt", "./loggedin-outlet", "./login.component", "./home.component", "./cakes/cake-detail.component", "./cakes/add-cake-form.component", "./cakes/cake.service", 'angular2/core'], function(exports_1) {
+System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-jwt", "./loggedin-outlet", "./login.component", "./home.component", "./cakes/cake-detail.component", "./cakes/add-cake-form.component", "./cakes/cake.service"], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -15,6 +17,7 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
             function (core_1_1) {
                 core_1 = core_1_1;
                 core_2 = core_1_1;
+                core_3 = core_1_1;
             },
             function (http_1_1) {
                 http_1 = http_1_1;
@@ -42,9 +45,6 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
             },
             function (cake_service_1_1) {
                 cake_service_1 = cake_service_1_1;
-            },
-            function (core_3_1) {
-                core_3 = core_3_1;
             }],
         execute: function() {
             core_3.enableProdMode();
@@ -73,7 +73,7 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n        <div *ngIf=\"loggedIn() && !atLoginPage()\">\n            <nav class=\"navbar navbar-default navbar-fixed-top topnav\">\n\n                <!-- Normal Menu -->\n                <ul class=\"nav navbar-nav navbar-right\" id=\"normalMenu\">\n                    <li>\n                        <a class=\"navbar-item\" [routerLink]=\"['Home']\">\n                            <span class=\"glyphicon glyphicon-home\" aria-hidden=\"true\"></span>&nbsp;Home&nbsp;\n                        </a>\n                    </li>\n                    <li>\n                        <a class=\"navbar-item\" href=\"#\">\n                            <span class=\"glyphicon glyphicon-user\" aria-hidden=\"true\"></span>&nbsp;Profile&nbsp;\n                        </a>\n                    </li>\n                    <li>\n                        <a class=\"navbar-item\" href=\"#\">\n                            <span class=\"glyphicon glyphicon-cog\" aria-hidden=\"true\"></span>&nbsp;Settings&nbsp;\n                        </a>\n                    </li>\n                    <li>\n                        <a class=\"navbar-item\" (click)=\"logout()\">\n                            <span class=\"glyphicon glyphicon-log-out\" aria-hidden=\"true\"></span>&nbsp;Logout&nbsp;\n                        </a>\n                    </li>\n                </ul>\n\n                <!-- Dropdown Menu -->\n                <div class=\"btn-group\" id=\"dropdownMenu\">\n                    <button type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                        <span class=\"glyphicon glyphicon-list\"></span>\n                    </button>\n                    <ul class=\"dropdown-menu dropdown-menu-right\">\n                        <li>\n                            <a class=\"navbar-item\" [routerLink]=\"['Home']\">\n                                <span class=\"glyphicon glyphicon-home\" aria-hidden=\"true\"></span>&nbsp;Home&nbsp;\n                            </a>\n                        </li>\n                        <li>\n                            <a class=\"navbar-item\" href=\"#\">\n                                <span class=\"glyphicon glyphicon-user\" aria-hidden=\"true\"></span>&nbsp;Profile&nbsp;\n                            </a>\n                        </li>\n                        <li>\n                            <a class=\"navbar-item\" href=\"#\">\n                                <span class=\"glyphicon glyphicon-cog\" aria-hidden=\"true\"></span>&nbsp;Settings&nbsp;\n                            </a>\n                        </li>\n                        <li>\n                            <a class=\"navbar-item\" (click)=\"logout()\">\n                                <span class=\"glyphicon glyphicon-log-out\" aria-hidden=\"true\"></span>&nbsp;Logout&nbsp;\n                            </a>\n                        </li>\n                    </ul>\n                </div>\n            </nav>\n        </div>\n\n        <router-outlet></router-outlet>\n\t\t",
+                        template: "\n        <div *ngIf=\"loggedIn() && !atLoginPage()\">\n            <nav class=\"navbar navbar-default navbar-fixed-top topnav\">\n\n                <!-- Normal Menu -->\n                <ul class=\"nav navbar-nav navbar-right\" id=\"normalMenu\">\n                    <li>\n                        <a class=\"navbar-item\" [routerLink]=\"['Home']\">\n                            <span class=\"glyphicon glyphicon-home\" aria-hidden=\"true\"></span>&nbsp;Home&nbsp;\n                        </a>\n                    </li>\n                    <li>\n                        <a class=\"navbar-item\" href=\"#\">\n                            <span class=\"glyphicon glyphicon-user\" aria-hidden=\"true\"></span>&nbsp;Profile&nbsp;\n                        </a>\n                    </li>\n                    <li>\n                        <a class=\"navbar-item\" href=\"#\">\n                            <span class=\"glyphicon glyphicon-cog\" aria-hidden=\"true\"></span>&nbsp;Settings&nbsp;\n                        </a>\n                    </li>\n                    <li>\n                        <a class=\"navbar-item\" (click)=\"logout()\">\n                            <span class=\"glyphicon glyphicon-log-out\" aria-hidden=\"true\"></span>&nbsp;Logout&nbsp;\n                        </a>\n                    </li>\n                </ul>\n\n                <!-- Dropdown Menu -->\n                <div class=\"btn-group\" id=\"dropdownMenu\">\n                    <button type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                        <span class=\"glyphicon glyphicon-list\"></span>\n                    </button>\n                    <ul class=\"dropdown-menu dropdown-menu-right\">\n                        <li>\n                            <a class=\"navbar-item\" [routerLink]=\"['Home']\">\n                                <span class=\"glyphicon glyphicon-home\" aria-hidden=\"true\"></span>&nbsp;Home&nbsp;\n                            </a>\n                        </li>\n                        <li>\n                            <a class=\"navbar-item\" href=\"#\">\n                                <span class=\"glyphicon glyphicon-user\" aria-hidden=\"true\"></span>&nbsp;Profile&nbsp;\n                            </a>\n                        </li>\n                        <li>\n                            <a class=\"navbar-item\" href=\"#\">\n                                <span class=\"glyphicon glyphicon-cog\" aria-hidden=\"true\"></span>&nbsp;Settings&nbsp;\n                            </a>\n                        </li>\n                        <li>\n                            <a class=\"navbar-item\" (click)=\"logout()\">\n                                <span class=\"glyphicon glyphicon-log-out\" aria-hidden=\"true\"></span>&nbsp;Logout&nbsp;\n                            </a>\n                        </li>\n                    </ul>\n                </div>\n            </nav>\n        </div>\n\n        <loggedin-router-outlet></loggedin-router-outlet>\n\t\t",
                         styleUrls: ["assets/custom/stylesheets/style.css"],
                         encapsulation: core_2.ViewEncapsulation.None,
                         providers: [
@@ -94,7 +94,7 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                     __metadata('design:paramtypes', [angular2_jwt_1.AuthHttp, router_1.Router, router_1.Location])
                 ], AppComponent);
                 return AppComponent;
-            })();
+            }());
             exports_1("AppComponent", AppComponent);
         }
     }

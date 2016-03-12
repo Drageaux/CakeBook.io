@@ -2,7 +2,9 @@
  * Code from Auth0's Angular 2 Authentication on GitHub
  * https://github.com/auth0/angular2-authentication-sample/tree/master/src
  **/
-System.register(['angular2/core', 'angular2/router'], function(exports_1) {
+System.register(['angular2/core', 'angular2/router'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
@@ -50,13 +52,13 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1) {
                 };
                 LoggedInRouterOutlet = __decorate([
                     core_1.Directive({
-                        selector: 'router-outlet'
+                        selector: 'loggedin-router-outlet'
                     }),
                     __param(3, core_1.Attribute('name')), 
                     __metadata('design:paramtypes', [core_1.ElementRef, core_1.DynamicComponentLoader, router_1.Router, String])
                 ], LoggedInRouterOutlet);
                 return LoggedInRouterOutlet;
-            })(router_1.RouterOutlet);
+            }(router_1.RouterOutlet));
             exports_1("LoggedInRouterOutlet", LoggedInRouterOutlet);
         }
     }
