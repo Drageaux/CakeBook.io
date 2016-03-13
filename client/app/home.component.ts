@@ -15,8 +15,7 @@ export class HomeComponent implements OnInit {
     errorMessage:string;
     @Input() cakes:Cake[];
 
-    constructor(private _location:Location,
-                private _router:Router,
+    constructor(private _router:Router,
                 private _cakeService:CakeService) {
     }
 

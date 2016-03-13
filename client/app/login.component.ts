@@ -2,7 +2,9 @@ import {Component} from 'angular2/core';
 import {Location, RouteConfig, Router, APP_BASE_HREF, ROUTER_PROVIDERS, ROUTER_DIRECTIVES, CanActivate} from 'angular2/router';
 import {AuthHttp, tokenNotExpired, JwtHelper} from 'angular2-jwt';
 import {OnInit} from "angular2/core";
+
 import {HomeComponent} from "./home.component";
+import {UserService} from "./users/user.service";
 
 declare var Auth0Lock;
 
@@ -14,7 +16,8 @@ export class LoginComponent implements OnInit {
     lock = new Auth0Lock('1w9uIYPLBxZzbciPImlhyG39EPDqzv8e', 'drageaux.auth0.com');
 
     constructor(private _router:Router,
-                private _location:Location) {
+                private _location:Location,
+                private _userService:UserService) {
     }
 
     ngOnInit() {
@@ -23,14 +26,22 @@ export class LoginComponent implements OnInit {
         }
     }
 
+    test() {
+        return;
+    }
+
     login() {
         this.lock.show(function (err:string, profile:string, id_token:string) {
             if (err) {
                 throw new Error(err);
             }
+
+            //this._userService.addUser(JSON.stringify(profile));
+                //.subscribe(res => this.saved.emit(res));
             localStorage.setItem('profile', JSON.stringify(profile));
             localStorage.setItem('id_token', id_token);
         });
+        //this._userService.addUser(JSON.stringify(profile));
     }
 
     loggedIn() {

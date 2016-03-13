@@ -1,68 +1,59 @@
-//import {Component, OnInit} from 'angular2/core';
-//import {Location, Router} from "angular2/router";
-//import {Observable} from "rxjs/Observable";
-//
-//import {Cake}                   from "./cakes/cake";
-//import {CakeService}            from "./cakes/cake.service";
-//import {AddCakeFormComponent}   from "./cakes/add-cake-form.component.ts";
-//
-//@Component({
-//    template: `
-//        <div class="general-container">
-//            <h2>Caker Profile</h2>
-//            <h3>My Cakes</h3>
-//            <ul>
-//                <li>
-//                    <input #newCake>
-//                    <button (click)="addCake(newCake.value); newCake.value=''">
-//                        Add Cake
-//                    </button>
-//                    <div class="error" *ngIf="errorMessage">
-//                        {{errorMessage}}
-//                    </div>
-//                </li>
-//                <li *ngFor="#cake of cakes"
-//                    (click)="onSelect(cake)">
-//                    <a class="url-list-item">{{cake.name}}</a>
-//                </li>
-//            </ul>
-//        </div>
-//        `,
-//    directives: [AddCakeFormComponent]
-//})
-//
-//export class ProfileComponent implements OnInit {
-//    errorMessage:string;
-//    cakes:Cake[];
-//
-//    constructor(private _location:Location,
-//                private _router:Router,
-//                private _cakeService:CakeService) {
-//    }
-//
-//    ngOnInit() {
-//        this.getCakes();
-//    }
-//
-//    getCakes() {
-//        this._cakeService.getCakes()
-//            .subscribe(
-//                cakes => this.cakes = cakes,
-//                error => this.errorMessage = <any>error);
-//    }
-//
-//    onSelect(cake:Cake) {
-//        this._router.navigate(["CakeDetail", {id: cake._id}]);
-//    }
-//
-//    addCake(name:string):Observable<Cake> {
-//        if (!name) {
-//            return;
-//        }
-//        this._cakeService.addCake(name)
-//            .subscribe(
-//                cake => this.cakes.push(cake) && console.log(cake),
-//                error => this.errorMessage = <any>error);
-//    }
-//}
+System.register(["angular2/core", "angular2/router", "./users/user", "./users/user.service"], function(exports_1) {
+    var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+        return c > 3 && r && Object.defineProperty(target, key, r), r;
+    };
+    var __metadata = (this && this.__metadata) || function (k, v) {
+        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+    };
+    var core_1, router_1, user_1, user_service_1;
+    var ProfileComponent;
+    return {
+        setters:[
+            function (core_1_1) {
+                core_1 = core_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
+            },
+            function (user_1_1) {
+                user_1 = user_1_1;
+            },
+            function (user_service_1_1) {
+                user_service_1 = user_service_1_1;
+            }],
+        execute: function() {
+            ProfileComponent = (function () {
+                function ProfileComponent(_location, _router, _userService) {
+                    this._location = _location;
+                    this._router = _router;
+                    this._userService = _userService;
+                }
+                ProfileComponent.prototype.ngOnInit = function () {
+                    this.getUser();
+                };
+                ProfileComponent.prototype.getUser = function () {
+                    this._userService.getUser();
+                    //.subscribe(
+                    //    user => this.user = user,
+                    //    error => this.errorMessage = <any>error);
+                };
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', user_1.User)
+                ], ProfileComponent.prototype, "user", void 0);
+                ProfileComponent = __decorate([
+                    core_1.Component({
+                        templateUrl: "templates/profile.component.html"
+                    }), 
+                    __metadata('design:paramtypes', [Location, router_1.Router, user_service_1.UserService])
+                ], ProfileComponent);
+                return ProfileComponent;
+            })();
+            exports_1("ProfileComponent", ProfileComponent);
+        }
+    }
+});
 //# sourceMappingURL=profile.component.js.map

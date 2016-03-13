@@ -1,6 +1,4 @@
-System.register(["angular2/core", "./cake", "./cake.service"], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
+System.register(["angular2/core", "./cake", "./cake.service"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -33,7 +31,7 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     this.currIngr = { "value": "", "editing": false };
                     this.stepList = [];
                     this.currStep = { "value": "", "editing": false };
-                    this.model = new cake_1.Cake(0, "", [], []);
+                    this.model = new cake_1.Cake(0, "", "", [], []);
                     this.active = false;
                 }
                 AddCakeFormComponent.prototype.openForm = function () {
@@ -63,7 +61,7 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     this._cakeService.addCake(JSON.stringify(this.model))
                         .subscribe(function (res) { return _this.saved.emit(res); });
                     // TODO: Remove when there's a better way to reset the model
-                    this.model = new cake_1.Cake(0, "", [""], [""]);
+                    this.model = new cake_1.Cake(0, "", "", [""], [""]);
                     this.closeForm();
                 };
                 /* Ingredients and Steps */
@@ -156,7 +154,7 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     __metadata('design:paramtypes', [cake_service_1.CakeService])
                 ], AddCakeFormComponent);
                 return AddCakeFormComponent;
-            }());
+            })();
             exports_1("AddCakeFormComponent", AddCakeFormComponent);
         }
     }

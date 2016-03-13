@@ -1,6 +1,4 @@
-System.register(['angular2/core', 'angular2/router', 'angular2-jwt'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
+System.register(['angular2/core', 'angular2/router', 'angular2-jwt', "./users/user.service"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,7 +8,7 @@ System.register(['angular2/core', 'angular2/router', 'angular2-jwt'], function(e
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, angular2_jwt_1;
+    var core_1, router_1, angular2_jwt_1, user_service_1;
     var LoginComponent;
     return {
         setters:[
@@ -22,12 +20,16 @@ System.register(['angular2/core', 'angular2/router', 'angular2-jwt'], function(e
             },
             function (angular2_jwt_1_1) {
                 angular2_jwt_1 = angular2_jwt_1_1;
+            },
+            function (user_service_1_1) {
+                user_service_1 = user_service_1_1;
             }],
         execute: function() {
             LoginComponent = (function () {
-                function LoginComponent(_router, _location) {
+                function LoginComponent(_router, _location, _userService) {
                     this._router = _router;
                     this._location = _location;
+                    this._userService = _userService;
                     this.lock = new Auth0Lock('1w9uIYPLBxZzbciPImlhyG39EPDqzv8e', 'drageaux.auth0.com');
                 }
                 LoginComponent.prototype.ngOnInit = function () {
@@ -35,14 +37,20 @@ System.register(['angular2/core', 'angular2/router', 'angular2-jwt'], function(e
                         this._router.navigate(["Home"]);
                     }
                 };
+                LoginComponent.prototype.test = function () {
+                    return;
+                };
                 LoginComponent.prototype.login = function () {
                     this.lock.show(function (err, profile, id_token) {
                         if (err) {
                             throw new Error(err);
                         }
+                        //this._userService.addUser(JSON.stringify(profile));
+                        //.subscribe(res => this.saved.emit(res));
                         localStorage.setItem('profile', JSON.stringify(profile));
                         localStorage.setItem('id_token', id_token);
                     });
+                    //this._userService.addUser(JSON.stringify(profile));
                 };
                 LoginComponent.prototype.loggedIn = function () {
                     return angular2_jwt_1.tokenNotExpired();
@@ -54,10 +62,10 @@ System.register(['angular2/core', 'angular2/router', 'angular2-jwt'], function(e
                     core_1.Component({
                         templateUrl: "templates/login.component.html"
                     }), 
-                    __metadata('design:paramtypes', [router_1.Router, router_1.Location])
+                    __metadata('design:paramtypes', [router_1.Router, router_1.Location, user_service_1.UserService])
                 ], LoginComponent);
                 return LoginComponent;
-            }());
+            })();
             exports_1("LoginComponent", LoginComponent);
         }
     }
