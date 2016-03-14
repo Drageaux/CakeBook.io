@@ -1,3 +1,12 @@
+/*******************************************************
+ *   CSS/Less/SCSS Comb                                *
+ *       Plugin: https://github.com/bruce/atom-csscomb *
+ *       Settings: http://csscomb.com/config           *
+ *******************************************************/
+
+/*************
+ * Variables *
+ *************/
 // Color Palette http://i.imgur.com/fAigKyc.png
 $_1st-brown-gray: #BAA99E;
 $_2nd-light-cream: #FCE9DC;
@@ -15,467 +24,445 @@ $topnav-font: "Chewy", cursive;
 $welcome-font: "Lobster", cursive;
 $normal-font: "Marmelad", Arial;
 
+
+/**********
+ * Styles *
+ **********/
 body {
-    /* General */
+	/* General */
+	p {
+		font-size: 1.2em;
+		font-family: $normal-font;
+	}
+	h1.welcome-poster {
+		text-align: center;
+		font-family: $welcome-font;
+	}
+	a:hover {
+		cursor: pointer;
+	}
 
-    p {
-        font-family: $normal-font;
-        font-size: 1.2em;
-    }
+	/* Top Nav */
+	.navbar-default {
+		height: 40px;
+		border-bottom: 5px solid $topnav-item-color;
+		background-color: $topnav-color;
+		font-size: 1.1em;
+		font-family: $topnav-font;
 
-    h1.welcome-poster {
-        font-family: $welcome-font;
-        text-align: center;
-    }
+		/* Normal Menu */
+		@media screen and (min-width: 480px) {
+			.navbar-nav#normalMenu {
+				margin-right: 10%;
+				border-radius: 6px 6px 0 0;
 
-    a:hover {
-        cursor: pointer;
-    }
+				li {
+					a {
+						padding: 15px 16px 11px 16px;
+						border-right: 6px solid $topnav-item-hovered-color;
+						border-radius: 6px 6px 0 0;
+						background-color: $topnav-item-color;
+						color: white;
+					}
+					a:hover,
+					a:focus {
+						padding: 15px 21px 11px 21px;
+						border-right: solid $topnav-item-hovered-color;
+						background-color: $topnav-item-hovered-color;
+						color: white;
+						transition-duration: 0.28s;
+					}
+				}
+			}
+		}
+		@media screen and (min-width: 768px) {
+			.navbar-nav#normalMenu {
+				margin-right: 20%;
+			}
+		}
 
-    /* Top Nav */
-    .navbar-default {
-        font-size: 1.1em;
-        font-family: $topnav-font;
-        background-color: $topnav-color;
-        border-bottom: 5px solid $topnav-item-color;
-        height: 40px;
+		/* Dropdown Menu */
+		@media screen and (min-width: 480px) {
+			.btn-group#dropdownMenu {
+				display: none;
+			}
+		}
+		@media screen and (max-width: 480px) {
+			// Hiding normal menu
+			.navbar-nav#normalMenu {
+				display: none;
+			}
+			.btn-group#dropdownMenu {
+				display: block;
+				float: right;
+				color: white;
+				button {
+					padding: 10px 22px 1px 22px;
+					border-width: 0;
+					border-right: 6px solid $topnav-item-hovered-color;
+					border-radius: 6px 6px 0 0;
+					background-color: $topnav-item-color;
+					color: white;
+					font-size: 25px;
+				}
+				button:hover,
+				button:focus {
+					padding: 10px 22px 1px 28px;
+					background-color: $topnav-item-hovered-color;
+					color: white;
+					transition-duration: 0.28s;
+				}
+				ul {
+					padding: 0;
+					border-width: 0;
+					border-radius: 8px 0 8px 8px;
+					background-color: $topnav-item-color;
+					li {
+						font-size: 1.1em;
+						align-content: center;
+						a {
+							padding: 8px 10px 6px 57px;
+							color: white;
+						}
+						a:hover {
+							padding: 10px 10px 8px 30px;
+							background-color: $topnav-item-hovered-color;
+							color: white;
+							transition-duration: 0.28s;
+						}
+					}
+					li:first-child {
+						a {
+							border-radius: 8px 0 0 0;
+						}
+					}
+					li:last-child {
+						a {
+							border-radius: 0 0 8px 8px;
+						}
+					}
+				}
+			}
+		}
+	}
+	.navbar-default.topnav:hover {
+		border-bottom: 5px solid darken(#AD4047, 18%);
+		transition-duration: 0.4s;
+	}
 
-        /* Normal Menu */
-        @media screen and (min-width: 480px) {
-            .navbar-nav#normalMenu {
-                border-radius: 6px 6px 0 0;
-                margin-right: 10%;
+	.navbar-default.login-topnav {
+		z-index: 1;
+		overflow: hidden;
+		height: 13vh;
+		border-bottom-width: 0;
+		white-space: nowrap;
 
-                li {
-                    a {
-                        color: white;
-                        background-color: $topnav-item-color;
-                        border-radius: 6px 6px 0 0;
-                        border-right: 6px solid $topnav-item-hovered-color;
-                        padding: 15px 16px 11px 16px;
-                    }
-                    a:hover,
-                    a:focus {
-                        color: white;
-                        background-color: $topnav-item-hovered-color;
-                        border-right: solid $topnav-item-hovered-color;
-                        padding: 15px 21px 11px 21px;
-                        transition-duration: 0.28s;
-                    }
-                }
-            }
-        }
-        @media screen and (min-width: 768px) {
-            .navbar-nav#normalMenu {
-                margin-right: 20%;
-            }
-        }
+		/* Logo */
+		.navbar-brand,
+		.navbar-brand:hover,
+		.navbar-brand:focus {
+			position: relative;
+			bottom: -19%;
+			color: $_4th-coffee-red;
+			text-overflow: clip;
+			font-size: 7vh;
+		}
+	}
 
-        /* Dropdown Menu */
-        @media screen and (min-width: 480px) {
-            .btn-group#dropdownMenu {
-                display: none;
-            }
-        }
-        @media screen and (max-width: 480px) {
-            // Hiding normal menu
-            .navbar-nav#normalMenu {
-                display: none;
-            }
+	/* Content */
+	.general-container {
+		margin-right: 20%;
+		margin-left: 20%;
+		padding-top: 80px;
+	}
 
-            .btn-group#dropdownMenu {
-                display: block;
-                float: right;
-                color: white;
+	/* Login Page */
+	.login-container {
+		@extend .general-container;
+		margin: 0;
+		padding-top: 12vh;
+		height: 95vh;
+		text-align: center;
+		a#redirect-button {
+			position: absolute;
+			top: 50%;
+			margin-right: auto;
+			margin-left: -15vh;
+			width: 30vh;
+			color: white;
+			-ms-text-overflow: clip;
+			text-overflow: clip;
+			font-size: 1em;
+		}
+		// might belong in the login page later
+		.welcome-poster {
+			font-family: $welcome-font;
+		}
+		.carousel {
+			position: relative;
+			z-index: 2;
+			overflow: hidden;
+			width: 100%;
+			height: 100%;
+			border-top: 5px solid $topnav-item-color;
+			border-bottom: 5px solid $topnav-item-color;
+			background: #333;
+			text-align: center;
+			align-content: center;
+			.login-button {
+				position: absolute;
+				bottom: 7vh;
+				z-index: 1;
+				margin-left: -15vh;
+				width: 30vh;
+				height: 7vh;
+				background-color: rgba(0, 0, 0, 0.6);
+				color: white;
+				-ms-text-overflow: clip;
+				text-overflow: clip;
+				font-size: 3vh;
+			}
+			.carousel-indicators {
+				bottom: 1vh;
+			}
+			.carousel-inner {
+				position: relative;
+				top: 50%;
+				transform: translateY(-50%);
+				img {
+					display: table-cell;
+					margin-right: auto;
+					margin-left: auto;
+					max-height: 95vh;
+					width: auto;
+					height: auto;
+				}
+			}
+			//.right.carousel-control {
+			//    border-radius: 0 10px 10px 0;
+			//    background: linear-gradient(to left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
+			//}
+			//.left.carousel-control {
+			//    border-radius: 10px 0 0 10px;
+			//    background: linear-gradient(to right,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
+			//}
+		}
+		.dim-background {
+			position: absolute;
+			z-index: 10;
+			width: 100vw;
+			height: 100vh;
+			//background-image: url(http://images.all-free-download.com/images/graphiclarge/plain_white_background_211387.jpg);
+			opacity: 0.5;
+		}
+	}
+	@media screen and (max-device-width: 375px) {
+		.login-container {
+			height: 90vh;
+		}
+	}
 
-                button {
-                    color: white;
-                    padding: 10px 22px 1px 22px;
-                    border-width: 0px;
-                    background-color: $topnav-item-color;
-                    font-size: 25px;
-                    border-radius: 6px 6px 0 0;
-                    border-right: 6px solid $topnav-item-hovered-color;
-                }
-                button:hover,
-                button:focus {
-                    color: white;
-                    padding: 10px 22px 1px 28px;
-                    background-color: $topnav-item-hovered-color;
-                    transition-duration: 0.28s;
-                }
+	/* Home Page */
+	.home-container {
+		@extend .general-container;
+		h4 {
+			margin-bottom: 6px;
+		}
+		button {
+			margin: 5px auto;
+		}
 
-                ul {
-                    padding: 0;
-                    background-color: $topnav-item-color;
-                    border-width: 0;
-                    border-radius: 8px 0 8px 8px;
+        /* Cake List in Home Page */
+		.cake-list {
+			li {
+				cursor: pointer;
+			}
+		}
 
-                    li {
-                        font-size: 1.1em;
-                        align-content: center;
+		/* Add Cake Form */
+		div.add-cake-form {
+			position: relative;
+			padding: 20px;
+			border: 1px solid #DDD;
+			border-radius: 4px;
+			.form-group {
+				margin-bottom: 8px;
+				button {
+					margin: 0;
+				}
+				.input-group {
+					.input-group-btn:first-child {
+						button {
+							margin-right: 5px;
+							border-radius: 4px;
+						}
+					}
+					.form-control:last-child {
+						border-radius: 4px;
+					}
+				}
+				.list-group.add-cake-list {
+					margin-top: 5px;
+					padding: 5px 0;
+					height: auto !important;
+					border: 1px solid #DDD;
+					border-radius: 4px;
+					background-color: #EEE;
 
-                        a {
-                            color: white;
-                            padding: 8px 10px 6px 57px;
-                        }
-                        a:hover {
-                            color: white;
-                            background-color: $topnav-item-hovered-color;
-                            padding: 10px 10px 8px 30px;
-                            transition-duration: 0.28s;
-                        }
-                    }
-                    li:first-child {
-                        a {
-                            border-radius: 8px 0 0 0;
-                        }
-                    }
-                    li:last-child {
-                        a {
-                            border-radius: 0 0 8px 8px;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    .navbar-default.topnav:hover {
-        border-bottom: 5px solid darken(#AD4047, 18%);
-        transition-duration: 0.4s;
-    }
+					.list-group-item {
+						overflow: hidden;
+						margin: 2px 20px 2px 20px;
+						padding: 6px 15px 6px 0;
+						height: auto !important;
+						border-left-width: 0;
+						background-color: darken(white, 2%);
+						font-size: 1em;
+						span {
+							cursor: default;
+						}
+						.number-label {
+							position: absolute;
+							top: 0;
+							float: left;
+							padding: 10px;
+							width: 28px;
+							height: 100%;
+							background-color: darken(lightgray, 2%);
+							color: white;
+							word-wrap: break-word;
+							span {
+								position: absolute;
+								top: 46%;
+								line-height: 5px;
+							}
+						}
+						.list-group-item-name {
+							right: 0;
+							display: inline-block;
+							margin-right: auto;
+							padding-left: 38px;
+							width: 78%;
+							word-break: break-all;
+						}
+						.list-group-item-name.edit-item {
+							width: 77%;
+							input {
+								height: 26px;
+							}
+						}
+						@media screen and (min-device-width: 768px) {
+							.list-group-item-name {
+								width: 82%;
+							}
+							.list-group-item-name.edit-item {
+								width: 82%;
+							}
+						}
 
-    .navbar-default.login-topnav {
-        height: 13vh;
-        overflow: hidden;
-        white-space: nowrap;
-        border-bottom-width: 0;
-        z-index: 1;
-
-        /* Logo */
-        .navbar-brand,
-        .navbar-brand:hover,
-        .navbar-brand:focus {
-            color: $_4th-coffee-red;
-            font-size: 7vh;
-            position: relative;
-            bottom: -19%;
-            text-overflow: clip;
-        }
-    }
-
-    /* Content */
-    .general-container {
-        margin-left: 20%;
-        margin-right: 20%;
-        padding-top: 80px;
-    }
-
-    /* Login Page */
-    .login-container {
-        @extend .general-container;
-        text-align: center;
-        padding-top: 12vh;
-        margin: 0;
-        height: 95vh;
-
-        a#redirect-button {
-            margin-right: auto;
-            margin-left: -15vh;
-            color: white;
-            font-size: 1em;
-            position: absolute;
-            width: 30vh;
-            top: 50%;
-            -ms-text-overflow: clip;
-            text-overflow: clip;
-        }
-
-        /* might belong in the login page later */
-        .welcome-poster {
-            font-family: $welcome-font;
-        }
-
-        .carousel {
-            background: #333;
-            height: 100%;
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-            align-content: center;
-            text-align: center;
-            border-bottom: 5px solid $topnav-item-color;
-            border-top: 5px solid $topnav-item-color;
-            z-index: 2;
-
-            .login-button {
-                background-color: rgba(0, 0, 0, 0.6);
-                color: white;
-                font-size: 3vh;
-                z-index: 1;
-                position: absolute;
-                bottom: 7vh;
-                width: 30vh;
-                height: 7vh;
-                margin-left: -15vh;
-                -ms-text-overflow: clip;
-                text-overflow: clip;
-            }
-
-            .carousel-indicators {
-                bottom: 1vh;
-            }
-
-            .carousel-inner {
-                position: relative;
-                top: 50%;
-                transform: translateY(-50%);
-
-                img {
-                    display: table-cell;
-                    margin-left: auto;
-                    margin-right: auto;
-                    width: auto;
-                    height: auto;
-                    max-height: 95vh;
-                }
-            }
-            //.right.carousel-control {
-            //    border-radius: 0 10px 10px 0;
-            //    background: linear-gradient(to left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
-            //}
-            //.left.carousel-control {
-            //    border-radius: 10px 0 0 10px;
-            //    background: linear-gradient(to right,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
-            //}
-        }
-
-        .dim-background {
-            //background-image: url(http://images.all-free-download.com/images/graphiclarge/plain_white_background_211387.jpg);
-            opacity: 0.5;
-            z-index: 10;
-            width: 100vw;
-            height: 100vh;
-            position: absolute;
-        }
-    }
-    @media screen and (max-device-width: 375px) {
-        .login-container {
-            height: 90vh;
-        }
-    }
-
-    /* Home Page */
-    .home-container {
-        @extend .general-container;
-
-        h4 {
-            margin-bottom: 6px;
-        }
-
-        button {
-            margin: 5px auto;
-        }
-
-        .cake-list {
-            li {
-                cursor: pointer;
-            }
-        }
-
-        /* Add Cake Form */
-        div.add-cake-form {
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 20px;
-            position: relative;
-
-            .form-group {
-                margin-bottom: 8px;
-
-                button {
-                    margin: 0;
-                }
-
-                .input-group {
-                    .input-group-btn:first-child {
-                        button {
-                            margin-right: 5px;
-                            border-radius: 4px;
-                        }
-                    }
-                    .form-control:last-child {
-                        border-radius: 4px;
-                    }
-                }
-
-                .list-group.add-cake-list {
-                    margin-top: 5px;
-                    border: 1px solid #ddd;
-                    border-radius: 4px;
-                    background-color: #eee;
-                    height: auto !important;
-                    padding: 5px 0;
-
-                    .list-group-item {
-                        background-color: darken(white, 2%);
-                        font-size: 1em;
-                        padding: 6px 15px 6px 0;
-                        margin: 2px 20px 2px 20px;
-                        border-left-width: 0;
-                        overflow: hidden;
-                        height: auto !important;
-
-                        span {
-                            cursor: default;
-                        }
-
-                        .number-label {
-                            color: white;
-                            background-color: darken(lightgray, 2%);
-                            top: 0;
-                            float: left;
-                            padding: 10px;
-                            width: 28px;
-                            height: 100%;
-                            position: absolute;
-                            word-wrap: break-word;
-
-                            span {
-                                line-height: 5px;
-                                top: 46%;
-                                position: absolute;
-                            }
-                        }
-
-                        .list-group-item-name {
-                            display: inline-block;
-                            right: 0;
-                            padding-left: 38px;
-                            margin-right: auto;
-                            width: 78%;
-                            word-break: break-all;
-                        }
-                        .list-group-item-name.edit-item {
-                            width: 77%;
-                            input {
-                                height: 26px;
-                            }
-                        }
-                        @media screen and (min-device-width: 768px) {
-                            .list-group-item-name {
-                                width: 82%;
-                            }
-                            .list-group-item-name.edit-item {
-                                width: 82%;
-                            }
-                        }
-
-                        /* Edit and Remove */
-                        .btn {
-                            padding: 3px 7px 1px 7px;
-                            font-size: 10px;
-                            vertical-align: baseline;
-                            position: relative;
-                            transition-duration: 0.2s;
-                        }
-                        .edit-remove {
-                            float: right;
-                            .edit-button:hover {
-                                background-color: #5bc0de;
-                                border-color: #5bc0de;
-                                span {
-                                    color: white;
-                                }
-                            }.remove-button:hover {
-                                background-color: #c9302c;
-                                border-color: #c9302c;
-                                span {
-                                    color: white;
-                                }
-                            }
-                        }
-                        .save-cancel {
-                            float: right;
-                            .btn {
-                                height: 26px;
-                                background-color: white;
-                                border-color: white !important;
-                            }
-                            .save-button:hover {
-                                background-color: #71c171 !important;
-                            }
-                            .save-button:not(:hover) {
-                                span {
-                                    color: #5cb85c;
-                                }
-                            }
-                            .cancel-button:hover {
-                                background-color: #d64843 !important;
-                            }
-                            .cancel-button:not(:hover) {
-                                span {
-                                    color: #c9302c;
-                                }
-                            }
-                        }
-                    }
-                    .list-group-item:first-child:last-child {
-                        .number-label {
-                            border-radius: 4px 0 0 4px;
-                        }
-                    }
-                    .list-group-item:first-child {
-                        .number-label {
-                            border-radius: 4px 0 0 0;
-                        }
-                    }
-                    .list-group-item:not(:first-child):not(:last-child) {
-                        .number-label {
-                            border-radius: 0;
-                        }
-                    }
-                    .list-group-item:last-child {
-                        .number-label {
-                            border-radius: 0 0 0 4px;
-                        }
-                    }
-                    .list-group-item:hover,
-                    .list-group-item:focus {
-                        background-color: white;
-                        transition-duration: 0.2s;
-
-                        .number-label {
-                            background-color: $topnav-item-color;
-                            transition-duration: 0.2s;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    @media screen and (max-width: 768px) {
-        .home-container {
-            margin-left: 10%;
-            margin-right: 10%;
-        }
-    }
-    @media screen and (max-width: 480px) {
-        .home-container {
-            min-width: 440px;
-            margin-left: 20px;
-            margin-right: 20px;
-        }
-    }
-    @media screen and (max-width: 380px) {
-        .home-container {
-            margin-left: 2px;
-            margin-right: 2px;
-        }
-    }
+						/* Edit and Remove */
+						.btn {
+							position: relative;
+							padding: 3px 7px 1px 7px;
+							vertical-align: baseline;
+							font-size: 10px;
+							transition-duration: 0.2s;
+						}
+						.edit-remove {
+							float: right;
+							.edit-button:hover {
+								border-color: #5BC0DE;
+								background-color: #5BC0DE;
+								span {
+									color: white;
+								}
+							}.remove-button:hover {
+								border-color: #C9302C;
+								background-color: #C9302C;
+								span {
+									color: white;
+								}
+							}
+						}
+						.save-cancel {
+							float: right;
+							.btn {
+								height: 26px;
+								border-color: white !important;
+								background-color: white;
+							}
+							.save-button:hover {
+								background-color: #71C171 !important;
+							}
+							.save-button:not(:hover) {
+								span {
+									color: #5CB85C;
+								}
+							}
+							.cancel-button:hover {
+								background-color: #D64843 !important;
+							}
+							.cancel-button:not(:hover) {
+								span {
+									color: #C9302C;
+								}
+							}
+						}
+					}
+					.list-group-item:first-child:last-child {
+						.number-label {
+							border-radius: 4px 0 0 4px;
+						}
+					}
+					.list-group-item:first-child {
+						.number-label {
+							border-radius: 4px 0 0 0;
+						}
+					}
+					.list-group-item:not(:first-child):not(:last-child) {
+						.number-label {
+							border-radius: 0;
+						}
+					}
+					.list-group-item:last-child {
+						.number-label {
+							border-radius: 0 0 0 4px;
+						}
+					}
+					.list-group-item:hover,
+					.list-group-item:focus {
+						background-color: white;
+						transition-duration: 0.2s;
+						.number-label {
+							background-color: $topnav-item-color;
+							transition-duration: 0.2s;
+						}
+					}
+				}
+			}
+		}
+	}
+	@media screen and (max-width: 768px) {
+		.home-container {
+			margin-right: 10%;
+			margin-left: 10%;
+		}
+	}
+	@media screen and (max-width: 480px) {
+		.home-container {
+			margin-right: 20px;
+			margin-left: 20px;
+			min-width: 440px;
+		}
+	}
+	@media screen and (max-width: 380px) {
+		.home-container {
+			margin-right: 2px;
+			margin-left: 2px;
+		}
+	}
 }
 
 .login-body {
-    height: 100vh;
-    background-color: $_2nd-light-cream;
+	height: 100vh;
+	background-color: $_2nd-light-cream;
 }
