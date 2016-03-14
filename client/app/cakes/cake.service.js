@@ -8,7 +8,7 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, Observable_1, http_1, http_2, http_3;
+    var core_1, Observable_1, http_1;
     var CakeService;
     return {
         setters:[
@@ -20,8 +20,6 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
             },
             function (http_1_1) {
                 http_1 = http_1_1;
-                http_2 = http_1_1;
-                http_3 = http_1_1;
             }],
         execute: function() {
             CakeService = (function () {
@@ -41,8 +39,8 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
                 };
                 CakeService.prototype.addCake = function (cake) {
                     var body = cake;
-                    var headers = new http_2.Headers({ "Content-Type": "application/json" });
-                    var options = new http_3.RequestOptions({ headers: headers });
+                    var headers = new http_1.Headers({ "Content-Type": "application/json" });
+                    var options = new http_1.RequestOptions({ headers: headers });
                     return this.http.post("/api/" + this.userId + "/cakes", body, options)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
@@ -53,8 +51,8 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
                 };
                 CakeService.prototype.addCakeDetail = function (id, detailType, detailName) {
                     var body = JSON.stringify({ type: detailType, name: detailName });
-                    var headers = new http_2.Headers({ "Content-Type": "application/json" });
-                    var options = new http_3.RequestOptions({ headers: headers });
+                    var headers = new http_1.Headers({ "Content-Type": "application/json" });
+                    var options = new http_1.RequestOptions({ headers: headers });
                     return this.http.post("/api/" + this.userId + "/cake/" + id + "/detail", body, options)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);

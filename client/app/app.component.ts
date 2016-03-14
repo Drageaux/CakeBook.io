@@ -102,16 +102,21 @@ enableProdMode();
 
 @RouteConfig([
     {path: "/login", name: "Login", component: LoginComponent, useAsDefault: true},
-    {path: "/...", redirectTo: ['/Login']},
     {path: "/home", name: "Home", component: HomeComponent},
     {path: "/cake/:id", name: "CakeDetail", component: CakeDetailComponent},
     {path: "/addCakeForm", name: "AddCakeForm", component: AddCakeFormComponent}
 ])
 
-export class AppComponent {
+export class AppComponent implements OnInit {
     constructor(public authHttp:AuthHttp,
                 private _router:Router,
                 private _location:Location) {
+    }
+
+    ngOnInit() {
+        if (!tokenNotExpired()) {
+            this._router.navigate(["Login"]);
+        }
     }
 
     logout() {

@@ -54,6 +54,11 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                     this._router = _router;
                     this._location = _location;
                 }
+                AppComponent.prototype.ngOnInit = function () {
+                    if (!angular2_jwt_1.tokenNotExpired()) {
+                        this._router.navigate(["Login"]);
+                    }
+                };
                 AppComponent.prototype.logout = function () {
                     localStorage.removeItem('profile');
                     localStorage.removeItem('id_token');
@@ -85,7 +90,6 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                     }),
                     router_1.RouteConfig([
                         { path: "/login", name: "Login", component: login_component_1.LoginComponent, useAsDefault: true },
-                        { path: "/...", redirectTo: ['/Login'] },
                         { path: "/home", name: "Home", component: home_component_1.HomeComponent },
                         { path: "/cake/:id", name: "CakeDetail", component: cake_detail_component_1.CakeDetailComponent },
                         { path: "/addCakeForm", name: "AddCakeForm", component: add_cake_form_component_1.AddCakeFormComponent }

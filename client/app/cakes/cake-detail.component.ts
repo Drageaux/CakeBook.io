@@ -6,14 +6,16 @@ import {OnInit} from "angular2/core";
 import {Cake} from "./cake";
 import {CakeService} from "./cake.service";
 import {Observable} from "rxjs/Observable";
+import {CanActivate} from "angular2/router";
+import {tokenNotExpired} from "angular2-jwt";
 
 @Component({
     selector: "cake-detail",
     templateUrl: "templates/cake-detail.component.html"
 })
 
+@CanActivate(() => tokenNotExpired())
 export class CakeDetailComponent implements OnInit {
-    @Input() errorMessage:string;
     @Input() cake:Cake;
     currIngr:string;
     currStep:string;
@@ -28,7 +30,7 @@ export class CakeDetailComponent implements OnInit {
         this._service.getCake(id)
             .subscribe(
                 cake => this.cake = cake,
-                error => this.errorMessage = <any>error);
+                error => this._router.navigate(["Home"]));
     }
 
     addDetail(detailType:string){

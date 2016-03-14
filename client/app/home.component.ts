@@ -5,12 +5,15 @@ import {Observable} from "rxjs/Observable";
 import {Cake}                   from "./cakes/cake";
 import {AddCakeFormComponent}   from "./cakes/add-cake-form.component";
 import {CakeService}            from "./cakes/cake.service";
+import {CanActivate} from "angular2/router";
+import {tokenNotExpired} from "angular2-jwt";
 
 @Component({
     templateUrl: "templates/home.component.html",
     directives: [AddCakeFormComponent]
 })
 
+@CanActivate(() => tokenNotExpired())
 export class HomeComponent implements OnInit {
     errorMessage:string;
     @Input() cakes:Cake[];
@@ -20,6 +23,9 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit() {
+        if (!tokenNotExpired()) {
+            this._router.navigate(["Login"]);
+        }
         this.getCakes();
     }
 

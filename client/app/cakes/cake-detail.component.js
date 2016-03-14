@@ -1,4 +1,4 @@
-System.register(["angular2/core", "angular2/router", "./cake", "./cake.service"], function(exports_1) {
+System.register(["angular2/core", "angular2/router", "./cake", "./cake.service", "angular2-jwt"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(["angular2/core", "angular2/router", "./cake", "./cake.service"]
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, router_2, cake_1, cake_service_1;
+    var core_1, router_1, router_2, cake_1, cake_service_1, router_3, angular2_jwt_1;
     var CakeDetailComponent;
     return {
         setters:[
@@ -18,12 +18,16 @@ System.register(["angular2/core", "angular2/router", "./cake", "./cake.service"]
             function (router_1_1) {
                 router_1 = router_1_1;
                 router_2 = router_1_1;
+                router_3 = router_1_1;
             },
             function (cake_1_1) {
                 cake_1 = cake_1_1;
             },
             function (cake_service_1_1) {
                 cake_service_1 = cake_service_1_1;
+            },
+            function (angular2_jwt_1_1) {
+                angular2_jwt_1 = angular2_jwt_1_1;
             }],
         execute: function() {
             CakeDetailComponent = (function () {
@@ -36,7 +40,7 @@ System.register(["angular2/core", "angular2/router", "./cake", "./cake.service"]
                     var _this = this;
                     var id = this._routeParams.get('id');
                     this._service.getCake(id)
-                        .subscribe(function (cake) { return _this.cake = cake; }, function (error) { return _this.errorMessage = error; });
+                        .subscribe(function (cake) { return _this.cake = cake; }, function (error) { return _this._router.navigate(["Home"]); });
                 };
                 CakeDetailComponent.prototype.addDetail = function (detailType) {
                     var _this = this;
@@ -68,17 +72,14 @@ System.register(["angular2/core", "angular2/router", "./cake", "./cake.service"]
                 };
                 __decorate([
                     core_1.Input(), 
-                    __metadata('design:type', String)
-                ], CakeDetailComponent.prototype, "errorMessage", void 0);
-                __decorate([
-                    core_1.Input(), 
                     __metadata('design:type', cake_1.Cake)
                 ], CakeDetailComponent.prototype, "cake", void 0);
                 CakeDetailComponent = __decorate([
                     core_1.Component({
                         selector: "cake-detail",
                         templateUrl: "templates/cake-detail.component.html"
-                    }), 
+                    }),
+                    router_3.CanActivate(function () { return angular2_jwt_1.tokenNotExpired(); }), 
                     __metadata('design:paramtypes', [router_1.Router, router_2.RouteParams, cake_service_1.CakeService])
                 ], CakeDetailComponent);
                 return CakeDetailComponent;

@@ -4,12 +4,14 @@
  **/
 
 import {Directive, Attribute, ElementRef, DynamicComponentLoader} from 'angular2/core';
-import {Router, RouterOutlet, ComponentInstruction} from 'angular2/router';
+import {Router, RouterOutlet, ComponentInstruction, CanActivate} from 'angular2/router';
+import {tokenNotExpired} from "angular2-jwt";
 
 @Directive({
     selector: 'loggedin-router-outlet'
 })
 
+@CanActivate(() => tokenNotExpired())
 export class LoggedInRouterOutlet extends RouterOutlet {
     publicRoutes: any;
     private parentRouter: Router;
@@ -26,7 +28,7 @@ export class LoggedInRouterOutlet extends RouterOutlet {
 
     activate(instruction: ComponentInstruction) {
         var url = this.parentRouter.lastNavigationAttempt;
-        if (!this.publicRoutes[url] && !localStorage.getItem('jwt')) {
+        if (!this.publicRoutes[url] && !localStorage.getItem('id_token')) {
             // todo: redirect to Login, may be there a better way?
             this.parentRouter.navigateByUrl('/login');
         }
