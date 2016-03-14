@@ -1,6 +1,4 @@
-System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-jwt", "./loggedin-outlet", "./login.component", "./home.component", "./cakes/cake-detail.component", "./cakes/add-cake-form.component", "./cakes/cake.service"], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
+System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-jwt", "./loggedin-outlet", "./login.component", "./home.component", "./cakes/cake-detail.component", "./cakes/add-cake-form.component", "./cakes/cake.service", 'angular2/core'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -17,7 +15,6 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
             function (core_1_1) {
                 core_1 = core_1_1;
                 core_2 = core_1_1;
-                core_3 = core_1_1;
             },
             function (http_1_1) {
                 http_1 = http_1_1;
@@ -45,6 +42,9 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
             },
             function (cake_service_1_1) {
                 cake_service_1 = cake_service_1_1;
+            },
+            function (core_3_1) {
+                core_3 = core_3_1;
             }],
         execute: function() {
             core_3.enableProdMode();
@@ -87,14 +87,13 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                         { path: "/login", name: "Login", component: login_component_1.LoginComponent, useAsDefault: true },
                         { path: "/...", redirectTo: ['/Login'] },
                         { path: "/home", name: "Home", component: home_component_1.HomeComponent },
-                        //{path: "/cakes", name: "Cakes", component: ProfileComponent},
                         { path: "/cake/:id", name: "CakeDetail", component: cake_detail_component_1.CakeDetailComponent },
                         { path: "/addCakeForm", name: "AddCakeForm", component: add_cake_form_component_1.AddCakeFormComponent }
                     ]), 
                     __metadata('design:paramtypes', [angular2_jwt_1.AuthHttp, router_1.Router, router_1.Location])
                 ], AppComponent);
                 return AppComponent;
-            }());
+            })();
             exports_1("AppComponent", AppComponent);
         }
     }

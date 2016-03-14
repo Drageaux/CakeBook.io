@@ -20,7 +20,8 @@ export class AddCakeFormComponent {
     stepList:Object[] = [];
     currStep = {"value": "", "editing": false};
 
-    model = new Cake(0, "", [], []);
+    userId = JSON.parse(localStorage.getItem("profile")).user_id;
+    model = new Cake(0, this.userId, "", [], []);
     active = false;
 
     constructor(private _cakeService:CakeService) {
@@ -56,7 +57,7 @@ export class AddCakeFormComponent {
             .subscribe(res => this.saved.emit(res));
 
         // TODO: Remove when there's a better way to reset the model
-        this.model = new Cake(0, "", [""], [""]);
+        this.model = new Cake(0, this.userId, "", [""], [""]);
         this.closeForm();
     }
 

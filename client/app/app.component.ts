@@ -16,7 +16,7 @@ import {AuthHttp,
 import {LoggedInRouterOutlet}   from "./loggedin-outlet";
 import {LoginComponent}         from "./login.component";
 import {HomeComponent}          from "./home.component";
-//import {ProfileComponent}       from "./profile.component";
+
 import {Cake}                   from "./cakes/cake";
 import {CakeDetailComponent}    from "./cakes/cake-detail.component";
 import {AddCakeFormComponent}   from "./cakes/add-cake-form.component";
@@ -104,7 +104,6 @@ enableProdMode();
     {path: "/login", name: "Login", component: LoginComponent, useAsDefault: true},
     {path: "/...", redirectTo: ['/Login']},
     {path: "/home", name: "Home", component: HomeComponent},
-    //{path: "/cakes", name: "Cakes", component: ProfileComponent},
     {path: "/cake/:id", name: "CakeDetail", component: CakeDetailComponent},
     {path: "/addCakeForm", name: "AddCakeForm", component: AddCakeFormComponent}
 ])
