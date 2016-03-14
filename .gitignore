@@ -1,6 +1,7 @@
 # Development only
 /node_modules
 .env
+.idea/workspace.xml
 
 # Windows image file caches
 Thumbs.db
