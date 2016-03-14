@@ -16,9 +16,7 @@ import {AuthHttp,
 import {LoggedInRouterOutlet}   from "./loggedin-outlet";
 import {LoginComponent}         from "./login.component";
 import {HomeComponent}          from "./home.component";
-import {ProfileComponent}       from "./profile.component";
 
-import {UserService}            from "./users/user.service";
 import {Cake}                   from "./cakes/cake";
 import {CakeDetailComponent}    from "./cakes/cake-detail.component";
 import {AddCakeFormComponent}   from "./cakes/add-cake-form.component";
@@ -95,7 +93,6 @@ enableProdMode();
     styleUrls: ["assets/custom/stylesheets/style.css"],
     encapsulation: ViewEncapsulation.None,
     providers: [
-        UserService,
         CakeService,
         ROUTER_PROVIDERS,
         HTTP_PROVIDERS
@@ -107,7 +104,6 @@ enableProdMode();
     {path: "/login", name: "Login", component: LoginComponent, useAsDefault: true},
     {path: "/...", redirectTo: ['/Login']},
     {path: "/home", name: "Home", component: HomeComponent},
-    {path: "/profile", name: "Profile", component: ProfileComponent},
     {path: "/cake/:id", name: "CakeDetail", component: CakeDetailComponent},
     {path: "/addCakeForm", name: "AddCakeForm", component: AddCakeFormComponent}
 ])

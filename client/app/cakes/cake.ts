@@ -1,5 +1,3 @@
-import {User} from "../users/user";
-
 export class Cake {
     constructor(
         public _id:number,

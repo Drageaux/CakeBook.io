@@ -1,4 +1,4 @@
-System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-jwt", "./loggedin-outlet", "./login.component", "./home.component", "./profile.component", "./users/user.service", "./cakes/cake-detail.component", "./cakes/add-cake-form.component", "./cakes/cake.service", 'angular2/core'], function(exports_1) {
+System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-jwt", "./loggedin-outlet", "./login.component", "./home.component", "./cakes/cake-detail.component", "./cakes/add-cake-form.component", "./cakes/cake.service", 'angular2/core'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, router_1, angular2_jwt_1, loggedin_outlet_1, login_component_1, home_component_1, profile_component_1, user_service_1, cake_detail_component_1, add_cake_form_component_1, cake_service_1, core_2, core_3;
+    var core_1, http_1, router_1, angular2_jwt_1, loggedin_outlet_1, login_component_1, home_component_1, cake_detail_component_1, add_cake_form_component_1, cake_service_1, core_2, core_3;
     var AppComponent;
     return {
         setters:[
@@ -33,12 +33,6 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
             },
             function (home_component_1_1) {
                 home_component_1 = home_component_1_1;
-            },
-            function (profile_component_1_1) {
-                profile_component_1 = profile_component_1_1;
-            },
-            function (user_service_1_1) {
-                user_service_1 = user_service_1_1;
             },
             function (cake_detail_component_1_1) {
                 cake_detail_component_1 = cake_detail_component_1_1;
@@ -83,7 +77,6 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                         styleUrls: ["assets/custom/stylesheets/style.css"],
                         encapsulation: core_2.ViewEncapsulation.None,
                         providers: [
-                            user_service_1.UserService,
                             cake_service_1.CakeService,
                             router_1.ROUTER_PROVIDERS,
                             http_1.HTTP_PROVIDERS
@@ -94,7 +87,6 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                         { path: "/login", name: "Login", component: login_component_1.LoginComponent, useAsDefault: true },
                         { path: "/...", redirectTo: ['/Login'] },
                         { path: "/home", name: "Home", component: home_component_1.HomeComponent },
-                        { path: "/profile", name: "Profile", component: profile_component_1.ProfileComponent },
                         { path: "/cake/:id", name: "CakeDetail", component: cake_detail_component_1.CakeDetailComponent },
                         { path: "/addCakeForm", name: "AddCakeForm", component: add_cake_form_component_1.AddCakeFormComponent }
                     ]), 
