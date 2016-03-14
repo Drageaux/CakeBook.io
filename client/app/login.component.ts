@@ -36,10 +36,6 @@ export class LoginComponent implements OnInit {
             });
     }
 
-    loginUser() {
-        this.login();
-    }
-
     loggedIn() {
         return tokenNotExpired();
     }

@@ -42,9 +42,6 @@ System.register(['angular2/core', 'angular2/router', 'angular2-jwt'], function(e
                         localStorage.setItem('id_token', id_token);
                     });
                 };
-                LoginComponent.prototype.loginUser = function () {
-                    this.login();
-                };
                 LoginComponent.prototype.loggedIn = function () {
                     return angular2_jwt_1.tokenNotExpired();
                 };
