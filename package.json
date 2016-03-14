@@ -1,7 +1,11 @@
 {
-  "name": "angular2-cake-book",
-  "version": "1.1.0",
+  "name": "cakebook.io",
+  "version": "1.2.0",
   "author": "David Thong Nguyen",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Drageaux/cakebook.io.git"
+  },
   "scripts": {
     "tsd": "npm tsd install",
     "tsc": "tsc",
@@ -17,7 +21,7 @@
     "es6-shim": "^0.33.3",
     "express": "^4.13.4",
     "foreman": "1.4.1",
-    "mongoose": "^4.4.4",
+    "mongoose": "^4.4.7",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.2",
     "systemjs": "0.19.6",

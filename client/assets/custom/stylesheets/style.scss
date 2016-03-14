@@ -326,6 +326,10 @@ body {
                         overflow: hidden;
                         height: auto !important;
 
+                        span {
+                            cursor: default;
+                        }
+
                         .number-label {
                             color: white;
                             background-color: darken(lightgray, 2%);

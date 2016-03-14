@@ -207,6 +207,8 @@ body {
             overflow: hidden;
             height: auto !important;
             /* Edit and Remove */ }
+            body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item span {
+              cursor: default; }
             body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .number-label {
               color: white;
               background-color: #cecece;
