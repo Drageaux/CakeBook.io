@@ -37,10 +37,8 @@ System.register(['angular2/core', 'angular2/router', 'angular2-jwt', "./users/us
                         this._router.navigate(["Home"]);
                     }
                 };
-                LoginComponent.prototype.test = function () {
-                    return;
-                };
                 LoginComponent.prototype.login = function () {
+                    var prof = "";
                     this.lock.show(function (err, profile, id_token) {
                         if (err) {
                             throw new Error(err);
@@ -50,7 +48,9 @@ System.register(['angular2/core', 'angular2/router', 'angular2-jwt', "./users/us
                         localStorage.setItem('profile', JSON.stringify(profile));
                         localStorage.setItem('id_token', id_token);
                     });
-                    //this._userService.addUser(JSON.stringify(profile));
+                };
+                LoginComponent.prototype.loginUser = function () {
+                    this.login();
                 };
                 LoginComponent.prototype.loggedIn = function () {
                     return angular2_jwt_1.tokenNotExpired();

@@ -27,14 +27,15 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
             CakeService = (function () {
                 function CakeService(http) {
                     this.http = http;
+                    this.userId = JSON.parse(localStorage.getItem("profile")).user_id;
                 }
                 CakeService.prototype.getCakes = function () {
-                    return this.http.get("/api/cakes")
+                    return this.http.get("/api/" + this.userId + "/cakes")
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };
                 CakeService.prototype.getCake = function (id) {
-                    return this.http.get("/api/cake/" + id)
+                    return this.http.get("/api/" + this.userId + "/cake/" + id)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };
@@ -42,19 +43,19 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
                     var body = cake;
                     var headers = new http_2.Headers({ "Content-Type": "application/json" });
                     var options = new http_3.RequestOptions({ headers: headers });
-                    return this.http.post("/api/cakes", body, options)
+                    return this.http.post("/api/" + this.userId + "/cakes", body, options)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };
                 CakeService.prototype.deleteCake = function (id) {
-                    return this.http.delete("/api/cake/" + id)
+                    return this.http.delete("/api/" + this.userId + "/cake/" + id)
                         .catch(this.handleError);
                 };
                 CakeService.prototype.addCakeDetail = function (id, detailType, detailName) {
                     var body = JSON.stringify({ type: detailType, name: detailName });
                     var headers = new http_2.Headers({ "Content-Type": "application/json" });
                     var options = new http_3.RequestOptions({ headers: headers });
-                    return this.http.post("/api/cake/" + id + "/detail", body, options)
+                    return this.http.post("/api/" + this.userId + "/cake/" + id + "/detail", body, options)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };

@@ -26,22 +26,24 @@ export class LoginComponent implements OnInit {
         }
     }
 
-    test() {
-        return;
+    login() {
+        let prof = "";
+        this.lock.show(
+            function (err:string, profile:string, id_token:string) {
+                if (err) {
+                    throw new Error(err);
+                }
+
+                //this._userService.addUser(JSON.stringify(profile));
+                //.subscribe(res => this.saved.emit(res));
+                localStorage.setItem('profile', JSON.stringify(profile));
+                localStorage.setItem('id_token', id_token);
+            });
     }
 
-    login() {
-        this.lock.show(function (err:string, profile:string, id_token:string) {
-            if (err) {
-                throw new Error(err);
-            }
+    loginUser() {
+        this.login()
 
-            //this._userService.addUser(JSON.stringify(profile));
-                //.subscribe(res => this.saved.emit(res));
-            localStorage.setItem('profile', JSON.stringify(profile));
-            localStorage.setItem('id_token', id_token);
-        });
-        //this._userService.addUser(JSON.stringify(profile));
     }
 
     loggedIn() {

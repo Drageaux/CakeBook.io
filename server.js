@@ -15,11 +15,11 @@ app.use("/templates", express.static(__dirname + "/client/app/templates"));
 app.use("/assets", express.static(__dirname + "/client/assets"));
 
 // REST API
-app.get("/api/cakes", cakesController.list);
-app.get("/api/cake/:id", cakesController.get);
-app.post("/api/cakes", cakesController.create);
-app.delete("/api/cake/:id", cakesController.remove);
-app.post("/api/cake/:id/detail", cakesController.addDetail);
+app.get("/api/:user/cakes", cakesController.list);
+app.get("/api/:user/cake/:id", cakesController.get);
+app.post("/api/:user/cakes", cakesController.create);
+app.delete("/api/:user/cake/:id/", cakesController.remove);
+app.post("/api/:user/cake/:id/detail", cakesController.addDetail);
 
 // All routes will serve this index page
 app.use("/*", function (req, res) {

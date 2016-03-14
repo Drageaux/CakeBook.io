@@ -31,7 +31,8 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     this.currIngr = { "value": "", "editing": false };
                     this.stepList = [];
                     this.currStep = { "value": "", "editing": false };
-                    this.model = new cake_1.Cake(0, "", "", [], []);
+                    this.userId = JSON.parse(localStorage.getItem("profile")).user_id;
+                    this.model = new cake_1.Cake(0, this.userId, "", [], []);
                     this.active = false;
                 }
                 AddCakeFormComponent.prototype.openForm = function () {
@@ -61,7 +62,7 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     this._cakeService.addCake(JSON.stringify(this.model))
                         .subscribe(function (res) { return _this.saved.emit(res); });
                     // TODO: Remove when there's a better way to reset the model
-                    this.model = new cake_1.Cake(0, "", "", [""], [""]);
+                    this.model = new cake_1.Cake(0, this.userId, "", [""], [""]);
                     this.closeForm();
                 };
                 /* Ingredients and Steps */

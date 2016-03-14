@@ -9,17 +9,19 @@ import {Cake} from "./cake";
 
 @Injectable()
 export class CakeService {
+    userId = JSON.parse(localStorage.getItem("profile")).user_id;
+
     constructor(private http:Http) {
     }
 
     getCakes() {
-        return this.http.get("/api/cakes")
+        return this.http.get("/api/" + this.userId + "/cakes")
             .map(res => <Cake[]> res.json())
             .catch(this.handleError);
     }
 
     getCake(id:number | String) {
-        return this.http.get("/api/cake/" + id)
+        return this.http.get("/api/" + this.userId + "/cake/" + id)
             .map(res => <Cake> res.json())
             .catch(this.handleError);
     }
@@ -29,13 +31,13 @@ export class CakeService {
         let headers = new Headers({"Content-Type": "application/json"});
         let options = new RequestOptions({headers: headers});
 
-        return this.http.post("/api/cakes", body, options)
+        return this.http.post("/api/" + this.userId + "/cakes", body, options)
             .map(res => <Cake> res.json())
             .catch(this.handleError);
     }
 
     deleteCake(id:number | String) {
-        return this.http.delete("/api/cake/" + id)
+        return this.http.delete("/api/" + this.userId + "/cake/" + id)
             .catch(this.handleError);
     }
 
@@ -44,7 +46,7 @@ export class CakeService {
         let headers = new Headers({"Content-Type": "application/json"});
         let options = new RequestOptions({headers: headers});
 
-        return this.http.post("/api/cake/" + id + "/detail", body, options)
+        return this.http.post("/api/" + this.userId + "/cake/" + id + "/detail", body, options)
             .map(res => <Cake> res.json())
             .catch(this.handleError);
     }
