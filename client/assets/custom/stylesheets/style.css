@@ -10,22 +10,11 @@
  * Styles *
  **********/
 body {
-  /***********
-   * General *
-   ***********/
-  /*******************
-   * General Top Nav *
-   *******************/
-  /* Login Page Top Nav */
-  /***********
-   * Content *
-   ***********/
-  /**************
-   * Login Page *
-   **************/
-  /*************
-   * Home Page *
-   *************/ }
+  /* General */
+  /* Top Nav */
+  /* Content */
+  /* Login Page */
+  /* Home Page */ }
   body p {
     font-size: 1.2em;
     font-family: "Marmelad", Arial; }
@@ -41,11 +30,10 @@ body {
     font-size: 1.1em;
     font-family: "Chewy", cursive;
     /* Normal Menu */
-    /* Dropdown Menu */
-    /* General Logo */ }
+    /* Dropdown Menu */ }
     @media screen and (min-width: 480px) {
       body .navbar-default .navbar-nav#normalMenu {
-        margin-right: 0;
+        margin-right: 10%;
         border-radius: 6px 6px 0 0; }
         body .navbar-default .navbar-nav#normalMenu li a {
           padding: 15px 16px 11px 16px;
@@ -60,17 +48,7 @@ body {
           background-color: #6a272b;
           color: white;
           transition-duration: 0.28s; } }
-    @media screen and (max-width: 768px) {
-      body .navbar-default .navbar-nav#normalMenu {
-        font-size: 0.90em; }
-        body .navbar-default .navbar-nav#normalMenu li a {
-          padding: 15px 10px 11px 10px;
-          color: white; }
-        body .navbar-default .navbar-nav#normalMenu li a:hover,
-        body .navbar-default .navbar-nav#normalMenu li a:focus {
-          padding: 15px 15px 11px 15px;
-          color: white; } }
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 768px) {
       body .navbar-default .navbar-nav#normalMenu {
         margin-right: 20%; } }
     @media screen and (min-width: 480px) {
@@ -117,29 +95,6 @@ body {
             border-radius: 8px 0 0 0; }
           body .navbar-default .btn-group#dropdownMenu ul li:last-child a {
             border-radius: 0 0 8px 8px; } }
-    body .navbar-default .navbar-brand,
-    body .navbar-default .navbar-brand:hover,
-    body .navbar-default .navbar-brand:focus {
-      margin-left: -8px;
-      color: #593836;
-      text-overflow: clip;
-      font-size: 5vh; }
-    @media screen and (max-width: 768px) {
-      body .navbar-default .navbar-brand,
-      body .navbar-default .navbar-brand:hover,
-      body .navbar-default .navbar-brand:focus {
-        font-size: 4vh; } }
-    @media screen and (min-width: 1200px) {
-      body .navbar-default .navbar-brand,
-      body .navbar-default .navbar-brand:hover,
-      body .navbar-default .navbar-brand:focus {
-        margin-left: 20%;
-        padding-left: 0; } }
-    @media screen and (max-width: 320px) {
-      body .navbar-default .navbar-brand,
-      body .navbar-default .navbar-brand:hover,
-      body .navbar-default .navbar-brand:focus {
-        font-size: 3vh; } }
   body .navbar-default.topnav:hover {
     border-bottom: 5px solid #6a272b;
     transition-duration: 0.4s; }
@@ -149,15 +104,15 @@ body {
     height: 13vh;
     border-bottom-width: 0;
     white-space: nowrap;
-    /* Login Page Logo */ }
+    /* Logo */ }
     body .navbar-default.login-topnav .navbar-brand,
     body .navbar-default.login-topnav .navbar-brand:hover,
     body .navbar-default.login-topnav .navbar-brand:focus {
-      float: left;
-      margin-top: 4vh;
+      position: relative;
+      bottom: -19%;
       color: #593836;
       text-overflow: clip;
-      font-size: 8vh; }
+      font-size: 7vh; }
   body .general-container, body .login-container, body .home-container {
     margin-right: 20%;
     margin-left: 20%;
@@ -356,10 +311,6 @@ body {
     body .home-container {
       margin-right: 2px;
       margin-left: 2px; } }
-  @media screen and (min-width: 768px) {
-    body .home-container {
-      margin-right: 20%;
-      margin-left: 20%; } }
 
 .login-body {
   height: 100vh;

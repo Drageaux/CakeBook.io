@@ -32,7 +32,6 @@ enableProdMode();
     template: `
         <div *ngIf="loggedIn() && !atLoginPage()">
             <nav class="navbar navbar-default navbar-fixed-top topnav">
-                <a href="#" class="navbar-brand">Cake Book</a>
 
                 <!-- Normal Menu -->
                 <ul class="nav navbar-nav navbar-right" id="normalMenu">
