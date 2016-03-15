@@ -153,8 +153,8 @@ body {
     body .navbar-default.login-topnav .navbar-brand,
     body .navbar-default.login-topnav .navbar-brand:hover,
     body .navbar-default.login-topnav .navbar-brand:focus {
-      float: left;
-      margin-top: 4vh;
+      margin-left: 1%;
+      margin-top: 3vh;
       color: #593836;
       text-overflow: clip;
       font-size: 8vh; }
