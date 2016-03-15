@@ -16,4 +16,4 @@
    - Facebook (https://developers.facebook.com)
 
 ##Production Notes:
-- Only registered testers can login through Facebook. Otherwise logging in with Google or email works just fine
+- App is public at http://cakebook.io 
