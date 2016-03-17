@@ -372,7 +372,7 @@ body {
       margin-right: 2px;
       margin-left: 2px; } }
   body .details-container {
-    min-width: 200px;
+    min-width: 300px;
     margin-left: 14%;
     margin-right: 14%;
     word-break: break-all; }
@@ -389,6 +389,8 @@ body {
       width: 68%; }
       body .details-container .cake-info .cake-description p {
         font-size: 1em; }
+    body .details-container ul, body .details-container ol {
+      padding-left: 30px; }
   @media screen and (max-width: 768px) {
     body .details-container {
       margin-left: 5%;

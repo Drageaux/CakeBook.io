@@ -20,9 +20,8 @@
             <li *ngFor="#ingr of cake.ingredients">
                 {{ingr}}
             </li>
-            <li style="list-style: none; color: #888" *ngIf="cake.ingredients.length == 0">(no ingredients specified)</li>
-            <br>
-            <li style="list-style: none">
+            <li style="list-style: none; color: #888;" *ngIf="cake.ingredients.length == 0">(no ingredients specified)</li>
+            <li style="list-style: none; padding-top: 10px; padding-bottom: 5px">
                 <form class="form-group">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="(add new ingredient)"
@@ -44,9 +43,8 @@
             <li *ngFor="#step of cake.steps">
                 {{step}}
             </li>
-            <li style="list-style: none; color: #888" *ngIf="cake.steps.length == 0">(no steps specified)</li>
-            <br>
-            <li style="list-style: none">
+            <li style="list-style: none; color: #888;" *ngIf="cake.steps.length == 0">(no steps specified)</li>
+            <li style="list-style: none; padding-top: 10px; padding-bottom: 5px">
                 <form class="form-group">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="(add new step)"

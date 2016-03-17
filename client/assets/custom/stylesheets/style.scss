@@ -546,7 +546,7 @@ body {
      ****************/
     .details-container {
         @extend .general-container;
-        min-width: 200px;
+        min-width: 300px;
         margin-left: 14%;
         margin-right: 14%;
         word-break: break-all;
@@ -569,6 +569,9 @@ body {
                     font-size: 1em;
                 }
             }
+        }
+        ul, ol {
+            padding-left: 30px;
         }
     }
     @media screen and (max-width: 768px) {
