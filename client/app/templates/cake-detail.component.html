@@ -2,6 +2,8 @@
     <div *ngIf="cake">
         <h4>Details: {{cake.name}}</h4>
         <hr>
+        <!--{{imgData}}-->
+        <img src="data:image/jpeg;base64,{{imgData}}">
         <label><b>Ingredients</b></label>
         <ul>
             <li *ngFor="#ingr of cake.ingredients">

@@ -57,6 +57,11 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };
+                CakeService.prototype.getCakeImage = function (id) {
+                    return this.http.get("/api/" + this.userId + "/cake/" + id + "/image")
+                        .map(function (res) { return res.json(); })
+                        .catch(this.handleError);
+                };
                 CakeService.prototype.uploadCakeImage = function (id) {
                     return this.http.get("/api/" + this.userId + "/cake/" + id + "/upload")
                         .map(function (res) { return console.log(res); })

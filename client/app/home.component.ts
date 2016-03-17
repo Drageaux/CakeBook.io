@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
             this._router.navigate(["Login"]);
         }
         this.getCakes();
+
     }
 
     getCakes() {

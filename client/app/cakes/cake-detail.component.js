@@ -40,7 +40,7 @@ System.register(["angular2/core", "angular2/router", "./cake", "./cake.service",
                     var _this = this;
                     var id = this._routeParams.get('id');
                     this._service.getCake(id)
-                        .subscribe(function (cake) { return _this.cake = cake; }, function (error) { return _this._router.navigate(["Home"]); });
+                        .subscribe(function (cake) { return _this.cake = cake; }, function (error) { return _this._router.navigate(["Home"]); }, function () { return _this.getCakeImage(); });
                 };
                 CakeDetailComponent.prototype.addDetail = function (detailType) {
                     var _this = this;
@@ -58,6 +58,11 @@ System.register(["angular2/core", "angular2/router", "./cake", "./cake.service",
                             this.currStep = "";
                         }
                     }
+                };
+                CakeDetailComponent.prototype.getCakeImage = function () {
+                    var _this = this;
+                    this._service.getCakeImage(this.cake._id)
+                        .subscribe(function (res) { return _this.imgData = res; });
                 };
                 CakeDetailComponent.prototype.uploadCakeImage = function () {
                     this._service.uploadCakeImage(this.cake._id)
@@ -78,6 +83,10 @@ System.register(["angular2/core", "angular2/router", "./cake", "./cake.service",
                     core_1.Input(), 
                     __metadata('design:type', cake_1.Cake)
                 ], CakeDetailComponent.prototype, "cake", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', String)
+                ], CakeDetailComponent.prototype, "imgData", void 0);
                 CakeDetailComponent = __decorate([
                     core_1.Component({
                         selector: "cake-detail",

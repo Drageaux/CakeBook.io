@@ -5,6 +5,7 @@ import {CanActivate} from "angular2/router";
 import {tokenNotExpired} from "angular2-jwt";
 
 import {Cake} from "./cake";
+import {Image} from "./image";
 
 @Injectable()
 export class CakeService {
@@ -47,6 +48,12 @@ export class CakeService {
 
         return this.http.post("/api/" + this.userId + "/cake/" + id + "/detail", body, options)
             .map(res => <Cake> res.json())
+            .catch(this.handleError);
+    }
+
+    getCakeImage(id:number | string) {
+        return this.http.get("/api/" + this.userId + "/cake/" + id + "/image")
+            .map(res => res.json())
             .catch(this.handleError);
     }
 

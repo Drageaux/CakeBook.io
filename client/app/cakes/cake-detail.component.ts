@@ -19,6 +19,7 @@ export class CakeDetailComponent implements OnInit {
     @Input() cake:Cake;
     currIngr:string;
     currStep:string;
+    @Input() imgData:string;
 
     constructor(private _router:Router,
                 private _routeParams:RouteParams,
@@ -30,10 +31,11 @@ export class CakeDetailComponent implements OnInit {
         this._service.getCake(id)
             .subscribe(
                 cake => this.cake = cake,
-                error => this._router.navigate(["Home"]));
+                error => this._router.navigate(["Home"]),
+                () => this.getCakeImage());
     }
 
-    addDetail(detailType:string){
+    addDetail(detailType:string) {
         if (detailType == "ingr") {
             if (!this.isEmptyString(this.currIngr)) {
                 this._service.addCakeDetail(this.cake._id, "ingr", this.currIngr)
@@ -41,13 +43,20 @@ export class CakeDetailComponent implements OnInit {
                 this.currIngr = "";
             }
         }
-        else if (detailType == "step"){
+        else if (detailType == "step") {
             if (!this.isEmptyString(this.currStep)) {
                 this._service.addCakeDetail(this.cake._id, "step", this.currStep)
                     .subscribe(cake => this.cake = cake);
                 this.currStep = "";
             }
         }
+    }
+
+    getCakeImage() {
+        this._service.getCakeImage(this.cake._id)
+            .subscribe(
+                res => this.imgData = res
+            );
     }
 
     uploadCakeImage() {
