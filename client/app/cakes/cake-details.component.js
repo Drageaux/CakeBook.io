@@ -60,9 +60,10 @@ System.register(["angular2/core", "angular2/router", "./cake", "./cake.service",
                     }
                 };
                 CakeDetailsComponent.prototype.getCakeImage = function () {
-                    var _this = this;
-                    this._service.getCakeImage(this.cake._id)
-                        .subscribe(function (res) { return _this.imgData = res; });
+                    this._service.getCakeImage(this.cake._id);
+                    //.subscribe(
+                    //    res => this.imgData = res
+                    //);
                 };
                 CakeDetailsComponent.prototype.uploadCakeImage = function () {
                     this._service.uploadCakeImage(this.cake._id)

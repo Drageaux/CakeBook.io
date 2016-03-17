@@ -377,14 +377,23 @@ body {
     margin-right: 14%;
     word-break: break-all; }
     body .details-container .cake-info .cake-image {
-      display: table-cell;
+      display: inline-block;
       width: 30%;
+      position: relative;
       padding-right: 10px; }
-      body .details-container .cake-info .cake-image img {
+      body .details-container .cake-info .cake-image a {
+        cursor: -webkit-zoom-in;
+        cursor: -moz-zoom-in;
+        text-decoration: none; }
+        body .details-container .cake-info .cake-image a img {
+          width: 100%;
+          border-radius: 5px; }
+      body .details-container .cake-info .cake-image .upload-button {
+        margin-top: 6px;
         width: 100%;
-        border-radius: 5px; }
+        word-break: keep-all; }
     body .details-container .cake-info .cake-description {
-      display: table-cell;
+      display: inline-block;
       vertical-align: top;
       width: 68%; }
       body .details-container .cake-info .cake-description p {

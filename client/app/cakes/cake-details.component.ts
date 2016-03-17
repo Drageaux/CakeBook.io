@@ -54,9 +54,9 @@ export class CakeDetailsComponent implements OnInit {
 
     getCakeImage() {
         this._service.getCakeImage(this.cake._id)
-            .subscribe(
-                res => this.imgData = res
-            );
+            //.subscribe(
+            //    res => this.imgData = res
+            //);
     }
 
     uploadCakeImage() {

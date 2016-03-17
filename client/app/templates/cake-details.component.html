@@ -5,10 +5,16 @@
         <!--{{imgData}}-->
         <div class="cake-info">
             <div class="cake-image">
-                <img src="data:image/jpeg;base64,{{imgData}}">
+                <a>
+                    <img *ngIf="!isEmptyString(imgData)" src="data:image/jpeg;base64,{{imgData}}">
+                    <img *ngIf="isEmptyString(imgData)" src="../assets/custom/images/default-placeholder.png">
+                </a>
+                <button type="button" class="upload-button">
+                    <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>&nbsp;Upload a picture
+                </button>
             </div>
             <div class="cake-description well">
-                <h4 style="margin-top: 0;"><b>Description</b></h4>
+                <h4 style="margin-top: 0; margin-bottom: 5px;"><b>Description</b></h4>
                 <p *ngIf="cake.description"></p>
                 <p style="color: #888" *ngIf="!cake.description">(no description yet)</p>
             </div>
@@ -20,7 +26,8 @@
             <li *ngFor="#ingr of cake.ingredients">
                 {{ingr}}
             </li>
-            <li style="list-style: none; color: #888;" *ngIf="cake.ingredients.length == 0">(no ingredients specified)</li>
+            <li style="list-style: none; color: #888;" *ngIf="cake.ingredients.length == 0">(no ingredients specified)
+            </li>
             <li style="list-style: none; padding-top: 10px; padding-bottom: 5px">
                 <form class="form-group">
                     <div class="input-group">

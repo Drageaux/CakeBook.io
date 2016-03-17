@@ -552,17 +552,27 @@ body {
         word-break: break-all;
         .cake-info {
             .cake-image {
-                display: table-cell;
+                display: inline-block;
                 width: 30%;
+                position: relative;
                 padding-right: 10px;
-
-                img {
+                a {
+                    cursor: -webkit-zoom-in;
+                    cursor: -moz-zoom-in;
+                    text-decoration: none;
+                    img {
+                        width: 100%;
+                        border-radius: 5px;
+                    }
+                }
+                .upload-button {
+                    margin-top: 6px;
                     width: 100%;
-                    border-radius: 5px;
+                    word-break: keep-all;
                 }
             }
             .cake-description {
-                display: table-cell;
+                display: inline-block;
                 vertical-align: top;
                 width: 68%;
                 p {
