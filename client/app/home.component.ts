@@ -33,7 +33,8 @@ export class HomeComponent implements OnInit {
         this._cakeService.getCakes()
             .subscribe(
                 cakes => this.cakes = cakes,
-                error => this.errorMessage = <any>error);
+                error => this.errorMessage = <any>error,
+                () => console.log(this.cakes));
     }
 
     onSelect(cake:Cake) {

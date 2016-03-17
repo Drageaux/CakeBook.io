@@ -50,6 +50,12 @@ export class CakeService {
             .catch(this.handleError);
     }
 
+    uploadCakeImage(id:number | string) {
+        return this.http.get("/api/" + this.userId + "/cake/" + id + "/upload")
+            .map(res => console.log(res))
+            .catch(this.handleError);
+    }
+
     private handleError(error:Response) {
         // in a real world app, we may send the server to some remote logging infrastructure
         // instead of just logging it to the console

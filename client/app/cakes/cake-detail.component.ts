@@ -48,11 +48,17 @@ export class CakeDetailComponent implements OnInit {
                 this.currStep = "";
             }
         }
-
     }
 
-    deleteCake(id:number) {
-        this._service.deleteCake(id)
+    uploadCakeImage() {
+        this._service.uploadCakeImage(this.cake._id)
+            .subscribe(
+                res => console.log(res)
+            );
+    }
+
+    deleteCake() {
+        this._service.deleteCake(this.cake._id)
             .subscribe(
                 res => this._router.navigate(["Home"]));
     }

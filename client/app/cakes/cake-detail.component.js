@@ -59,9 +59,13 @@ System.register(["angular2/core", "angular2/router", "./cake", "./cake.service",
                         }
                     }
                 };
-                CakeDetailComponent.prototype.deleteCake = function (id) {
+                CakeDetailComponent.prototype.uploadCakeImage = function () {
+                    this._service.uploadCakeImage(this.cake._id)
+                        .subscribe(function (res) { return console.log(res); });
+                };
+                CakeDetailComponent.prototype.deleteCake = function () {
                     var _this = this;
-                    this._service.deleteCake(id)
+                    this._service.deleteCake(this.cake._id)
                         .subscribe(function (res) { return _this._router.navigate(["Home"]); });
                 };
                 CakeDetailComponent.prototype.isEmptyString = function (str) {
