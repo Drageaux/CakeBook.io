@@ -1,13 +1,11 @@
-import {Component, Input} from "angular2/core";
-import {Router} from "angular2/router";
-import {RouteParams} from "angular2/router";
-import {OnInit} from "angular2/core";
+import {Component, Input, OnInit} from "angular2/core";
+import {Router, RouteParams} from "angular2/router";
+import {tokenNotExpired} from "angular2-jwt";
 
 import {Cake} from "./cake";
 import {CakeService} from "./cake.service";
 import {Observable} from "rxjs/Observable";
 import {CanActivate} from "angular2/router";
-import {tokenNotExpired} from "angular2-jwt";
 
 @Component({
     selector: "cake-details",
@@ -20,6 +18,7 @@ export class CakeDetailsComponent implements OnInit {
     currIngr:string;
     currStep:string;
     @Input() imgData:string;
+    fileUpload: File;
 
     constructor(private _router:Router,
                 private _routeParams:RouteParams,
@@ -59,11 +58,13 @@ export class CakeDetailsComponent implements OnInit {
             //);
     }
 
-    uploadCakeImage() {
-        this._service.uploadCakeImage(this.cake._id)
-            .subscribe(
-                res => console.log(res)
-            );
+    uploadCakeImage(event:any) {
+        //this._service.uploadCakeImage(this.cake._id)
+        //    .subscribe(
+        //        res => console.log(res)
+        //    );
+        this.fileUpload = event.target.value;
+        console.log(event.target.value + ' | ');
     }
 
     deleteCake() {

@@ -556,6 +556,7 @@ body {
                 width: 30%;
                 position: relative;
                 padding-right: 10px;
+
                 a {
                     cursor: -webkit-zoom-in;
                     cursor: -moz-zoom-in;
@@ -565,10 +566,27 @@ body {
                         border-radius: 5px;
                     }
                 }
-                .upload-button {
+                input {
+                    width: 0.1px;
+                    height: 0.1px;
+                    opacity: 0;
+                    overflow: hidden;
+                    position: absolute;
+                    z-index: -1;
+                }
+                label {
+                    text-align: center;
+                    margin-bottom: 0;
+                    cursor: pointer;
+                    padding: 6px;
                     margin-top: 6px;
                     width: 100%;
-                    word-break: keep-all;
+                    background-color: lighten($topnav-item-color, 6%);
+                    color: white;
+                    border-radius: 5px;
+                }
+                label:hover {
+                    background-color: lighten($topnav-item-hovered-color, 6%);
                 }
             }
             .cake-description {
