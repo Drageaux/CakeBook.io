@@ -1,15 +1,26 @@
-<div class="general-container">
+<div class="details-container">
     <div *ngIf="cake">
-        <h4>Details: {{cake.name}}</h4>
+        <h3><b>{{cake.name}}</b></h3>
         <hr>
         <!--{{imgData}}-->
-        <img src="data:image/jpeg;base64,{{imgData}}">
+        <div class="cake-info">
+            <div class="cake-image">
+                <img src="data:image/jpeg;base64,{{imgData}}">
+            </div>
+            <div class="cake-description well">
+                <h4 style="margin-top: 0;"><b>Description</b></h4>
+                <p *ngIf="cake.description"></p>
+                <p style="color: #888" *ngIf="!cake.description">(no description yet)</p>
+            </div>
+        </div>
+        <br>
+
         <label><b>Ingredients</b></label>
         <ul>
             <li *ngFor="#ingr of cake.ingredients">
                 {{ingr}}
             </li>
-            <li style="list-style: none" *ngIf="cake.ingredients.length == 0">(no ingredients specified)</li>
+            <li style="list-style: none; color: #888" *ngIf="cake.ingredients.length == 0">(no ingredients specified)</li>
             <br>
             <li style="list-style: none">
                 <form class="form-group">
@@ -33,7 +44,7 @@
             <li *ngFor="#step of cake.steps">
                 {{step}}
             </li>
-            <li style="list-style: none" *ngIf="cake.steps.length == 0">(no steps specified)</li>
+            <li style="list-style: none; color: #888" *ngIf="cake.steps.length == 0">(no steps specified)</li>
             <br>
             <li style="list-style: none">
                 <form class="form-group">

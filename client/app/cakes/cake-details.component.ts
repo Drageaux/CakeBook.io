@@ -10,12 +10,12 @@ import {CanActivate} from "angular2/router";
 import {tokenNotExpired} from "angular2-jwt";
 
 @Component({
-    selector: "cake-detail",
-    templateUrl: "templates/cake-detail.component.html"
+    selector: "cake-details",
+    templateUrl: "templates/cake-details.component.html"
 })
 
 @CanActivate(() => tokenNotExpired())
-export class CakeDetailComponent implements OnInit {
+export class CakeDetailsComponent implements OnInit {
     @Input() cake:Cake;
     currIngr:string;
     currStep:string;

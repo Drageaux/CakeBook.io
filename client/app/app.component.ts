@@ -18,7 +18,7 @@ import {LoginComponent}         from "./login.component";
 import {HomeComponent}          from "./home.component";
 
 import {Cake}                   from "./cakes/cake";
-import {CakeDetailComponent}    from "./cakes/cake-detail.component";
+import {CakeDetailsComponent}    from "./cakes/cake-details.component";
 import {AddCakeFormComponent}   from "./cakes/add-cake-form.component";
 import {CakeService}            from "./cakes/cake.service";
 
@@ -104,7 +104,7 @@ enableProdMode();
 @RouteConfig([
     {path: "/login", name: "Login", component: LoginComponent, useAsDefault: true},
     {path: "/home", name: "Home", component: HomeComponent},
-    {path: "/cake/:id", name: "CakeDetail", component: CakeDetailComponent},
+    {path: "/cake/:id", name: "CakeDetails", component: CakeDetailsComponent},
     {path: "/addCakeForm", name: "AddCakeForm", component: AddCakeFormComponent}
 ])
 

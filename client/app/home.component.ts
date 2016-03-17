@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
     }
 
     onSelect(cake:Cake) {
-        this._router.navigate(["CakeDetail", {id: cake._id}]);
+        this._router.navigate(["CakeDetails", {id: cake._id}]);
     }
 
     onAdded(cake:Cake) {
