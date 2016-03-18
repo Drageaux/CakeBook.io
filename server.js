@@ -22,8 +22,8 @@ app.get("/api/:user/cake/:id", cakesController.get);
 app.post("/api/:user/cakes", cakesController.create);
 app.delete("/api/:user/cake/:id/", cakesController.remove);
 app.post("/api/:user/cake/:id/detail", cakesController.addDetail);
+app.post("/api/:user/cake/:id/image", cakesController.addImage);
 app.get("/api/:user/cake/:id/image", imagesController.getImage);
-app.post("/api/:user/cake/:id/image", imagesController.uploadImage);
 
 // All routes will serve this index page
 app.use("/*", function (req, res) {

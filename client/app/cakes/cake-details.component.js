@@ -73,10 +73,12 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "
                     FR.readAsDataURL(event.target.files[0]);
                 };
                 CakeDetailsComponent.prototype.upload = function (input) {
-                    var _this = this;
+                    var fileType = input.match("data:image/(.*);base64")[1];
                     var parsedInput = input.replace(/^data:image\/(png|jpg|jpeg);base64,/, "");
-                    this._service.uploadCakeImage(this.cake._id, parsedInput)
-                        .subscribe(function (data) { return _this.imgData = data; });
+                    this._service.uploadCakeImage(this.cake._id, parsedInput, fileType);
+                    //.subscribe(
+                    //    data => this.imgData = data
+                    //);
                 };
                 CakeDetailsComponent.prototype.deleteCake = function () {
                     var _this = this;

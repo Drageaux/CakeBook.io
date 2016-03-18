@@ -4,6 +4,7 @@ var Schema = mongoose.Schema;
 var CakeSchema = new Schema({
     user: String,
     name: String,
+    image: String,
     ingredients: [String],
     steps: [String]
 })

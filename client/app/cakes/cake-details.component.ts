@@ -69,11 +69,12 @@ export class CakeDetailsComponent implements OnInit {
     }
 
     upload(input:string) {
+        let fileType = input.match("data:image/(.*);base64")[1];
         let parsedInput = input.replace(/^data:image\/(png|jpg|jpeg);base64,/, "");
-        this._service.uploadCakeImage(this.cake._id, parsedInput)
-        .subscribe(
-            data => this.imgData = data
-        );
+        this._service.uploadCakeImage(this.cake._id, parsedInput, fileType)
+        //.subscribe(
+        //    data => this.imgData = data
+        //);
     }
 
     deleteCake() {

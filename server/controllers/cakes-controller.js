@@ -1,4 +1,5 @@
 var Cake = require("../models/cake");
+var Image = require("../models/image");
 
 module.exports.list = function (req, res) {
     Cake.find({"user": req.params.user}, function (err, cakes) {
@@ -25,8 +26,8 @@ module.exports.create = function (req, res) {
 }
 
 module.exports.remove = function (req, res) {
-    Cake.remove({"_id": req.params.id, "user": req.params.user}, function(err) {
-        res.send((err === null) ? { msg: '' } : { msg:'error: ' + err });
+    Cake.remove({"_id": req.params.id, "user": req.params.user}, function (err) {
+        res.send((err === null) ? {msg: ''} : {msg: 'error: ' + err});
     });
 }
 
@@ -39,6 +40,23 @@ module.exports.addDetail = function (req, res) {
             cake.steps.push(req.body.name);
         }
         cake.save();
+        console.log(cake);
         res.json(cake);
     });
+}
+
+module.exports.addImage = function (req, res) {
+    Cake.findOne({"_id": req.params.id, "user": req.params.user}, function (err, cake) {
+        console.log("test");
+        res.json(cake);
+    });
+    //var img = new Image();
+    //img.img.data = req.body.data;
+    //img.img.contentType = req.body.dataType;
+    //img.save(function (err, img) {
+    //    console.log(img._id);
+    //    res.json(img._id);
+    //    //Cake.findOne({"_id": req.params.id, "user": req.params.user}, function (err, cake) {
+    //    //});
+    //});
 }
