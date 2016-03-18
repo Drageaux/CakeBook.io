@@ -68,12 +68,12 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "
                     var FR = new FileReader();
                     FR.onload = function (e) {
                         // ignore error message, it works
-                        localStorage.setItem("uploadImgSrc", e.target.result);
                         handle(e.target.result);
                     };
                     function handle(input) {
-                        console.log(input);
+                        console.log(input.replace(/^data:image\/(png|jpg|jpeg);base64,/, ""));
                     }
+                    ;
                     FR.readAsDataURL(event.target.files[0]);
                 };
                 CakeDetailsComponent.prototype.deleteCake = function () {

@@ -63,14 +63,12 @@ export class CakeDetailsComponent implements OnInit {
         let FR = new FileReader();
         FR.onload = function (e) {
             // ignore error message, it works
-            localStorage.setItem("uploadImgSrc", e.target.result);
             handle(e.target.result);
         };
         function handle(input:string) {
-            console.log(input)
-        }
+            console.log(input.replace(/^data:image\/(png|jpg|jpeg);base64,/, ""));
+        };
         FR.readAsDataURL(event.target.files[0]);
-
     }
 
     deleteCake() {
