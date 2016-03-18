@@ -12,12 +12,10 @@
                 <!--<button type="button" class="upload-button" (click)="uploadCakeImage()">-->
                 <!--<span class="glyphicon glyphicon-camera" aria-hidden="true"></span>&nbsp;Upload a picture-->
                 <!--</button>-->
-                <input type="file" name="file" id="file" (change)="uploadCakeImage($event)">
+                <input type="file" name="file" id="file" (change)="readImageFile($event, uploadCallBack)">
                 <label for="file">
                     <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>&nbsp;Upload an image
                 </label>
-                <!--</button>-->
-                <!--<button type="button">Upload</button>-->
 
             </div>
             <div class="cake-description well">

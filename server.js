@@ -7,7 +7,8 @@ var express = require("express"),
 
 mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost:27017/cake-book");
 
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 
 // Resource loading
 app.use("/node_modules", express.static(__dirname + "/node_modules"));
@@ -22,7 +23,7 @@ app.post("/api/:user/cakes", cakesController.create);
 app.delete("/api/:user/cake/:id/", cakesController.remove);
 app.post("/api/:user/cake/:id/detail", cakesController.addDetail);
 app.get("/api/:user/cake/:id/image", imagesController.getImage);
-app.get("/api/:user/cake/:id/upload", imagesController.uploadImage);
+app.post("/api/:user/cake/:id/image", imagesController.uploadImage);
 
 // All routes will serve this index page
 app.use("/*", function (req, res) {

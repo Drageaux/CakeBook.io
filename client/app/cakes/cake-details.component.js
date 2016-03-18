@@ -40,6 +40,7 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "
                     var id = this._routeParams.get('id');
                     this._service.getCake(id)
                         .subscribe(function (cake) { return _this.cake = cake; }, function (error) { return _this._router.navigate(["Home"]); }, function () { return _this.getCakeImage(); });
+                    this.uploadCallBack = this.upload.bind(this);
                 };
                 CakeDetailsComponent.prototype.addDetail = function (detailType) {
                     var _this = this;
@@ -64,17 +65,18 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "
                     //    res => this.imgData = res
                     //);
                 };
-                CakeDetailsComponent.prototype.uploadCakeImage = function (event) {
+                CakeDetailsComponent.prototype.readImageFile = function (event, callback) {
                     var FR = new FileReader();
                     FR.onload = function (e) {
-                        // ignore error message, it works
-                        handle(e.target.result);
+                        callback(e.target.result);
                     };
-                    function handle(input) {
-                        console.log(input.replace(/^data:image\/(png|jpg|jpeg);base64,/, ""));
-                    }
-                    ;
                     FR.readAsDataURL(event.target.files[0]);
+                };
+                CakeDetailsComponent.prototype.upload = function (input) {
+                    var _this = this;
+                    var parsedInput = input.replace(/^data:image\/(png|jpg|jpeg);base64,/, "");
+                    this._service.uploadCakeImage(this.cake._id, parsedInput)
+                        .subscribe(function (data) { return _this.imgData = data; });
                 };
                 CakeDetailsComponent.prototype.deleteCake = function () {
                     var _this = this;
@@ -97,8 +99,8 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "
                 ], CakeDetailsComponent.prototype, "imgData", void 0);
                 __decorate([
                     core_1.Input(), 
-                    __metadata('design:type', String)
-                ], CakeDetailsComponent.prototype, "fileUpload", void 0);
+                    __metadata('design:type', Function)
+                ], CakeDetailsComponent.prototype, "uploadCallBack", void 0);
                 CakeDetailsComponent = __decorate([
                     core_1.Component({
                         selector: "cake-details",

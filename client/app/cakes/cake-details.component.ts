@@ -6,7 +6,6 @@ import {Cake} from "./cake";
 import {CakeService} from "./cake.service";
 import {Observable} from "rxjs/Observable";
 import {CanActivate} from "angular2/router";
-import {el} from "angular2/testing_internal";
 
 @Component({
     selector: "cake-details",
@@ -18,8 +17,9 @@ export class CakeDetailsComponent implements OnInit {
     @Input() cake:Cake;
     currIngr:string;
     currStep:string;
+
     @Input() imgData:string;
-    @Input() fileUpload:string;
+    @Input() public uploadCallBack: Function;
 
     constructor(private _router:Router,
                 private _routeParams:RouteParams,
@@ -33,6 +33,7 @@ export class CakeDetailsComponent implements OnInit {
                 cake => this.cake = cake,
                 error => this._router.navigate(["Home"]),
                 () => this.getCakeImage());
+        this.uploadCallBack = this.upload.bind(this);
     }
 
     addDetail(detailType:string) {
@@ -59,16 +60,20 @@ export class CakeDetailsComponent implements OnInit {
         //);
     }
 
-    uploadCakeImage(event:any) {
+    readImageFile(event:any, callback:Function) {
         let FR = new FileReader();
-        FR.onload = function (e) {
-            // ignore error message, it works
-            handle(e.target.result);
-        };
-        function handle(input:string) {
-            console.log(input.replace(/^data:image\/(png|jpg|jpeg);base64,/, ""));
+        FR.onload = function (e:any) {
+            callback(e.target.result);
         };
         FR.readAsDataURL(event.target.files[0]);
+    }
+
+    upload(input:string) {
+        let parsedInput = input.replace(/^data:image\/(png|jpg|jpeg);base64,/, "");
+        this._service.uploadCakeImage(this.cake._id, parsedInput)
+        .subscribe(
+            data => this.imgData = data
+        );
     }
 
     deleteCake() {
