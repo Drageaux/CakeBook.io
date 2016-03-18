@@ -66,7 +66,6 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
                     var body = JSON.stringify({ data: data, dataType: type });
                     var headers = new http_1.Headers({ "Content-Type": "application/json" });
                     var options = new http_1.RequestOptions({ headers: headers });
-                    console.log("service");
                     return this.http.post("/api/" + this.userId + "/cake/" + id + "/image", body, options)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);

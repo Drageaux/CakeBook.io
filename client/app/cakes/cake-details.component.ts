@@ -19,7 +19,7 @@ export class CakeDetailsComponent implements OnInit {
     currStep:string;
 
     @Input() imgData:string;
-    @Input() public uploadCallBack: Function;
+    @Input() public uploadCallBack:Function;
 
     constructor(private _router:Router,
                 private _routeParams:RouteParams,
@@ -61,6 +61,7 @@ export class CakeDetailsComponent implements OnInit {
     }
 
     readImageFile(event:any, callback:Function) {
+        this.cake.image = "http://res.cloudinary.com/hns6msnxn/image/upload/v1458335198/vt0zkfxtwhajsikca7hc.gif";
         let FR = new FileReader();
         FR.onload = function (e:any) {
             callback(e.target.result);
@@ -70,11 +71,12 @@ export class CakeDetailsComponent implements OnInit {
 
     upload(input:string) {
         let fileType = input.match("data:image/(.*);base64")[1];
-        let parsedInput = input.replace(/^data:image\/(png|jpg|jpeg);base64,/, "");
+        let parsedInput = input.replace(/^data:image\/(png|jpg|jpeg|gif);base64,/, "");
+        console.log(input);
         this._service.uploadCakeImage(this.cake._id, parsedInput, fileType)
-        //.subscribe(
-        //    data => this.imgData = data
-        //);
+            .subscribe(
+                cake => this.cake = cake
+            );
     }
 
     deleteCake() {

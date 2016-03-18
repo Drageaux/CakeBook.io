@@ -66,6 +66,7 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "
                     //);
                 };
                 CakeDetailsComponent.prototype.readImageFile = function (event, callback) {
+                    this.cake.image = "http://res.cloudinary.com/hns6msnxn/image/upload/v1458335198/vt0zkfxtwhajsikca7hc.gif";
                     var FR = new FileReader();
                     FR.onload = function (e) {
                         callback(e.target.result);
@@ -73,12 +74,12 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "
                     FR.readAsDataURL(event.target.files[0]);
                 };
                 CakeDetailsComponent.prototype.upload = function (input) {
+                    var _this = this;
                     var fileType = input.match("data:image/(.*);base64")[1];
-                    var parsedInput = input.replace(/^data:image\/(png|jpg|jpeg);base64,/, "");
-                    this._service.uploadCakeImage(this.cake._id, parsedInput, fileType);
-                    //.subscribe(
-                    //    data => this.imgData = data
-                    //);
+                    var parsedInput = input.replace(/^data:image\/(png|jpg|jpeg|gif);base64,/, "");
+                    console.log(input);
+                    this._service.uploadCakeImage(this.cake._id, parsedInput, fileType)
+                        .subscribe(function (cake) { return _this.cake = cake; });
                 };
                 CakeDetailsComponent.prototype.deleteCake = function () {
                     var _this = this;

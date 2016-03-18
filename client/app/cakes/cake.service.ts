@@ -57,14 +57,13 @@ export class CakeService {
             .catch(this.handleError);
     }
 
-    uploadCakeImage(id:number | string, data:string, type:string) {
+    uploadCakeImage(id:number | string, data:string, type:string){
         let body = JSON.stringify({data: data, dataType: type});
         let headers = new Headers({"Content-Type": "application/json"});
         let options = new RequestOptions({headers: headers});
 
-        console.log("service");
         return this.http.post("/api/" + this.userId + "/cake/" + id + "/image", body, options)
-            .map(res => res.json())
+            .map(res => <Cake> res.json())
             .catch(this.handleError);
     }
 

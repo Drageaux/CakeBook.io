@@ -2,6 +2,7 @@ var express = require("express"),
     app = express(),
     bodyParser = require("body-parser"),
     mongoose = require("mongoose"),
+    cloudinary = require('cloudinary'),
     cakesController = require("./server/controllers/cakes-controller.js"),
     imagesController = require("./server/controllers/images-controller.js");
 
@@ -22,8 +23,8 @@ app.get("/api/:user/cake/:id", cakesController.get);
 app.post("/api/:user/cakes", cakesController.create);
 app.delete("/api/:user/cake/:id/", cakesController.remove);
 app.post("/api/:user/cake/:id/detail", cakesController.addDetail);
+app.get("/api/:user/cake/:id/image", cakesController.getImage);
 app.post("/api/:user/cake/:id/image", cakesController.addImage);
-app.get("/api/:user/cake/:id/image", imagesController.getImage);
 
 // All routes will serve this index page
 app.use("/*", function (req, res) {
@@ -31,5 +32,5 @@ app.use("/*", function (req, res) {
 });
 
 app.listen(process.env.PORT || 5000, '0.0.0.0', function () {
-    console.log("I'm listening")
+    console.log("I'm listening on PORT: " + process.env.PORT)
 });
