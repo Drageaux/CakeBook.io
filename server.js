@@ -2,9 +2,7 @@ var express = require("express"),
     app = express(),
     bodyParser = require("body-parser"),
     mongoose = require("mongoose"),
-    cloudinary = require('cloudinary'),
-    cakesController = require("./server/controllers/cakes-controller.js"),
-    imagesController = require("./server/controllers/images-controller.js");
+    cakesController = require("./server/controllers/cakes-controller.js");
 
 mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost:27017/cake-book");
 
@@ -23,7 +21,6 @@ app.get("/api/:user/cake/:id", cakesController.get);
 app.post("/api/:user/cakes", cakesController.create);
 app.delete("/api/:user/cake/:id/", cakesController.remove);
 app.post("/api/:user/cake/:id/detail", cakesController.addDetail);
-app.get("/api/:user/cake/:id/image", cakesController.getImage);
 app.post("/api/:user/cake/:id/image", cakesController.addImage);
 
 // All routes will serve this index page

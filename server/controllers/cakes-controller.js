@@ -25,7 +25,6 @@ module.exports.create = function (req, res) {
     cake.name = req.body.name;
     cake.ingredients = req.body.ingredients;
     cake.steps = req.body.steps;
-
     cake.save(function (err, cake) {
         res.json(cake);
     });
@@ -44,27 +43,25 @@ module.exports.addDetail = function (req, res) {
         } else if (req.body.type == "step") {
             cake.steps.push(req.body.name);
         }
-
         cake.save();
         res.json(cake);
     });
 }
 
-module.exports.getImage = function (req, res) {
-
-}
-
 module.exports.addImage = function (req, res) {
     Cake.findOne({"_id": req.params.id, "user": req.params.user}, function (err, cake) {
         var path = "image." + req.body.dataType;
-        fs.writeFile(path, new Buffer(req.body.data, "base64"),
-            function (result, err) {
-                cloudinary.uploader.upload(path, function (result) {
+        fs.writeFile(path, new Buffer(req.body.data, "base64"), function (result, err) {
+            cloudinary.uploader.upload(path,
+                function (result) {
                     cake.image = result.url;
                     cake.save(function (err, cake) {
                         res.json(cake);
+                        fs.unlink(path);
                     });
+                }, {
+                    width: 400, height: 400, crop: "fill"
                 });
-            });
+        });
     });
 }
