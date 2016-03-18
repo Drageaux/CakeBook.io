@@ -65,12 +65,16 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "
                     //);
                 };
                 CakeDetailsComponent.prototype.uploadCakeImage = function (event) {
-                    //this._service.uploadCakeImage(this.cake._id)
-                    //    .subscribe(
-                    //        res => console.log(res)
-                    //    );
-                    this.fileUpload = event.target.value;
-                    console.log(event.target.value + ' | ');
+                    var FR = new FileReader();
+                    FR.onload = function (e) {
+                        // ignore error message, it works
+                        localStorage.setItem("uploadImgSrc", e.target.result);
+                        handle(e.target.result);
+                    };
+                    function handle(input) {
+                        console.log(input);
+                    }
+                    FR.readAsDataURL(event.target.files[0]);
                 };
                 CakeDetailsComponent.prototype.deleteCake = function () {
                     var _this = this;
@@ -91,6 +95,10 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "
                     core_1.Input(), 
                     __metadata('design:type', String)
                 ], CakeDetailsComponent.prototype, "imgData", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', String)
+                ], CakeDetailsComponent.prototype, "fileUpload", void 0);
                 CakeDetailsComponent = __decorate([
                     core_1.Component({
                         selector: "cake-details",

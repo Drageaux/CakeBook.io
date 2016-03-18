@@ -404,7 +404,8 @@ body {
         width: 100%;
         background-color: #be4e55;
         color: white;
-        border-radius: 5px; }
+        border-radius: 5px;
+        word-break: keep-all; }
       body .details-container .cake-info .cake-image label:hover {
         background-color: #802f35; }
     body .details-container .cake-info .cake-description {

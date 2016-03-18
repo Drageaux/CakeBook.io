@@ -584,6 +584,7 @@ body {
                     background-color: lighten($topnav-item-color, 6%);
                     color: white;
                     border-radius: 5px;
+                    word-break: keep-all;
                 }
                 label:hover {
                     background-color: lighten($topnav-item-hovered-color, 6%);

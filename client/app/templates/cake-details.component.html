@@ -1,8 +1,8 @@
 <div class="details-container">
     <div *ngIf="cake">
+        {{fileUpload}}
         <h3><b>{{cake.name}}</b></h3>
         <hr>
-        <!--{{imgData}}-->
         <div class="cake-info">
             <div class="cake-image">
                 <a>
@@ -13,7 +13,6 @@
                 <!--<span class="glyphicon glyphicon-camera" aria-hidden="true"></span>&nbsp;Upload a picture-->
                 <!--</button>-->
                 <input type="file" name="file" id="file" (change)="uploadCakeImage($event)">
-                <!--<button class="btn btn-default">-->
                 <label for="file">
                     <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>&nbsp;Upload an image
                 </label>

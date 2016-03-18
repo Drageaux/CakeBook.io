@@ -6,6 +6,7 @@ import {Cake} from "./cake";
 import {CakeService} from "./cake.service";
 import {Observable} from "rxjs/Observable";
 import {CanActivate} from "angular2/router";
+import {el} from "angular2/testing_internal";
 
 @Component({
     selector: "cake-details",
@@ -18,7 +19,7 @@ export class CakeDetailsComponent implements OnInit {
     currIngr:string;
     currStep:string;
     @Input() imgData:string;
-    fileUpload: File;
+    @Input() fileUpload:string;
 
     constructor(private _router:Router,
                 private _routeParams:RouteParams,
@@ -53,18 +54,23 @@ export class CakeDetailsComponent implements OnInit {
 
     getCakeImage() {
         this._service.getCakeImage(this.cake._id)
-            //.subscribe(
-            //    res => this.imgData = res
-            //);
+        //.subscribe(
+        //    res => this.imgData = res
+        //);
     }
 
     uploadCakeImage(event:any) {
-        //this._service.uploadCakeImage(this.cake._id)
-        //    .subscribe(
-        //        res => console.log(res)
-        //    );
-        this.fileUpload = event.target.value;
-        console.log(event.target.value + ' | ');
+        let FR = new FileReader();
+        FR.onload = function (e) {
+            // ignore error message, it works
+            localStorage.setItem("uploadImgSrc", e.target.result);
+            handle(e.target.result);
+        };
+        function handle(input:string) {
+            console.log(input)
+        }
+        FR.readAsDataURL(event.target.files[0]);
+
     }
 
     deleteCake() {
