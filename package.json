@@ -1,6 +1,6 @@
 {
   "name": "cakebook.io",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "author": "David Thong Nguyen",
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
     "angular2": "^2.0.0-beta.9",
     "angular2-jwt": "^0.1.6",
     "body-parser": "^1.15.0",
+    "cloudinary": "^1.3.0",
     "es6-promise": "^3.1.2",
     "es6-shim": "^0.33.3",
     "express": "^4.13.4",

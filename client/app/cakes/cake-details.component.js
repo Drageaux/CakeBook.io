@@ -1,4 +1,4 @@
-System.register(["angular2/core", "angular2/router", "./cake", "./cake.service", "angular2-jwt"], function(exports_1) {
+System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "./cake.service"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,8 +8,8 @@ System.register(["angular2/core", "angular2/router", "./cake", "./cake.service",
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, router_2, cake_1, cake_service_1, router_3, angular2_jwt_1;
-    var CakeDetailComponent;
+    var core_1, router_1, angular2_jwt_1, cake_1, cake_service_1, router_2;
+    var CakeDetailsComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -18,31 +18,31 @@ System.register(["angular2/core", "angular2/router", "./cake", "./cake.service",
             function (router_1_1) {
                 router_1 = router_1_1;
                 router_2 = router_1_1;
-                router_3 = router_1_1;
+            },
+            function (angular2_jwt_1_1) {
+                angular2_jwt_1 = angular2_jwt_1_1;
             },
             function (cake_1_1) {
                 cake_1 = cake_1_1;
             },
             function (cake_service_1_1) {
                 cake_service_1 = cake_service_1_1;
-            },
-            function (angular2_jwt_1_1) {
-                angular2_jwt_1 = angular2_jwt_1_1;
             }],
         execute: function() {
-            CakeDetailComponent = (function () {
-                function CakeDetailComponent(_router, _routeParams, _service) {
+            CakeDetailsComponent = (function () {
+                function CakeDetailsComponent(_router, _routeParams, _service) {
                     this._router = _router;
                     this._routeParams = _routeParams;
                     this._service = _service;
                 }
-                CakeDetailComponent.prototype.ngOnInit = function () {
+                CakeDetailsComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     var id = this._routeParams.get('id');
                     this._service.getCake(id)
                         .subscribe(function (cake) { return _this.cake = cake; }, function (error) { return _this._router.navigate(["Home"]); });
+                    this.uploadCallBack = this.uploadImage.bind(this);
                 };
-                CakeDetailComponent.prototype.addDetail = function (detailType) {
+                CakeDetailsComponent.prototype.addDetail = function (detailType) {
                     var _this = this;
                     if (detailType == "ingr") {
                         if (!this.isEmptyString(this.currIngr)) {
@@ -59,33 +59,52 @@ System.register(["angular2/core", "angular2/router", "./cake", "./cake.service",
                         }
                     }
                 };
-                CakeDetailComponent.prototype.deleteCake = function (id) {
+                CakeDetailsComponent.prototype.readImageFile = function (event, callback) {
+                    this.cake.croppedImage = "http://res.cloudinary.com/hns6msnxn/image/upload/v1458335198/vt0zkfxtwhajsikca7hc.gif";
+                    var FR = new FileReader();
+                    FR.onload = function (e) {
+                        callback(e.target.result);
+                    };
+                    FR.readAsDataURL(event.target.files[0]);
+                };
+                CakeDetailsComponent.prototype.uploadImage = function (input) {
                     var _this = this;
-                    this._service.deleteCake(id)
+                    var fileType = input.match("data:image/(.*);base64")[1];
+                    var parsedInput = input.replace(/^data:image\/(png|jpg|jpeg|gif);base64,/, "");
+                    this._service.uploadCakeImage(this.cake._id, parsedInput, fileType)
+                        .subscribe(function (cake) { return _this.cake = cake; });
+                };
+                CakeDetailsComponent.prototype.deleteCake = function () {
+                    var _this = this;
+                    this._service.deleteCake(this.cake._id)
                         .subscribe(function (res) { return _this._router.navigate(["Home"]); });
                 };
-                CakeDetailComponent.prototype.isEmptyString = function (str) {
+                CakeDetailsComponent.prototype.isEmptyString = function (str) {
                     return str == "" || str == null;
                 };
-                CakeDetailComponent.prototype.gotoCakes = function () {
+                CakeDetailsComponent.prototype.gotoCakes = function () {
                     this._router.navigate(["Home"]);
                 };
                 __decorate([
                     core_1.Input(), 
                     __metadata('design:type', cake_1.Cake)
-                ], CakeDetailComponent.prototype, "cake", void 0);
-                CakeDetailComponent = __decorate([
+                ], CakeDetailsComponent.prototype, "cake", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Function)
+                ], CakeDetailsComponent.prototype, "uploadCallBack", void 0);
+                CakeDetailsComponent = __decorate([
                     core_1.Component({
-                        selector: "cake-detail",
-                        templateUrl: "templates/cake-detail.component.html"
+                        selector: "cake-details",
+                        templateUrl: "templates/cake-details.component.html"
                     }),
-                    router_3.CanActivate(function () { return angular2_jwt_1.tokenNotExpired(); }), 
-                    __metadata('design:paramtypes', [router_1.Router, router_2.RouteParams, cake_service_1.CakeService])
-                ], CakeDetailComponent);
-                return CakeDetailComponent;
+                    router_2.CanActivate(function () { return angular2_jwt_1.tokenNotExpired(); }), 
+                    __metadata('design:paramtypes', [router_1.Router, router_1.RouteParams, cake_service_1.CakeService])
+                ], CakeDetailsComponent);
+                return CakeDetailsComponent;
             })();
-            exports_1("CakeDetailComponent", CakeDetailComponent);
+            exports_1("CakeDetailsComponent", CakeDetailsComponent);
         }
     }
 });
-//# sourceMappingURL=cake-detail.component.js.map
+//# sourceMappingURL=cake-details.component.js.map

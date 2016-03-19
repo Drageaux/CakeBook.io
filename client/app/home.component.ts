@@ -27,17 +27,19 @@ export class HomeComponent implements OnInit {
             this._router.navigate(["Login"]);
         }
         this.getCakes();
+
     }
 
     getCakes() {
         this._cakeService.getCakes()
             .subscribe(
                 cakes => this.cakes = cakes,
-                error => this.errorMessage = <any>error);
+                error => this.errorMessage = <any>error,
+                () => console.log(this.cakes));
     }
 
     onSelect(cake:Cake) {
-        this._router.navigate(["CakeDetail", {id: cake._id}]);
+        this._router.navigate(["CakeDetails", {id: cake._id}]);
     }
 
     onAdded(cake:Cake) {

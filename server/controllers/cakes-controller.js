@@ -1,4 +1,11 @@
 var Cake = require("../models/cake");
+var fs = require("fs");
+var cloudinary = require('cloudinary');
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_NAME,
+    api_key: process.env.CLOUDINARY_KEY,
+    api_secret: process.env.CLOUDINARY_SECRET
+});
 
 module.exports.list = function (req, res) {
     Cake.find({"user": req.params.user}, function (err, cakes) {
@@ -18,15 +25,14 @@ module.exports.create = function (req, res) {
     cake.name = req.body.name;
     cake.ingredients = req.body.ingredients;
     cake.steps = req.body.steps;
-
     cake.save(function (err, cake) {
         res.json(cake);
     });
 }
 
 module.exports.remove = function (req, res) {
-    Cake.remove({"_id": req.params.id, "user": req.params.user}, function(err) {
-        res.send((err === null) ? { msg: '' } : { msg:'error: ' + err });
+    Cake.remove({"_id": req.params.id, "user": req.params.user}, function (err) {
+        res.send((err === null) ? {msg: ''} : {msg: 'error: ' + err});
     });
 }
 
@@ -34,11 +40,26 @@ module.exports.addDetail = function (req, res) {
     Cake.findOne({"_id": req.params.id, "user": req.params.user}, function (err, cake) {
         if (req.body.type == "ingr") {
             cake.ingredients.push(req.body.name);
-        }
-        else if (req.body.type == "step") {
+        } else if (req.body.type == "step") {
             cake.steps.push(req.body.name);
         }
         cake.save();
         res.json(cake);
+    });
+}
+
+module.exports.addImage = function (req, res) {
+    Cake.findOne({"_id": req.params.id, "user": req.params.user}, function (err, cake) {
+        var path = "image." + req.body.dataType;
+        fs.writeFile(path, new Buffer(req.body.data, "base64"), function (result, err) {
+            cloudinary.uploader.upload(path, function (result) {
+                cake.image = result.url;
+                cake.croppedImage = cake.image.replace("image/upload/", "image/upload/c_fill,h_400,w_400/");
+                cake.save(function (err, cake) {
+                    res.json(cake);
+                    fs.unlink(path);
+                });
+            });
+        });
     });
 }
