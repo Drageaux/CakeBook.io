@@ -43,7 +43,7 @@ System.register(['angular2/core', "angular2/router", "./cakes/add-cake-form.comp
                 HomeComponent.prototype.getCakes = function () {
                     var _this = this;
                     this._cakeService.getCakes()
-                        .subscribe(function (cakes) { return _this.cakes = cakes; }, function (error) { return _this.errorMessage = error; }, function () { return console.log(_this.cakes); });
+                        .subscribe(function (cakes) { return _this.cakes = cakes; }, function (error) { return _this.errorMessage = error; });
                 };
                 HomeComponent.prototype.onSelect = function (cake) {
                     this._router.navigate(["CakeDetails", { id: cake._id }]);
