@@ -59,28 +59,45 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "
                         }
                     }
                 };
-                CakeDetailsComponent.prototype.readImageFile = function (event, callback) {
-                    this.cake.croppedImage = "http://res.cloudinary.com/hns6msnxn/image/upload/v1458335198/vt0zkfxtwhajsikca7hc.gif";
-                    var FR = new FileReader();
-                    FR.onload = function (e) {
-                        callback(e.target.result);
-                    };
-                    FR.readAsDataURL(event.target.files[0]);
+                CakeDetailsComponent.prototype.editDetail = function () {
                 };
-                CakeDetailsComponent.prototype.uploadImage = function (input) {
+                CakeDetailsComponent.prototype.uploadImage = function (input, oldImage) {
                     var _this = this;
-                    var fileType = input.match("data:image/(.*);base64")[1];
-                    var parsedInput = input.replace(/^data:image\/(png|jpg|jpeg|gif);base64,/, "");
-                    this._service.uploadCakeImage(this.cake._id, parsedInput, fileType)
-                        .subscribe(function (cake) { return _this.cake = cake; });
+                    var fileType;
+                    var inputMatchArray = input.match("data:image/(.*);base64");
+                    if (inputMatchArray) {
+                        fileType = inputMatchArray[1];
+                        var parsedInput = input.replace(/^data:image\/(png|jpg|jpeg|gif);base64,/, "");
+                        this._service.uploadCakeImage(this.cake._id, parsedInput, fileType)
+                            .subscribe(function (cake) { return _this.cake = cake; }, function (err) { return _this.cake.croppedImage = oldImage; });
+                    }
+                    else {
+                        console.log("Bad Image extension");
+                        this.cake.croppedImage = oldImage;
+                    }
                 };
                 CakeDetailsComponent.prototype.deleteCake = function () {
                     var _this = this;
                     this._service.deleteCake(this.cake._id)
                         .subscribe(function (res) { return _this._router.navigate(["Home"]); });
                 };
+                /********************
+                 * Helper Functions *
+                 ********************/
                 CakeDetailsComponent.prototype.isEmptyString = function (str) {
                     return str == "" || str == null;
+                };
+                CakeDetailsComponent.prototype.readImage = function (event, callback) {
+                    var oldImage = this.cake.croppedImage;
+                    this.cake.croppedImage = "http://res.cloudinary.com/hns6msnxn/image/upload/v1458335198/vt0zkfxtwhajsikca7hc.gif";
+                    var FR = new FileReader();
+                    FR.onload = function (e) {
+                        callback(e.target.result, oldImage);
+                    };
+                    FR.readAsDataURL(event.target.files[0]);
+                };
+                CakeDetailsComponent.prototype.openModal = function () {
+                    document.getElementById("modal-button").click();
                 };
                 CakeDetailsComponent.prototype.gotoCakes = function () {
                     this._router.navigate(["Home"]);

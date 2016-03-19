@@ -411,7 +411,10 @@ body {
     body .details-container .cake-info .cake-description {
       display: inline-block;
       vertical-align: top;
-      width: 68%; }
+      width: 68%;
+      border-radius: 5px; }
+      body .details-container .cake-info .cake-description button {
+        float: right; }
       body .details-container .cake-info .cake-description p {
         font-size: 1em; }
     body .details-container ul, body .details-container ol {

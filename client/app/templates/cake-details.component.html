@@ -8,16 +8,14 @@
                     <img *ngIf="!isEmptyString(cake.croppedImage)" src="{{cake.croppedImage}}">
                     <img *ngIf="isEmptyString(cake.croppedImage)" src="../assets/custom/images/default-placeholder.png">
                 </a>
-                <!--<button type="button" class="upload-button" (click)="uploadCakeImage()">-->
-                <!--<span class="glyphicon glyphicon-camera" aria-hidden="true"></span>&nbsp;Upload a picture-->
-                <!--</button>-->
-                <input type="file" name="file" id="file" (change)="readImageFile($event, uploadCallBack)">
+                <input type="file" name="file" id="file" (change)="readImage($event, uploadCallBack)">
                 <label for="file">
                     <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>&nbsp;Upload an image
                 </label>
 
             </div>
             <div class="cake-description well">
+                <button type="button" class="btn btn-default">Edit</button>
                 <h4 style="margin-top: 0; margin-bottom: 5px;"><b>Description</b></h4>
                 <p *ngIf="cake.description"></p>
                 <p style="color: #888" *ngIf="!cake.description">(no description yet)</p>
@@ -29,8 +27,6 @@
         <ul>
             <li *ngFor="#ingr of cake.ingredients">
                 {{ingr}}
-            </li>
-            <li style="list-style: none; color: #888;" *ngIf="cake.ingredients.length == 0">(no ingredients specified)
             </li>
             <li style="list-style: none; padding-top: 10px; padding-bottom: 5px">
                 <form class="form-group">
@@ -54,7 +50,6 @@
             <li *ngFor="#step of cake.steps">
                 {{step}}
             </li>
-            <li style="list-style: none; color: #888;" *ngIf="cake.steps.length == 0">(no steps specified)</li>
             <li style="list-style: none; padding-top: 10px; padding-bottom: 5px">
                 <form class="form-group">
                     <div class="input-group">
@@ -76,4 +71,26 @@
 
     <button class="btn btn-default" (click)="gotoCakes()">Back</button>
     <button class="btn btn-danger" (click)="deleteCake()">Remove This Cake</button>
+
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"
+            id="modal-button" style="display:none">Open Modal</button>
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

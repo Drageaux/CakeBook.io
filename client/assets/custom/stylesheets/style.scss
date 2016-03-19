@@ -594,6 +594,10 @@ body {
                 display: inline-block;
                 vertical-align: top;
                 width: 68%;
+                border-radius: 5px;
+                button {
+                    float: right;
+                }
                 p {
                     font-size: 1em;
                 }
