@@ -52,16 +52,14 @@ module.exports.addImage = function (req, res) {
     Cake.findOne({"_id": req.params.id, "user": req.params.user}, function (err, cake) {
         var path = "image." + req.body.dataType;
         fs.writeFile(path, new Buffer(req.body.data, "base64"), function (result, err) {
-            cloudinary.uploader.upload(path,
-                function (result) {
-                    cake.image = result.url;
-                    cake.save(function (err, cake) {
-                        res.json(cake);
-                        fs.unlink(path);
-                    });
-                }, {
-                    width: 400, height: 400, crop: "fill"
+            cloudinary.uploader.upload(path, function (result) {
+                cake.image = result.url;
+                cake.croppedImage = cake.image.replace("image/upload/", "image/upload/c_fill,h_400,w_400/");
+                cake.save(function (err, cake) {
+                    res.json(cake);
+                    fs.unlink(path);
                 });
+            });
         });
     });
 }

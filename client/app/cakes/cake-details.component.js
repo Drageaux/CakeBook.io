@@ -39,8 +39,8 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "
                     var _this = this;
                     var id = this._routeParams.get('id');
                     this._service.getCake(id)
-                        .subscribe(function (cake) { return _this.cake = cake; }, function (error) { return _this._router.navigate(["Home"]); }, function () { return _this.getCakeImage(); });
-                    this.uploadCallBack = this.upload.bind(this);
+                        .subscribe(function (cake) { return _this.cake = cake; }, function (error) { return _this._router.navigate(["Home"]); });
+                    this.uploadCallBack = this.uploadImage.bind(this);
                 };
                 CakeDetailsComponent.prototype.addDetail = function (detailType) {
                     var _this = this;
@@ -59,25 +59,18 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "
                         }
                     }
                 };
-                CakeDetailsComponent.prototype.getCakeImage = function () {
-                    this._service.getCakeImage(this.cake._id);
-                    //.subscribe(
-                    //    res => this.imgData = res
-                    //);
-                };
                 CakeDetailsComponent.prototype.readImageFile = function (event, callback) {
-                    this.cake.image = "http://res.cloudinary.com/hns6msnxn/image/upload/v1458335198/vt0zkfxtwhajsikca7hc.gif";
+                    this.cake.croppedImage = "http://res.cloudinary.com/hns6msnxn/image/upload/v1458335198/vt0zkfxtwhajsikca7hc.gif";
                     var FR = new FileReader();
                     FR.onload = function (e) {
                         callback(e.target.result);
                     };
                     FR.readAsDataURL(event.target.files[0]);
                 };
-                CakeDetailsComponent.prototype.upload = function (input) {
+                CakeDetailsComponent.prototype.uploadImage = function (input) {
                     var _this = this;
                     var fileType = input.match("data:image/(.*);base64")[1];
                     var parsedInput = input.replace(/^data:image\/(png|jpg|jpeg|gif);base64,/, "");
-                    console.log(input);
                     this._service.uploadCakeImage(this.cake._id, parsedInput, fileType)
                         .subscribe(function (cake) { return _this.cake = cake; });
                 };
@@ -96,10 +89,6 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "
                     core_1.Input(), 
                     __metadata('design:type', cake_1.Cake)
                 ], CakeDetailsComponent.prototype, "cake", void 0);
-                __decorate([
-                    core_1.Input(), 
-                    __metadata('design:type', String)
-                ], CakeDetailsComponent.prototype, "imgData", void 0);
                 __decorate([
                     core_1.Input(), 
                     __metadata('design:type', Function)

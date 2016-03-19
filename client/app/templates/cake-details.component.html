@@ -5,8 +5,8 @@
         <div class="cake-info">
             <div class="cake-image">
                 <a>
-                    <img *ngIf="!isEmptyString(cake.image)" src="{{cake.image}}">
-                    <img *ngIf="isEmptyString(cake.image)" src="../assets/custom/images/default-placeholder.png">
+                    <img *ngIf="!isEmptyString(cake.croppedImage)" src="{{cake.croppedImage}}">
+                    <img *ngIf="isEmptyString(cake.croppedImage)" src="../assets/custom/images/default-placeholder.png">
                 </a>
                 <!--<button type="button" class="upload-button" (click)="uploadCakeImage()">-->
                 <!--<span class="glyphicon glyphicon-camera" aria-hidden="true"></span>&nbsp;Upload a picture-->
