@@ -574,7 +574,8 @@ body {
                     position: absolute;
                     z-index: -1;
                 }
-                label {
+                label,
+                label:focus {
                     text-align: center;
                     margin-bottom: 0;
                     cursor: pointer;

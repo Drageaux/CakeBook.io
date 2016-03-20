@@ -3,12 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="488cec99-ddf5-4f67-9a37-f9054f020f41" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/cakes/cake-details.component.js" afterPath="$PROJECT_DIR$/client/app/cakes/cake-details.component.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/cakes/cake-details.component.js.map" afterPath="$PROJECT_DIR$/client/app/cakes/cake-details.component.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/cakes/cake-details.component.ts" afterPath="$PROJECT_DIR$/client/app/cakes/cake-details.component.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/templates/cake-details.component.html" afterPath="$PROJECT_DIR$/client/app/templates/cake-details.component.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/assets/custom/stylesheets/style.css" afterPath="$PROJECT_DIR$/client/assets/custom/stylesheets/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/assets/custom/stylesheets/style.css.map" afterPath="$PROJECT_DIR$/client/assets/custom/stylesheets/style.css.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/assets/custom/stylesheets/style.scss" afterPath="$PROJECT_DIR$/client/assets/custom/stylesheets/style.scss" />
     </list>
     <ignored path="cake-book.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,8 +30,8 @@
       <file leaf-file-name="style.scss" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/assets/custom/stylesheets/style.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.59821427">
-              <caret line="565" column="47" selection-start-line="565" selection-start-column="47" selection-end-line="565" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.4642857">
+              <caret line="584" column="69" selection-start-line="584" selection-start-column="69" selection-end-line="584" selection-end-column="69" />
               <folding>
                 <element signature="e#1001#1034#0" expanded="false" />
                 <element signature="e#1057#1128#0" expanded="false" />
@@ -45,7 +43,6 @@
                 <element signature="e#4521#5074#0" expanded="false" />
                 <element signature="e#4638#4763#0" expanded="false" />
                 <element signature="e#4796#5052#0" expanded="false" />
-                <element signature="e#5560#5700#0" expanded="false" />
                 <element signature="e#5981#6132#0" expanded="false" />
                 <element signature="e#6075#6122#0" expanded="false" />
                 <element signature="e#6178#6329#0" expanded="false" />
@@ -62,13 +59,11 @@
                 <element signature="e#10341#10382#0" expanded="false" />
                 <element signature="e#10440#10515#0" expanded="false" />
                 <element signature="e#10457#10505#0" expanded="false" />
-                <element signature="e#10724#17038#0" expanded="false" />
                 <element signature="e#10785#10835#0" expanded="false" />
                 <element signature="e#10865#11224#0" expanded="false" />
                 <element signature="e#10916#11093#0" expanded="false" />
                 <element signature="e#10949#11071#0" expanded="false" />
                 <element signature="e#11139#11206#0" expanded="false" />
-                <element signature="e#11267#17024#0" expanded="false" />
                 <element signature="e#11552#15809#0" expanded="false" />
                 <element signature="e#11921#11993#0" expanded="false" />
                 <element signature="e#12032#12681#0" expanded="false" />
@@ -129,7 +124,7 @@
       <file leaf-file-name="cake-details.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/app/cakes/cake-details.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.0">
+            <state vertical-scroll-proportion="0.0">
               <caret line="101" column="123" selection-start-line="101" selection-start-column="120" selection-end-line="101" selection-end-column="123" />
               <folding />
             </state>
@@ -139,8 +134,8 @@
       <file leaf-file-name="cake-details.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/app/templates/cake-details.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-3.025641">
+              <caret line="85" column="22" selection-start-line="85" selection-start-column="22" selection-end-line="85" selection-end-column="22" />
               <folding>
                 <element signature="n#style#0;n#p#1;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#2;n#div#0;n#!!top" expanded="true" />
@@ -638,17 +633,16 @@
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1859375" sideWeight="0.495283" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900944" sideWeight="0.49791667" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript Compiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20400943" sideWeight="0.504717" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2806604" sideWeight="0.50208336" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278302" sideWeight="0.49375" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14635417" sideWeight="0.49791667" order="4" side_tool="true" content_ui="tabs" x="4" y="370" width="1912" height="279" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1859375" sideWeight="0.495283" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278302" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1859375" sideWeight="0.5055292" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -656,6 +650,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278302" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -924,7 +919,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33246416">
           <caret line="14" column="26" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1022,26 +1016,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/home.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/cakes/cake-details.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.0">
-          <caret line="101" column="123" selection-start-line="101" selection-start-column="120" selection-end-line="101" selection-end-column="123" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/app/templates/cake-details.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="-3.025641">
+          <caret line="85" column="22" selection-start-line="85" selection-start-column="22" selection-end-line="85" selection-end-column="22" />
           <folding>
             <element signature="n#style#0;n#p#1;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#2;n#div#0;n#!!top" expanded="true" />
@@ -1050,10 +1028,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/cakes/cake-details.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="101" column="123" selection-start-line="101" selection-start-column="120" selection-end-line="101" selection-end-column="123" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/home.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/assets/custom/stylesheets/style.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59821427">
-          <caret line="565" column="47" selection-start-line="565" selection-start-column="47" selection-end-line="565" selection-end-column="47" />
+        <state vertical-scroll-proportion="0.4642857">
+          <caret line="584" column="69" selection-start-line="584" selection-start-column="69" selection-end-line="584" selection-end-column="69" />
           <folding>
             <element signature="e#1001#1034#0" expanded="false" />
             <element signature="e#1057#1128#0" expanded="false" />
@@ -1065,7 +1059,6 @@
             <element signature="e#4521#5074#0" expanded="false" />
             <element signature="e#4638#4763#0" expanded="false" />
             <element signature="e#4796#5052#0" expanded="false" />
-            <element signature="e#5560#5700#0" expanded="false" />
             <element signature="e#5981#6132#0" expanded="false" />
             <element signature="e#6075#6122#0" expanded="false" />
             <element signature="e#6178#6329#0" expanded="false" />
@@ -1082,13 +1075,11 @@
             <element signature="e#10341#10382#0" expanded="false" />
             <element signature="e#10440#10515#0" expanded="false" />
             <element signature="e#10457#10505#0" expanded="false" />
-            <element signature="e#10724#17038#0" expanded="false" />
             <element signature="e#10785#10835#0" expanded="false" />
             <element signature="e#10865#11224#0" expanded="false" />
             <element signature="e#10916#11093#0" expanded="false" />
             <element signature="e#10949#11071#0" expanded="false" />
             <element signature="e#11139#11206#0" expanded="false" />
-            <element signature="e#11267#17024#0" expanded="false" />
             <element signature="e#11552#15809#0" expanded="false" />
             <element signature="e#11921#11993#0" expanded="false" />
             <element signature="e#12032#12681#0" expanded="false" />
