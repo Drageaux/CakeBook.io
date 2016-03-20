@@ -69,16 +69,19 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "
                     if (inputMatchArray) {
                         // get and filter for correct file type
                         fileType = inputMatchArray[1];
-                        if (fileType.match(/(png|jpg|jpeg|gif)/)) {
-                            var parsedInput = input.replace(/^data:image\/(png|jpg|jpeg|gif);base64,/, "");
+                        if (fileType.match(/(png|jpg|jpeg)/)) {
+                            var parsedInput = input.replace(/^data:image\/(png|jpg|jpeg);base64,/, "");
                             this._service.uploadCakeImage(this.cake._id, parsedInput, fileType)
                                 .subscribe(function (cake) { return _this.cake = cake; }, function (err) { return _this.cake.croppedImage = oldImage; });
                         }
                         else {
+                            this.openModal();
                             console.log("Bad Image Extension");
+                            this.cake.croppedImage = oldImage;
                         }
                     }
                     else {
+                        this.openModal();
                         console.log("Not An Image");
                         this.cake.croppedImage = oldImage;
                     }
@@ -95,13 +98,15 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "
                     return str == "" || str == null;
                 };
                 CakeDetailsComponent.prototype.readImage = function (event, callback) {
-                    var oldImage = this.cake.croppedImage;
-                    this.cake.croppedImage = "http://res.cloudinary.com/hns6msnxn/image/upload/v1458335198/vt0zkfxtwhajsikca7hc.gif";
-                    var FR = new FileReader();
-                    FR.onload = function (e) {
-                        callback(e.target.result, oldImage);
-                    };
-                    FR.readAsDataURL(event.target.files[0]);
+                    if (event.target.files[0]) {
+                        var oldImage = this.cake.croppedImage;
+                        this.cake.croppedImage = "http://res.cloudinary.com/hns6msnxn/image/upload/v1458335198/vt0zkfxtwhajsikca7hc.gif";
+                        var FR = new FileReader();
+                        FR.onload = function (e) {
+                            callback(e.target.result, oldImage);
+                        };
+                        FR.readAsDataURL(event.target.files[0]);
+                    }
                 };
                 CakeDetailsComponent.prototype.openModal = function () {
                     document.getElementById("modal-button").click();
