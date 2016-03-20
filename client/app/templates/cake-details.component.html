@@ -19,7 +19,7 @@
             <form class="cake-description well container">
                 <h4 style="margin-top: 0; margin-bottom: 5px;"><b>Description</b></h4>
                 <p style="color: #888" *ngIf="isEmptyString(cake.description)"
-                   [class.hidden]="isEditing('desc', 0)">(no description yet}</p>
+                   [class.hidden]="isEditing('desc', 0)">(no description yet)</p>
                 <p *ngIf="!isEmptyString(cake.description)"
                    [class.hidden]="isEditing('desc', 0)">{{cake.description}}</p>
                 <textarea #newDescription rows="4" class="form-control" autofocus
