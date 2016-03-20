@@ -71,7 +71,6 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "
                 CakeDetailsComponent.prototype.saveEdit = function (detailType, index, value) {
                     var _this = this;
                     if (detailType == "desc") {
-                        //console.log();
                         this.currDesc["editing"] = false;
                         this._service.addCakeDetail(this.cake._id, "desc", value)
                             .subscribe(function (cake) { return _this.cake = cake; });
@@ -116,12 +115,6 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "
                  * Helper Functions *
                  ********************/
                 CakeDetailsComponent.prototype.isEditing = function (itemType, index) {
-                    //if (itemType == "ingr") {
-                    //    return this.ingrList[index]["editing"];
-                    //}
-                    //else if (itemType == "step") {
-                    //    return this.stepList[index]["editing"];
-                    //}
                     if (itemType == "desc") {
                         return this.currDesc["editing"];
                     }

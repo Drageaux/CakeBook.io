@@ -49,6 +49,9 @@ body {
             cursor: pointer;
         }
     }
+    textarea {
+        resize: none;
+    }
 
     /*******************
      * General Top Nav *
@@ -617,8 +620,22 @@ body {
                         margin-bottom: 5px;
                     }
                 }
-                textarea {
-                    resize: none;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            .cake-info {
+                .cake-image {
+                    padding-left: 10px;
+                }
+                .cake-description {
+                    margin-top: 10px;
+                }
+                .cake-image,
+                .cake-description {
+                    display: block;
+                    width: 80%;
+                    margin-left: auto;
+                    margin-right: auto;
                 }
             }
         }

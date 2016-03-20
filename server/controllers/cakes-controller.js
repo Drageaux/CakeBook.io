@@ -57,7 +57,7 @@ module.exports.addImage = function (req, res) {
         fs.writeFile(path, new Buffer(req.body.data, "base64"), function (result, err) {
             cloudinary.uploader.upload(path, function (result) {
                 cake.image = result.url;
-                cake.croppedImage = cake.image.replace("image/upload/", "image/upload/c_fill,h_400,w_400/");
+                cake.croppedImage = cake.image.replace("image/upload/", "image/upload/c_fill,h_480,w_480/");
                 cake.save(function (err, cake) {
                     res.json(cake);
                     fs.unlink(path);

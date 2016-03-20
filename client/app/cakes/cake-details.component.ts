@@ -38,15 +38,13 @@ export class CakeDetailsComponent implements OnInit {
     addDetail(detailType:string) {
         if (detailType == "desc") {
             this._service.addCakeDetail(this.cake._id, detailType, this.currDesc["value"]);
-        }
-        else if (detailType == "ingr") {
+        } else if (detailType == "ingr") {
             if (!this.isEmptyString(this.currIngr)) {
                 this._service.addCakeDetail(this.cake._id, detailType, this.currIngr)
                     .subscribe(cake => this.cake = cake);
                 this.currIngr = "";
             }
-        }
-        else if (detailType == "step") {
+        } else if (detailType == "step") {
             if (!this.isEmptyString(this.currStep)) {
                 this._service.addCakeDetail(this.cake._id, detailType, this.currStep)
                     .subscribe(cake => this.cake = cake);
@@ -63,7 +61,6 @@ export class CakeDetailsComponent implements OnInit {
 
     saveEdit(detailType:string, index:number, value:string) {
         if (detailType == "desc") {
-            //console.log();
             this.currDesc["editing"] = false;
             this._service.addCakeDetail(this.cake._id, "desc", value)
                 .subscribe(cake => this.cake = cake);
@@ -114,12 +111,6 @@ export class CakeDetailsComponent implements OnInit {
      * Helper Functions *
      ********************/
     isEditing(itemType:string, index:number) {
-        //if (itemType == "ingr") {
-        //    return this.ingrList[index]["editing"];
-        //}
-        //else if (itemType == "step") {
-        //    return this.stepList[index]["editing"];
-        //}
         if (itemType == "desc") {
             return this.currDesc["editing"];
         }

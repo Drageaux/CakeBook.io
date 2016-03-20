@@ -1,8 +1,10 @@
 <div class="details-container">
     <div *ngIf="cake">
+        <!-- Name -->
         <h3><b>{{cake.name}}</b></h3>
         <hr>
         <div class="cake-info">
+            <!-- Image -->
             <div class="cake-image">
                 <a>
                     <img *ngIf="!isEmptyString(cake.croppedImage)" src="{{cake.croppedImage}}">
@@ -13,6 +15,7 @@
                     <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>&nbsp;Upload an image
                 </label>
             </div>
+            <!-- Description -->
             <form class="cake-description well container">
                 <h4 style="margin-top: 0; margin-bottom: 5px;"><b>Description</b></h4>
                 <p style="color: #888" *ngIf="isEmptyString(cake.description)"
@@ -42,6 +45,7 @@
         </div>
         <br>
 
+        <!-- Ingredients -->
         <label><b>Ingredients</b></label>
         <ul>
             <li *ngFor="#ingr of cake.ingredients">
@@ -64,6 +68,7 @@
             </li>
         </ul>
 
+        <!-- Steps -->
         <label><b>Steps</b></label>
         <ol>
             <li *ngFor="#step of cake.steps">
@@ -89,7 +94,7 @@
     <hr>
 
     <button class="btn btn-default" (click)="gotoCakes()">Back</button>
-    <button class="btn btn-danger" (click)="deleteCake()">Remove This Cake</button>
+    <button *ngIf="cake" class="btn btn-danger" (click)="deleteCake()">Remove This Cake</button>
 
     <!-- Trigger the modal with a button -->
     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"

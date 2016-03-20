@@ -41,6 +41,8 @@ body {
     cursor: pointer; }
   body button span {
     cursor: pointer; }
+  body textarea {
+    resize: none; }
   body .navbar-default {
     height: 40px;
     border-bottom: 5px solid #AD4047;
@@ -430,8 +432,17 @@ body {
         body .details-container .cake-info .cake-description .save-cancel button {
           margin-top: 10px;
           margin-bottom: 5px; }
-      body .details-container .cake-info .cake-description textarea {
-        resize: none; }
+    @media screen and (max-width: 480px) {
+      body .details-container .cake-info .cake-image {
+        padding-left: 10px; }
+      body .details-container .cake-info .cake-description {
+        margin-top: 10px; }
+      body .details-container .cake-info .cake-image,
+      body .details-container .cake-info .cake-description {
+        display: block;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto; } }
     body .details-container ul, body .details-container ol {
       padding-left: 30px; }
   @media screen and (max-width: 768px) {
