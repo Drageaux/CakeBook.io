@@ -62,7 +62,7 @@ export class CakeDetailsComponent implements OnInit {
     saveEdit(detailType:string, index:number, value:string) {
         if (detailType == "desc") {
             this.currDesc["editing"] = false;
-            this._service.addCakeDetail(this.cake._id, "desc", value)
+            this._service.addCakeDetail(this.cake._id, "desc", value.replace(/\s+$/, ""))
                 .subscribe(cake => this.cake = cake);
         }
     }

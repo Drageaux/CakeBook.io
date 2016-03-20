@@ -72,7 +72,7 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "
                     var _this = this;
                     if (detailType == "desc") {
                         this.currDesc["editing"] = false;
-                        this._service.addCakeDetail(this.cake._id, "desc", value)
+                        this._service.addCakeDetail(this.cake._id, "desc", value.replace(/\s+$/, ""))
                             .subscribe(function (cake) { return _this.cake = cake; });
                     }
                 };
