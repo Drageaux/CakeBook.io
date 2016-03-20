@@ -3,16 +3,25 @@
 </div>
 
 <div *ngIf="active" class="add-cake-form">
-    <h4>Make a Cake</h4>
-    <form (ngSubmit)="addCake(model.name)" #addCakeForm="ngForm">
+    <h4 style="text-align: center"><b>Make a Cake</b></h4>
+    <form (ngSubmit)="addCake(addCakeForm.value)" #addCakeForm="ngForm">
         <!-- Cake name -->
         <div class="form-group">
-            <label>Cake Name</label>
-            <input type="text" class="form-control" required placeholder="(required)"
+            <label>Cake Name*</label>
+            <input type="text" class="form-control" required
                    [(ngModel)]="model.name">
             <!--<div [hidden]="name.valid || name.pristine" class="alert alert-danger">-->
             <!--Name is required-->
             <!--</div>-->
+        </div>
+        <div></div>
+        <hr>
+
+        <!-- Cake description -->
+        <div class="form-group">
+            <label>Description</label>
+            <input type="text" class="form-control" placeholder="(optional)"
+                   [(ngModel)]="model.description">
         </div>
         <div></div>
         <hr>

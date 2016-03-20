@@ -21,7 +21,7 @@ export class AddCakeFormComponent {
     currStep = {"value": "", "editing": false};
 
     userId = JSON.parse(localStorage.getItem("profile")).user_id;
-    model = new Cake(0, this.userId, "", "", "", [], []);
+    model = new Cake(0, this.userId, "", "", "", "", [], []);
     active = false;
 
     constructor(private _cakeService:CakeService) {
@@ -57,7 +57,7 @@ export class AddCakeFormComponent {
             .subscribe(res => this.saved.emit(res));
 
         // TODO: Remove when there's a better way to reset the model
-        this.model = new Cake(0, this.userId, "", "", "", [""], [""]);
+        this.model = new Cake(0, this.userId, "", "", "", "", [""], [""]);
         this.closeForm();
     }
 
@@ -124,7 +124,10 @@ export class AddCakeFormComponent {
         }
     }
 
-    /* Checks */
+
+    /********************
+     * Helper Functions *
+     ********************/
     isEditing(itemType:string, index:number) {
         if (itemType == "ingr") {
             return this.ingrList[index]["editing"];

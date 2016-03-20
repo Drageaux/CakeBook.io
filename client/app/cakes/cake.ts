@@ -5,6 +5,7 @@ export class Cake {
         public name:string,
         public image:string,
         public croppedImage:string,
+        public description:string,
         public ingredients:string[],
         public steps:string[]
     ) { }

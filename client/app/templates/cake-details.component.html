@@ -14,11 +14,13 @@
                 </label>
 
             </div>
-            <div class="cake-description well">
-                <button type="button" class="btn btn-default">Edit</button>
+            <div class="cake-description well container">
                 <h4 style="margin-top: 0; margin-bottom: 5px;"><b>Description</b></h4>
-                <p *ngIf="cake.description"></p>
                 <p style="color: #888" *ngIf="!cake.description">(no description yet)</p>
+                <p *ngIf="cake.description">{{cake.description}}</p>
+                <div class="row">
+                    <button type="button" class="btn btn-default col-lg-1 col-lg-offset-9">Edit</button>
+                </div>
             </div>
         </div>
         <br>
@@ -74,7 +76,8 @@
 
     <!-- Trigger the modal with a button -->
     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"
-            id="modal-button" style="display:none">Open Modal</button>
+            id="modal-button" style="display:none">Open Modal
+    </button>
     <!-- Modal -->
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">

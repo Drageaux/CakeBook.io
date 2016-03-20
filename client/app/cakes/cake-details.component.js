@@ -44,22 +44,23 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "
                 };
                 CakeDetailsComponent.prototype.addDetail = function (detailType) {
                     var _this = this;
-                    if (detailType == "ingr") {
+                    if (detailType == "desc") {
+                        this._service.addCakeDetail(this.cake._id, detailType, this.currDesc);
+                    }
+                    else if (detailType == "ingr") {
                         if (!this.isEmptyString(this.currIngr)) {
-                            this._service.addCakeDetail(this.cake._id, "ingr", this.currIngr)
+                            this._service.addCakeDetail(this.cake._id, detailType, this.currIngr)
                                 .subscribe(function (cake) { return _this.cake = cake; });
                             this.currIngr = "";
                         }
                     }
                     else if (detailType == "step") {
                         if (!this.isEmptyString(this.currStep)) {
-                            this._service.addCakeDetail(this.cake._id, "step", this.currStep)
+                            this._service.addCakeDetail(this.cake._id, detailType, this.currStep)
                                 .subscribe(function (cake) { return _this.cake = cake; });
                             this.currStep = "";
                         }
                     }
-                };
-                CakeDetailsComponent.prototype.editDetail = function () {
                 };
                 CakeDetailsComponent.prototype.uploadImage = function (input, oldImage) {
                     var _this = this;
@@ -94,6 +95,16 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "
                 /********************
                  * Helper Functions *
                  ********************/
+                CakeDetailsComponent.prototype.isEditing = function (itemType, index) {
+                    //if (itemType == "ingr") {
+                    //    return this.ingrList[index]["editing"];
+                    //}
+                    //else if (itemType == "step") {
+                    //    return this.stepList[index]["editing"];
+                    //}
+                    if (itemType == "desc") {
+                    }
+                };
                 CakeDetailsComponent.prototype.isEmptyString = function (str) {
                     return str == "" || str == null;
                 };

@@ -32,7 +32,7 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     this.stepList = [];
                     this.currStep = { "value": "", "editing": false };
                     this.userId = JSON.parse(localStorage.getItem("profile")).user_id;
-                    this.model = new cake_1.Cake(0, this.userId, "", "", "", [], []);
+                    this.model = new cake_1.Cake(0, this.userId, "", "", "", "", [], []);
                     this.active = false;
                 }
                 AddCakeFormComponent.prototype.openForm = function () {
@@ -62,7 +62,7 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     this._cakeService.addCake(JSON.stringify(this.model))
                         .subscribe(function (res) { return _this.saved.emit(res); });
                     // TODO: Remove when there's a better way to reset the model
-                    this.model = new cake_1.Cake(0, this.userId, "", "", "", [""], [""]);
+                    this.model = new cake_1.Cake(0, this.userId, "", "", "", "", [""], [""]);
                     this.closeForm();
                 };
                 /* Ingredients and Steps */
@@ -123,7 +123,9 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                         this.stepList[index]["editing"] = false;
                     }
                 };
-                /* Checks */
+                /********************
+                 * Helper Functions *
+                 ********************/
                 AddCakeFormComponent.prototype.isEditing = function (itemType, index) {
                     if (itemType == "ingr") {
                         return this.ingrList[index]["editing"];

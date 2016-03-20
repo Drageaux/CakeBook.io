@@ -23,6 +23,7 @@ module.exports.create = function (req, res) {
     var cake = new Cake();
     cake.user = req.body.user;
     cake.name = req.body.name;
+    cake.description = req.body.description;
     cake.ingredients = req.body.ingredients;
     cake.steps = req.body.steps;
     cake.save(function (err, cake) {
@@ -38,7 +39,9 @@ module.exports.remove = function (req, res) {
 
 module.exports.addDetail = function (req, res) {
     Cake.findOne({"_id": req.params.id, "user": req.params.user}, function (err, cake) {
-        if (req.body.type == "ingr") {
+        if (req.body.type == "desc") {
+            cake.description = req.body.description;
+        } else if (req.body.type == "ingr") {
             cake.ingredients.push(req.body.name);
         } else if (req.body.type == "step") {
             cake.steps.push(req.body.name);

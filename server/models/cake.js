@@ -6,6 +6,7 @@ var CakeSchema = new Schema({
     name: String,
     image: String,
     croppedImage:String,
+    description:String,
     ingredients: [String],
     steps: [String]
 })

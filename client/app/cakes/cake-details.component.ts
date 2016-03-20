@@ -15,6 +15,7 @@ import {CanActivate} from "angular2/router";
 @CanActivate(() => tokenNotExpired())
 export class CakeDetailsComponent implements OnInit {
     @Input() cake:Cake;
+    currDesc:string;
     currIngr:string;
     currStep:string;
     @Input() public uploadCallBack:Function;
@@ -35,24 +36,23 @@ export class CakeDetailsComponent implements OnInit {
     }
 
     addDetail(detailType:string) {
-        if (detailType == "ingr") {
+        if (detailType == "desc") {
+            this._service.addCakeDetail(this.cake._id, detailType, this.currDesc);
+        }
+        else if (detailType == "ingr") {
             if (!this.isEmptyString(this.currIngr)) {
-                this._service.addCakeDetail(this.cake._id, "ingr", this.currIngr)
+                this._service.addCakeDetail(this.cake._id, detailType, this.currIngr)
                     .subscribe(cake => this.cake = cake);
                 this.currIngr = "";
             }
         }
         else if (detailType == "step") {
             if (!this.isEmptyString(this.currStep)) {
-                this._service.addCakeDetail(this.cake._id, "step", this.currStep)
+                this._service.addCakeDetail(this.cake._id, detailType, this.currStep)
                     .subscribe(cake => this.cake = cake);
                 this.currStep = "";
             }
         }
-    }
-
-    editDetail() {
-
     }
 
     uploadImage(input:string, oldImage:string) {
@@ -92,6 +92,18 @@ export class CakeDetailsComponent implements OnInit {
     /********************
      * Helper Functions *
      ********************/
+    isEditing(itemType:string, index:number) {
+        //if (itemType == "ingr") {
+        //    return this.ingrList[index]["editing"];
+        //}
+        //else if (itemType == "step") {
+        //    return this.stepList[index]["editing"];
+        //}
+        if (itemType == "desc") {
+
+        }
+    }
+
     isEmptyString(str:string) {
         return str == "" || str == null;
     }
