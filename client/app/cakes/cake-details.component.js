@@ -64,15 +64,22 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "
                 CakeDetailsComponent.prototype.uploadImage = function (input, oldImage) {
                     var _this = this;
                     var fileType;
+                    // check if is an image
                     var inputMatchArray = input.match("data:image/(.*);base64");
                     if (inputMatchArray) {
+                        // get and filter for correct file type
                         fileType = inputMatchArray[1];
-                        var parsedInput = input.replace(/^data:image\/(png|jpg|jpeg|gif);base64,/, "");
-                        this._service.uploadCakeImage(this.cake._id, parsedInput, fileType)
-                            .subscribe(function (cake) { return _this.cake = cake; }, function (err) { return _this.cake.croppedImage = oldImage; });
+                        if (fileType.match(/(png|jpg|jpeg|gif)/)) {
+                            var parsedInput = input.replace(/^data:image\/(png|jpg|jpeg|gif);base64,/, "");
+                            this._service.uploadCakeImage(this.cake._id, parsedInput, fileType)
+                                .subscribe(function (cake) { return _this.cake = cake; }, function (err) { return _this.cake.croppedImage = oldImage; });
+                        }
+                        else {
+                            console.log("Bad Image Extension");
+                        }
                     }
                     else {
-                        console.log("Bad Image extension");
+                        console.log("Not An Image");
                         this.cake.croppedImage = oldImage;
                     }
                 };

@@ -57,18 +57,24 @@ export class CakeDetailsComponent implements OnInit {
 
     uploadImage(input:string, oldImage:string) {
         let fileType;
+        // check if is an image
         let inputMatchArray = input.match("data:image/(.*);base64");
-
         if (inputMatchArray) {
+            // get and filter for correct file type
             fileType = inputMatchArray[1];
-            let parsedInput = input.replace(/^data:image\/(png|jpg|jpeg|gif);base64,/, "");
-            this._service.uploadCakeImage(this.cake._id, parsedInput, fileType)
-                .subscribe(
-                    cake => this.cake = cake,
-                    err => this.cake.croppedImage = oldImage
-                );
+            if (fileType.match(/(png|jpg|jpeg|gif)/)) {
+                let parsedInput = input.replace(/^data:image\/(png|jpg|jpeg|gif);base64,/, "");
+                this._service.uploadCakeImage(this.cake._id, parsedInput, fileType)
+                    .subscribe(
+                        cake => this.cake = cake,
+                        err => this.cake.croppedImage = oldImage
+                    );
+            }
+            else {
+                console.log("Bad Image Extension");
+            }
         } else {
-            console.log("Bad Image extension");
+            console.log("Not An Image");
             this.cake.croppedImage = oldImage;
         }
     }

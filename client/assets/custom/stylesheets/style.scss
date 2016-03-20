@@ -556,7 +556,6 @@ body {
                 width: 30%;
                 position: relative;
                 padding-right: 10px;
-
                 a {
                     cursor: -webkit-zoom-in;
                     cursor: -moz-zoom-in;
@@ -564,6 +563,7 @@ body {
                     img {
                         width: 100%;
                         border-radius: 5px;
+                        border: 2px solid #DDD;
                     }
                 }
                 input {

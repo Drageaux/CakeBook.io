@@ -387,7 +387,8 @@ body {
         text-decoration: none; }
         body .details-container .cake-info .cake-image a img {
           width: 100%;
-          border-radius: 5px; }
+          border-radius: 5px;
+          border: 2px solid #DDD; }
       body .details-container .cake-info .cake-image input {
         width: 0.1px;
         height: 0.1px;
