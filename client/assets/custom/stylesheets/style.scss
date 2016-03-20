@@ -44,6 +44,11 @@ body {
     a:hover {
         cursor: pointer;
     }
+    button {
+        span {
+            cursor: pointer;
+        }
+    }
 
     /*******************
      * General Top Nav *
@@ -390,9 +395,6 @@ body {
                         border-left-width: 0;
                         background-color: darken(white, 2%);
                         font-size: 1em;
-                        span {
-                            cursor: default;
-                        }
                         .number-label {
                             position: absolute;
                             top: 0;
@@ -407,6 +409,7 @@ body {
                                 position: absolute;
                                 top: 46%;
                                 line-height: 5px;
+                                cursor: default;
                             }
                         }
                         .list-group-item-name {
@@ -597,12 +600,25 @@ body {
                 width: 68%;
                 border-radius: 5px;
                 padding-bottom: 5px;
+                p {
+                    white-space: pre-wrap;
+                    font-size: 1em;
+                }
                 button {
                     float: right;
-
+                    position: relative;
+                    transition-duration: 0.2s;
+                    margin-left: 3px;
                 }
-                p {
-                    font-size: 1em;
+                .save-cancel {
+                    margin-right: 12px;
+                    button {
+                        margin-top: 10px;
+                        margin-bottom: 5px;
+                    }
+                }
+                textarea {
+                    resize: none;
                 }
             }
         }

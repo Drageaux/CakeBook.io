@@ -41,8 +41,8 @@ export class CakeService {
             .catch(this.handleError);
     }
 
-    addCakeDetail(id:number, detailType:string, detailName:string):Observable<Cake> {
-        let body = JSON.stringify({type: detailType, name: detailName});
+    addCakeDetail(id:number, detailType:string, detailValue:string):Observable<Cake> {
+        let body = JSON.stringify({type: detailType, value: detailValue});
         let headers = new Headers({"Content-Type": "application/json"});
         let options = new RequestOptions({headers: headers});
 

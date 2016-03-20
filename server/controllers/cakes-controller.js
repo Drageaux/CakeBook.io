@@ -40,11 +40,11 @@ module.exports.remove = function (req, res) {
 module.exports.addDetail = function (req, res) {
     Cake.findOne({"_id": req.params.id, "user": req.params.user}, function (err, cake) {
         if (req.body.type == "desc") {
-            cake.description = req.body.description;
+            cake.description = req.body.value;
         } else if (req.body.type == "ingr") {
-            cake.ingredients.push(req.body.name);
+            cake.ingredients.push(req.body.value);
         } else if (req.body.type == "step") {
-            cake.steps.push(req.body.name);
+            cake.steps.push(req.body.value);
         }
         cake.save();
         res.json(cake);

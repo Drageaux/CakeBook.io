@@ -15,7 +15,7 @@ import {CanActivate} from "angular2/router";
 @CanActivate(() => tokenNotExpired())
 export class CakeDetailsComponent implements OnInit {
     @Input() cake:Cake;
-    currDesc:string;
+    currDesc = {"value": "", "editing": false};
     currIngr:string;
     currStep:string;
     @Input() public uploadCallBack:Function;
@@ -37,7 +37,7 @@ export class CakeDetailsComponent implements OnInit {
 
     addDetail(detailType:string) {
         if (detailType == "desc") {
-            this._service.addCakeDetail(this.cake._id, detailType, this.currDesc);
+            this._service.addCakeDetail(this.cake._id, detailType, this.currDesc["value"]);
         }
         else if (detailType == "ingr") {
             if (!this.isEmptyString(this.currIngr)) {
@@ -52,6 +52,27 @@ export class CakeDetailsComponent implements OnInit {
                     .subscribe(cake => this.cake = cake);
                 this.currStep = "";
             }
+        }
+    }
+
+    editDetail(detailType:string, index:number) {
+        if (detailType == "desc") {
+            this.currDesc["editing"] = true;
+        }
+    }
+
+    saveEdit(detailType:string, index:number, value:string) {
+        if (detailType == "desc") {
+            //console.log();
+            this.currDesc["editing"] = false;
+            this._service.addCakeDetail(this.cake._id, "desc", value)
+                .subscribe(cake => this.cake = cake);
+        }
+    }
+
+    cancelEdit(detailType:string, index:number) {
+        if (detailType == "desc") {
+            this.currDesc["editing"] = false;
         }
     }
 
@@ -100,7 +121,7 @@ export class CakeDetailsComponent implements OnInit {
         //    return this.stepList[index]["editing"];
         //}
         if (itemType == "desc") {
-
+            return this.currDesc["editing"];
         }
     }
 

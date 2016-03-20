@@ -12,16 +12,33 @@
                 <label for="file">
                     <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>&nbsp;Upload an image
                 </label>
-
             </div>
-            <div class="cake-description well container">
+            <form class="cake-description well container">
                 <h4 style="margin-top: 0; margin-bottom: 5px;"><b>Description</b></h4>
-                <p style="color: #888" *ngIf="!cake.description">(no description yet)</p>
-                <p *ngIf="cake.description">{{cake.description}}</p>
+                <p style="color: #888" *ngIf="isEmptyString(cake.description)"
+                   [class.hidden]="!isEditing('desc', 0)">(no description yet}</p>
+                <p *ngIf="!isEmptyString(cake.description)"
+                   [class.hidden]="isEditing('desc', 0)">{{cake.description}}</p>
+                <textarea #newDescription rows="4" class="form-control" autofocus
+                          [class.hidden]="!isEditing('desc', 0)"
+                          [value]="cake.description"></textarea>
                 <div class="row">
-                    <button type="button" class="btn btn-default col-lg-1 col-lg-offset-9">Edit</button>
+                    <button type="button" class="btn btn-default col-lg-1 col-lg-offset-9"
+                            [class.hidden]="isEditing('desc', 0)"
+                            (click)="editDetail('desc', 0)">Edit
+                    </button>
+                    <div class="save-cancel" [class.hidden]="!isEditing('desc', 0)">
+                        <button type="button" class="cancel-button btn btn-danger col-lg-1 col-lg-offset-11"
+                                (click)="cancelEdit('desc', 0)">
+                            <span class="glyphicon glyphicon-remove"></span>&nbsp;Cancel
+                        </button>
+                        <button type="submit" class="save-button btn btn-success col-lg-1 col-lg-offset-11"
+                                (click)="saveEdit('desc', 0, newDescription.value)">
+                            <span class="glyphicon glyphicon-check"></span>&nbsp;Save
+                        </button>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
         <br>
 

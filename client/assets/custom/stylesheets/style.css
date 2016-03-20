@@ -39,6 +39,8 @@ body {
     font-family: "Lobster", cursive; }
   body a:hover {
     cursor: pointer; }
+  body button span {
+    cursor: pointer; }
   body .navbar-default {
     height: 40px;
     border-bottom: 5px solid #AD4047;
@@ -274,8 +276,6 @@ body {
             background-color: #fafafa;
             font-size: 1em;
             /* Edit and Remove */ }
-            body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item span {
-              cursor: default; }
             body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .number-label {
               position: absolute;
               top: 0;
@@ -289,7 +289,8 @@ body {
               body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .number-label span {
                 position: absolute;
                 top: 46%;
-                line-height: 5px; }
+                line-height: 5px;
+                cursor: default; }
             body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .list-group-item-name {
               right: 0;
               display: inline-block;
@@ -416,10 +417,21 @@ body {
       width: 68%;
       border-radius: 5px;
       padding-bottom: 5px; }
-      body .details-container .cake-info .cake-description button {
-        float: right; }
       body .details-container .cake-info .cake-description p {
+        white-space: pre-wrap;
         font-size: 1em; }
+      body .details-container .cake-info .cake-description button {
+        float: right;
+        position: relative;
+        transition-duration: 0.2s;
+        margin-left: 3px; }
+      body .details-container .cake-info .cake-description .save-cancel {
+        margin-right: 12px; }
+        body .details-container .cake-info .cake-description .save-cancel button {
+          margin-top: 10px;
+          margin-bottom: 5px; }
+      body .details-container .cake-info .cake-description textarea {
+        resize: none; }
     body .details-container ul, body .details-container ol {
       padding-left: 30px; }
   @media screen and (max-width: 768px) {
