@@ -17,10 +17,7 @@ export class AddCakeFormComponent {
     @Output() saved = new EventEmitter<Cake>();
 
     ingrLabel = "Ingredients";
-    ingrList:string[] = [];
-
-    stepList:Object[] = [];
-    currStep = {"value": "", "editing": false};
+    stepLabel = "Steps";
 
     userId = JSON.parse(localStorage.getItem("profile")).user_id;
     @Input() model = new Cake(0, this.userId, "", "", "", "", [], []);
@@ -43,19 +40,6 @@ export class AddCakeFormComponent {
         }
 
         // parse lists of ingredients and steps and insert to the model
-        for (let i = 0; i < this.ingrList.length; i++) {
-            let currIngr = this.ingrList[i]["value"];
-            if (currIngr != "") {
-                this.model.ingredients.push(currIngr);
-            }
-        }
-        for (let i = 0; i < this.stepList.length; i++) {
-            let currStep = this.stepList[i]["value"];
-            if (currStep != "") {
-                this.model.steps.push(currStep);
-            }
-        }
-
         this._cakeService.addCake(JSON.stringify(this.model))
             .subscribe(res => this.saved.emit(res));
 
@@ -67,17 +51,17 @@ export class AddCakeFormComponent {
     /* Ingredients and Steps */
     addOptionalItem(itemType:string, value:string) {
         if (itemType == "ingr") {
-            // prevent spamming creation
+            // prevent spamming ingredients
             if (value != "") {
                 this.model.ingredients.push(value);
                 console.log(this.model.ingredients);
             }
         }
         else if (itemType == "step") {
-            // prevent spamming creation
-            if (this.currStep.value != "") {
-                this.stepList.push(this.currStep);
-                this.currStep = {"value": "", "editing": false};
+            // prevent spamming steps
+            if (value != "") {
+                this.model.steps.push(value);
+                console.log(this.model.steps);
             }
         }
     }
@@ -90,39 +74,19 @@ export class AddCakeFormComponent {
             return this.model.ingredients.splice(index, 1);
         }
         else if (itemType == "step") {
-            if (this.stepList.length <= 0) {
+            if (this.model.steps.length <= 0) {
                 return;
             }
-            return this.stepList.splice(index, 1);
+            return this.model.ingredients.splice(index, 1);
         }
     }
 
-    editOptionalItem(itemType:string, index:number) {
-        if (itemType == "ingr") {
-            this.ingrList[index]["editing"] = true;
-        }
-        else if (itemType == "step") {
-            this.stepList[index]["editing"] = true;
-        }
-    }
-
-    /* Editing Ingredients and Steps */
     saveEdit(itemType:string, obj:any) {
         if (itemType == "ingr") {
             this.model.ingredients[obj.index] = obj.value;
         }
-        //else if (itemType == "step") {
-        //    this.stepList[index]["value"] = value;
-        //    this.stepList[index]["editing"] = false;
-        //}
-    }
-
-    cancelEdit(itemType:string, index:number) {
-        if (itemType == "ingr") {
-            this.ingrList[index]["editing"] = false;
-        }
         else if (itemType == "step") {
-            this.stepList[index]["editing"] = false;
+            this.model.steps[obj.index] = obj.value;
         }
     }
 
@@ -130,15 +94,6 @@ export class AddCakeFormComponent {
     /********************
      * Helper Functions *
      ********************/
-    isEditing(itemType:string, index:number) {
-        if (itemType == "ingr") {
-            return this.ingrList[index]["editing"];
-        }
-        else if (itemType == "step") {
-            return this.stepList[index]["editing"];
-        }
-    }
-
     isEmptyString(str:string) {
         return str == "" || str == null;
     }

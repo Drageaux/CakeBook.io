@@ -87,58 +87,64 @@
         <hr>
 
         <!-- Instruction steps -->
-        <form class="form-group">
-            <label>Steps</label><br>
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="(optional)"
-                       [(ngModel)]="currStep.value">
-                <span class="input-group-btn">
-                    <button type="submit" class="btn btn-primary"
-                            [class.disabled]="isEmptyString(currStep.value)"
-                            (click)="addOptionalItem('step')">
-                        Add
-                    </button>
-                </span>
-            </div>
-            <ul *ngIf="stepList.length>0" class="list-group editable-item-list">
-                <li *ngFor="#step of stepList; #idx = index" class="list-group-item">
-                    <div>
-                        <!-- Item number -->
-                        <div class="number-label"><span>{{idx+1}}</span></div>
-                        <!-- Item name -->
-                        <div class="list-group-item-name" [class.edit-item]="isEditing('step', idx)">
-                            <span [class.hidden]="isEditing('step', idx)">
-                                {{step.value}}
-                            </span>
-                            <input #editValue type="text" class="form-control"
-                                   [class.hidden]="!isEditing('step', idx)"
-                                   [value]="step.value" autofocus>
-                        </div>
-                        <!-- Item buttons -->
-                        <div class="edit-remove" [class.hidden]="isEditing('step', idx)">
-                            <button type="button" class="btn edit-button"
-                                    [class.hidden]="isEditing('step', idx)"
-                                    (click)="editOptionalItem('step', idx)">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                            </button>
-                            <button type="button" class="btn remove-button"
-                                    [class.hidden]="isEditing('step', idx)"
-                                    (click)="removeOptionalItem('step', idx)">
-                                <span class="glyphicon glyphicon-minus"></span>
-                            </button>
-                        </div>
-                        <div class="save-cancel" [class.hidden]="!isEditing('step', idx)">
-                            <button type="button" class="btn btn-success save-button"
-                                    (click)="saveEdit('step', idx, editValue.value)">
-                                <span class="glyphicon glyphicon-check"></span></button>
-                            <button type="button" class="btn btn-danger cancel-button"
-                                    (click)="cancelEdit('step', idx)">
-                                <span class="glyphicon glyphicon-remove"></span></button>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </form>
+        <!--<form class="form-group">-->
+            <!--<label>Steps</label><br>-->
+            <!--<div class="input-group">-->
+                <!--<input type="text" class="form-control" placeholder="(optional)"-->
+                       <!--[(ngModel)]="currStep.value">-->
+                <!--<span class="input-group-btn">-->
+                    <!--<button type="submit" class="btn btn-primary"-->
+                            <!--[class.disabled]="isEmptyString(currStep.value)"-->
+                            <!--(click)="addOptionalItem('step')">-->
+                        <!--Add-->
+                    <!--</button>-->
+                <!--</span>-->
+            <!--</div>-->
+            <!--<ul *ngIf="stepList.length>0" class="list-group editable-item-list">-->
+                <!--<li *ngFor="#step of stepList; #idx = index" class="list-group-item">-->
+                    <!--<div>-->
+                        <!--&lt;!&ndash; Item number &ndash;&gt;-->
+                        <!--<div class="number-label"><span>{{idx+1}}</span></div>-->
+                        <!--&lt;!&ndash; Item name &ndash;&gt;-->
+                        <!--<div class="list-group-item-name" [class.edit-item]="isEditing('step', idx)">-->
+                            <!--<span [class.hidden]="isEditing('step', idx)">-->
+                                <!--{{step.value}}-->
+                            <!--</span>-->
+                            <!--<input #editValue type="text" class="form-control"-->
+                                   <!--[class.hidden]="!isEditing('step', idx)"-->
+                                   <!--[value]="step.value" autofocus>-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; Item buttons &ndash;&gt;-->
+                        <!--<div class="edit-remove" [class.hidden]="isEditing('step', idx)">-->
+                            <!--<button type="button" class="btn edit-button"-->
+                                    <!--[class.hidden]="isEditing('step', idx)"-->
+                                    <!--(click)="editOptionalItem('step', idx)">-->
+                                <!--<span class="glyphicon glyphicon-pencil"></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="btn remove-button"-->
+                                    <!--[class.hidden]="isEditing('step', idx)"-->
+                                    <!--(click)="removeOptionalItem('step', idx)">-->
+                                <!--<span class="glyphicon glyphicon-minus"></span>-->
+                            <!--</button>-->
+                        <!--</div>-->
+                        <!--<div class="save-cancel" [class.hidden]="!isEditing('step', idx)">-->
+                            <!--<button type="button" class="btn btn-success save-button"-->
+                                    <!--(click)="saveEdit('step', idx, editValue.value)">-->
+                                <!--<span class="glyphicon glyphicon-check"></span></button>-->
+                            <!--<button type="button" class="btn btn-danger cancel-button"-->
+                                    <!--(click)="cancelEdit('step', idx)">-->
+                                <!--<span class="glyphicon glyphicon-remove"></span></button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</form>-->
+        <editable-item-list
+            [listLabel]="stepLabel"
+            [itemList]="model.steps"
+            (onAdded)="addOptionalItem('step', $event)"
+            (onRemoved)="removeOptionalItem('step', $event)"
+            (onSaved)="saveEdit('step', $event)"></editable-item-list>
         <hr>
 
         <!-- Main form buttons -->

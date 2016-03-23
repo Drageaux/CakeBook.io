@@ -3,7 +3,7 @@ import {Component, Input, Output, EventEmitter} from "angular2/core";
 @Component({
     selector: "editable-item-list",
     template: `
-            <form class="form-group">
+            <form class="form-group editable-item-list">
                 <label>{{listLabel}}</label><br>
                 <!-- Add Item -->
                 <div class="input-group">
@@ -90,10 +90,6 @@ export class EditableItemForm {
     }
 
     saveEdit(index:number, value:string) {
-        //if (itemType == "ingr") {
-        //    this.ingrList[index]["value"] = value;
-        //    this.ingrList[index]["editing"] = false;
-        //}
         this.onSaved.emit({"index": index, "value": value});
         this.cancelEdit(index);
     }
@@ -103,6 +99,7 @@ export class EditableItemForm {
     }
 
 
+    /* Helper Functions */
     isEditing(index:number) {
         return this.editing[index];
     }
