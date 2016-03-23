@@ -81,7 +81,9 @@
         <editable-item-list
             [listLabel]="ingrLabel"
             [itemList]="model.ingredients"
-            (onAdded)="addOptionalItem('ingr', $event)"></editable-item-list>
+            (onAdded)="addOptionalItem('ingr', $event)"
+            (onRemoved)="removeOptionalItem('ingr', $event)"
+            (onSaved)="saveEdit('ingr', $event)"></editable-item-list>
         <hr>
 
         <!-- Instruction steps -->

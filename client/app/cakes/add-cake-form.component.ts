@@ -18,6 +18,7 @@ export class AddCakeFormComponent {
 
     ingrLabel = "Ingredients";
     ingrList:string[] = [];
+
     stepList:Object[] = [];
     currStep = {"value": "", "editing": false};
 
@@ -68,7 +69,7 @@ export class AddCakeFormComponent {
         if (itemType == "ingr") {
             // prevent spamming creation
             if (value != "") {
-                this.ingrList.push(this.model.ingredients.push(value));
+                this.model.ingredients.push(value);
                 console.log(this.model.ingredients);
             }
         }
@@ -83,10 +84,10 @@ export class AddCakeFormComponent {
 
     removeOptionalItem(itemType:string, index:number) {
         if (itemType == "ingr") {
-            if (this.ingrList.length <= 0) {
+            if (this.model.ingredients.length <= 0) {
                 return;
             }
-            return this.ingrList.splice(index, 1);
+            return this.model.ingredients.splice(index, 1);
         }
         else if (itemType == "step") {
             if (this.stepList.length <= 0) {
@@ -106,15 +107,14 @@ export class AddCakeFormComponent {
     }
 
     /* Editing Ingredients and Steps */
-    saveEdit(itemType:string, index:number, value:string) {
+    saveEdit(itemType:string, obj:any) {
         if (itemType == "ingr") {
-            this.ingrList[index]["value"] = value;
-            this.ingrList[index]["editing"] = false;
+            this.model.ingredients[obj.index] = obj.value;
         }
-        else if (itemType == "step") {
-            this.stepList[index]["value"] = value;
-            this.stepList[index]["editing"] = false;
-        }
+        //else if (itemType == "step") {
+        //    this.stepList[index]["value"] = value;
+        //    this.stepList[index]["editing"] = false;
+        //}
     }
 
     cancelEdit(itemType:string, index:number) {

@@ -5,6 +5,7 @@ import {Component, Input, Output, EventEmitter} from "angular2/core";
     template: `
             <form class="form-group">
                 <label>{{listLabel}}</label><br>
+                <!-- Add Item -->
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="(optional)"
                            [(ngModel)]="currItem">
@@ -16,6 +17,7 @@ import {Component, Input, Output, EventEmitter} from "angular2/core";
                         </button>
                     </span>
                 </div>
+                <!-- Item List -->
                 <ul *ngIf="itemList.length>0" class="list-group editable-item-list">
                     <li *ngFor="#item of itemList; #idx = index" class="list-group-item">
                         <div>
@@ -28,27 +30,27 @@ import {Component, Input, Output, EventEmitter} from "angular2/core";
                                 </span>
                                 <input #editValue type="text" class="form-control"
                                        [class.hidden]="!isEditing(idx)"
-                                       [value]="item.value" autofocus>
+                                       [value]="item" autofocus>
                             </div>
                             <!-- Item buttons -->
                             <div class="edit-remove" [class.hidden]="isEditing(idx)">
                                 <button type="button" class="btn edit-button"
                                         [class.hidden]="isEditing(idx)"
-                                        (click)="editOptionalItem('ingr', idx)">
+                                        (click)="editItem(idx)">
                                     <span class="glyphicon glyphicon-pencil"></span>
                                 </button>
                                 <button type="button" class="btn remove-button"
                                         [class.hidden]="isEditing(idx)"
-                                        (click)="removeOptionalItem('ingr', idx)">
+                                        (click)="removeItem(idx)">
                                     <span class="glyphicon glyphicon-minus"></span>
                                 </button>
                             </div>
                             <div class="save-cancel" [class.hidden]="!isEditing(idx)">
-                                <button type="button" class="btn btn-success save-button"
-                                        (click)="saveEdit('ingr', idx, editValue.value)">
+                                <button type="submit" class="btn btn-success save-button"
+                                        (click)="saveEdit(idx, editValue.value)">
                                     <span class="glyphicon glyphicon-check"></span></button>
                                 <button type="button" class="btn btn-danger cancel-button"
-                                        (click)="cancelEdit('ingr', idx)">
+                                        (click)="cancelEdit(idx)">
                                     <span class="glyphicon glyphicon-remove"></span></button>
                             </div>
                         </div>
@@ -60,18 +62,49 @@ import {Component, Input, Output, EventEmitter} from "angular2/core";
 export class EditableItemForm {
     @Input() listLabel:string;
     @Input() itemList:string[];
-    editing:string[];
+    editing:boolean[] = [];
     currItem:string;
 
-    @Output() onAdded = new EventEmitter<any>();
+    @Output() onAdded = new EventEmitter<string>();
+    @Output() onRemoved = new EventEmitter<any>();
+    @Output() onSaved = new EventEmitter<Object>();
 
     addItem(value:string) {
-        this.onAdded.emit(value);
-        this.currItem = "";
+        if (!this.isEmptyString(value)) {
+            this.onAdded.emit(value);
+            this.currItem = "";
+            this.editing.push(false);
+            console.log(this.editing);
+        }
     }
 
+    removeItem(index:number) {
+        console.log(index);
+        this.onRemoved.emit(index);
+        this.editing.splice(index, 1);
+    }
+
+    /* Editing Ingredients and Steps */
+    editItem(index:number) {
+        this.editing[index] = true;
+    }
+
+    saveEdit(index:number, value:string) {
+        //if (itemType == "ingr") {
+        //    this.ingrList[index]["value"] = value;
+        //    this.ingrList[index]["editing"] = false;
+        //}
+        this.onSaved.emit({"index": index, "value": value});
+        this.cancelEdit(index);
+    }
+
+    cancelEdit(index:number) {
+        this.editing[index] = false;
+    }
+
+
     isEditing(index:number) {
-        return this.itemList[index]["editing"];
+        return this.editing[index];
     }
 
     isEmptyString(str:string) {

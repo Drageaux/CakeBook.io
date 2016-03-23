@@ -72,7 +72,7 @@ System.register(["angular2/core", "./cake", "./cake.service", "./editable-item-f
                     if (itemType == "ingr") {
                         // prevent spamming creation
                         if (value != "") {
-                            this.ingrList.push(this.model.ingredients.push(value));
+                            this.model.ingredients.push(value);
                             console.log(this.model.ingredients);
                         }
                     }
@@ -86,10 +86,10 @@ System.register(["angular2/core", "./cake", "./cake.service", "./editable-item-f
                 };
                 AddCakeFormComponent.prototype.removeOptionalItem = function (itemType, index) {
                     if (itemType == "ingr") {
-                        if (this.ingrList.length <= 0) {
+                        if (this.model.ingredients.length <= 0) {
                             return;
                         }
-                        return this.ingrList.splice(index, 1);
+                        return this.model.ingredients.splice(index, 1);
                     }
                     else if (itemType == "step") {
                         if (this.stepList.length <= 0) {
@@ -107,15 +107,14 @@ System.register(["angular2/core", "./cake", "./cake.service", "./editable-item-f
                     }
                 };
                 /* Editing Ingredients and Steps */
-                AddCakeFormComponent.prototype.saveEdit = function (itemType, index, value) {
+                AddCakeFormComponent.prototype.saveEdit = function (itemType, obj) {
                     if (itemType == "ingr") {
-                        this.ingrList[index]["value"] = value;
-                        this.ingrList[index]["editing"] = false;
+                        this.model.ingredients[obj.index] = obj.value;
                     }
-                    else if (itemType == "step") {
-                        this.stepList[index]["value"] = value;
-                        this.stepList[index]["editing"] = false;
-                    }
+                    //else if (itemType == "step") {
+                    //    this.stepList[index]["value"] = value;
+                    //    this.stepList[index]["editing"] = false;
+                    //}
                 };
                 AddCakeFormComponent.prototype.cancelEdit = function (itemType, index) {
                     if (itemType == "ingr") {
