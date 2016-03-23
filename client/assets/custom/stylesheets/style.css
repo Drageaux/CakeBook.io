@@ -200,7 +200,7 @@ body {
           height: auto !important;
           border-left-width: 0;
           background-color: #fafafa;
-          font-size: 1em;
+          font-size: 0.97em;
           /* Edit and Remove */ }
           body .general-container .form-group .list-group.editable-item-list .list-group-item .number-label, body .login-container .form-group .list-group.editable-item-list .list-group-item .number-label, body .home-container .form-group .list-group.editable-item-list .list-group-item .number-label, body .details-container .form-group .list-group.editable-item-list .list-group-item .number-label {
             position: absolute;

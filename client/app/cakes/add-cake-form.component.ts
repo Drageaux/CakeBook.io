@@ -48,14 +48,18 @@ export class AddCakeFormComponent {
         if (itemType == "ingr") {
             // prevent spamming ingredients
             if (value != "") {
-                this.model.ingredients.push({"index": this.model.ingredients.length,"value": value});
+                this.model.ingredients.push({
+                    "index": this.model.ingredients.length,
+                    "value": value});
                 console.log(this.model.ingredients);
             }
         }
         else if (itemType == "step") {
             // prevent spamming steps
             if (value != "") {
-                this.model.steps.push(value);
+                this.model.steps.push({
+                    "index": this.model.ingredients.length,
+                    "value": value});
                 console.log(this.model.steps);
             }
         }
@@ -75,7 +79,10 @@ export class AddCakeFormComponent {
             if (this.model.steps.length <= 0) {
                 return;
             }
-            return this.model.ingredients.splice(index, 1);
+            this.model.steps.splice(index, 1);
+            for (let i = 0; i < this.model.steps.length; i++) {
+                this.model.steps[i]["index"] = i;
+            }
         }
     }
 
@@ -84,7 +91,7 @@ export class AddCakeFormComponent {
             this.model.ingredients[obj.index]["value"] = obj.value;
         }
         else if (itemType == "step") {
-            this.model.steps[obj.index] = obj.value;
+            this.model.steps[obj.index]["value"] = obj.value;
         }
     }
 
