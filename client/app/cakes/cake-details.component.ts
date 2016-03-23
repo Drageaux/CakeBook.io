@@ -1,24 +1,24 @@
 import {Component, Input, OnInit} from "angular2/core";
-import {Router, RouteParams} from "angular2/router";
+import {Router, RouteParams, CanActivate} from "angular2/router";
 import {tokenNotExpired} from "angular2-jwt";
+import {Observable} from "rxjs/Observable";
 
 import {Cake} from "./cake";
 import {CakeService} from "./cake.service";
-import {Observable} from "rxjs/Observable";
-import {CanActivate} from "angular2/router";
+import {EditableItemForm} from "./editable-item-form.component";
 
 @Component({
     selector: "cake-details",
-    templateUrl: "templates/cake-details.component.html"
+    templateUrl: "templates/cake-details.component.html",
+    directives: [EditableItemForm]
 })
 
 @CanActivate(() => tokenNotExpired())
 export class CakeDetailsComponent implements OnInit {
-    @Input() cake:Cake;
+    cake:Cake;
     currDesc = {"value": "", "editing": false};
-    currIngr:string;
     currStep:string;
-    @Input() public uploadCallBack:Function;
+    uploadCallBack:Function;
 
     constructor(private _router:Router,
                 private _routeParams:RouteParams,
@@ -35,14 +35,13 @@ export class CakeDetailsComponent implements OnInit {
         this.uploadCallBack = this.uploadImage.bind(this);
     }
 
-    addDetail(detailType:string) {
+    addDetail(detailType:string, value:string) {
         if (detailType == "desc") {
             this._service.addCakeDetail(this.cake._id, detailType, this.currDesc["value"]);
         } else if (detailType == "ingr") {
-            if (!this.isEmptyString(this.currIngr)) {
-                this._service.addCakeDetail(this.cake._id, detailType, this.currIngr)
+            if (!this.isEmptyString(value)) {
+                this._service.addCakeDetail(this.cake._id, detailType, value)
                     .subscribe(cake => this.cake = cake);
-                this.currIngr = "";
             }
         } else if (detailType == "step") {
             if (!this.isEmptyString(this.currStep)) {
@@ -51,6 +50,11 @@ export class CakeDetailsComponent implements OnInit {
                 this.currStep = "";
             }
         }
+    }
+
+    removeDetail(detailType:string, index:number) {
+        this._service.removeCakeDetail(this.cake._id, detailType, index)
+            .subscribe(cake => this.cake = cake);
     }
 
     editDetail(detailType:string, index:number) {
@@ -64,6 +68,8 @@ export class CakeDetailsComponent implements OnInit {
             this.currDesc["editing"] = false;
             this._service.addCakeDetail(this.cake._id, "desc", value.replace(/\s+$/, ""))
                 .subscribe(cake => this.cake = cake);
+        } else if (detailType == "ingr") {
+
         }
     }
 
@@ -110,7 +116,7 @@ export class CakeDetailsComponent implements OnInit {
     /********************
      * Helper Functions *
      ********************/
-    isEditing(itemType:string, index:number) {
+    isEditing(itemType:string) {
         if (itemType == "desc") {
             return this.currDesc["editing"];
         }

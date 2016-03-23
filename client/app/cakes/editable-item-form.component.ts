@@ -7,7 +7,7 @@ import {Component, Input, Output, EventEmitter} from "angular2/core";
                 <label>{{listLabel}}</label><br>
                 <!-- Add Item -->
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="(optional)"
+                    <input type="text" class="form-control" placeholder="{{placeholder}}"
                            [(ngModel)]="currItem">
                     <span class="input-group-btn">
                         <button type="submit" class="btn btn-primary"
@@ -26,11 +26,11 @@ import {Component, Input, Output, EventEmitter} from "angular2/core";
                             <!-- Item name -->
                             <div class="list-group-item-name" [class.edit-item]="isEditing(idx)">
                                 <span [class.hidden]="isEditing(idx)">
-                                    {{item}}
+                                    {{item.value}}
                                 </span>
                                 <input #editValue type="text" class="form-control"
                                        [class.hidden]="!isEditing(idx)"
-                                       [value]="item" autofocus>
+                                       [value]="item.value" autofocus>
                             </div>
                             <!-- Item buttons -->
                             <div class="edit-remove" [class.hidden]="isEditing(idx)">
@@ -61,7 +61,8 @@ import {Component, Input, Output, EventEmitter} from "angular2/core";
 
 export class EditableItemForm {
     @Input() listLabel:string;
-    @Input() itemList:string[];
+    @Input() placeholder:string;
+    @Input() itemList:Object[];
     editing:boolean[] = [];
     currItem:string;
 

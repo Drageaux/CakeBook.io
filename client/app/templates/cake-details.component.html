@@ -19,18 +19,18 @@
             <form class="cake-description well container">
                 <h4 style="margin-top: 0; margin-bottom: 5px;"><b>Description</b></h4>
                 <p style="color: #888" *ngIf="isEmptyString(cake.description)"
-                   [class.hidden]="isEditing('desc', 0)">(no description yet)</p>
+                   [class.hidden]="isEditing('desc')">(no description yet)</p>
                 <p *ngIf="!isEmptyString(cake.description)"
-                   [class.hidden]="isEditing('desc', 0)">{{cake.description}}</p>
+                   [class.hidden]="isEditing('desc')">{{cake.description}}</p>
                 <textarea #newDescription rows="4" class="form-control" autofocus
-                          [class.hidden]="!isEditing('desc', 0)"
+                          [class.hidden]="!isEditing('desc')"
                           [value]="cake.description"></textarea>
                 <div class="row">
                     <button type="button" class="btn btn-default"
-                            [class.hidden]="isEditing('desc', 0)"
-                            (click)="editDetail('desc', 0)">Edit
+                            [class.hidden]="isEditing('desc')"
+                            (click)="editDetail('desc', {})">Edit
                     </button>
-                    <div class="save-cancel" [class.hidden]="!isEditing('desc', 0)">
+                    <div class="save-cancel" [class.hidden]="!isEditing('desc')">
                         <button type="button" class="cancel-button btn btn-danger"
                                 (click)="cancelEdit('desc', 0)">
                             <span class="glyphicon glyphicon-remove"></span>&nbsp;Cancel
@@ -46,27 +46,36 @@
         <br>
 
         <!-- Ingredients -->
-        <label><b>Ingredients</b></label>
-        <ul>
-            <li style="list-style: none; padding-top: 10px;">
-                <form class="form-group" style="margin-bottom: 10px">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="(add new ingredient)"
-                               [(ngModel)]="currIngr">
-                        <span class="input-group-btn">
-                            <button type="submit" class="btn btn-primary"
-                                    [class.disabled]="isEmptyString(currIngr)"
-                                    (click)="addDetail('ingr')">
-                                Add
-                            </button>
-                        </span>
-                    </div>
-                </form>
-            </li>
-            <li *ngFor="#ingr of cake.ingredients">
-                {{ingr}}
-            </li>
-        </ul>
+        <!--<label><b>Ingredients</b></label>-->
+        <!--<ul>-->
+            <!--<li style="list-style: none; padding-top: 10px;">-->
+                <!--<form class="form-group" style="margin-bottom: 10px">-->
+                    <!--<div class="input-group">-->
+                        <!--<input type="text" class="form-control" placeholder="(add new ingredient)"-->
+                               <!--[(ngModel)]="currIngr">-->
+                        <!--<span class="input-group-btn">-->
+                            <!--<button type="submit" class="btn btn-primary"-->
+                                    <!--[class.disabled]="isEmptyString(currIngr)"-->
+                                    <!--(click)="addDetail('ingr')">-->
+                                <!--Add-->
+                            <!--</button>-->
+                        <!--</span>-->
+                    <!--</div>-->
+                <!--</form>-->
+            <!--</li>-->
+            <!--<li *ngFor="#ingr of cake.ingredients">-->
+                <!--{{ingr}}-->
+            <!--</li>-->
+        <!--</ul>-->
+        <!-- Ingredients -->
+        <editable-item-list
+                [listLabel]="'Ingredients'"
+                [placeholder]="'(add new ingredient)'"
+                [itemList]="cake.ingredients"
+                (onAdded)="addDetail('ingr', $event)"
+                (onRemoved)="removeDetail('ingr', $event)"
+                (onSaved)="saveEdit('ingr', $event)">
+        </editable-item-list>
         <br>
 
         <!-- Steps -->
@@ -108,7 +117,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Upload Unsuccesful!</h4>
+                    <h4 style="color:red" class="modal-title">Upload Unsuccesful</h4>
                 </div>
                 <div class="modal-body">
                     <p style="word-break: keep-all">

@@ -1,4 +1,4 @@
-System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "./cake.service"], function(exports_1) {
+System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake.service", "./editable-item-form.component"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, angular2_jwt_1, cake_1, cake_service_1, router_2;
+    var core_1, router_1, angular2_jwt_1, cake_service_1, editable_item_form_component_1;
     var CakeDetailsComponent;
     return {
         setters:[
@@ -17,16 +17,15 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "
             },
             function (router_1_1) {
                 router_1 = router_1_1;
-                router_2 = router_1_1;
             },
             function (angular2_jwt_1_1) {
                 angular2_jwt_1 = angular2_jwt_1_1;
             },
-            function (cake_1_1) {
-                cake_1 = cake_1_1;
-            },
             function (cake_service_1_1) {
                 cake_service_1 = cake_service_1_1;
+            },
+            function (editable_item_form_component_1_1) {
+                editable_item_form_component_1 = editable_item_form_component_1_1;
             }],
         execute: function() {
             CakeDetailsComponent = (function () {
@@ -43,16 +42,15 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "
                         .subscribe(function (cake) { return _this.cake = cake; }, function (error) { return _this._router.navigate(["Home"]); });
                     this.uploadCallBack = this.uploadImage.bind(this);
                 };
-                CakeDetailsComponent.prototype.addDetail = function (detailType) {
+                CakeDetailsComponent.prototype.addDetail = function (detailType, value) {
                     var _this = this;
                     if (detailType == "desc") {
                         this._service.addCakeDetail(this.cake._id, detailType, this.currDesc["value"]);
                     }
                     else if (detailType == "ingr") {
-                        if (!this.isEmptyString(this.currIngr)) {
-                            this._service.addCakeDetail(this.cake._id, detailType, this.currIngr)
+                        if (!this.isEmptyString(value)) {
+                            this._service.addCakeDetail(this.cake._id, detailType, value)
                                 .subscribe(function (cake) { return _this.cake = cake; });
-                            this.currIngr = "";
                         }
                     }
                     else if (detailType == "step") {
@@ -62,6 +60,11 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "
                             this.currStep = "";
                         }
                     }
+                };
+                CakeDetailsComponent.prototype.removeDetail = function (detailType, index) {
+                    var _this = this;
+                    this._service.removeCakeDetail(this.cake._id, detailType, index)
+                        .subscribe(function (cake) { return _this.cake = cake; });
                 };
                 CakeDetailsComponent.prototype.editDetail = function (detailType, index) {
                     if (detailType == "desc") {
@@ -74,6 +77,8 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "
                         this.currDesc["editing"] = false;
                         this._service.addCakeDetail(this.cake._id, "desc", value.replace(/\s+$/, ""))
                             .subscribe(function (cake) { return _this.cake = cake; });
+                    }
+                    else if (detailType == "ingr") {
                     }
                 };
                 CakeDetailsComponent.prototype.cancelEdit = function (detailType, index) {
@@ -114,7 +119,7 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "
                 /********************
                  * Helper Functions *
                  ********************/
-                CakeDetailsComponent.prototype.isEditing = function (itemType, index) {
+                CakeDetailsComponent.prototype.isEditing = function (itemType) {
                     if (itemType == "desc") {
                         return this.currDesc["editing"];
                     }
@@ -139,20 +144,13 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake", "
                 CakeDetailsComponent.prototype.gotoCakes = function () {
                     this._router.navigate(["Home"]);
                 };
-                __decorate([
-                    core_1.Input(), 
-                    __metadata('design:type', cake_1.Cake)
-                ], CakeDetailsComponent.prototype, "cake", void 0);
-                __decorate([
-                    core_1.Input(), 
-                    __metadata('design:type', Function)
-                ], CakeDetailsComponent.prototype, "uploadCallBack", void 0);
                 CakeDetailsComponent = __decorate([
                     core_1.Component({
                         selector: "cake-details",
-                        templateUrl: "templates/cake-details.component.html"
+                        templateUrl: "templates/cake-details.component.html",
+                        directives: [editable_item_form_component_1.EditableItemForm]
                     }),
-                    router_2.CanActivate(function () { return angular2_jwt_1.tokenNotExpired(); }), 
+                    router_1.CanActivate(function () { return angular2_jwt_1.tokenNotExpired(); }), 
                     __metadata('design:paramtypes', [router_1.Router, router_1.RouteParams, cake_service_1.CakeService])
                 ], CakeDetailsComponent);
                 return CakeDetailsComponent;

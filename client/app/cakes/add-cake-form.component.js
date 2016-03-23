@@ -29,8 +29,6 @@ System.register(["angular2/core", "./cake", "./cake.service", "./editable-item-f
                 function AddCakeFormComponent(_cakeService) {
                     this._cakeService = _cakeService;
                     this.saved = new core_1.EventEmitter();
-                    this.ingrLabel = "Ingredients";
-                    this.stepLabel = "Steps";
                     this.userId = JSON.parse(localStorage.getItem("profile")).user_id;
                     this.model = new cake_1.Cake(0, this.userId, "", "", "", "", [], []);
                     this.active = false;
@@ -58,7 +56,7 @@ System.register(["angular2/core", "./cake", "./cake.service", "./editable-item-f
                     if (itemType == "ingr") {
                         // prevent spamming ingredients
                         if (value != "") {
-                            this.model.ingredients.push(value);
+                            this.model.ingredients.push({ "index": this.model.ingredients.length, "value": value });
                             console.log(this.model.ingredients);
                         }
                     }
@@ -75,7 +73,10 @@ System.register(["angular2/core", "./cake", "./cake.service", "./editable-item-f
                         if (this.model.ingredients.length <= 0) {
                             return;
                         }
-                        return this.model.ingredients.splice(index, 1);
+                        this.model.ingredients.splice(index, 1);
+                        for (var i = 0; i < this.model.ingredients.length; i++) {
+                            this.model.ingredients[i]["index"] = i;
+                        }
                     }
                     else if (itemType == "step") {
                         if (this.model.steps.length <= 0) {
@@ -86,7 +87,7 @@ System.register(["angular2/core", "./cake", "./cake.service", "./editable-item-f
                 };
                 AddCakeFormComponent.prototype.saveEdit = function (itemType, obj) {
                     if (itemType == "ingr") {
-                        this.model.ingredients[obj.index] = obj.value;
+                        this.model.ingredients[obj.index]["value"] = obj.value;
                     }
                     else if (itemType == "step") {
                         this.model.steps[obj.index] = obj.value;

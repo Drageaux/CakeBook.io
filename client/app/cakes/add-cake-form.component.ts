@@ -16,9 +16,6 @@ import {EditableItemForm} from "./editable-item-form.component";
 export class AddCakeFormComponent {
     @Output() saved = new EventEmitter<Cake>();
 
-    ingrLabel = "Ingredients";
-    stepLabel = "Steps";
-
     userId = JSON.parse(localStorage.getItem("profile")).user_id;
     @Input() model = new Cake(0, this.userId, "", "", "", "", [], []);
     active = false;
@@ -38,11 +35,9 @@ export class AddCakeFormComponent {
         if (!name) {
             return;
         }
-
         // parse lists of ingredients and steps and insert to the model
         this._cakeService.addCake(JSON.stringify(this.model))
             .subscribe(res => this.saved.emit(res));
-
         // TODO: Remove when there's a better way to reset the model
         this.model = new Cake(0, this.userId, "", "", "", "", [""], [""]);
         this.closeForm();
@@ -53,7 +48,7 @@ export class AddCakeFormComponent {
         if (itemType == "ingr") {
             // prevent spamming ingredients
             if (value != "") {
-                this.model.ingredients.push(value);
+                this.model.ingredients.push({"index": this.model.ingredients.length,"value": value});
                 console.log(this.model.ingredients);
             }
         }
@@ -71,7 +66,10 @@ export class AddCakeFormComponent {
             if (this.model.ingredients.length <= 0) {
                 return;
             }
-            return this.model.ingredients.splice(index, 1);
+            this.model.ingredients.splice(index, 1);
+            for (let i = 0; i < this.model.ingredients.length; i++) {
+                this.model.ingredients[i]["index"] = i;
+            }
         }
         else if (itemType == "step") {
             if (this.model.steps.length <= 0) {
@@ -83,7 +81,7 @@ export class AddCakeFormComponent {
 
     saveEdit(itemType:string, obj:any) {
         if (itemType == "ingr") {
-            this.model.ingredients[obj.index] = obj.value;
+            this.model.ingredients[obj.index]["value"] = obj.value;
         }
         else if (itemType == "step") {
             this.model.steps[obj.index] = obj.value;

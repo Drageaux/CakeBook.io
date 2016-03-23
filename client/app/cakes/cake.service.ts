@@ -42,11 +42,17 @@ export class CakeService {
     }
 
     addCakeDetail(id:number, detailType:string, detailValue:string):Observable<Cake> {
-        let body = JSON.stringify({type: detailType, value: detailValue});
+        let body = JSON.stringify({value: detailValue});
         let headers = new Headers({"Content-Type": "application/json"});
         let options = new RequestOptions({headers: headers});
 
-        return this.http.post("/api/" + this.userId + "/cake/" + id + "/detail", body, options)
+        return this.http.post("/api/" + this.userId + "/cake/" + id + "/" + detailType, body, options)
+            .map(res => <Cake> res.json())
+            .catch(this.handleError);
+    }
+
+    removeCakeDetail(id, detailType:string, index:number | string) {
+        return this.http.delete("/api/" + this.userId + "/cake/" + id + "/" + detailType + "/" + index)
             .map(res => <Cake> res.json())
             .catch(this.handleError);
     }

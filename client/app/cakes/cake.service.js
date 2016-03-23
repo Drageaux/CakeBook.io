@@ -50,10 +50,15 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
                         .catch(this.handleError);
                 };
                 CakeService.prototype.addCakeDetail = function (id, detailType, detailValue) {
-                    var body = JSON.stringify({ type: detailType, value: detailValue });
+                    var body = JSON.stringify({ value: detailValue });
                     var headers = new http_1.Headers({ "Content-Type": "application/json" });
                     var options = new http_1.RequestOptions({ headers: headers });
-                    return this.http.post("/api/" + this.userId + "/cake/" + id + "/detail", body, options)
+                    return this.http.post("/api/" + this.userId + "/cake/" + id + "/" + detailType, body, options)
+                        .map(function (res) { return res.json(); })
+                        .catch(this.handleError);
+                };
+                CakeService.prototype.removeCakeDetail = function (id, detailType, index) {
+                    return this.http.delete("/api/" + this.userId + "/cake/" + id + "/" + detailType + "/" + index)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };
