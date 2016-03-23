@@ -47,17 +47,10 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake.ser
                     if (detailType == "desc") {
                         this._service.addCakeDetail(this.cake._id, detailType, this.currDesc["value"]);
                     }
-                    else if (detailType == "ingr") {
+                    else if (detailType == "ingr" || detailType == "step") {
                         if (!this.isEmptyString(value)) {
                             this._service.addCakeDetail(this.cake._id, detailType, value)
                                 .subscribe(function (cake) { return _this.cake = cake; });
-                        }
-                    }
-                    else if (detailType == "step") {
-                        if (!this.isEmptyString(this.currStep)) {
-                            this._service.addCakeDetail(this.cake._id, detailType, this.currStep)
-                                .subscribe(function (cake) { return _this.cake = cake; });
-                            this.currStep = "";
                         }
                     }
                 };

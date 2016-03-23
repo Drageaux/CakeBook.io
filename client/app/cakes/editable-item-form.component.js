@@ -32,7 +32,6 @@ System.register(["angular2/core"], function(exports_1) {
                     }
                 };
                 EditableItemForm.prototype.removeItem = function (index) {
-                    console.log(index);
                     this.onRemoved.emit(index);
                     this.editing.splice(index, 1);
                 };

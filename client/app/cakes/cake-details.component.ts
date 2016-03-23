@@ -17,7 +17,6 @@ import {EditableItemForm} from "./editable-item-form.component";
 export class CakeDetailsComponent implements OnInit {
     cake:Cake;
     currDesc = {"value": "", "editing": false};
-    currStep:string;
     uploadCallBack:Function;
 
     constructor(private _router:Router,
@@ -38,16 +37,10 @@ export class CakeDetailsComponent implements OnInit {
     addDetail(detailType:string, value:string) {
         if (detailType == "desc") {
             this._service.addCakeDetail(this.cake._id, detailType, this.currDesc["value"]);
-        } else if (detailType == "ingr") {
+        } else if (detailType == "ingr" || detailType == "step") {
             if (!this.isEmptyString(value)) {
                 this._service.addCakeDetail(this.cake._id, detailType, value)
                     .subscribe(cake => this.cake = cake);
-            }
-        } else if (detailType == "step") {
-            if (!this.isEmptyString(this.currStep)) {
-                this._service.addCakeDetail(this.cake._id, detailType, this.currStep)
-                    .subscribe(cake => this.cake = cake);
-                this.currStep = "";
             }
         }
     }

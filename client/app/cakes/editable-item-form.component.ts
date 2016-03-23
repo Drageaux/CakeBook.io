@@ -80,7 +80,6 @@ export class EditableItemForm {
     }
 
     removeItem(index:number) {
-        console.log(index);
         this.onRemoved.emit(index);
         this.editing.splice(index, 1);
     }

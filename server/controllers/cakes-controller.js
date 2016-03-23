@@ -42,9 +42,9 @@ module.exports.addDetail = function (req, res) {
         if (req.params.type == "desc") {
             cake.description = req.body.value;
         } else if (req.params.type == "ingr") {
-            cake.ingredients.push(req.body.value);
+            cake.ingredients.push({"index": cake.ingredients.length, "value": req.body.value});
         } else if (req.params.type == "step") {
-            cake.steps.push(req.body.value);
+            cake.steps.push({"index": cake.steps.length, "value": req.body.value});
         }
         cake.save();
         res.json(cake);
@@ -52,12 +52,19 @@ module.exports.addDetail = function (req, res) {
 }
 
 module.exports.removeDetail = function (req, res) {
-    Cake.findOne({"_id": req.params.id, "user": req.params.user}, function (err, cake) {
-        if (req.params.type == "ingr") {
-            //var arrayElement = "ingredients." + req.params.index;
-            //cake.update({}, {$unset: {arrayElement: }})
-        }
-    })
+    if (req.params.type == "ingr") {
+        Cake.update(
+            {"_id": req.params.id, "user": req.params.user},
+            {$pull: {"ingredients": {"index": req.params.index}}}, function (err) {
+                Cake.findOne({"_id": req.params.id, "user": req.params.user}, function (err, cake) {
+                    for (var i = 0; i < cake.ingredients.length; i++) {
+                        cake.ingredients[i]["index"] = i;
+                    }
+                    cake.save();
+                    res.json(cake);
+                });
+            });
+    }
 }
 
 module.exports.addImage = function (req, res) {
