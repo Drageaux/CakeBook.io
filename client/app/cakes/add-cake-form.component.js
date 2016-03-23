@@ -1,4 +1,4 @@
-System.register(["angular2/core", "./cake", "./cake.service"], function(exports_1) {
+System.register(["angular2/core", "./cake", "./cake.service", "./editable-item-form.component"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,27 +8,29 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, cake_1, cake_service_1, core_2;
+    var core_1, cake_1, cake_service_1, editable_item_form_component_1;
     var AddCakeFormComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-                core_2 = core_1_1;
             },
             function (cake_1_1) {
                 cake_1 = cake_1_1;
             },
             function (cake_service_1_1) {
                 cake_service_1 = cake_service_1_1;
+            },
+            function (editable_item_form_component_1_1) {
+                editable_item_form_component_1 = editable_item_form_component_1_1;
             }],
         execute: function() {
             AddCakeFormComponent = (function () {
                 function AddCakeFormComponent(_cakeService) {
                     this._cakeService = _cakeService;
                     this.saved = new core_1.EventEmitter();
+                    this.ingrLabel = "Ingredients";
                     this.ingrList = [];
-                    this.currIngr = { "value": "", "editing": false };
                     this.stepList = [];
                     this.currStep = { "value": "", "editing": false };
                     this.userId = JSON.parse(localStorage.getItem("profile")).user_id;
@@ -66,12 +68,12 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     this.closeForm();
                 };
                 /* Ingredients and Steps */
-                AddCakeFormComponent.prototype.addOptionalItem = function (itemType) {
+                AddCakeFormComponent.prototype.addOptionalItem = function (itemType, value) {
                     if (itemType == "ingr") {
                         // prevent spamming creation
-                        if (this.currIngr.value != "") {
-                            this.ingrList.push(this.currIngr);
-                            this.currIngr = { "value": "", "editing": false };
+                        if (value != "") {
+                            this.ingrList.push(this.model.ingredients.push(value));
+                            console.log(this.model.ingredients);
                         }
                     }
                     else if (itemType == "step") {
@@ -146,13 +148,18 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     configurable: true
                 });
                 __decorate([
-                    core_2.Output(), 
+                    core_1.Output(), 
                     __metadata('design:type', Object)
                 ], AddCakeFormComponent.prototype, "saved", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Object)
+                ], AddCakeFormComponent.prototype, "model", void 0);
                 AddCakeFormComponent = __decorate([
                     core_1.Component({
                         selector: "add-cake-form",
-                        templateUrl: "templates/add-cake-form.component.html"
+                        templateUrl: "templates/add-cake-form.component.html",
+                        directives: [editable_item_form_component_1.EditableItemForm]
                     }), 
                     __metadata('design:paramtypes', [cake_service_1.CakeService])
                 ], AddCakeFormComponent);

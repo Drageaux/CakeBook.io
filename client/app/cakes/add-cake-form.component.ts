@@ -1,27 +1,28 @@
-import {Component,EventEmitter}  from "angular2/core";
+import {Component,EventEmitter,Input,Output,OnInit}  from "angular2/core";
 import {NgForm}     from "angular2/common";
-import {Cake}       from "./cake";
-import {Observable} from "rxjs/Observable";
-import {CakeService} from "./cake.service";
-import {Output} from "angular2/core";
-import {OnInit} from "angular2/core";
 import {Json} from "angular2/src/facade/lang";
+import {Observable} from "rxjs/Observable";
+
+import {Cake}       from "./cake";
+import {CakeService} from "./cake.service";
+import {EditableItemForm} from "./editable-item-form.component";
 
 @Component({
     selector: "add-cake-form",
-    templateUrl: "templates/add-cake-form.component.html"
+    templateUrl: "templates/add-cake-form.component.html",
+    directives: [EditableItemForm]
 })
 
 export class AddCakeFormComponent {
     @Output() saved = new EventEmitter<Cake>();
 
-    ingrList:Object[] = [];
-    currIngr = {"value": "", "editing": false};
+    ingrLabel = "Ingredients";
+    ingrList:string[] = [];
     stepList:Object[] = [];
     currStep = {"value": "", "editing": false};
 
     userId = JSON.parse(localStorage.getItem("profile")).user_id;
-    model = new Cake(0, this.userId, "", "", "", "", [], []);
+    @Input() model = new Cake(0, this.userId, "", "", "", "", [], []);
     active = false;
 
     constructor(private _cakeService:CakeService) {
@@ -30,6 +31,7 @@ export class AddCakeFormComponent {
     openForm() {
         this.active = true;
     }
+
     closeForm() {
         this.active = false;
     }
@@ -62,12 +64,12 @@ export class AddCakeFormComponent {
     }
 
     /* Ingredients and Steps */
-    addOptionalItem(itemType:string) {
+    addOptionalItem(itemType:string, value:string) {
         if (itemType == "ingr") {
             // prevent spamming creation
-            if (this.currIngr.value != "") {
-                this.ingrList.push(this.currIngr);
-                this.currIngr = {"value": "", "editing": false};
+            if (value != "") {
+                this.ingrList.push(this.model.ingredients.push(value));
+                console.log(this.model.ingredients);
             }
         }
         else if (itemType == "step") {

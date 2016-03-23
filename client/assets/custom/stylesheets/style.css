@@ -262,14 +262,14 @@ body {
           border-radius: 4px; }
         body .home-container div.add-cake-form .form-group .input-group .form-control:last-child {
           border-radius: 4px; }
-        body .home-container div.add-cake-form .form-group .list-group.add-cake-list {
+        body .home-container div.add-cake-form .form-group .list-group.editable-item-list {
           margin-top: 5px;
           padding: 5px 0;
           height: auto !important;
           border: 1px solid #DDD;
           border-radius: 4px;
           background-color: #EEE; }
-          body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item {
+          body .home-container div.add-cake-form .form-group .list-group.editable-item-list .list-group-item {
             overflow: hidden;
             margin: 2px 20px 2px 20px;
             padding: 6px 15px 6px 0;
@@ -278,7 +278,7 @@ body {
             background-color: #fafafa;
             font-size: 1em;
             /* Edit and Remove */ }
-            body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .number-label {
+            body .home-container div.add-cake-form .form-group .list-group.editable-item-list .list-group-item .number-label {
               position: absolute;
               top: 0;
               float: left;
@@ -288,73 +288,73 @@ body {
               background-color: #cecece;
               color: white;
               word-wrap: break-word; }
-              body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .number-label span {
+              body .home-container div.add-cake-form .form-group .list-group.editable-item-list .list-group-item .number-label span {
                 position: absolute;
                 top: 46%;
                 line-height: 5px;
                 cursor: default; }
-            body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .list-group-item-name {
+            body .home-container div.add-cake-form .form-group .list-group.editable-item-list .list-group-item .list-group-item-name {
               right: 0;
               display: inline-block;
               margin-right: auto;
               padding-left: 38px;
               width: 78%;
               word-break: break-all; }
-            body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .list-group-item-name.edit-item {
+            body .home-container div.add-cake-form .form-group .list-group.editable-item-list .list-group-item .list-group-item-name.edit-item {
               width: 77%; }
-              body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .list-group-item-name.edit-item input {
+              body .home-container div.add-cake-form .form-group .list-group.editable-item-list .list-group-item .list-group-item-name.edit-item input {
                 height: 26px; }
             @media screen and (min-device-width: 768px) {
-              body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .list-group-item-name {
+              body .home-container div.add-cake-form .form-group .list-group.editable-item-list .list-group-item .list-group-item-name {
                 width: 82%; }
-              body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .list-group-item-name.edit-item {
+              body .home-container div.add-cake-form .form-group .list-group.editable-item-list .list-group-item .list-group-item-name.edit-item {
                 width: 82%; } }
-            body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .btn {
+            body .home-container div.add-cake-form .form-group .list-group.editable-item-list .list-group-item .btn {
               position: relative;
               padding: 3px 7px 1px 7px;
               vertical-align: baseline;
               font-size: 10px;
               transition-duration: 0.2s; }
-            body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .edit-remove {
+            body .home-container div.add-cake-form .form-group .list-group.editable-item-list .list-group-item .edit-remove {
               float: right; }
-              body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .edit-remove .edit-button:hover {
+              body .home-container div.add-cake-form .form-group .list-group.editable-item-list .list-group-item .edit-remove .edit-button:hover {
                 border-color: #5BC0DE;
                 background-color: #5BC0DE; }
-                body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .edit-remove .edit-button:hover span {
+                body .home-container div.add-cake-form .form-group .list-group.editable-item-list .list-group-item .edit-remove .edit-button:hover span {
                   color: white; }
-              body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .edit-remove .remove-button:hover {
+              body .home-container div.add-cake-form .form-group .list-group.editable-item-list .list-group-item .edit-remove .remove-button:hover {
                 border-color: #C9302C;
                 background-color: #C9302C; }
-                body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .edit-remove .remove-button:hover span {
+                body .home-container div.add-cake-form .form-group .list-group.editable-item-list .list-group-item .edit-remove .remove-button:hover span {
                   color: white; }
-            body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .save-cancel {
+            body .home-container div.add-cake-form .form-group .list-group.editable-item-list .list-group-item .save-cancel {
               float: right; }
-              body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .save-cancel .btn {
+              body .home-container div.add-cake-form .form-group .list-group.editable-item-list .list-group-item .save-cancel .btn {
                 height: 26px;
                 border-color: white !important;
                 background-color: white; }
-              body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .save-cancel .save-button:hover {
+              body .home-container div.add-cake-form .form-group .list-group.editable-item-list .list-group-item .save-cancel .save-button:hover {
                 background-color: #71C171 !important; }
-              body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .save-cancel .save-button:not(:hover) span {
+              body .home-container div.add-cake-form .form-group .list-group.editable-item-list .list-group-item .save-cancel .save-button:not(:hover) span {
                 color: #5CB85C; }
-              body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .save-cancel .cancel-button:hover {
+              body .home-container div.add-cake-form .form-group .list-group.editable-item-list .list-group-item .save-cancel .cancel-button:hover {
                 background-color: #D64843 !important; }
-              body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item .save-cancel .cancel-button:not(:hover) span {
+              body .home-container div.add-cake-form .form-group .list-group.editable-item-list .list-group-item .save-cancel .cancel-button:not(:hover) span {
                 color: #C9302C; }
-          body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item:first-child:last-child .number-label {
+          body .home-container div.add-cake-form .form-group .list-group.editable-item-list .list-group-item:first-child:last-child .number-label {
             border-radius: 4px 0 0 4px; }
-          body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item:first-child .number-label {
+          body .home-container div.add-cake-form .form-group .list-group.editable-item-list .list-group-item:first-child .number-label {
             border-radius: 4px 0 0 0; }
-          body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item:not(:first-child):not(:last-child) .number-label {
+          body .home-container div.add-cake-form .form-group .list-group.editable-item-list .list-group-item:not(:first-child):not(:last-child) .number-label {
             border-radius: 0; }
-          body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item:last-child .number-label {
+          body .home-container div.add-cake-form .form-group .list-group.editable-item-list .list-group-item:last-child .number-label {
             border-radius: 0 0 0 4px; }
-          body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item:hover,
-          body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item:focus {
+          body .home-container div.add-cake-form .form-group .list-group.editable-item-list .list-group-item:hover,
+          body .home-container div.add-cake-form .form-group .list-group.editable-item-list .list-group-item:focus {
             background-color: white;
             transition-duration: 0.2s; }
-            body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item:hover .number-label,
-            body .home-container div.add-cake-form .form-group .list-group.add-cake-list .list-group-item:focus .number-label {
+            body .home-container div.add-cake-form .form-group .list-group.editable-item-list .list-group-item:hover .number-label,
+            body .home-container div.add-cake-form .form-group .list-group.editable-item-list .list-group-item:focus .number-label {
               background-color: #AD4047;
               transition-duration: 0.2s; }
   @media screen and (min-width: 768px) {

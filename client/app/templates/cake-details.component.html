@@ -48,11 +48,8 @@
         <!-- Ingredients -->
         <label><b>Ingredients</b></label>
         <ul>
-            <li *ngFor="#ingr of cake.ingredients">
-                {{ingr}}
-            </li>
-            <li style="list-style: none; padding-top: 10px; padding-bottom: 5px">
-                <form class="form-group">
+            <li style="list-style: none; padding-top: 10px;">
+                <form class="form-group" style="margin-bottom: 10px">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="(add new ingredient)"
                                [(ngModel)]="currIngr">
@@ -66,16 +63,17 @@
                     </div>
                 </form>
             </li>
+            <li *ngFor="#ingr of cake.ingredients">
+                {{ingr}}
+            </li>
         </ul>
+        <br>
 
         <!-- Steps -->
         <label><b>Steps</b></label>
-        <ol>
-            <li *ngFor="#step of cake.steps">
-                {{step}}
-            </li>
-            <li style="list-style: none; padding-top: 10px; padding-bottom: 5px">
-                <form class="form-group">
+        <ul>
+            <li style="list-style: none; padding-top: 10px;">
+                <form class="form-group" style="margin-bottom: 10px">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="(add new step)"
                                [(ngModel)]="currStep">
@@ -89,7 +87,10 @@
                     </div>
                 </form>
             </li>
-        </ol>
+            <li *ngFor="#step of cake.steps">
+                {{step}}
+            </li>
+        </ul>
     </div>
     <hr>
 
