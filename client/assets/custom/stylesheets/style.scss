@@ -52,6 +52,9 @@ body {
     textarea {
         resize: none;
     }
+    //background-color: #171515;
+    background-image: url("http://husargarden.se/wp-content/uploads/2015/04/seamless-wood-texture-free-6.jpg");
+    background-repeat: repeat;
 
     /*******************
      * General Top Nav *
@@ -248,10 +251,15 @@ body {
      * Content *
      ***********/
     .general-container {
+        margin-top: 50px;
         margin-right: 20%;
         margin-left: 20%;
         margin-bottom: 50px;
-        padding-top: 80px;
+        padding: 30px;
+        box-shadow: 10px 15px 50px rgba(0, 0, 0, 1), inset 10px 0 50px rgba(0, 0, 0, 0.2);
+        background-color: white;
+        //transform: skew(1deg) rotate(1deg);
+
         .form-group {
             margin-bottom: 8px;
             button {

@@ -14,6 +14,8 @@ body {
    * General *
    ***********/
   font-family: "Marmelad", Arial;
+  background-image: url("http://husargarden.se/wp-content/uploads/2015/04/seamless-wood-texture-free-6.jpg");
+  background-repeat: repeat;
   /*******************
    * General Top Nav *
    *******************/
@@ -173,10 +175,13 @@ body {
       text-overflow: clip;
       font-size: 8vh; }
   body .general-container, body .login-container, body .home-container, body .details-container {
+    margin-top: 50px;
     margin-right: 20%;
     margin-left: 20%;
     margin-bottom: 50px;
-    padding-top: 80px; }
+    padding: 30px;
+    box-shadow: 10px 15px 50px black, inset 10px 0 50px rgba(0, 0, 0, 0.2);
+    background-color: white; }
     body .general-container .form-group, body .login-container .form-group, body .home-container .form-group, body .details-container .form-group {
       margin-bottom: 8px; }
       body .general-container .form-group button, body .login-container .form-group button, body .home-container .form-group button, body .details-container .form-group button {

@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="488cec99-ddf5-4f67-9a37-f9054f020f41" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/cakes/add-cake-form.component.js" afterPath="$PROJECT_DIR$/client/app/cakes/add-cake-form.component.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/cakes/add-cake-form.component.js.map" afterPath="$PROJECT_DIR$/client/app/cakes/add-cake-form.component.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/cakes/add-cake-form.component.ts" afterPath="$PROJECT_DIR$/client/app/cakes/add-cake-form.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/assets/custom/stylesheets/style.css" afterPath="$PROJECT_DIR$/client/assets/custom/stylesheets/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/assets/custom/stylesheets/style.css.map" afterPath="$PROJECT_DIR$/client/assets/custom/stylesheets/style.css.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/assets/custom/stylesheets/style.scss" afterPath="$PROJECT_DIR$/client/assets/custom/stylesheets/style.scss" />
     </list>
     <ignored path="cake-book.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,11 +26,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="add-cake-form.component.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="style.scss" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/assets/custom/stylesheets/style.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3328786">
+              <caret line="258" column="27" selection-start-line="258" selection-start-column="27" selection-end-line="258" selection-end-column="27" />
+              <folding>
+                <element signature="e#1001#1034#0" expanded="false" />
+                <element signature="e#1057#1128#0" expanded="false" />
+                <element signature="e#1141#1173#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add-cake-form.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/app/cakes/add-cake-form.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33333334">
-              <caret line="70" column="31" selection-start-line="70" selection-start-column="23" selection-end-line="70" selection-end-column="31" />
+            <state vertical-scroll-proportion="-4.431818">
+              <caret line="22" column="8" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -92,7 +107,6 @@
         <option value="$PROJECT_DIR$/client/app/templates/add-cake-form.component.html" />
         <option value="$PROJECT_DIR$/server/models/cake.js" />
         <option value="$PROJECT_DIR$/client/app/cakes/cake.ts" />
-        <option value="$PROJECT_DIR$/client/assets/custom/stylesheets/style.scss" />
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/client/app/cakes/cake-details.component.ts" />
         <option value="$PROJECT_DIR$/client/app/cakes/cake.service.ts" />
@@ -100,6 +114,7 @@
         <option value="$PROJECT_DIR$/client/app/templates/cake-details.component.html" />
         <option value="$PROJECT_DIR$/client/app/cakes/editable-item-form.component.ts" />
         <option value="$PROJECT_DIR$/client/app/cakes/add-cake-form.component.ts" />
+        <option value="$PROJECT_DIR$/client/assets/custom/stylesheets/style.scss" />
       </list>
     </option>
   </component>
@@ -193,7 +208,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -438,7 +453,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -541,16 +556,16 @@
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17760417" sideWeight="0.495283" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1765625" sideWeight="0.495283" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900944" sideWeight="0.49791667" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="TypeScript Compiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20400943" sideWeight="0.504717" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript Compiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2004717" sideWeight="0.504717" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2806604" sideWeight="0.50208336" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278302" sideWeight="0.49375" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20364584" sideWeight="0.49791667" order="4" side_tool="true" content_ui="tabs" x="4" y="370" width="1912" height="279" />
+      <window_info id="Terminal" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2" sideWeight="0.49791667" order="4" side_tool="true" content_ui="tabs" x="4" y="370" width="1912" height="279" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1859375" sideWeight="0.5055292" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -896,7 +911,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.235294">
           <caret line="40" column="43" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -905,68 +919,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/assets/custom/stylesheets/style.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.6282053">
-          <caret line="284" column="35" selection-start-line="284" selection-start-column="35" selection-end-line="284" selection-end-column="35" />
-          <folding>
-            <element signature="e#1001#1034#0" expanded="false" />
-            <element signature="e#1057#1128#0" expanded="false" />
-            <element signature="e#1141#1173#0" expanded="false" />
-            <element signature="e#3349#3443#0" expanded="false" />
-            <element signature="e#3387#3433#0" expanded="false" />
-            <element signature="e#3585#3631#0" expanded="false" />
-            <element signature="e#4199#4415#0" expanded="false" />
-            <element signature="e#4637#5190#0" expanded="false" />
-            <element signature="e#4754#4879#0" expanded="false" />
-            <element signature="e#4912#5168#0" expanded="false" />
-            <element signature="e#6097#6248#0" expanded="false" />
-            <element signature="e#6191#6238#0" expanded="false" />
-            <element signature="e#6294#6445#0" expanded="false" />
-            <element signature="e#6388#6435#0" expanded="false" />
-            <element signature="e#6491#6641#0" expanded="false" />
-            <element signature="e#6585#6631#0" expanded="false" />
-            <element signature="e#7140#7307#0" expanded="false" />
-            <element signature="e#7574#7616#0" expanded="false" />
-            <element signature="e#7689#7846#0" expanded="false" />
-            <element signature="e#7718#7828#0" expanded="false" />
-            <element signature="e#7888#7947#0" expanded="false" />
-            <element signature="e#9288#9563#0" expanded="false" />
-            <element signature="e#9616#9775#0" expanded="false" />
-            <element signature="e#9684#9753#0" expanded="false" />
-            <element signature="e#9840#10101#0" expanded="false" />
-            <element signature="e#9888#9955#0" expanded="false" />
-            <element signature="e#10012#10079#0" expanded="false" />
-            <element signature="e#10463#11102#0" expanded="false" />
-            <element signature="e#10546#10790#0" expanded="false" />
-            <element signature="e#10687#10764#0" expanded="false" />
-            <element signature="e#10836#11080#0" expanded="false" />
-            <element signature="e#10977#11054#0" expanded="false" />
-            <element signature="e#12142#12271#0" expanded="false" />
-            <element signature="e#12178#12253#0" expanded="false" />
-            <element signature="e#12317#12444#0" expanded="false" />
-            <element signature="e#12353#12426#0" expanded="false" />
-            <element signature="e#12513#12632#0" expanded="false" />
-            <element signature="e#12549#12614#0" expanded="false" />
-            <element signature="e#12677#12804#0" expanded="false" />
-            <element signature="e#12713#12786#0" expanded="false" />
-            <element signature="e#12884#13166#0" expanded="false" />
-            <element signature="e#13012#13148#0" expanded="false" />
-            <element signature="e#13440#13718#0" expanded="false" />
-            <element signature="e#13791#13842#0" expanded="false" />
-            <element signature="e#14234#14630#0" expanded="false" />
-            <element signature="e#14664#14708#0" expanded="false" />
-            <element signature="e#15916#15953#0" expanded="false" />
-            <element signature="e#16088#16131#0" expanded="false" />
-            <element signature="e#16147#16188#0" expanded="false" />
-            <element signature="e#16590#16662#0" expanded="false" />
-            <element signature="e#16736#16808#0" expanded="false" />
-            <element signature="e#16882#16986#0" expanded="false" />
-            <element signature="e#17060#17132#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -990,7 +942,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4122257">
           <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1014,25 +965,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
           <caret line="9" column="54" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="54" />
-          <folding>
-            <marker date="1458799348110" expanded="true" signature="200:3376" placeholder="..." />
-            <marker date="1458799348110" expanded="true" signature="325:840" placeholder="..." />
-            <marker date="1458799348110" expanded="true" signature="416:466" placeholder="..." />
-            <marker date="1458799348110" expanded="true" signature="517:817" placeholder="..." />
-            <marker date="1458799348110" expanded="true" signature="588:789" placeholder="..." />
-            <marker date="1458799348110" expanded="true" signature="960:3356" placeholder="..." />
-            <marker date="1458799348110" expanded="true" signature="1050:3334" placeholder="..." />
-            <marker date="1458799348110" expanded="true" signature="1080:3308" placeholder="..." />
-            <marker date="1458799348110" expanded="true" signature="1357:1780" placeholder="..." />
-            <marker date="1458799348110" expanded="true" signature="1428:1519" placeholder="..." />
-            <marker date="1458799348110" expanded="true" signature="1603:1745" placeholder="..." />
-            <marker date="1458799348110" expanded="true" signature="1916:2638" placeholder="..." />
-            <marker date="1458799348110" expanded="true" signature="1995:2258" placeholder="..." />
-            <marker date="1458799348110" expanded="true" signature="2339:2603" placeholder="..." />
-            <marker date="1458799348110" expanded="true" signature="2725:3277" placeholder="..." />
-            <marker date="1458799348110" expanded="true" signature="2816:2990" placeholder="..." />
-            <marker date="1458799348110" expanded="true" signature="3082:3242" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1049,9 +982,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/app/cakes/add-cake-form.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="70" column="31" selection-start-line="70" selection-start-column="23" selection-end-line="70" selection-end-column="31" />
+        <state vertical-scroll-proportion="-4.431818">
+          <caret line="22" column="8" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="8" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/assets/custom/stylesheets/style.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3328786">
+          <caret line="258" column="27" selection-start-line="258" selection-start-column="27" selection-end-line="258" selection-end-column="27" />
+          <folding>
+            <element signature="e#1001#1034#0" expanded="false" />
+            <element signature="e#1057#1128#0" expanded="false" />
+            <element signature="e#1141#1173#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
