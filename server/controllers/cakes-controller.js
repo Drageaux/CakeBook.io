@@ -53,13 +53,17 @@ module.exports.addDetail = function (req, res) {
 
 module.exports.removeDetail = function (req, res) {
     if (req.params.type == "ingr") {
-        Cake.findOne({"_id": req.params.id, "user": req.params.user}, function (err, cake) {
-            for (var i = 0; i < cake.ingredients.length; i++) {
-                cake.ingredients[i]["index"] = i;
-            }
-            cake.save();
-            res.json(cake);
-        });
+        Cake.update(
+            {"_id": req.params.id, "user": req.params.user},
+            {$pull: {"ingredients": {"index": req.params.index}}}, function (err) {
+                Cake.findOne({"_id": req.params.id, "user": req.params.user}, function (err, cake) {
+                    for (var i = 0; i < cake.ingredients.length; i++) {
+                        cake.ingredients[i]["index"] = i;
+                    }
+                    cake.save();
+                    res.json(cake);
+                });
+            });
     }
 }
 
