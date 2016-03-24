@@ -161,12 +161,15 @@ body {
   body .navbar-default.topnav:hover {
     border-bottom: 5px solid #6a272b;
     transition-duration: 0.4s; }
-  @media screen and (max-width: 768px) {
-    body .navbar-default {
-      margin-right: 10vw; } }
   @media screen and (min-width: 768px) {
     body .navbar-default {
       margin-right: 15vw; } }
+  @media screen and (max-width: 768px) {
+    body .navbar-default {
+      margin-right: 10vw; } }
+  @media screen and (max-width: 480px) {
+    body .navbar-default {
+      margin-right: 4vw; } }
   body .navbar-default.login-topnav {
     z-index: 1;
     overflow: hidden;
@@ -192,6 +195,9 @@ body {
   @media screen and (max-width: 768px) {
     body .wrapper {
       margin-right: 10vw; } }
+  @media screen and (max-width: 480px) {
+    body .wrapper {
+      margin-right: 4vw; } }
   body .general-container, body .login-container, body .home-container, body .details-container {
     margin-top: 0;
     margin-bottom: 0;
@@ -309,6 +315,14 @@ body {
           body .details-container .form-group .list-group.editable-item-list .list-group-item:focus .number-label {
             background-color: #AD4047;
             transition-duration: 0.2s; }
+  @media screen and (max-width: 768px) {
+    body .general-container, body .login-container, body .home-container, body .details-container {
+      margin-left: 10vw !important;
+      padding: 30px !important; } }
+  @media screen and (max-width: 480px) {
+    body .general-container, body .login-container, body .home-container, body .details-container {
+      margin-left: 3vw !important;
+      padding: 20px !important; } }
   body .login-container {
     margin: 0;
     padding-top: 12vh;

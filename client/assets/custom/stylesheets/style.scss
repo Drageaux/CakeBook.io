@@ -226,14 +226,19 @@ body {
         border-bottom: 5px solid darken(#AD4047, 18%);
         transition-duration: 0.4s;
     }
+    @media screen and (min-width: 768px) {
+        .navbar-default {
+            margin-right: 15vw;
+        }
+    }
     @media screen and (max-width: 768px) {
         .navbar-default {
             margin-right: 10vw;
         }
     }
-    @media screen and (min-width: 768px) {
+    @media screen and (max-width: 480px) {
         .navbar-default {
-            margin-right: 15vw;
+            margin-right: 4vw;
         }
     }
 
@@ -275,6 +280,12 @@ body {
             margin-right: 10vw;
         }
     }
+    @media screen and (max-width: 480px) {
+        .wrapper {
+            margin-right: 4vw;
+        }
+    }
+
     /***********
      * Content *
      ***********/
@@ -439,6 +450,18 @@ body {
                     }
                 }
             }
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .general-container {
+            margin-left: 10vw !important;
+            padding: 30px !important;
+        }
+    }
+    @media screen and (max-width: 480px) {
+        .general-container {
+            margin-left: 3vw !important;
+            padding: 20px !important;
         }
     }
 
