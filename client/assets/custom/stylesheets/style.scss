@@ -53,7 +53,7 @@ body {
         resize: none;
     }
     //background-color: #171515;
-    background-image: url("http://husargarden.se/wp-content/uploads/2015/04/seamless-wood-texture-free-6.jpg");
+    background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/bamboo-wood-flooring-texture.jpg");
     background-repeat: repeat;
 
     /*******************
@@ -61,6 +61,8 @@ body {
      *******************/
     .navbar-default {
         height: 40px;
+        margin-top: 20px;
+        margin-bottom: 0;
         border-width: 0;
         border-bottom: 5px solid $topnav-item-color;
         background-color: transparent;
@@ -72,8 +74,8 @@ body {
         /// screen > 480px ///
         @media screen and (min-width: 480px) {
             .navbar-nav#normalMenu {
-                margin-right: 0;
                 border-radius: 6px 6px 0 0;
+                margin-right: 0.2vw;
                 li {
                     a {
                         padding: 15px 16px 11px 16px;
@@ -113,7 +115,7 @@ body {
         /// screen > 1200px ///
         @media screen and (min-width: 1200px) {
             .navbar-nav#normalMenu {
-                margin-right: 13%;
+                //margin-right: 13%;
             }
         }
 
@@ -196,8 +198,7 @@ body {
             .navbar-brand,
             .navbar-brand:hover,
             .navbar-brand:focus {
-                margin-left: 13.5%;
-                padding-left: 0;
+                padding-left: 10px;
             }
         }
         @media screen and (max-width: 768px) {
@@ -226,6 +227,18 @@ body {
         border-bottom: 5px solid darken(#AD4047, 18%);
         transition-duration: 0.4s;
     }
+    @media screen and (max-width: 768px) {
+        .navbar-default {
+            //margin-left: 10vw;
+            margin-right: 10vw;
+        }
+    }
+    @media screen and (min-width: 768px) {
+        .navbar-default {
+            //margin-left: 15vw;
+            margin-right: 15vw;
+        }
+    }
 
     /**********************
      * Login Page Top Nav *
@@ -250,17 +263,26 @@ body {
     }
 
     /***********
+     * Wrapper *
+     ***********/
+    .wrapper {
+        margin-right: 15vw;
+        margin-bottom: 50px;
+        min-height: 85vh;
+        height: auto;
+        background-color: $topnav-color;
+        box-shadow: 5px 20px 30px 20px rgba(0, 0, 0, 0.8);
+    }
+    /***********
      * Content *
      ***********/
     .general-container {
         margin-top: 50px;
-        margin-right: 20vw;
-        margin-left: 20vw;
-        margin-bottom: 50px;
-        padding: 30px;
-        box-shadow: 10px 15px 50px rgba(0, 0, 0, 1), inset 10px 0 50px rgba(0, 0, 0, 0.2);
-        background-color: $topnav-color;
-        height: 100vh;
+        margin-bottom: 0;
+        padding: 50px;
+        min-height: 85vh;
+        height: auto;
+        box-shadow: -15px 10px 50px 25px rgba(0, 0, 0, 0.2), inset 10px 0 25px 2px rgba(0, 0, 0, 0.3);
         //border-left: 20vw solid $topnav-color;
         //transform: skew(1deg) rotate(1deg);
 
@@ -511,6 +533,7 @@ body {
      *************/
     .home-container {
         @extend .general-container;
+        margin-left: 15vw;
         h4 {
             margin-bottom: 6px;
         }
@@ -536,7 +559,8 @@ body {
     }
     @media screen and (min-width: 768px) {
         .home-container {
-            margin-right: 20%;
+            //margin-right: 20vw;
+            //margin-right: 20vw;
         }
     }
     @media screen and (max-width: 768px) {
@@ -662,19 +686,29 @@ body {
         }
     }
 
-    /*************
-     * Left Page *
-     *************/
-    .left-page {
-        //margin-top: 75px;
-        position: absolute;
-        float: left;
-        height: 100vh;
-        width: 20vw;
-        background-color: $topnav-color;
-        //border-top: 5px solid $topnav-item-color;
-        box-shadow: inset -10px 0 50px rgba(0, 0, 0, 0.3);
-    }
+    ///*************
+    // * Left Page *
+    // *************/
+    //.left-page {
+    //    //margin-top: 75px;
+    //    position: absolute;
+    //    float: left;
+    //    height: 100vh;
+    //    width: 20vw;
+    //    background-color: $topnav-color;
+    //    //border-top: 5px solid $topnav-item-color;
+    //    box-shadow: inset -10px 0 50px rgba(0, 0, 0, 0.3);
+    //}
+    //@media screen and (max-width: 768px) {
+    //    .left-page {
+    //        width: 10vw;
+    //    }
+    //}
+    //@media screen and (min-width: 768px) {
+    //    .left-page {
+    //        width: 15vw;
+    //    }
+    //}
 }
 
 .login-body {
