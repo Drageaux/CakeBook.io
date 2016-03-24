@@ -48,7 +48,7 @@ System.register(["angular2/core", "./cake", "./cake.service", "./editable-item-f
                     this._cakeService.addCake(JSON.stringify(this.model))
                         .subscribe(function (res) { return _this.saved.emit(res); });
                     // TODO: Remove when there's a better way to reset the model
-                    this.model = new cake_1.Cake(0, this.userId, "", "", "", "", [""], [""]);
+                    this.model = new cake_1.Cake(0, this.userId, "", "", "", "", [], []);
                     this.closeForm();
                 };
                 /* Ingredients and Steps */

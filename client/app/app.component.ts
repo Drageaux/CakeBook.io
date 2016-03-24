@@ -30,9 +30,66 @@ enableProdMode();
 @Component({
     selector: 'my-app',
     template: `
+        <nav *ngIf="loggedIn() && !atLoginPage()" class="navbar navbar-default topnav">
+            <!--<a href="#" class="navbar-brand">Cake Book</a>-->
 
+            <!-- Normal Menu -->
+            <ul class="nav navbar-nav navbar-right" id="normalMenu">
+                <li>
+                    <a class="navbar-item" [routerLink]="['Home']">
+                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Home&nbsp;
+                    </a>
+                </li>
+                <li>
+                    <a class="navbar-item" href="#">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Profile&nbsp;
+                    </a>
+                </li>
+                <li>
+                    <a class="navbar-item" href="#">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp;Settings&nbsp;
+                    </a>
+                </li>
+                <li>
+                    <a class="navbar-item" (click)="logout()">
+                        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Logout&nbsp;
+                    </a>
+                </li>
+            </ul>
 
-        <loggedin-router-outlet></loggedin-router-outlet>
+            <!-- Dropdown Menu -->
+            <div class="btn-group" id="dropdownMenu">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="glyphicon glyphicon-list"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li>
+                        <a class="navbar-item" [routerLink]="['Home']">
+                            <span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Home&nbsp;
+                        </a>
+                    </li>
+                    <li>
+                        <a class="navbar-item" href="#">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Profile&nbsp;
+                        </a>
+                    </li>
+                    <li>
+                        <a class="navbar-item" href="#">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp;Settings&nbsp;
+                        </a>
+                    </li>
+                    <li>
+                        <a class="navbar-item" (click)="logout()">
+                            <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Logout&nbsp;
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="wrapper">
+            <loggedin-router-outlet></loggedin-router-outlet>
+        </div>
 		`,
     styleUrls: ["assets/custom/stylesheets/style.css"],
     encapsulation: ViewEncapsulation.None,

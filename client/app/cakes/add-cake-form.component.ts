@@ -39,7 +39,7 @@ export class AddCakeFormComponent {
         this._cakeService.addCake(JSON.stringify(this.model))
             .subscribe(res => this.saved.emit(res));
         // TODO: Remove when there's a better way to reset the model
-        this.model = new Cake(0, this.userId, "", "", "", "", [""], [""]);
+        this.model = new Cake(0, this.userId, "", "", "", "", [], []);
         this.closeForm();
     }
 

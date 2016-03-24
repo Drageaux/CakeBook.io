@@ -189,8 +189,11 @@ body {
     height: auto;
     background-color: #FCE9DC;
     box-shadow: 5px 20px 30px 20px rgba(0, 0, 0, 0.8); }
+  @media screen and (max-width: 768px) {
+    body .wrapper {
+      margin-right: 10vw; } }
   body .general-container, body .login-container, body .home-container, body .details-container {
-    margin-top: 50px;
+    margin-top: 0;
     margin-bottom: 0;
     padding: 50px;
     min-height: 85vh;
@@ -383,23 +386,9 @@ body {
       padding: 20px;
       border: 1px solid #DDD;
       border-radius: 4px; }
-  @media screen and (max-width: 768px) {
-    body .home-container {
-      margin-right: 10%;
-      margin-left: 10%; } }
-  @media screen and (max-width: 480px) {
-    body .home-container {
-      margin-right: 20px;
-      margin-left: 20px;
-      min-width: 440px; } }
-  @media screen and (max-width: 380px) {
-    body .home-container {
-      margin-right: 2px;
-      margin-left: 2px; } }
   body .details-container {
     min-width: 300px;
     margin-left: 14%;
-    margin-right: 14%;
     word-break: break-all; }
     body .details-container .cake-info .cake-image {
       display: inline-block;
@@ -469,8 +458,7 @@ body {
       padding-left: 30px; }
   @media screen and (max-width: 768px) {
     body .details-container {
-      margin-left: 5%;
-      margin-right: 6%; } }
+      margin-left: 5%; } }
 
 .login-body {
   height: 100vh;
