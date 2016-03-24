@@ -33,7 +33,10 @@ body {
    *************/
   /****************
    * Cake Details *
-   ****************/ }
+   ****************/
+  /*************
+   * Left Page *
+   *************/ }
   body p {
     font-size: 1.2em; }
   body h1.welcome-poster {
@@ -47,8 +50,9 @@ body {
     resize: none; }
   body .navbar-default {
     height: 40px;
+    border-width: 0;
     border-bottom: 5px solid #AD4047;
-    background-color: #FCE9DC;
+    background-color: transparent;
     font-size: 1.1em;
     font-family: "Chewy", cursive;
     /* Normal Menu */
@@ -176,12 +180,13 @@ body {
       font-size: 8vh; }
   body .general-container, body .login-container, body .home-container, body .details-container {
     margin-top: 50px;
-    margin-right: 20%;
-    margin-left: 20%;
+    margin-right: 20vw;
+    margin-left: 20vw;
     margin-bottom: 50px;
     padding: 30px;
     box-shadow: 10px 15px 50px black, inset 10px 0 50px rgba(0, 0, 0, 0.2);
-    background-color: white; }
+    background-color: #FCE9DC;
+    height: 100vh; }
     body .general-container .form-group, body .login-container .form-group, body .home-container .form-group, body .details-container .form-group {
       margin-bottom: 8px; }
       body .general-container .form-group button, body .login-container .form-group button, body .home-container .form-group button, body .details-container .form-group button {
@@ -370,8 +375,7 @@ body {
       border-radius: 4px; }
   @media screen and (min-width: 768px) {
     body .home-container {
-      margin-right: 20%;
-      margin-left: 20%; } }
+      margin-right: 20%; } }
   @media screen and (max-width: 768px) {
     body .home-container {
       margin-right: 10%;
@@ -460,6 +464,13 @@ body {
     body .details-container {
       margin-left: 5%;
       margin-right: 6%; } }
+  body .left-page {
+    position: absolute;
+    float: left;
+    height: 100vh;
+    width: 20vw;
+    background-color: #FCE9DC;
+    box-shadow: inset -10px 0 50px rgba(0, 0, 0, 0.3); }
 
 .login-body {
   height: 100vh;

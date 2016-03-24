@@ -61,8 +61,10 @@ body {
      *******************/
     .navbar-default {
         height: 40px;
+        border-width: 0;
         border-bottom: 5px solid $topnav-item-color;
-        background-color: $topnav-color;
+        background-color: transparent;
+        //background-color: $topnav-color;
         font-size: 1.1em;
         font-family: $topnav-font;
 
@@ -252,12 +254,14 @@ body {
      ***********/
     .general-container {
         margin-top: 50px;
-        margin-right: 20%;
-        margin-left: 20%;
+        margin-right: 20vw;
+        margin-left: 20vw;
         margin-bottom: 50px;
         padding: 30px;
         box-shadow: 10px 15px 50px rgba(0, 0, 0, 1), inset 10px 0 50px rgba(0, 0, 0, 0.2);
-        background-color: white;
+        background-color: $topnav-color;
+        height: 100vh;
+        //border-left: 20vw solid $topnav-color;
         //transform: skew(1deg) rotate(1deg);
 
         .form-group {
@@ -533,7 +537,6 @@ body {
     @media screen and (min-width: 768px) {
         .home-container {
             margin-right: 20%;
-            margin-left: 20%;
         }
     }
     @media screen and (max-width: 768px) {
@@ -657,6 +660,20 @@ body {
             margin-left: 5%;
             margin-right: 6%;
         }
+    }
+
+    /*************
+     * Left Page *
+     *************/
+    .left-page {
+        //margin-top: 75px;
+        position: absolute;
+        float: left;
+        height: 100vh;
+        width: 20vw;
+        background-color: $topnav-color;
+        //border-top: 5px solid $topnav-item-color;
+        box-shadow: inset -10px 0 50px rgba(0, 0, 0, 0.3);
     }
 }
 
