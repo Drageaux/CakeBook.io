@@ -48,6 +48,8 @@ body {
     cursor: pointer; }
   body textarea {
     resize: none; }
+  body hr {
+    border-color: #6a272b; }
   body .navbar-default {
     height: 40px;
     margin-top: 20px;
@@ -398,7 +400,7 @@ body {
     body .home-container div.add-cake-form {
       position: relative;
       padding: 20px;
-      border: 1px solid #DDD;
+      border: 2px solid #6a272b;
       border-radius: 4px; }
   body .details-container {
     min-width: 300px;
@@ -416,7 +418,7 @@ body {
         body .details-container .cake-info .cake-image a img {
           width: 100%;
           border-radius: 10px !important;
-          border: 2px solid #DDD; }
+          border: 2px solid #6a272b; }
       body .details-container .cake-info .cake-image input {
         width: 0.1px;
         height: 0.1px;

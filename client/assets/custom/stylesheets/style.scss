@@ -19,11 +19,13 @@ $_5th-soft-pink: #DB8F8F;
 $topnav-color: $_2nd-light-cream;
 $topnav-item-color: #AD4047;
 $topnav-item-hovered-color: darken($topnav-item-color, 18%);
+$border-color: $topnav-item-hovered-color;
 
 // Fonts
 $topnav-font: "Chewy", cursive;
 $welcome-font: "Lobster", cursive;
 $normal-font: "Marmelad", Arial;
+
 //-----------------------------------------------------//
 
 /**********
@@ -51,6 +53,9 @@ body {
     }
     textarea {
         resize: none;
+    }
+    hr {
+        border-color: $border-color;
     }
     //background-color: #171515;
     background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/bamboo-wood-flooring-texture.jpg");
@@ -577,7 +582,7 @@ body {
         div.add-cake-form {
             position: relative;
             padding: 20px;
-            border: 1px solid #DDD;
+            border: 2px solid $border-color;
             border-radius: 4px;
 
         }
@@ -629,7 +634,7 @@ body {
                     img {
                         width: 100%;
                         border-radius: 10px !important;
-                        border: 2px solid #DDD;
+                        border: 2px solid $border-color;
                     }
                 }
                 input {

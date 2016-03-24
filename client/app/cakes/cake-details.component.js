@@ -92,7 +92,7 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake.ser
                         if (fileType.match(/(png|jpg|jpeg)/)) {
                             var parsedInput = input.replace(/^data:image\/(png|jpg|jpeg);base64,/, "");
                             this._service.uploadCakeImage(this.cake._id, parsedInput, fileType)
-                                .subscribe(function (cake) { return _this.cake = cake; }, function (err) { return _this.cake.croppedImage = oldImage; });
+                                .subscribe(function (cake) { return _this.cake = cake; }, function (err) { return _this.cake.croppedImage = oldImage; }, function () { return console.log(_this.cake); });
                         }
                         else {
                             this.openModal();

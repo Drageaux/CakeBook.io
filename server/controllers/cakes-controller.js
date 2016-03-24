@@ -81,28 +81,26 @@ module.exports.removeDetail = function (req, res) {
 
 module.exports.updateDetail = function (req, res) {
     Cake.findOne({"_id": req.params.id, "user": req.params.user}, function (err, cake) {
-        if (req.params.type == "ingr") {
-            cake.ingredients[req.body.index]["value"] = req.body.value;
-        } else if (req.params.type == "step") {
-            cake.steps[req.body.index]["value"] = req.body.value;
-        }
-        cake.save();
-        res.json(cake);
-    });
-}
-
-module.exports.addImage = function (req, res) {
-    Cake.findOne({"_id": req.params.id, "user": req.params.user}, function (err, cake) {
-        var path = "image." + req.body.dataType;
-        fs.writeFile(path, new Buffer(req.body.data, "base64"), function (result, err) {
-            cloudinary.uploader.upload(path, function (result) {
-                cake.image = result.url;
-                cake.croppedImage = cake.image.replace("image/upload/", "image/upload/c_fill,h_480,w_480/");
-                cake.save(function (err, cake) {
-                    res.json(cake);
-                    fs.unlink(path);
+        if (req.params.type == "image") {
+            var path = "image." + req.body.dataType;
+            fs.writeFile(path, new Buffer(req.body.data, "base64"), function (result, err) {
+                cloudinary.uploader.upload(path, function (result) {
+                    cake.image = result.url;
+                    cake.croppedImage = cake.image.replace("image/upload/", "image/upload/c_fill,h_480,w_480/");
+                    cake.save(function (err, cake) {
+                        res.json(cake);
+                        fs.unlink(path);
+                    });
                 });
             });
-        });
+        } else {
+            if (req.params.type == "ingr") {
+                cake.ingredients[req.body.index]["value"] = req.body.value;
+            } else if (req.params.type == "step") {
+                cake.steps[req.body.index]["value"] = req.body.value;
+            }
+            cake.save();
+            res.json(cake);
+        }
     });
 }

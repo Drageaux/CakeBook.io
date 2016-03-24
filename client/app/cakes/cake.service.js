@@ -76,16 +76,11 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
                 /**************
                  * Image REST *
                  **************/
-                CakeService.prototype.getCakeImage = function (id) {
-                    return this.http.get("/api/" + this.userId + "/cake/" + id + "/image")
-                        .map(function (res) { return res.json(); })
-                        .catch(this.handleError);
-                };
                 CakeService.prototype.uploadCakeImage = function (id, data, type) {
                     var body = JSON.stringify({ data: data, dataType: type });
                     var headers = new http_1.Headers({ "Content-Type": "application/json" });
                     var options = new http_1.RequestOptions({ headers: headers });
-                    return this.http.post("/api/" + this.userId + "/cake/" + id + "/image", body, options)
+                    return this.http.put("/api/" + this.userId + "/cake/" + id + "/image", body, options)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };

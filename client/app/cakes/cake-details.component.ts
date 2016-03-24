@@ -17,7 +17,7 @@ import {EditableItemForm} from "./editable-item-form.component";
 export class CakeDetailsComponent implements OnInit {
     cake:Cake;
     currDesc = {"value": "", "editing": false};
-    uploadCallBack:Function;
+    public uploadCallBack:Function;
 
     constructor(private _router:Router,
                 private _routeParams:RouteParams,
@@ -85,7 +85,8 @@ export class CakeDetailsComponent implements OnInit {
                 this._service.uploadCakeImage(this.cake._id, parsedInput, fileType)
                     .subscribe(
                         cake => this.cake = cake,
-                        err => this.cake.croppedImage = oldImage
+                        err => this.cake.croppedImage = oldImage,
+                        () => console.log(this.cake)
                     );
             }
             else {
