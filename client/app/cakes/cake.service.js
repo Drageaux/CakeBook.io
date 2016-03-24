@@ -32,6 +32,9 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };
+                /********************
+                 * Single Cake REST *
+                 ********************/
                 CakeService.prototype.getCake = function (id) {
                     return this.http.get("/api/" + this.userId + "/cake/" + id)
                         .map(function (res) { return res.json(); })
@@ -62,6 +65,17 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };
+                CakeService.prototype.updateCakeDetail = function (id, detailType, index, detailValue) {
+                    var body = JSON.stringify({ index: index, value: detailValue });
+                    var headers = new http_1.Headers({ "Content-Type": "application/json" });
+                    var options = new http_1.RequestOptions({ headers: headers });
+                    return this.http.put("/api/" + this.userId + "/cake/" + id + "/" + detailType, body, options)
+                        .map(function (res) { return res.json(); })
+                        .catch(this.handleError);
+                };
+                /**************
+                 * Image REST *
+                 **************/
                 CakeService.prototype.getCakeImage = function (id) {
                     return this.http.get("/api/" + this.userId + "/cake/" + id + "/image")
                         .map(function (res) { return res.json(); })

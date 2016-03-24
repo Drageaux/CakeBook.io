@@ -36,7 +36,7 @@
                             <span class="glyphicon glyphicon-remove"></span>&nbsp;Cancel
                         </button>
                         <button type="submit" class="save-button btn btn-success"
-                                (click)="saveEdit('desc', 0, newDescription.value)">
+                                (click)="saveEdit('desc', {'value': newDescription.value})">
                             <span class="glyphicon glyphicon-check"></span>&nbsp;Save
                         </button>
                     </div>
@@ -45,28 +45,6 @@
         </div>
         <br>
 
-        <!-- Ingredients -->
-        <!--<label><b>Ingredients</b></label>-->
-        <!--<ul>-->
-            <!--<li style="list-style: none; padding-top: 10px;">-->
-                <!--<form class="form-group" style="margin-bottom: 10px">-->
-                    <!--<div class="input-group">-->
-                        <!--<input type="text" class="form-control" placeholder="(add new ingredient)"-->
-                               <!--[(ngModel)]="currIngr">-->
-                        <!--<span class="input-group-btn">-->
-                            <!--<button type="submit" class="btn btn-primary"-->
-                                    <!--[class.disabled]="isEmptyString(currIngr)"-->
-                                    <!--(click)="addDetail('ingr')">-->
-                                <!--Add-->
-                            <!--</button>-->
-                        <!--</span>-->
-                    <!--</div>-->
-                <!--</form>-->
-            <!--</li>-->
-            <!--<li *ngFor="#ingr of cake.ingredients">-->
-                <!--{{ingr}}-->
-            <!--</li>-->
-        <!--</ul>-->
         <!-- Ingredients -->
         <editable-item-list
                 [listLabel]="'Ingredients'"

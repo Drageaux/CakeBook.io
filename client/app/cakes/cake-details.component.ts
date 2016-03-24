@@ -56,13 +56,14 @@ export class CakeDetailsComponent implements OnInit {
         }
     }
 
-    saveEdit(detailType:string, index:number, value:string) {
+    saveEdit(detailType:string, obj:any) {
         if (detailType == "desc") {
             this.currDesc["editing"] = false;
-            this._service.addCakeDetail(this.cake._id, "desc", value.replace(/\s+$/, ""))
+            this._service.addCakeDetail(this.cake._id, "desc", obj.value.replace(/\s+$/, ""))
                 .subscribe(cake => this.cake = cake);
-        } else if (detailType == "ingr") {
-
+        } else if (detailType == "ingr" || detailType == "step") {
+            this._service.updateCakeDetail(this.cake._id, detailType, obj.index, obj.value)
+                .subscribe(cake => this.cake = cake);
         }
     }
 

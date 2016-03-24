@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter} from "angular2/core";
+import {Component, OnInit, Input, Output, EventEmitter } from "angular2/core";
 
 @Component({
     selector: "editable-item-list",
@@ -59,7 +59,7 @@ import {Component, Input, Output, EventEmitter} from "angular2/core";
             </form>`
 })
 
-export class EditableItemForm {
+export class EditableItemForm implements OnInit {
     @Input() listLabel:string;
     @Input() placeholder:string;
     @Input() itemList:Object[];
@@ -69,6 +69,12 @@ export class EditableItemForm {
     @Output() onAdded = new EventEmitter<string>();
     @Output() onRemoved = new EventEmitter<any>();
     @Output() onSaved = new EventEmitter<Object>();
+
+    ngOnInit() {
+        for (let i in this.itemList) {
+            this.editing.push(false);
+        }
+    }
 
     addItem(value:string) {
         if (!this.isEmptyString(value)) {

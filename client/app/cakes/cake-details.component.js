@@ -64,14 +64,16 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake.ser
                         this.currDesc["editing"] = true;
                     }
                 };
-                CakeDetailsComponent.prototype.saveEdit = function (detailType, index, value) {
+                CakeDetailsComponent.prototype.saveEdit = function (detailType, obj) {
                     var _this = this;
                     if (detailType == "desc") {
                         this.currDesc["editing"] = false;
-                        this._service.addCakeDetail(this.cake._id, "desc", value.replace(/\s+$/, ""))
+                        this._service.addCakeDetail(this.cake._id, "desc", obj.value.replace(/\s+$/, ""))
                             .subscribe(function (cake) { return _this.cake = cake; });
                     }
-                    else if (detailType == "ingr") {
+                    else if (detailType == "ingr" || detailType == "step") {
+                        this._service.updateCakeDetail(this.cake._id, detailType, obj.index, obj.value)
+                            .subscribe(function (cake) { return _this.cake = cake; });
                     }
                 };
                 CakeDetailsComponent.prototype.cancelEdit = function (detailType, index) {

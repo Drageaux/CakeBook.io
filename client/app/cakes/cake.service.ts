@@ -20,6 +20,10 @@ export class CakeService {
             .catch(this.handleError);
     }
 
+
+    /********************
+     * Single Cake REST *
+     ********************/
     getCake(id:number | String) {
         return this.http.get("/api/" + this.userId + "/cake/" + id)
             .map(res => <Cake> res.json())
@@ -51,19 +55,33 @@ export class CakeService {
             .catch(this.handleError);
     }
 
-    removeCakeDetail(id, detailType:string, index:number | string) {
+    removeCakeDetail(id:number, detailType:string, index:number) {
         return this.http.delete("/api/" + this.userId + "/cake/" + id + "/" + detailType + "/" + index)
             .map(res => <Cake> res.json())
             .catch(this.handleError);
     }
 
+    updateCakeDetail(id:number, detailType:string, index:number, detailValue:string) {
+        let body = JSON.stringify({index: index, value: detailValue});
+        let headers = new Headers({"Content-Type": "application/json"});
+        let options = new RequestOptions({headers: headers});
+
+        return this.http.put("/api/" + this.userId + "/cake/" + id + "/" + detailType, body, options)
+            .map(res => <Cake> res.json())
+            .catch(this.handleError);
+    }
+
+
+    /**************
+     * Image REST *
+     **************/
     getCakeImage(id:number | string) {
         return this.http.get("/api/" + this.userId + "/cake/" + id + "/image")
             .map(res => res.json())
             .catch(this.handleError);
     }
 
-    uploadCakeImage(id:number | string, data:string, type:string){
+    uploadCakeImage(id:number | string, data:string, type:string) {
         let body = JSON.stringify({data: data, dataType: type});
         let headers = new Headers({"Content-Type": "application/json"});
         let options = new RequestOptions({headers: headers});
@@ -72,6 +90,7 @@ export class CakeService {
             .map(res => <Cake> res.json())
             .catch(this.handleError);
     }
+
 
     private handleError(error:Response) {
         // in a real world app, we may send the server to some remote logging infrastructure

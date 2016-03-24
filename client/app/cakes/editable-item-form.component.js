@@ -23,6 +23,11 @@ System.register(["angular2/core"], function(exports_1) {
                     this.onRemoved = new core_1.EventEmitter();
                     this.onSaved = new core_1.EventEmitter();
                 }
+                EditableItemForm.prototype.ngOnInit = function () {
+                    for (var i in this.itemList) {
+                        this.editing.push(false);
+                    }
+                };
                 EditableItemForm.prototype.addItem = function (value) {
                     if (!this.isEmptyString(value)) {
                         this.onAdded.emit(value);
