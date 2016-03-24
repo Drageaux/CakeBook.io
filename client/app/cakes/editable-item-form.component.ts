@@ -81,7 +81,6 @@ export class EditableItemForm implements OnInit {
             this.onAdded.emit(value);
             this.currItem = "";
             this.editing.push(false);
-            console.log(this.editing);
         }
     }
 
@@ -103,7 +102,6 @@ export class EditableItemForm implements OnInit {
     cancelEdit(index:number) {
         this.editing[index] = false;
     }
-
 
     /* Helper Functions */
     isEditing(index:number) {

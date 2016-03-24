@@ -57,27 +57,14 @@
         <br>
 
         <!-- Steps -->
-        <label><b>Steps</b></label>
-        <ul>
-            <li style="list-style: none; padding-top: 10px;">
-                <form class="form-group" style="margin-bottom: 10px">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="(add new step)"
-                               [(ngModel)]="currStep">
-                        <span class="input-group-btn">
-                            <button type="submit" class="btn btn-primary"
-                                    [class.disabled]="isEmptyString(currStep)"
-                                    (click)="addDetail('step')">
-                                Add
-                            </button>
-                        </span>
-                    </div>
-                </form>
-            </li>
-            <li *ngFor="#step of cake.steps">
-                {{step}}
-            </li>
-        </ul>
+        <editable-item-list
+                [listLabel]="'Steps'"
+                [placeholder]="'(add new steps)'"
+                [itemList]="cake.steps"
+                (onAdded)="addDetail('step', $event)"
+                (onRemoved)="removeDetail('step', $event)"
+                (onSaved)="saveEdit('step', $event)">
+        </editable-item-list>
     </div>
     <hr>
 

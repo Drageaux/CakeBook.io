@@ -64,6 +64,18 @@ module.exports.removeDetail = function (req, res) {
                     res.json(cake);
                 });
             });
+    } else if (req.params.type == "step") {
+        Cake.update(
+            {"_id": req.params.id, "user": req.params.user},
+            {$pull: {"steps": {"index": req.params.index}}}, function (err) {
+                Cake.findOne({"_id": req.params.id, "user": req.params.user}, function (err, cake) {
+                    for (var i = 0; i < cake.steps.length; i++) {
+                        cake.steps[i]["index"] = i;
+                    }
+                    cake.save();
+                    res.json(cake);
+                });
+            });
     }
 }
 

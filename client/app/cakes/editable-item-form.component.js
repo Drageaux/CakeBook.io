@@ -33,7 +33,6 @@ System.register(["angular2/core"], function(exports_1) {
                         this.onAdded.emit(value);
                         this.currItem = "";
                         this.editing.push(false);
-                        console.log(this.editing);
                     }
                 };
                 EditableItemForm.prototype.removeItem = function (index) {
