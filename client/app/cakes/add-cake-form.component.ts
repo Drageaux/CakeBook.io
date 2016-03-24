@@ -51,16 +51,14 @@ export class AddCakeFormComponent {
                 this.model.ingredients.push({
                     "index": this.model.ingredients.length,
                     "value": value});
-                console.log(this.model.ingredients);
             }
         }
         else if (itemType == "step") {
             // prevent spamming steps
             if (value != "") {
                 this.model.steps.push({
-                    "index": this.model.ingredients.length,
+                    "index": this.model.steps.length,
                     "value": value});
-                console.log(this.model.steps);
             }
         }
     }
