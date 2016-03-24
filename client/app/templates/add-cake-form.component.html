@@ -14,126 +14,36 @@
             <!--Name is required-->
             <!--</div>-->
         </div>
-        <div></div>
         <hr>
 
         <!-- Cake description -->
         <div class="form-group">
             <label>Description</label>
             <textarea rows="4" class="form-control" placeholder="(optional)"
-                   [(ngModel)]="model.description"></textarea>
+                      [(ngModel)]="model.description"></textarea>
         </div>
         <div></div>
         <hr>
 
-        <!-- Ingredient list -->
-        <form class="form-group">
-            <label>Ingredients</label><br>
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="(optional)"
-                       [(ngModel)]="currIngr.value">
-                <span class="input-group-btn">
-                    <button type="submit" class="btn btn-primary"
-                            [class.disabled]="isEmptyString(currIngr.value)"
-                            (click)="addOptionalItem('ingr')">
-                        Add
-                    </button>
-                </span>
-            </div>
-            <ul *ngIf="ingrList.length>0" class="list-group add-cake-list">
-                <li *ngFor="#ingr of ingrList; #idx = index" class="list-group-item">
-                    <div>
-                        <!-- Item number -->
-                        <div class="number-label"><span>{{idx+1}}</span></div>
-                        <!-- Item name -->
-                        <div class="list-group-item-name" [class.edit-item]="isEditing('ingr', idx)">
-                            <span [class.hidden]="isEditing('ingr', idx)">
-                                {{ingr.value}}
-                            </span>
-                            <input #editValue type="text" class="form-control"
-                                   [class.hidden]="!isEditing('ingr', idx)"
-                                   [value]="ingr.value" autofocus>
-                        </div>
-                        <!-- Item buttons -->
-                        <div class="edit-remove" [class.hidden]="isEditing('ingr', idx)">
-                            <button type="button" class="btn edit-button"
-                                    [class.hidden]="isEditing('ingr', idx)"
-                                    (click)="editOptionalItem('ingr', idx)">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                            </button>
-                            <button type="button" class="btn remove-button"
-                                    [class.hidden]="isEditing('ingr', idx)"
-                                    (click)="removeOptionalItem('ingr', idx)">
-                                <span class="glyphicon glyphicon-minus"></span>
-                            </button>
-                        </div>
-                        <div class="save-cancel" [class.hidden]="!isEditing('ingr', idx)">
-                            <button type="button" class="btn btn-success save-button"
-                                    (click)="saveEdit('ingr', idx, editValue.value)">
-                                <span class="glyphicon glyphicon-check"></span></button>
-                            <button type="button" class="btn btn-danger cancel-button"
-                                    (click)="cancelEdit('ingr', idx)">
-                                <span class="glyphicon glyphicon-remove"></span></button>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </form>
+        <!-- Ingredients -->
+        <editable-item-list
+                [listLabel]="'Ingredients'"
+                [placeholder]="'(optional)'"
+                [itemList]="model.ingredients"
+                (onAdded)="addOptionalItem('ingr', $event)"
+                (onRemoved)="removeOptionalItem('ingr', $event)"
+                (onSaved)="saveEdit('ingr', $event)">
+        </editable-item-list>
         <hr>
-
-        <!-- Instruction steps -->
-        <form class="form-group">
-            <label>Steps</label><br>
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="(optional)"
-                       [(ngModel)]="currStep.value">
-                <span class="input-group-btn">
-                    <button type="submit" class="btn btn-primary"
-                            [class.disabled]="isEmptyString(currStep.value)"
-                            (click)="addOptionalItem('step')">
-                        Add
-                    </button>
-                </span>
-            </div>
-            <ul *ngIf="stepList.length>0" class="list-group add-cake-list">
-                <li *ngFor="#step of stepList; #idx = index" class="list-group-item">
-                    <div>
-                        <!-- Item number -->
-                        <div class="number-label"><span>{{idx+1}}</span></div>
-                        <!-- Item name -->
-                        <div class="list-group-item-name" [class.edit-item]="isEditing('step', idx)">
-                            <span [class.hidden]="isEditing('step', idx)">
-                                {{step.value}}
-                            </span>
-                            <input #editValue type="text" class="form-control"
-                                   [class.hidden]="!isEditing('step', idx)"
-                                   [value]="step.value" autofocus>
-                        </div>
-                        <!-- Item buttons -->
-                        <div class="edit-remove" [class.hidden]="isEditing('step', idx)">
-                            <button type="button" class="btn edit-button"
-                                    [class.hidden]="isEditing('step', idx)"
-                                    (click)="editOptionalItem('step', idx)">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                            </button>
-                            <button type="button" class="btn remove-button"
-                                    [class.hidden]="isEditing('step', idx)"
-                                    (click)="removeOptionalItem('step', idx)">
-                                <span class="glyphicon glyphicon-minus"></span>
-                            </button>
-                        </div>
-                        <div class="save-cancel" [class.hidden]="!isEditing('step', idx)">
-                            <button type="button" class="btn btn-success save-button"
-                                    (click)="saveEdit('step', idx, editValue.value)">
-                                <span class="glyphicon glyphicon-check"></span></button>
-                            <button type="button" class="btn btn-danger cancel-button"
-                                    (click)="cancelEdit('step', idx)">
-                                <span class="glyphicon glyphicon-remove"></span></button>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </form>
+        <!-- Steps -->
+        <editable-item-list
+                [listLabel]="'Steps'"
+                [placeholder]="'(optional)'"
+                [itemList]="model.steps"
+                (onAdded)="addOptionalItem('step', $event)"
+                (onRemoved)="removeOptionalItem('step', $event)"
+                (onSaved)="saveEdit('step', $event)">
+        </editable-item-list>
         <hr>
 
         <!-- Main form buttons -->

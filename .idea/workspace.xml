@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="488cec99-ddf5-4f67-9a37-f9054f020f41" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/cakes/cake-details.component.js" afterPath="$PROJECT_DIR$/client/app/cakes/cake-details.component.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/cakes/cake-details.component.js.map" afterPath="$PROJECT_DIR$/client/app/cakes/cake-details.component.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/cakes/cake-details.component.ts" afterPath="$PROJECT_DIR$/client/app/cakes/cake-details.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/templates/cake-details.component.html" afterPath="$PROJECT_DIR$/client/app/templates/cake-details.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/cakes/add-cake-form.component.js" afterPath="$PROJECT_DIR$/client/app/cakes/add-cake-form.component.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/cakes/add-cake-form.component.js.map" afterPath="$PROJECT_DIR$/client/app/cakes/add-cake-form.component.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/cakes/add-cake-form.component.ts" afterPath="$PROJECT_DIR$/client/app/cakes/add-cake-form.component.ts" />
     </list>
     <ignored path="cake-book.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,111 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="style.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/assets/custom/stylesheets/style.scss">
+      <file leaf-file-name="add-cake-form.component.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/app/cakes/add-cake-form.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.7352941">
-              <caret line="623" column="5" selection-start-line="623" selection-start-column="5" selection-end-line="623" selection-end-column="5" />
-              <folding>
-                <element signature="e#1001#1034#0" expanded="false" />
-                <element signature="e#1057#1128#0" expanded="false" />
-                <element signature="e#1141#1173#0" expanded="false" />
-                <element signature="e#3349#3443#0" expanded="false" />
-                <element signature="e#3387#3433#0" expanded="false" />
-                <element signature="e#3585#3631#0" expanded="false" />
-                <element signature="e#4199#4415#0" expanded="false" />
-                <element signature="e#4637#5190#0" expanded="false" />
-                <element signature="e#4754#4879#0" expanded="false" />
-                <element signature="e#4912#5168#0" expanded="false" />
-                <element signature="e#6097#6248#0" expanded="false" />
-                <element signature="e#6191#6238#0" expanded="false" />
-                <element signature="e#6294#6445#0" expanded="false" />
-                <element signature="e#6388#6435#0" expanded="false" />
-                <element signature="e#6491#6641#0" expanded="false" />
-                <element signature="e#6585#6631#0" expanded="false" />
-                <element signature="e#7140#7307#0" expanded="false" />
-                <element signature="e#7750#8028#0" expanded="false" />
-                <element signature="e#8101#8152#0" expanded="false" />
-                <element signature="e#8544#8940#0" expanded="false" />
-                <element signature="e#8974#9018#0" expanded="false" />
-                <element signature="e#10226#10263#0" expanded="false" />
-                <element signature="e#10398#10441#0" expanded="false" />
-                <element signature="e#10457#10498#0" expanded="false" />
-                <element signature="e#10901#10951#0" expanded="false" />
-                <element signature="e#10981#11340#0" expanded="false" />
-                <element signature="e#11032#11209#0" expanded="false" />
-                <element signature="e#11065#11187#0" expanded="false" />
-                <element signature="e#11255#11322#0" expanded="false" />
-                <element signature="e#12791#13094#0" expanded="false" />
-                <element signature="e#13151#13330#0" expanded="false" />
-                <element signature="e#13227#13304#0" expanded="false" />
-                <element signature="e#13399#13688#0" expanded="false" />
-                <element signature="e#13451#13526#0" expanded="false" />
-                <element signature="e#13587#13662#0" expanded="false" />
-                <element signature="e#14086#14789#0" expanded="false" />
-                <element signature="e#14177#14445#0" expanded="false" />
-                <element signature="e#14330#14415#0" expanded="false" />
-                <element signature="e#14495#14763#0" expanded="false" />
-                <element signature="e#14648#14733#0" expanded="false" />
-                <element signature="e#15933#16078#0" expanded="false" />
-                <element signature="e#15973#16056#0" expanded="false" />
-                <element signature="e#16128#16271#0" expanded="false" />
-                <element signature="e#16168#16249#0" expanded="false" />
-                <element signature="e#16344#16479#0" expanded="false" />
-                <element signature="e#16384#16457#0" expanded="false" />
-                <element signature="e#16528#16671#0" expanded="false" />
-                <element signature="e#16568#16649#0" expanded="false" />
-                <element signature="e#16759#17069#0" expanded="false" />
-                <element signature="e#16899#17047#0" expanded="false" />
-                <element signature="e#17159#17263#0" expanded="false" />
-                <element signature="e#17185#17257#0" expanded="false" />
-                <element signature="e#17305#17409#0" expanded="false" />
-                <element signature="e#17331#17403#0" expanded="false" />
-                <element signature="e#17451#17587#0" expanded="false" />
-                <element signature="e#17477#17581#0" expanded="false" />
-                <element signature="e#17629#17733#0" expanded="false" />
-                <element signature="e#17655#17727#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cake-details.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/app/templates/cake-details.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.941176">
-              <caret line="28" column="64" selection-start-line="28" selection-start-column="64" selection-end-line="28" selection-end-column="64" />
-              <folding>
-                <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#h4#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#li#0;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#li#1;n#ol#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#button#2;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#button#2;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#div#1;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cake-details.component.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/app/cakes/cake-details.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5892256">
-              <caret line="64" column="86" selection-start-line="64" selection-start-column="86" selection-end-line="64" selection-end-column="86" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cakes-controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/controllers/cakes-controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="59" column="104" selection-start-line="59" selection-start-column="104" selection-end-line="59" selection-end-column="104" />
+            <state vertical-scroll-proportion="0.33333334">
+              <caret line="70" column="31" selection-start-line="70" selection-start-column="23" selection-end-line="70" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -188,18 +86,20 @@
         <option value="$PROJECT_DIR$/server/models/image.js" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/server/controllers/images-controller.js" />
-        <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/client/app/home.component.ts" />
-        <option value="$PROJECT_DIR$/client/app/cakes/cake.ts" />
-        <option value="$PROJECT_DIR$/server/models/cake.js" />
-        <option value="$PROJECT_DIR$/client/app/cakes/add-cake-form.component.ts" />
-        <option value="$PROJECT_DIR$/client/app/cakes/cake.service.ts" />
+        <option value="$PROJECT_DIR$/client/app/cakes/editable-item-list.component.ts" />
         <option value="$PROJECT_DIR$/client/app/templates/add-cake-form.component.html" />
-        <option value="$PROJECT_DIR$/server/controllers/cakes-controller.js" />
+        <option value="$PROJECT_DIR$/server/models/cake.js" />
+        <option value="$PROJECT_DIR$/client/app/cakes/cake.ts" />
         <option value="$PROJECT_DIR$/client/assets/custom/stylesheets/style.scss" />
-        <option value="$PROJECT_DIR$/client/app/templates/cake-details.component.html" />
+        <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/client/app/cakes/cake-details.component.ts" />
+        <option value="$PROJECT_DIR$/client/app/cakes/cake.service.ts" />
+        <option value="$PROJECT_DIR$/server/controllers/cakes-controller.js" />
+        <option value="$PROJECT_DIR$/client/app/templates/cake-details.component.html" />
+        <option value="$PROJECT_DIR$/client/app/cakes/editable-item-form.component.ts" />
+        <option value="$PROJECT_DIR$/client/app/cakes/add-cake-form.component.ts" />
       </list>
     </option>
   </component>
@@ -293,6 +193,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -509,9 +410,34 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cake-book" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cakebook.io" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cakes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="editable-item-form.component.ts" />
+              <option name="myItemType" value="com.intellij.lang.typescript.compiler.ui.projectView.TypeScriptNestingTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -523,7 +449,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../SWEN-356-Weather-Machine" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="split ver&#9;ACTION&#9;SplitVertically&#10;collapse&#9;ACTION&#9;CollapseDocComments&#10;collapse all&#9;ACTION&#9;CollapseAllRegions" />
+    <property name="SearchEverywhereHistoryKey" value="replace&#9;ACTION&#9;Replace&#10;split ver&#9;ACTION&#9;SplitVertically&#10;collapse&#9;ACTION&#9;CollapseDocComments&#10;collapse all&#9;ACTION&#9;CollapseAllRegions" />
     <property name="editor.config.accepted" value="true" />
   </component>
   <component name="RecentsManager">
@@ -621,19 +547,19 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2806604" sideWeight="0.50208336" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278302" sideWeight="0.49375" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14635417" sideWeight="0.49791667" order="4" side_tool="true" content_ui="tabs" x="4" y="370" width="1912" height="279" />
+      <window_info id="Terminal" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20364584" sideWeight="0.49791667" order="4" side_tool="true" content_ui="tabs" x="4" y="370" width="1912" height="279" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1859375" sideWeight="0.5055292" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278302" sideWeight="0.49375" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278302" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -661,21 +587,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/app/cakes/cake-details.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="46" selection-start-line="33" selection-start-column="46" selection-end-line="33" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/home.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="56" selection-start-line="36" selection-start-column="56" selection-end-line="36" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/app/cakes/add-cake-form.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -858,25 +769,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/app.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.1290743">
-          <caret line="105" column="46" selection-start-line="105" selection-start-column="46" selection-end-line="105" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/ng2-file-upload/ng2-file-upload.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/login.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="60" selection-start-line="2" selection-start-column="52" selection-end-line="2" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -929,13 +825,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.50678176">
-          <caret line="22" column="66" selection-start-line="22" selection-start-column="66" selection-end-line="22" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.12870012">
@@ -958,46 +847,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/cakes/cake.ts">
+    <entry file="file://$PROJECT_DIR$/client/app/login.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+          <caret line="2" column="60" selection-start-line="2" selection-start-column="52" selection-end-line="2" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/models/cake.js">
+    <entry file="file://$PROJECT_DIR$/client/app/loggedin-outlet.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31347963">
-          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/cakes/add-cake-form.component.ts">
+    <entry file="file://$PROJECT_DIR$/client/app/app.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="56" column="40" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/cakes/cake.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24660912">
-          <caret line="44" column="61" selection-start-line="44" selection-start-column="61" selection-end-line="44" selection-end-column="61" />
+        <state vertical-scroll-proportion="-0.47965476">
+          <caret line="105" column="46" selection-start-line="105" selection-start-column="46" selection-end-line="105" selection-end-column="46" />
+          <folding>
+            <marker date="1458348480040" expanded="true" signature="1112:4006" placeholder="..." />
+            <marker date="1458348480040" expanded="true" signature="1184:3991" placeholder="..." />
+            <marker date="1458348480040" expanded="true" signature="1358:2404" placeholder="..." />
+            <marker date="1458348480040" expanded="true" signature="1383:1620" placeholder="..." />
+            <marker date="1458348480040" expanded="true" signature="1455:1594" placeholder="..." />
+            <marker date="1458348480040" expanded="true" signature="1645:1870" placeholder="..." />
+            <marker date="1458348480040" expanded="true" signature="1702:1844" placeholder="..." />
+            <marker date="1458348480040" expanded="true" signature="1895:2120" placeholder="..." />
+            <marker date="1458348480040" expanded="true" signature="1952:2094" placeholder="..." />
+            <marker date="1458348480040" expanded="true" signature="2145:2382" placeholder="..." />
+            <marker date="1458348480040" expanded="true" signature="2212:2356" placeholder="..." />
+            <marker date="1458348480040" expanded="true" signature="2502:3972" placeholder="..." />
+            <marker date="1458348480040" expanded="true" signature="2651:2752" placeholder="..." />
+            <marker date="1458348480040" expanded="true" signature="2819:3949" placeholder="..." />
+            <marker date="1458348480040" expanded="true" signature="2848:3101" placeholder="..." />
+            <marker date="1458348480040" expanded="true" signature="2924:3071" placeholder="..." />
+            <marker date="1458348480040" expanded="true" signature="3130:3371" placeholder="..." />
+            <marker date="1458348480040" expanded="true" signature="3191:3341" placeholder="..." />
+            <marker date="1458348480040" expanded="true" signature="3400:3641" placeholder="..." />
+            <marker date="1458348480040" expanded="true" signature="3461:3611" placeholder="..." />
+            <marker date="1458348480040" expanded="true" signature="3670:3923" placeholder="..." />
+            <marker date="1458348480040" expanded="true" signature="3741:3893" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/app/templates/add-cake-form.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="69.05882">
-          <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
+        <state vertical-scroll-proportion="-13.235294">
+          <caret line="40" column="43" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/cakes/cake.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/assets/custom/stylesheets/style.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.7352941">
-          <caret line="623" column="5" selection-start-line="623" selection-start-column="5" selection-end-line="623" selection-end-column="5" />
+        <state vertical-scroll-proportion="-4.6282053">
+          <caret line="284" column="35" selection-start-line="284" selection-start-column="35" selection-end-line="284" selection-end-column="35" />
           <folding>
             <element signature="e#1001#1034#0" expanded="false" />
             <element signature="e#1057#1128#0" expanded="false" />
@@ -1016,82 +930,127 @@
             <element signature="e#6491#6641#0" expanded="false" />
             <element signature="e#6585#6631#0" expanded="false" />
             <element signature="e#7140#7307#0" expanded="false" />
-            <element signature="e#7750#8028#0" expanded="false" />
-            <element signature="e#8101#8152#0" expanded="false" />
-            <element signature="e#8544#8940#0" expanded="false" />
-            <element signature="e#8974#9018#0" expanded="false" />
-            <element signature="e#10226#10263#0" expanded="false" />
-            <element signature="e#10398#10441#0" expanded="false" />
-            <element signature="e#10457#10498#0" expanded="false" />
-            <element signature="e#10901#10951#0" expanded="false" />
-            <element signature="e#10981#11340#0" expanded="false" />
-            <element signature="e#11032#11209#0" expanded="false" />
-            <element signature="e#11065#11187#0" expanded="false" />
-            <element signature="e#11255#11322#0" expanded="false" />
-            <element signature="e#12791#13094#0" expanded="false" />
-            <element signature="e#13151#13330#0" expanded="false" />
-            <element signature="e#13227#13304#0" expanded="false" />
-            <element signature="e#13399#13688#0" expanded="false" />
-            <element signature="e#13451#13526#0" expanded="false" />
-            <element signature="e#13587#13662#0" expanded="false" />
-            <element signature="e#14086#14789#0" expanded="false" />
-            <element signature="e#14177#14445#0" expanded="false" />
-            <element signature="e#14330#14415#0" expanded="false" />
-            <element signature="e#14495#14763#0" expanded="false" />
-            <element signature="e#14648#14733#0" expanded="false" />
-            <element signature="e#15933#16078#0" expanded="false" />
-            <element signature="e#15973#16056#0" expanded="false" />
-            <element signature="e#16128#16271#0" expanded="false" />
-            <element signature="e#16168#16249#0" expanded="false" />
-            <element signature="e#16344#16479#0" expanded="false" />
-            <element signature="e#16384#16457#0" expanded="false" />
-            <element signature="e#16528#16671#0" expanded="false" />
-            <element signature="e#16568#16649#0" expanded="false" />
-            <element signature="e#16759#17069#0" expanded="false" />
-            <element signature="e#16899#17047#0" expanded="false" />
-            <element signature="e#17159#17263#0" expanded="false" />
-            <element signature="e#17185#17257#0" expanded="false" />
-            <element signature="e#17305#17409#0" expanded="false" />
-            <element signature="e#17331#17403#0" expanded="false" />
-            <element signature="e#17451#17587#0" expanded="false" />
-            <element signature="e#17477#17581#0" expanded="false" />
-            <element signature="e#17629#17733#0" expanded="false" />
-            <element signature="e#17655#17727#0" expanded="false" />
+            <element signature="e#7574#7616#0" expanded="false" />
+            <element signature="e#7689#7846#0" expanded="false" />
+            <element signature="e#7718#7828#0" expanded="false" />
+            <element signature="e#7888#7947#0" expanded="false" />
+            <element signature="e#9288#9563#0" expanded="false" />
+            <element signature="e#9616#9775#0" expanded="false" />
+            <element signature="e#9684#9753#0" expanded="false" />
+            <element signature="e#9840#10101#0" expanded="false" />
+            <element signature="e#9888#9955#0" expanded="false" />
+            <element signature="e#10012#10079#0" expanded="false" />
+            <element signature="e#10463#11102#0" expanded="false" />
+            <element signature="e#10546#10790#0" expanded="false" />
+            <element signature="e#10687#10764#0" expanded="false" />
+            <element signature="e#10836#11080#0" expanded="false" />
+            <element signature="e#10977#11054#0" expanded="false" />
+            <element signature="e#12142#12271#0" expanded="false" />
+            <element signature="e#12178#12253#0" expanded="false" />
+            <element signature="e#12317#12444#0" expanded="false" />
+            <element signature="e#12353#12426#0" expanded="false" />
+            <element signature="e#12513#12632#0" expanded="false" />
+            <element signature="e#12549#12614#0" expanded="false" />
+            <element signature="e#12677#12804#0" expanded="false" />
+            <element signature="e#12713#12786#0" expanded="false" />
+            <element signature="e#12884#13166#0" expanded="false" />
+            <element signature="e#13012#13148#0" expanded="false" />
+            <element signature="e#13440#13718#0" expanded="false" />
+            <element signature="e#13791#13842#0" expanded="false" />
+            <element signature="e#14234#14630#0" expanded="false" />
+            <element signature="e#14664#14708#0" expanded="false" />
+            <element signature="e#15916#15953#0" expanded="false" />
+            <element signature="e#16088#16131#0" expanded="false" />
+            <element signature="e#16147#16188#0" expanded="false" />
+            <element signature="e#16590#16662#0" expanded="false" />
+            <element signature="e#16736#16808#0" expanded="false" />
+            <element signature="e#16882#16986#0" expanded="false" />
+            <element signature="e#17060#17132#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/models/cake.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/controllers/cakes-controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="104" selection-start-line="59" selection-start-column="104" selection-end-line="59" selection-end-column="104" />
+        <state vertical-scroll-proportion="0.7121212">
+          <caret line="77" column="15" selection-start-line="77" selection-start-column="15" selection-end-line="77" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/templates/cake-details.component.html">
+    <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.941176">
-          <caret line="28" column="64" selection-start-line="28" selection-start-column="64" selection-end-line="28" selection-end-column="64" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#h4#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#li#0;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#1;n#ol#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#button#2;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#button#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.4122257">
+          <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/cakes/cake.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4949495">
+          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/app/cakes/cake-details.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5892256">
-          <caret line="64" column="86" selection-start-line="64" selection-start-column="86" selection-end-line="64" selection-end-column="86" />
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="97" column="19" selection-start-line="97" selection-start-column="12" selection-end-line="97" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/cakes/editable-item-form.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="9" column="54" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="54" />
+          <folding>
+            <marker date="1458799348110" expanded="true" signature="200:3376" placeholder="..." />
+            <marker date="1458799348110" expanded="true" signature="325:840" placeholder="..." />
+            <marker date="1458799348110" expanded="true" signature="416:466" placeholder="..." />
+            <marker date="1458799348110" expanded="true" signature="517:817" placeholder="..." />
+            <marker date="1458799348110" expanded="true" signature="588:789" placeholder="..." />
+            <marker date="1458799348110" expanded="true" signature="960:3356" placeholder="..." />
+            <marker date="1458799348110" expanded="true" signature="1050:3334" placeholder="..." />
+            <marker date="1458799348110" expanded="true" signature="1080:3308" placeholder="..." />
+            <marker date="1458799348110" expanded="true" signature="1357:1780" placeholder="..." />
+            <marker date="1458799348110" expanded="true" signature="1428:1519" placeholder="..." />
+            <marker date="1458799348110" expanded="true" signature="1603:1745" placeholder="..." />
+            <marker date="1458799348110" expanded="true" signature="1916:2638" placeholder="..." />
+            <marker date="1458799348110" expanded="true" signature="1995:2258" placeholder="..." />
+            <marker date="1458799348110" expanded="true" signature="2339:2603" placeholder="..." />
+            <marker date="1458799348110" expanded="true" signature="2725:3277" placeholder="..." />
+            <marker date="1458799348110" expanded="true" signature="2816:2990" placeholder="..." />
+            <marker date="1458799348110" expanded="true" signature="3082:3242" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/templates/cake-details.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33214286">
+          <caret line="81" column="33" selection-start-line="81" selection-start-column="30" selection-end-line="81" selection-end-column="33" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#button#2;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/cakes/add-cake-form.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="70" column="31" selection-start-line="70" selection-start-column="23" selection-end-line="70" selection-end-column="31" />
           <folding />
         </state>
       </provider>

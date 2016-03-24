@@ -20,7 +20,9 @@ app.get("/api/:user/cakes", cakesController.list);
 app.get("/api/:user/cake/:id", cakesController.get);
 app.post("/api/:user/cakes", cakesController.create);
 app.delete("/api/:user/cake/:id/", cakesController.remove);
-app.post("/api/:user/cake/:id/detail", cakesController.addDetail);
+app.post("/api/:user/cake/:id/:type", cakesController.addDetail);
+app.delete("/api/:user/cake/:id/:type/:index", cakesController.removeDetail);
+app.put("/api/:user/cake/:id/:type", cakesController.updateDetail);
 app.post("/api/:user/cake/:id/image", cakesController.addImage);
 
 // All routes will serve this index page
