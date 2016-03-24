@@ -66,6 +66,7 @@ body {
      *******************/
     .navbar-default {
         height: 40px;
+        min-width: 300px;
         margin-top: 20px;
         margin-bottom: 0;
         border-width: 0;
@@ -247,38 +248,18 @@ body {
         }
     }
 
-    /**********************
-     * Login Page Top Nav *
-     **********************/
-    .navbar-default.login-topnav {
-        z-index: 1;
-        overflow: hidden;
-        height: 13vh;
-        border-bottom-width: 0;
-        white-space: nowrap;
-
-        /* Login Page Logo */
-        .navbar-brand,
-        .navbar-brand:hover,
-        .navbar-brand:focus {
-            margin-left: 1%;
-            margin-top: 3vh;
-            color: $_4th-coffee-red;
-            text-overflow: clip;
-            font-size: 8vh;
-        }
-    }
-
     /***********
      * Wrapper *
      ***********/
     .wrapper {
+        min-width: 300px;
         margin-right: 15vw;
         margin-bottom: 50px;
         min-height: 85vh;
         height: auto;
         background-color: $topnav-color;
         box-shadow: 5px 20px 30px 20px rgba(0, 0, 0, 0.8);
+        border-bottom: 5px solid $topnav-item-color;
     }
     @media screen and (max-width: 768px) {
         .wrapper {
@@ -301,9 +282,6 @@ body {
         min-height: 85vh;
         height: auto;
         box-shadow: -15px 10px 50px 25px rgba(0, 0, 0, 0.2), inset 10px 0 25px 2px rgba(0, 0, 0, 0.3);
-        //border-left: 20vw solid $topnav-color;
-        //transform: skew(1deg) rotate(1deg);
-
         .form-group {
             margin-bottom: 8px;
             button {
@@ -467,94 +445,7 @@ body {
         .general-container {
             margin-left: 3vw !important;
             padding: 20px !important;
-        }
-    }
-
-    /**************
-     * Login Page *
-     **************/
-    .login-container {
-        @extend .general-container;
-        margin: 0;
-        padding-top: 12vh;
-        height: 95vh;
-        text-align: center;
-        a#redirect-button {
-            position: absolute;
-            top: 50%;
-            margin-right: auto;
-            margin-left: -15vh;
-            width: 30vh;
-            color: white;
-            -ms-text-overflow: clip;
-            text-overflow: clip;
-            font-size: 1em;
-        }
-        // might belong in the login page later
-        .welcome-poster {
-            font-family: $welcome-font;
-        }
-        .carousel {
-            position: relative;
-            z-index: 2;
-            overflow: hidden;
-            width: 100%;
-            height: 100%;
-            border-top: 5px solid $topnav-item-color;
-            border-bottom: 5px solid $topnav-item-color;
-            background: #333;
-            text-align: center;
-            align-content: center;
-            .login-button {
-                position: absolute;
-                bottom: 7vh;
-                z-index: 1;
-                margin-left: -15vh;
-                width: 30vh;
-                height: 7vh;
-                background-color: rgba(0, 0, 0, 0.6);
-                color: white;
-                -ms-text-overflow: clip;
-                text-overflow: clip;
-                font-size: 3vh;
-            }
-            .carousel-indicators {
-                bottom: 1vh;
-            }
-            .carousel-inner {
-                position: relative;
-                top: 50%;
-                transform: translateY(-50%);
-                img {
-                    display: table-cell;
-                    margin-right: auto;
-                    margin-left: auto;
-                    max-height: 95vh;
-                    width: auto;
-                    height: auto;
-                }
-            }
-            //.right.carousel-control {
-            //    border-radius: 0 10px 10px 0;
-            //    background: linear-gradient(to left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
-            //}
-            //.left.carousel-control {
-            //    border-radius: 10px 0 0 10px;
-            //    background: linear-gradient(to right,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
-            //}
-        }
-        .dim-background {
-            position: absolute;
-            z-index: 10;
-            width: 100vw;
-            height: 100vh;
-            //background-image: url(http://images.all-free-download.com/images/graphiclarge/plain_white_background_211387.jpg);
-            opacity: 0.5;
-        }
-    }
-    @media screen and (max-device-width: 380px) {
-        .login-container {
-            height: 90vh;
+            padding-bottom: 30px !important;
         }
     }
 
@@ -618,7 +509,6 @@ body {
      ****************/
     .details-container {
         @extend .general-container;
-        min-width: 300px;
         margin-left: 14%;
         word-break: break-all;
         .cake-info {
@@ -740,6 +630,116 @@ body {
 }
 
 .login-body {
-    height: 100vh;
-    background-color: $_2nd-light-cream;
+    //height: 100vh;
+    background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/bamboo-wood-flooring-texture.jpg");
+    background-repeat: repeat;
+
+    /**************
+     * Login Page *
+     **************/
+    .login-container {
+        margin: 0 auto;
+        width: 450px;
+        height: 600px;
+        text-align: center;
+        box-shadow: 15px 20px 30px 20px rgba(0, 0, 0, 0.8);
+        a#redirect-button {
+            position: absolute;
+            top: 50%;
+            margin-right: auto;
+            margin-left: -15vh;
+            width: 30vh;
+            color: white;
+            -ms-text-overflow: clip;
+            text-overflow: clip;
+            font-size: 1em;
+        }
+        // might belong in the login page later
+        .welcome-poster {
+            font-family: $welcome-font;
+        }
+        /**********************
+         * Login Page Top Nav *
+         **********************/
+        .navbar-default.login-topnav {
+            z-index: 1;
+            overflow: hidden;
+            height: 13vh;
+            border-bottom-width: 0;
+            white-space: nowrap;
+
+            /* Login Page Logo */
+            .navbar-brand,
+            .navbar-brand:hover,
+            .navbar-brand:focus {
+                margin-left: 1%;
+                margin-top: 3vh;
+                color: $_4th-coffee-red;
+                text-overflow: clip;
+                font-size: 8vh;
+            }
+        }
+        .carousel {
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            border-top: 5px solid $topnav-item-color;
+            border-bottom: 5px solid $topnav-item-color;
+            background: $topnav-item-color;
+            text-align: center;
+            align-content: center;
+            .login-button {
+                position: absolute;
+                bottom: 7vh;
+                z-index: 1;
+                margin-left: -15vh;
+                width: 30vh;
+                height: 7vh;
+                background-color: rgba(0, 0, 0, 0.6);
+                color: white;
+                -ms-text-overflow: clip;
+                text-overflow: clip;
+                font-size: 3vh;
+            }
+            .carousel-indicators {
+                bottom: 1vh;
+            }
+            .carousel-inner {
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+                img {
+                    display: table-cell;
+                    margin-right: auto;
+                    margin-left: auto;
+                    max-height: 95vh;
+                    width: auto;
+                    height: auto;
+                }
+            }
+            //.right.carousel-control {
+            //    border-radius: 0 10px 10px 0;
+            //    background: linear-gradient(to left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
+            //}
+            //.left.carousel-control {
+            //    border-radius: 10px 0 0 10px;
+            //    background: linear-gradient(to right,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
+            //}
+        }
+        .dim-background {
+            position: absolute;
+            z-index: 10;
+            width: 100vw;
+            height: 100vh;
+            //background-image: url(http://images.all-free-download.com/images/graphiclarge/plain_white_background_211387.jpg);
+            opacity: 0.5;
+        }
+    }
+    @media screen and (max-device-width: 380px) {
+        .login-container {
+            height: 90vh;
+        }
+    }
 }

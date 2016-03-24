@@ -87,7 +87,7 @@ enableProdMode();
             </div>
         </nav>
 
-        <div class="wrapper">
+        <div [class.wrapper]="loggedIn()">
             <loggedin-router-outlet></loggedin-router-outlet>
         </div>
 		`,
