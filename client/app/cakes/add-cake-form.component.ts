@@ -15,10 +15,9 @@ import {EditableItemForm} from "./editable-item-form.component";
 
 export class AddCakeFormComponent {
     @Output() saved = new EventEmitter<Cake>();
-
-    userId = JSON.parse(localStorage.getItem("profile")).user_id;
     @Input() model = new Cake(0, this.userId, "", "", "", "", [], []);
     active = false;
+    userId = JSON.parse(localStorage.getItem("profile")).user_id;
 
     constructor(private _cakeService:CakeService) {
     }

@@ -29,9 +29,9 @@ System.register(["angular2/core", "./cake", "./cake.service", "./editable-item-f
                 function AddCakeFormComponent(_cakeService) {
                     this._cakeService = _cakeService;
                     this.saved = new core_1.EventEmitter();
-                    this.userId = JSON.parse(localStorage.getItem("profile")).user_id;
                     this.model = new cake_1.Cake(0, this.userId, "", "", "", "", [], []);
                     this.active = false;
+                    this.userId = JSON.parse(localStorage.getItem("profile")).user_id;
                 }
                 AddCakeFormComponent.prototype.openForm = function () {
                     this.active = true;

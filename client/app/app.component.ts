@@ -87,8 +87,13 @@ enableProdMode();
             </div>
         </nav>
 
-        <div [class.wrapper]="loggedIn()">
+        <div [class.wrapper]="loggedIn() && !atLoginPage()">
             <loggedin-router-outlet></loggedin-router-outlet>
+            <nav *ngIf="loggedIn() && !atLoginPage()">
+                <button class="back-to-top" id="backToTop" style="display: none" (click)="scrollBackToTop()">
+                    <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+                </button>
+            </nav>
         </div>
 		`,
     styleUrls: ["assets/custom/stylesheets/style.css"],
@@ -109,6 +114,7 @@ enableProdMode();
 ])
 
 export class AppComponent implements OnInit {
+
     constructor(public authHttp:AuthHttp,
                 private _router:Router,
                 private _location:Location) {
@@ -118,6 +124,11 @@ export class AppComponent implements OnInit {
         if (!tokenNotExpired()) {
             this._router.navigate(["Login"]);
         }
+
+        let displayBackToTop = this.displayBackToTop.bind(this);
+        document.onscroll = function () {
+            displayBackToTop(window.scrollY);
+        }
     }
 
     logout() {
@@ -126,6 +137,29 @@ export class AppComponent implements OnInit {
         this._router.navigate(["Login"]);
     }
 
+    /*****************
+     * Scrolling Nav *
+     *****************/
+    displayBackToTop(value:number) {
+        if (document.getElementById("backToTop")) {
+            if (value > 70) {
+                document.getElementById("backToTop").style.display = "block";
+            } else {
+                document.getElementById("backToTop").style.display = "none";
+            }
+        }
+    }
+
+    scrollBackToTop() {
+        setTimeout(() => {
+            window.scrollTo(0, 0)
+        }, 0);
+        return;
+    }
+
+    /********************
+     * Helper Functions *
+     ********************/
     loggedIn() {
         return tokenNotExpired();
     }
@@ -134,7 +168,7 @@ export class AppComponent implements OnInit {
         return this._location.path() == "/login";
     }
 
-    /* Template for Getting Things */
+    /* Template for Getting Things Auth0 */
     getSecretThing() {
         this.authHttp.get('http://example.com/api/secretthing')
             .subscribe(

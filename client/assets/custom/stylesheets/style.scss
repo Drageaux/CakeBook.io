@@ -248,6 +248,28 @@ body {
         }
     }
 
+    .back-to-top,
+    .back-to-top:focus {
+        display: none;
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        padding: 13px 17px 10px 17px;
+        border-radius: 4px;
+        border: none;
+        background-color: $topnav-item-color;
+        color: white;
+        font-size: 1.2em;
+    }
+    .back-to-top:hover {
+        padding: 15px 19px 12px 19px;
+        background-color: $topnav-item-hovered-color;
+        color: white;
+        font-size: 1.3em;
+        transform: translate(2px, 2px);
+        transition-duration: 0.2s;
+    }
+
     /***********
      * Wrapper *
      ***********/
