@@ -38,6 +38,17 @@ body {
     font-family: "Lobster", cursive; }
   body a:hover {
     cursor: pointer; }
+  body a#redirect-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: auto;
+    margin-left: -15vh;
+    width: 30vh;
+    color: white;
+    -ms-text-overflow: clip;
+    text-overflow: clip;
+    font-size: 1em; }
   body button span {
     cursor: pointer; }
   body textarea {
@@ -163,10 +174,7 @@ body {
       margin-right: 15vw; } }
   @media screen and (max-width: 768px) {
     body .navbar-default {
-      margin-right: 10vw; } }
-  @media screen and (max-width: 480px) {
-    body .navbar-default {
-      margin-right: 4vw; } }
+      margin-right: 5vw; } }
   body .back-to-top,
   body .back-to-top:focus {
     display: none;
@@ -186,7 +194,7 @@ body {
     font-size: 1.3em;
     transform: translate(2px, 2px);
     transition-duration: 0.2s; }
-  body .wrapper {
+  body .wrapper, body .login-wrapper {
     min-width: 300px;
     margin-right: 15vw;
     margin-bottom: 50px;
@@ -196,11 +204,14 @@ body {
     box-shadow: 5px 20px 30px 20px rgba(0, 0, 0, 0.8);
     border-bottom: 5px solid #AD4047; }
   @media screen and (max-width: 768px) {
-    body .wrapper {
-      margin-right: 10vw; } }
+    body .wrapper, body .login-wrapper {
+      margin-right: 5vw; } }
   @media screen and (max-width: 480px) {
-    body .wrapper {
+    body .wrapper, body .login-wrapper {
       margin-right: 4vw; } }
+  body .login-wrapper {
+    border-top: 5px solid #AD4047;
+    margin-top: 55px; }
   body .general-container, body .home-container, body .details-container {
     margin-top: 0;
     margin-bottom: 0;
@@ -316,10 +327,18 @@ body {
           body .details-container .form-group .list-group.editable-item-list .list-group-item:focus .number-label {
             background-color: #AD4047;
             transition-duration: 0.2s; }
+        @media screen and (max-width: 768px) {
+          body .general-container .form-group .list-group.editable-item-list .list-group-item, body .home-container .form-group .list-group.editable-item-list .list-group-item, body .details-container .form-group .list-group.editable-item-list .list-group-item {
+            font-size: 0.9em;
+            margin-left: 10px;
+            margin-right: 10px;
+            padding-right: 10px; }
+            body .general-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name, body .home-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name, body .details-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name {
+              width: 79%; } }
   @media screen and (max-width: 768px) {
     body .general-container, body .home-container, body .details-container {
-      margin-left: 10vw !important;
-      padding: 30px !important; } }
+      margin-left: 8vw !important;
+      padding: 25px !important; } }
   @media screen and (max-width: 480px) {
     body .general-container, body .home-container, body .details-container {
       margin-left: 3vw !important;
@@ -413,12 +432,16 @@ body {
     body .details-container {
       margin-left: 5%; } }
 
+/**************
+ * Login Page *
+ **************/
 .login-body {
+  height: 100vh;
   background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/bamboo-wood-flooring-texture.jpg");
   background-repeat: repeat;
-  /**************
-   * Login Page *
-   **************/ }
+  /*******************
+   * Login Container *
+   *******************/ }
   .login-body .login-container {
     margin: 0 auto;
     width: 450px;
@@ -428,16 +451,6 @@ body {
     /**********************
      * Login Page Top Nav *
      **********************/ }
-    .login-body .login-container a#redirect-button {
-      position: absolute;
-      top: 50%;
-      margin-right: auto;
-      margin-left: -15vh;
-      width: 30vh;
-      color: white;
-      -ms-text-overflow: clip;
-      text-overflow: clip;
-      font-size: 1em; }
     .login-body .login-container .welcome-poster {
       font-family: "Lobster", cursive; }
     .login-body .login-container .navbar-default.login-topnav {

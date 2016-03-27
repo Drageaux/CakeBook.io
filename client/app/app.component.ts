@@ -95,6 +95,10 @@ enableProdMode();
                 </button>
             </nav>
         </div>
+
+        <div *ngIf="loggedIn() && atLoginPage()">
+            <a class="btn btn-primary" id="redirect-button" href="/home">Login Successful<br>(click here)</a>
+        </div>
 		`,
     styleUrls: ["assets/custom/stylesheets/style.css"],
     encapsulation: ViewEncapsulation.None,

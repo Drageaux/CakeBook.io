@@ -46,6 +46,18 @@ body {
     a:hover {
         cursor: pointer;
     }
+    a#redirect-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: auto;
+        margin-left: -15vh;
+        width: 30vh;
+        color: white;
+        -ms-text-overflow: clip;
+        text-overflow: clip;
+        font-size: 1em;
+    }
     button {
         span {
             cursor: pointer;
@@ -57,7 +69,6 @@ body {
     hr {
         border-color: $border-color;
     }
-    //background-color: #171515;
     background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/bamboo-wood-flooring-texture.jpg");
     background-repeat: repeat;
 
@@ -239,12 +250,7 @@ body {
     }
     @media screen and (max-width: 768px) {
         .navbar-default {
-            margin-right: 10vw;
-        }
-    }
-    @media screen and (max-width: 480px) {
-        .navbar-default {
-            margin-right: 4vw;
+            margin-right: 5vw;
         }
     }
 
@@ -285,13 +291,19 @@ body {
     }
     @media screen and (max-width: 768px) {
         .wrapper {
-            margin-right: 10vw;
+            margin-right: 5vw;
         }
     }
     @media screen and (max-width: 480px) {
         .wrapper {
             margin-right: 4vw;
         }
+    }
+    .login-wrapper {
+        @extend .wrapper;
+        border-top: 5px solid $topnav-item-color;
+        margin-top: 55px;
+
     }
 
     /***********
@@ -454,13 +466,24 @@ body {
                         transition-duration: 0.2s;
                     }
                 }
+                @media screen and (max-width: 768px) {
+                    .list-group-item {
+                        font-size: 0.9em;
+                        margin-left: 10px;
+                        margin-right: 10px;
+                        padding-right: 10px;
+                        .list-group-item-name {
+                            width: 79%;
+                        }
+                    }
+                }
             }
         }
     }
     @media screen and (max-width: 768px) {
         .general-container {
-            margin-left: 10vw !important;
-            padding: 30px !important;
+            margin-left: 8vw !important;
+            padding: 25px !important;
         }
     }
     @media screen and (max-width: 480px) {
@@ -651,35 +674,29 @@ body {
     //}
 }
 
+/**************
+ * Login Page *
+ **************/
 .login-body {
-    //height: 100vh;
+    height: 100vh;
     background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/bamboo-wood-flooring-texture.jpg");
     background-repeat: repeat;
 
-    /**************
-     * Login Page *
-     **************/
+    /*******************
+     * Login Container *
+     *******************/
     .login-container {
         margin: 0 auto;
         width: 450px;
         height: 600px;
         text-align: center;
         box-shadow: 15px 20px 30px 20px rgba(0, 0, 0, 0.8);
-        a#redirect-button {
-            position: absolute;
-            top: 50%;
-            margin-right: auto;
-            margin-left: -15vh;
-            width: 30vh;
-            color: white;
-            -ms-text-overflow: clip;
-            text-overflow: clip;
-            font-size: 1em;
-        }
+
         // might belong in the login page later
         .welcome-poster {
             font-family: $welcome-font;
         }
+
         /**********************
          * Login Page Top Nav *
          **********************/
