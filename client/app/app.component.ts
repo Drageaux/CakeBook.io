@@ -29,68 +29,7 @@ enableProdMode();
 
 @Component({
     selector: 'my-app',
-    template: `
-        <div *ngIf="loggedIn() && !atLoginPage()">
-            <nav class="navbar navbar-default navbar-fixed-top topnav">
-                <a href="#" class="navbar-brand">Cake Book</a>
-
-                <!-- Normal Menu -->
-                <ul class="nav navbar-nav navbar-right" id="normalMenu">
-                    <li>
-                        <a class="navbar-item" [routerLink]="['Home']">
-                            <span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Home&nbsp;
-                        </a>
-                    </li>
-                    <li>
-                        <a class="navbar-item" href="#">
-                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Profile&nbsp;
-                        </a>
-                    </li>
-                    <li>
-                        <a class="navbar-item" href="#">
-                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp;Settings&nbsp;
-                        </a>
-                    </li>
-                    <li>
-                        <a class="navbar-item" (click)="logout()">
-                            <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Logout&nbsp;
-                        </a>
-                    </li>
-                </ul>
-
-                <!-- Dropdown Menu -->
-                <div class="btn-group" id="dropdownMenu">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="glyphicon glyphicon-list"></span>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-right">
-                        <li>
-                            <a class="navbar-item" [routerLink]="['Home']">
-                                <span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Home&nbsp;
-                            </a>
-                        </li>
-                        <li>
-                            <a class="navbar-item" href="#">
-                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Profile&nbsp;
-                            </a>
-                        </li>
-                        <li>
-                            <a class="navbar-item" href="#">
-                                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp;Settings&nbsp;
-                            </a>
-                        </li>
-                        <li>
-                            <a class="navbar-item" (click)="logout()">
-                                <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Logout&nbsp;
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-
-        <loggedin-router-outlet></loggedin-router-outlet>
-		`,
+    templateUrl: "templates/app.component.html",
     styleUrls: ["assets/custom/stylesheets/style.css"],
     encapsulation: ViewEncapsulation.None,
     providers: [
@@ -109,6 +48,7 @@ enableProdMode();
 ])
 
 export class AppComponent implements OnInit {
+
     constructor(public authHttp:AuthHttp,
                 private _router:Router,
                 private _location:Location) {
@@ -118,6 +58,11 @@ export class AppComponent implements OnInit {
         if (!tokenNotExpired()) {
             this._router.navigate(["Login"]);
         }
+
+        let displayBackToTop = this.displayBackToTop.bind(this);
+        document.onscroll = function () {
+            displayBackToTop(window.scrollY);
+        }
     }
 
     logout() {
@@ -126,6 +71,29 @@ export class AppComponent implements OnInit {
         this._router.navigate(["Login"]);
     }
 
+    /*****************
+     * Scrolling Nav *
+     *****************/
+    displayBackToTop(value:number) {
+        if (document.getElementById("backToTop")) {
+            if (value > 70) {
+                document.getElementById("backToTop").style.display = "block";
+            } else {
+                document.getElementById("backToTop").style.display = "none";
+            }
+        }
+    }
+
+    scrollBackToTop() {
+        setTimeout(() => {
+            window.scrollTo(0, 0)
+        }, 0);
+        return;
+    }
+
+    /********************
+     * Helper Functions *
+     ********************/
     loggedIn() {
         return tokenNotExpired();
     }
@@ -134,7 +102,7 @@ export class AppComponent implements OnInit {
         return this._location.path() == "/login";
     }
 
-    /* Template for Getting Things */
+    /* Template for Getting Things Auth0 */
     getSecretThing() {
         this.authHttp.get('http://example.com/api/secretthing')
             .subscribe(

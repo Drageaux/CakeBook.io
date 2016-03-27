@@ -1,7 +1,7 @@
 <div *ngIf="!loggedIn()" class="login-body">
-    <nav class="navbar navbar-default navbar-fixed-top login-topnav">
-        <a href="#" class="navbar-brand">Cake Book</a>
-    </nav>
+    <!--<nav class="navbar navbar-default navbar-fixed-top login-topnav">-->
+    <!--&lt;!&ndash;<a href="#" class="navbar-brand">Cake Book</a>&ndash;&gt;-->
+    <!--</nav>-->
 
     <div class="login-container">
         <!-- Bootstrap Carousel -->
@@ -65,6 +65,6 @@
     </div>
 </div>
 
-<div *ngIf="loggedIn() && atLoginPage()" class="login-container">
-    <a class="btn btn-default btn-success" id="redirect-button" href="#">Login Successful<br>(click here)</a>
+<div *ngIf="loggedIn() && atLoginPage()">
+    <a class="btn btn-primary" id="redirect-button" href="/home">Login Successful<br>(click here)</a>
 </div>

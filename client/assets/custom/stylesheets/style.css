@@ -14,18 +14,17 @@ body {
    * General *
    ***********/
   font-family: "Marmelad", Arial;
+  background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/bamboo-wood-flooring-texture.jpg");
+  background-repeat: repeat;
   /*******************
    * General Top Nav *
    *******************/
-  /**********************
-   * Login Page Top Nav *
-   **********************/
+  /***********
+   * Wrapper *
+   ***********/
   /***********
    * Content *
    ***********/
-  /**************
-   * Login Page *
-   **************/
   /*************
    * Home Page *
    *************/
@@ -39,14 +38,31 @@ body {
     font-family: "Lobster", cursive; }
   body a:hover {
     cursor: pointer; }
+  body a#redirect-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: auto;
+    margin-left: -15vh;
+    width: 30vh;
+    color: white;
+    -ms-text-overflow: clip;
+    text-overflow: clip;
+    font-size: 1em; }
   body button span {
     cursor: pointer; }
   body textarea {
     resize: none; }
+  body hr {
+    border-color: #6a272b; }
   body .navbar-default {
     height: 40px;
+    min-width: 300px;
+    margin-top: 20px;
+    margin-bottom: 0;
+    border-width: 0;
     border-bottom: 5px solid #AD4047;
-    background-color: #FCE9DC;
+    background-color: transparent;
     font-size: 1.1em;
     font-family: "Chewy", cursive;
     /* Normal Menu */
@@ -54,8 +70,8 @@ body {
     /* General Logo */ }
     @media screen and (min-width: 480px) {
       body .navbar-default .navbar-nav#normalMenu {
-        margin-right: 0;
-        border-radius: 6px 6px 0 0; }
+        border-radius: 6px 6px 0 0;
+        margin-right: 0.2vw; }
         body .navbar-default .navbar-nav#normalMenu li a {
           padding: 15px 16px 11px 16px;
           border-right: 6px solid #6a272b;
@@ -79,9 +95,6 @@ body {
         body .navbar-default .navbar-nav#normalMenu li a:focus {
           padding: 15px 15px 11px 15px;
           color: white; } }
-    @media screen and (min-width: 1200px) {
-      body .navbar-default .navbar-nav#normalMenu {
-        margin-right: 13%; } }
     @media screen and (min-width: 480px) {
       body .navbar-default .btn-group#dropdownMenu {
         display: none; } }
@@ -130,15 +143,19 @@ body {
     body .navbar-default .navbar-brand:hover,
     body .navbar-default .navbar-brand:focus {
       margin-left: -8px;
+      margin-bottom: 5px;
+      padding-bottom: 10px;
+      border: 5px solid #AD4047;
       color: #593836;
       text-overflow: clip;
-      font-size: 5vh; }
+      font-size: 5vh;
+      background-color: #FCE9DC;
+      border-radius: 5px; }
     @media screen and (min-width: 1200px) {
       body .navbar-default .navbar-brand,
       body .navbar-default .navbar-brand:hover,
       body .navbar-default .navbar-brand:focus {
-        margin-left: 13.5%;
-        padding-left: 0; } }
+        padding-left: 10px; } }
     @media screen and (max-width: 768px) {
       body .navbar-default .navbar-brand,
       body .navbar-default .navbar-brand:hover,
@@ -157,43 +174,73 @@ body {
   body .navbar-default.topnav:hover {
     border-bottom: 5px solid #6a272b;
     transition-duration: 0.4s; }
-  body .navbar-default.login-topnav {
-    z-index: 1;
-    overflow: hidden;
-    height: 13vh;
-    border-bottom-width: 0;
-    white-space: nowrap;
-    /* Login Page Logo */ }
-    body .navbar-default.login-topnav .navbar-brand,
-    body .navbar-default.login-topnav .navbar-brand:hover,
-    body .navbar-default.login-topnav .navbar-brand:focus {
-      margin-left: 1%;
-      margin-top: 3vh;
-      color: #593836;
-      text-overflow: clip;
-      font-size: 8vh; }
-  body .general-container, body .login-container, body .home-container, body .details-container {
-    margin-right: 20%;
-    margin-left: 20%;
+  @media screen and (min-width: 768px) {
+    body .navbar-default {
+      margin-right: 15vw; } }
+  @media screen and (max-width: 768px) {
+    body .navbar-default {
+      margin-right: 5vw; } }
+  body .back-to-top,
+  body .back-to-top:focus {
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    padding: 13px 17px 10px 17px;
+    border-radius: 4px;
+    border: none;
+    background-color: #AD4047;
+    color: white;
+    font-size: 1.2em; }
+  body .back-to-top:hover {
+    padding: 15px 19px 12px 19px;
+    background-color: #6a272b;
+    color: white;
+    font-size: 1.3em;
+    transform: translate(2px, 2px);
+    transition-duration: 0.2s; }
+  body .wrapper, body .login-wrapper {
+    min-width: 300px;
+    margin-right: 15vw;
     margin-bottom: 50px;
-    padding-top: 80px; }
-    body .general-container .form-group, body .login-container .form-group, body .home-container .form-group, body .details-container .form-group {
+    min-height: 85vh;
+    height: auto;
+    background-color: #FCE9DC;
+    box-shadow: 5px 20px 30px 20px rgba(0, 0, 0, 0.8);
+    border-bottom: 5px solid #AD4047; }
+  @media screen and (max-width: 768px) {
+    body .wrapper, body .login-wrapper {
+      margin-right: 5vw; } }
+  @media screen and (max-width: 480px) {
+    body .wrapper, body .login-wrapper {
+      margin-right: 4vw; } }
+  body .login-wrapper {
+    border-top: 5px solid #AD4047;
+    margin-top: 55px; }
+  body .general-container, body .home-container, body .details-container {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 50px;
+    min-height: 85vh;
+    height: auto;
+    box-shadow: -15px 10px 50px 25px rgba(0, 0, 0, 0.2), inset 10px 0 25px 2px rgba(0, 0, 0, 0.3); }
+    body .general-container .form-group, body .home-container .form-group, body .details-container .form-group {
       margin-bottom: 8px; }
-      body .general-container .form-group button, body .login-container .form-group button, body .home-container .form-group button, body .details-container .form-group button {
+      body .general-container .form-group button, body .home-container .form-group button, body .details-container .form-group button {
         margin: 0; }
-      body .general-container .form-group .input-group .input-group-btn:first-child button, body .login-container .form-group .input-group .input-group-btn:first-child button, body .home-container .form-group .input-group .input-group-btn:first-child button, body .details-container .form-group .input-group .input-group-btn:first-child button {
+      body .general-container .form-group .input-group .input-group-btn:first-child button, body .home-container .form-group .input-group .input-group-btn:first-child button, body .details-container .form-group .input-group .input-group-btn:first-child button {
         margin-right: 5px;
         border-radius: 4px; }
-      body .general-container .form-group .input-group .form-control:last-child, body .login-container .form-group .input-group .form-control:last-child, body .home-container .form-group .input-group .form-control:last-child, body .details-container .form-group .input-group .form-control:last-child {
+      body .general-container .form-group .input-group .form-control:last-child, body .home-container .form-group .input-group .form-control:last-child, body .details-container .form-group .input-group .form-control:last-child {
         border-radius: 4px; }
-      body .general-container .form-group .list-group.editable-item-list, body .login-container .form-group .list-group.editable-item-list, body .home-container .form-group .list-group.editable-item-list, body .details-container .form-group .list-group.editable-item-list {
+      body .general-container .form-group .list-group.editable-item-list, body .home-container .form-group .list-group.editable-item-list, body .details-container .form-group .list-group.editable-item-list {
         margin-top: 5px;
         padding: 5px 0;
         height: auto !important;
         border: 1px solid #DDD;
         border-radius: 4px;
         background-color: #EEE; }
-        body .general-container .form-group .list-group.editable-item-list .list-group-item, body .login-container .form-group .list-group.editable-item-list .list-group-item, body .home-container .form-group .list-group.editable-item-list .list-group-item, body .details-container .form-group .list-group.editable-item-list .list-group-item {
+        body .general-container .form-group .list-group.editable-item-list .list-group-item, body .home-container .form-group .list-group.editable-item-list .list-group-item, body .details-container .form-group .list-group.editable-item-list .list-group-item {
           overflow: hidden;
           margin: 2px 20px 2px 20px;
           padding: 6px 15px 6px 0;
@@ -202,7 +249,7 @@ body {
           background-color: #fafafa;
           font-size: 0.97em;
           /* Edit and Remove */ }
-          body .general-container .form-group .list-group.editable-item-list .list-group-item .number-label, body .login-container .form-group .list-group.editable-item-list .list-group-item .number-label, body .home-container .form-group .list-group.editable-item-list .list-group-item .number-label, body .details-container .form-group .list-group.editable-item-list .list-group-item .number-label {
+          body .general-container .form-group .list-group.editable-item-list .list-group-item .number-label, body .home-container .form-group .list-group.editable-item-list .list-group-item .number-label, body .details-container .form-group .list-group.editable-item-list .list-group-item .number-label {
             position: absolute;
             top: 0;
             float: left;
@@ -212,144 +259,98 @@ body {
             background-color: #cecece;
             color: white;
             word-wrap: break-word; }
-            body .general-container .form-group .list-group.editable-item-list .list-group-item .number-label span, body .login-container .form-group .list-group.editable-item-list .list-group-item .number-label span, body .home-container .form-group .list-group.editable-item-list .list-group-item .number-label span, body .details-container .form-group .list-group.editable-item-list .list-group-item .number-label span {
+            body .general-container .form-group .list-group.editable-item-list .list-group-item .number-label span, body .home-container .form-group .list-group.editable-item-list .list-group-item .number-label span, body .details-container .form-group .list-group.editable-item-list .list-group-item .number-label span {
               position: absolute;
               top: 46%;
               line-height: 5px;
               cursor: default; }
-          body .general-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name, body .login-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name, body .home-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name, body .details-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name {
+          body .general-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name, body .home-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name, body .details-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name {
             right: 0;
             display: inline-block;
             margin-right: auto;
             padding-left: 38px;
             width: 78%;
             word-break: break-all; }
-          body .general-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name.edit-item, body .login-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name.edit-item, body .home-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name.edit-item, body .details-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name.edit-item {
+          body .general-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name.edit-item, body .home-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name.edit-item, body .details-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name.edit-item {
             width: 77%; }
-            body .general-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name.edit-item input, body .login-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name.edit-item input, body .home-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name.edit-item input, body .details-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name.edit-item input {
+            body .general-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name.edit-item input, body .home-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name.edit-item input, body .details-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name.edit-item input {
               height: 26px; }
           @media screen and (min-device-width: 768px) {
-            body .general-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name, body .login-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name, body .home-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name, body .details-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name {
+            body .general-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name, body .home-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name, body .details-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name {
               width: 82%; }
-            body .general-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name.edit-item, body .login-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name.edit-item, body .home-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name.edit-item, body .details-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name.edit-item {
+            body .general-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name.edit-item, body .home-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name.edit-item, body .details-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name.edit-item {
               width: 82%; } }
-          body .general-container .form-group .list-group.editable-item-list .list-group-item .btn, body .login-container .form-group .list-group.editable-item-list .list-group-item .btn, body .home-container .form-group .list-group.editable-item-list .list-group-item .btn, body .details-container .form-group .list-group.editable-item-list .list-group-item .btn {
+          body .general-container .form-group .list-group.editable-item-list .list-group-item .btn, body .home-container .form-group .list-group.editable-item-list .list-group-item .btn, body .details-container .form-group .list-group.editable-item-list .list-group-item .btn {
             position: relative;
             padding: 3px 7px 1px 7px;
             vertical-align: baseline;
             font-size: 10px;
             transition-duration: 0.2s; }
-          body .general-container .form-group .list-group.editable-item-list .list-group-item .edit-remove, body .login-container .form-group .list-group.editable-item-list .list-group-item .edit-remove, body .home-container .form-group .list-group.editable-item-list .list-group-item .edit-remove, body .details-container .form-group .list-group.editable-item-list .list-group-item .edit-remove {
+          body .general-container .form-group .list-group.editable-item-list .list-group-item .edit-remove, body .home-container .form-group .list-group.editable-item-list .list-group-item .edit-remove, body .details-container .form-group .list-group.editable-item-list .list-group-item .edit-remove {
             float: right; }
-            body .general-container .form-group .list-group.editable-item-list .list-group-item .edit-remove .edit-button:hover, body .login-container .form-group .list-group.editable-item-list .list-group-item .edit-remove .edit-button:hover, body .home-container .form-group .list-group.editable-item-list .list-group-item .edit-remove .edit-button:hover, body .details-container .form-group .list-group.editable-item-list .list-group-item .edit-remove .edit-button:hover {
+            body .general-container .form-group .list-group.editable-item-list .list-group-item .edit-remove .edit-button:hover, body .home-container .form-group .list-group.editable-item-list .list-group-item .edit-remove .edit-button:hover, body .details-container .form-group .list-group.editable-item-list .list-group-item .edit-remove .edit-button:hover {
               border-color: #5BC0DE;
               background-color: #5BC0DE; }
-              body .general-container .form-group .list-group.editable-item-list .list-group-item .edit-remove .edit-button:hover span, body .login-container .form-group .list-group.editable-item-list .list-group-item .edit-remove .edit-button:hover span, body .home-container .form-group .list-group.editable-item-list .list-group-item .edit-remove .edit-button:hover span, body .details-container .form-group .list-group.editable-item-list .list-group-item .edit-remove .edit-button:hover span {
+              body .general-container .form-group .list-group.editable-item-list .list-group-item .edit-remove .edit-button:hover span, body .home-container .form-group .list-group.editable-item-list .list-group-item .edit-remove .edit-button:hover span, body .details-container .form-group .list-group.editable-item-list .list-group-item .edit-remove .edit-button:hover span {
                 color: white; }
-            body .general-container .form-group .list-group.editable-item-list .list-group-item .edit-remove .remove-button:hover, body .login-container .form-group .list-group.editable-item-list .list-group-item .edit-remove .remove-button:hover, body .home-container .form-group .list-group.editable-item-list .list-group-item .edit-remove .remove-button:hover, body .details-container .form-group .list-group.editable-item-list .list-group-item .edit-remove .remove-button:hover {
+            body .general-container .form-group .list-group.editable-item-list .list-group-item .edit-remove .remove-button:hover, body .home-container .form-group .list-group.editable-item-list .list-group-item .edit-remove .remove-button:hover, body .details-container .form-group .list-group.editable-item-list .list-group-item .edit-remove .remove-button:hover {
               border-color: #C9302C;
               background-color: #C9302C; }
-              body .general-container .form-group .list-group.editable-item-list .list-group-item .edit-remove .remove-button:hover span, body .login-container .form-group .list-group.editable-item-list .list-group-item .edit-remove .remove-button:hover span, body .home-container .form-group .list-group.editable-item-list .list-group-item .edit-remove .remove-button:hover span, body .details-container .form-group .list-group.editable-item-list .list-group-item .edit-remove .remove-button:hover span {
+              body .general-container .form-group .list-group.editable-item-list .list-group-item .edit-remove .remove-button:hover span, body .home-container .form-group .list-group.editable-item-list .list-group-item .edit-remove .remove-button:hover span, body .details-container .form-group .list-group.editable-item-list .list-group-item .edit-remove .remove-button:hover span {
                 color: white; }
-          body .general-container .form-group .list-group.editable-item-list .list-group-item .save-cancel, body .login-container .form-group .list-group.editable-item-list .list-group-item .save-cancel, body .home-container .form-group .list-group.editable-item-list .list-group-item .save-cancel, body .details-container .form-group .list-group.editable-item-list .list-group-item .save-cancel {
+          body .general-container .form-group .list-group.editable-item-list .list-group-item .save-cancel, body .home-container .form-group .list-group.editable-item-list .list-group-item .save-cancel, body .details-container .form-group .list-group.editable-item-list .list-group-item .save-cancel {
             float: right; }
-            body .general-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .btn, body .login-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .btn, body .home-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .btn, body .details-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .btn {
+            body .general-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .btn, body .home-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .btn, body .details-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .btn {
               height: 26px;
               border-color: white !important;
               background-color: white; }
-            body .general-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .save-button:hover, body .login-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .save-button:hover, body .home-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .save-button:hover, body .details-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .save-button:hover {
+            body .general-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .save-button:hover, body .home-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .save-button:hover, body .details-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .save-button:hover {
               background-color: #71C171 !important; }
-            body .general-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .save-button:not(:hover) span, body .login-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .save-button:not(:hover) span, body .home-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .save-button:not(:hover) span, body .details-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .save-button:not(:hover) span {
+            body .general-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .save-button:not(:hover) span, body .home-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .save-button:not(:hover) span, body .details-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .save-button:not(:hover) span {
               color: #5CB85C; }
-            body .general-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .cancel-button:hover, body .login-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .cancel-button:hover, body .home-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .cancel-button:hover, body .details-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .cancel-button:hover {
+            body .general-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .cancel-button:hover, body .home-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .cancel-button:hover, body .details-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .cancel-button:hover {
               background-color: #D64843 !important; }
-            body .general-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .cancel-button:not(:hover) span, body .login-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .cancel-button:not(:hover) span, body .home-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .cancel-button:not(:hover) span, body .details-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .cancel-button:not(:hover) span {
+            body .general-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .cancel-button:not(:hover) span, body .home-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .cancel-button:not(:hover) span, body .details-container .form-group .list-group.editable-item-list .list-group-item .save-cancel .cancel-button:not(:hover) span {
               color: #C9302C; }
-        body .general-container .form-group .list-group.editable-item-list .list-group-item:first-child:last-child .number-label, body .login-container .form-group .list-group.editable-item-list .list-group-item:first-child:last-child .number-label, body .home-container .form-group .list-group.editable-item-list .list-group-item:first-child:last-child .number-label, body .details-container .form-group .list-group.editable-item-list .list-group-item:first-child:last-child .number-label {
+        body .general-container .form-group .list-group.editable-item-list .list-group-item:first-child:last-child .number-label, body .home-container .form-group .list-group.editable-item-list .list-group-item:first-child:last-child .number-label, body .details-container .form-group .list-group.editable-item-list .list-group-item:first-child:last-child .number-label {
           border-radius: 4px 0 0 4px; }
-        body .general-container .form-group .list-group.editable-item-list .list-group-item:first-child .number-label, body .login-container .form-group .list-group.editable-item-list .list-group-item:first-child .number-label, body .home-container .form-group .list-group.editable-item-list .list-group-item:first-child .number-label, body .details-container .form-group .list-group.editable-item-list .list-group-item:first-child .number-label {
+        body .general-container .form-group .list-group.editable-item-list .list-group-item:first-child .number-label, body .home-container .form-group .list-group.editable-item-list .list-group-item:first-child .number-label, body .details-container .form-group .list-group.editable-item-list .list-group-item:first-child .number-label {
           border-radius: 4px 0 0 0; }
-        body .general-container .form-group .list-group.editable-item-list .list-group-item:not(:first-child):not(:last-child) .number-label, body .login-container .form-group .list-group.editable-item-list .list-group-item:not(:first-child):not(:last-child) .number-label, body .home-container .form-group .list-group.editable-item-list .list-group-item:not(:first-child):not(:last-child) .number-label, body .details-container .form-group .list-group.editable-item-list .list-group-item:not(:first-child):not(:last-child) .number-label {
+        body .general-container .form-group .list-group.editable-item-list .list-group-item:not(:first-child):not(:last-child) .number-label, body .home-container .form-group .list-group.editable-item-list .list-group-item:not(:first-child):not(:last-child) .number-label, body .details-container .form-group .list-group.editable-item-list .list-group-item:not(:first-child):not(:last-child) .number-label {
           border-radius: 0; }
-        body .general-container .form-group .list-group.editable-item-list .list-group-item:last-child .number-label, body .login-container .form-group .list-group.editable-item-list .list-group-item:last-child .number-label, body .home-container .form-group .list-group.editable-item-list .list-group-item:last-child .number-label, body .details-container .form-group .list-group.editable-item-list .list-group-item:last-child .number-label {
+        body .general-container .form-group .list-group.editable-item-list .list-group-item:last-child .number-label, body .home-container .form-group .list-group.editable-item-list .list-group-item:last-child .number-label, body .details-container .form-group .list-group.editable-item-list .list-group-item:last-child .number-label {
           border-radius: 0 0 0 4px; }
-        body .general-container .form-group .list-group.editable-item-list .list-group-item:hover, body .login-container .form-group .list-group.editable-item-list .list-group-item:hover, body .home-container .form-group .list-group.editable-item-list .list-group-item:hover, body .details-container .form-group .list-group.editable-item-list .list-group-item:hover,
+        body .general-container .form-group .list-group.editable-item-list .list-group-item:hover, body .home-container .form-group .list-group.editable-item-list .list-group-item:hover, body .details-container .form-group .list-group.editable-item-list .list-group-item:hover,
         body .general-container .form-group .list-group.editable-item-list .list-group-item:focus,
-        body .login-container .form-group .list-group.editable-item-list .list-group-item:focus,
         body .home-container .form-group .list-group.editable-item-list .list-group-item:focus,
         body .details-container .form-group .list-group.editable-item-list .list-group-item:focus {
           background-color: white;
           transition-duration: 0.2s; }
-          body .general-container .form-group .list-group.editable-item-list .list-group-item:hover .number-label, body .login-container .form-group .list-group.editable-item-list .list-group-item:hover .number-label, body .home-container .form-group .list-group.editable-item-list .list-group-item:hover .number-label, body .details-container .form-group .list-group.editable-item-list .list-group-item:hover .number-label,
+          body .general-container .form-group .list-group.editable-item-list .list-group-item:hover .number-label, body .home-container .form-group .list-group.editable-item-list .list-group-item:hover .number-label, body .details-container .form-group .list-group.editable-item-list .list-group-item:hover .number-label,
           body .general-container .form-group .list-group.editable-item-list .list-group-item:focus .number-label,
-          body .login-container .form-group .list-group.editable-item-list .list-group-item:focus .number-label,
           body .home-container .form-group .list-group.editable-item-list .list-group-item:focus .number-label,
           body .details-container .form-group .list-group.editable-item-list .list-group-item:focus .number-label {
             background-color: #AD4047;
             transition-duration: 0.2s; }
-  body .login-container {
-    margin: 0;
-    padding-top: 12vh;
-    height: 95vh;
-    text-align: center; }
-    body .login-container a#redirect-button {
-      position: absolute;
-      top: 50%;
-      margin-right: auto;
-      margin-left: -15vh;
-      width: 30vh;
-      color: white;
-      -ms-text-overflow: clip;
-      text-overflow: clip;
-      font-size: 1em; }
-    body .login-container .welcome-poster {
-      font-family: "Lobster", cursive; }
-    body .login-container .carousel {
-      position: relative;
-      z-index: 2;
-      overflow: hidden;
-      width: 100%;
-      height: 100%;
-      border-top: 5px solid #AD4047;
-      border-bottom: 5px solid #AD4047;
-      background: #333;
-      text-align: center;
-      align-content: center; }
-      body .login-container .carousel .login-button {
-        position: absolute;
-        bottom: 7vh;
-        z-index: 1;
-        margin-left: -15vh;
-        width: 30vh;
-        height: 7vh;
-        background-color: rgba(0, 0, 0, 0.6);
-        color: white;
-        -ms-text-overflow: clip;
-        text-overflow: clip;
-        font-size: 3vh; }
-      body .login-container .carousel .carousel-indicators {
-        bottom: 1vh; }
-      body .login-container .carousel .carousel-inner {
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%); }
-        body .login-container .carousel .carousel-inner img {
-          display: table-cell;
-          margin-right: auto;
-          margin-left: auto;
-          max-height: 95vh;
-          width: auto;
-          height: auto; }
-    body .login-container .dim-background {
-      position: absolute;
-      z-index: 10;
-      width: 100vw;
-      height: 100vh;
-      opacity: 0.5; }
-  @media screen and (max-device-width: 380px) {
-    body .login-container {
-      height: 90vh; } }
+        @media screen and (max-width: 768px) {
+          body .general-container .form-group .list-group.editable-item-list .list-group-item, body .home-container .form-group .list-group.editable-item-list .list-group-item, body .details-container .form-group .list-group.editable-item-list .list-group-item {
+            font-size: 0.9em;
+            margin-left: 10px;
+            margin-right: 10px;
+            padding-right: 10px; }
+            body .general-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name, body .home-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name, body .details-container .form-group .list-group.editable-item-list .list-group-item .list-group-item-name {
+              width: 79%; } }
+  @media screen and (max-width: 768px) {
+    body .general-container, body .home-container, body .details-container {
+      margin-left: 8vw !important;
+      padding: 25px !important; } }
+  @media screen and (max-width: 480px) {
+    body .general-container, body .home-container, body .details-container {
+      margin-left: 3vw !important;
+      padding: 20px !important;
+      padding-bottom: 30px !important; } }
   body .home-container {
+    margin-left: 15vw;
     /* Cake List in Home Page */
     /* Add Cake Form */ }
     body .home-container h4 {
@@ -361,29 +362,10 @@ body {
     body .home-container div.add-cake-form {
       position: relative;
       padding: 20px;
-      border: 1px solid #DDD;
+      border: 2px solid #6a272b;
       border-radius: 4px; }
-  @media screen and (min-width: 768px) {
-    body .home-container {
-      margin-right: 20%;
-      margin-left: 20%; } }
-  @media screen and (max-width: 768px) {
-    body .home-container {
-      margin-right: 10%;
-      margin-left: 10%; } }
-  @media screen and (max-width: 480px) {
-    body .home-container {
-      margin-right: 20px;
-      margin-left: 20px;
-      min-width: 440px; } }
-  @media screen and (max-width: 380px) {
-    body .home-container {
-      margin-right: 2px;
-      margin-left: 2px; } }
   body .details-container {
-    min-width: 300px;
     margin-left: 14%;
-    margin-right: 14%;
     word-break: break-all; }
     body .details-container .cake-info .cake-image {
       display: inline-block;
@@ -397,7 +379,7 @@ body {
         body .details-container .cake-info .cake-image a img {
           width: 100%;
           border-radius: 10px !important;
-          border: 2px solid #DDD; }
+          border: 2px solid #6a272b; }
       body .details-container .cake-info .cake-image input {
         width: 0.1px;
         height: 0.1px;
@@ -453,11 +435,88 @@ body {
       padding-left: 30px; }
   @media screen and (max-width: 768px) {
     body .details-container {
-      margin-left: 5%;
-      margin-right: 6%; } }
+      margin-left: 5%; } }
 
+/**************
+ * Login Page *
+ **************/
 .login-body {
   height: 100vh;
-  background-color: #FCE9DC; }
+  background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/bamboo-wood-flooring-texture.jpg");
+  background-repeat: repeat;
+  /*******************
+   * Login Container *
+   *******************/ }
+  .login-body .login-container {
+    margin: 0 auto;
+    width: 450px;
+    height: 600px;
+    text-align: center;
+    box-shadow: 15px 20px 30px 20px rgba(0, 0, 0, 0.8);
+    /**********************
+     * Login Page Top Nav *
+     **********************/ }
+    .login-body .login-container .welcome-poster {
+      font-family: "Lobster", cursive; }
+    .login-body .login-container .navbar-default.login-topnav {
+      z-index: 1;
+      overflow: hidden;
+      height: 13vh;
+      border-bottom-width: 0;
+      white-space: nowrap;
+      /* Login Page Logo */ }
+      .login-body .login-container .navbar-default.login-topnav .navbar-brand,
+      .login-body .login-container .navbar-default.login-topnav .navbar-brand:hover,
+      .login-body .login-container .navbar-default.login-topnav .navbar-brand:focus {
+        margin-left: 1%;
+        margin-top: 3vh;
+        color: #593836;
+        text-overflow: clip;
+        font-size: 8vh; }
+    .login-body .login-container .carousel {
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      border-top: 5px solid #AD4047;
+      border-bottom: 5px solid #AD4047;
+      background: #AD4047;
+      text-align: center;
+      align-content: center; }
+      .login-body .login-container .carousel .login-button {
+        position: absolute;
+        bottom: 7vh;
+        z-index: 1;
+        margin-left: -15vh;
+        width: 30vh;
+        height: 7vh;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        -ms-text-overflow: clip;
+        text-overflow: clip;
+        font-size: 3vh; }
+      .login-body .login-container .carousel .carousel-indicators {
+        bottom: 1vh; }
+      .login-body .login-container .carousel .carousel-inner {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%); }
+        .login-body .login-container .carousel .carousel-inner img {
+          display: table-cell;
+          margin-right: auto;
+          margin-left: auto;
+          max-height: 95vh;
+          width: auto;
+          height: auto; }
+    .login-body .login-container .dim-background {
+      position: absolute;
+      z-index: 10;
+      width: 100vw;
+      height: 100vh;
+      opacity: 0.5; }
+  @media screen and (max-device-width: 380px) {
+    .login-body .login-container {
+      height: 90vh; } }
 
 /*# sourceMappingURL=style.css.map */

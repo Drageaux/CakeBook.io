@@ -15,10 +15,9 @@ import {EditableItemForm} from "./editable-item-form.component";
 
 export class AddCakeFormComponent {
     @Output() saved = new EventEmitter<Cake>();
-
-    userId = JSON.parse(localStorage.getItem("profile")).user_id;
     @Input() model = new Cake(0, this.userId, "", "", "", "", [], []);
     active = false;
+    userId = JSON.parse(localStorage.getItem("profile")).user_id;
 
     constructor(private _cakeService:CakeService) {
     }
@@ -39,7 +38,7 @@ export class AddCakeFormComponent {
         this._cakeService.addCake(JSON.stringify(this.model))
             .subscribe(res => this.saved.emit(res));
         // TODO: Remove when there's a better way to reset the model
-        this.model = new Cake(0, this.userId, "", "", "", "", [""], [""]);
+        this.model = new Cake(0, this.userId, "", "", "", "", [], []);
         this.closeForm();
     }
 

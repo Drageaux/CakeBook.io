@@ -58,19 +58,45 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                     if (!angular2_jwt_1.tokenNotExpired()) {
                         this._router.navigate(["Login"]);
                     }
+                    var displayBackToTop = this.displayBackToTop.bind(this);
+                    document.onscroll = function () {
+                        displayBackToTop(window.scrollY);
+                    };
                 };
                 AppComponent.prototype.logout = function () {
                     localStorage.removeItem('profile');
                     localStorage.removeItem('id_token');
                     this._router.navigate(["Login"]);
                 };
+                /*****************
+                 * Scrolling Nav *
+                 *****************/
+                AppComponent.prototype.displayBackToTop = function (value) {
+                    if (document.getElementById("backToTop")) {
+                        if (value > 70) {
+                            document.getElementById("backToTop").style.display = "block";
+                        }
+                        else {
+                            document.getElementById("backToTop").style.display = "none";
+                        }
+                    }
+                };
+                AppComponent.prototype.scrollBackToTop = function () {
+                    setTimeout(function () {
+                        window.scrollTo(0, 0);
+                    }, 0);
+                    return;
+                };
+                /********************
+                 * Helper Functions *
+                 ********************/
                 AppComponent.prototype.loggedIn = function () {
                     return angular2_jwt_1.tokenNotExpired();
                 };
                 AppComponent.prototype.atLoginPage = function () {
                     return this._location.path() == "/login";
                 };
-                /* Template for Getting Things */
+                /* Template for Getting Things Auth0 */
                 AppComponent.prototype.getSecretThing = function () {
                     this.authHttp.get('http://example.com/api/secretthing')
                         .subscribe(function (data) { return console.log(data.json()); }, function (err) { return console.log(err); }, function () { return console.log('Complete'); });
@@ -78,7 +104,7 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n        <div *ngIf=\"loggedIn() && !atLoginPage()\">\n            <nav class=\"navbar navbar-default navbar-fixed-top topnav\">\n                <a href=\"#\" class=\"navbar-brand\">Cake Book</a>\n\n                <!-- Normal Menu -->\n                <ul class=\"nav navbar-nav navbar-right\" id=\"normalMenu\">\n                    <li>\n                        <a class=\"navbar-item\" [routerLink]=\"['Home']\">\n                            <span class=\"glyphicon glyphicon-home\" aria-hidden=\"true\"></span>&nbsp;Home&nbsp;\n                        </a>\n                    </li>\n                    <li>\n                        <a class=\"navbar-item\" href=\"#\">\n                            <span class=\"glyphicon glyphicon-user\" aria-hidden=\"true\"></span>&nbsp;Profile&nbsp;\n                        </a>\n                    </li>\n                    <li>\n                        <a class=\"navbar-item\" href=\"#\">\n                            <span class=\"glyphicon glyphicon-cog\" aria-hidden=\"true\"></span>&nbsp;Settings&nbsp;\n                        </a>\n                    </li>\n                    <li>\n                        <a class=\"navbar-item\" (click)=\"logout()\">\n                            <span class=\"glyphicon glyphicon-log-out\" aria-hidden=\"true\"></span>&nbsp;Logout&nbsp;\n                        </a>\n                    </li>\n                </ul>\n\n                <!-- Dropdown Menu -->\n                <div class=\"btn-group\" id=\"dropdownMenu\">\n                    <button type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                        <span class=\"glyphicon glyphicon-list\"></span>\n                    </button>\n                    <ul class=\"dropdown-menu dropdown-menu-right\">\n                        <li>\n                            <a class=\"navbar-item\" [routerLink]=\"['Home']\">\n                                <span class=\"glyphicon glyphicon-home\" aria-hidden=\"true\"></span>&nbsp;Home&nbsp;\n                            </a>\n                        </li>\n                        <li>\n                            <a class=\"navbar-item\" href=\"#\">\n                                <span class=\"glyphicon glyphicon-user\" aria-hidden=\"true\"></span>&nbsp;Profile&nbsp;\n                            </a>\n                        </li>\n                        <li>\n                            <a class=\"navbar-item\" href=\"#\">\n                                <span class=\"glyphicon glyphicon-cog\" aria-hidden=\"true\"></span>&nbsp;Settings&nbsp;\n                            </a>\n                        </li>\n                        <li>\n                            <a class=\"navbar-item\" (click)=\"logout()\">\n                                <span class=\"glyphicon glyphicon-log-out\" aria-hidden=\"true\"></span>&nbsp;Logout&nbsp;\n                            </a>\n                        </li>\n                    </ul>\n                </div>\n            </nav>\n        </div>\n\n        <loggedin-router-outlet></loggedin-router-outlet>\n\t\t",
+                        templateUrl: "templates/app.component.html",
                         styleUrls: ["assets/custom/stylesheets/style.css"],
                         encapsulation: core_2.ViewEncapsulation.None,
                         providers: [

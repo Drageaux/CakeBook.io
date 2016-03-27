@@ -19,11 +19,13 @@ $_5th-soft-pink: #DB8F8F;
 $topnav-color: $_2nd-light-cream;
 $topnav-item-color: #AD4047;
 $topnav-item-hovered-color: darken($topnav-item-color, 18%);
+$border-color: $topnav-item-hovered-color;
 
 // Fonts
 $topnav-font: "Chewy", cursive;
 $welcome-font: "Lobster", cursive;
 $normal-font: "Marmelad", Arial;
+
 //-----------------------------------------------------//
 
 /**********
@@ -44,6 +46,18 @@ body {
     a:hover {
         cursor: pointer;
     }
+    a#redirect-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: auto;
+        margin-left: -15vh;
+        width: 30vh;
+        color: white;
+        -ms-text-overflow: clip;
+        text-overflow: clip;
+        font-size: 1em;
+    }
     button {
         span {
             cursor: pointer;
@@ -52,14 +66,23 @@ body {
     textarea {
         resize: none;
     }
+    hr {
+        border-color: $border-color;
+    }
+    background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/bamboo-wood-flooring-texture.jpg");
+    background-repeat: repeat;
 
     /*******************
      * General Top Nav *
      *******************/
     .navbar-default {
         height: 40px;
+        min-width: 300px;
+        margin-top: 20px;
+        margin-bottom: 0;
+        border-width: 0;
         border-bottom: 5px solid $topnav-item-color;
-        background-color: $topnav-color;
+        background-color: transparent;
         font-size: 1.1em;
         font-family: $topnav-font;
 
@@ -67,8 +90,8 @@ body {
         /// screen > 480px ///
         @media screen and (min-width: 480px) {
             .navbar-nav#normalMenu {
-                margin-right: 0;
                 border-radius: 6px 6px 0 0;
+                margin-right: 0.2vw;
                 li {
                     a {
                         padding: 15px 16px 11px 16px;
@@ -108,7 +131,7 @@ body {
         /// screen > 1200px ///
         @media screen and (min-width: 1200px) {
             .navbar-nav#normalMenu {
-                margin-right: 13%;
+                //margin-right: 13%;
             }
         }
 
@@ -183,16 +206,20 @@ body {
         .navbar-brand:hover,
         .navbar-brand:focus {
             margin-left: -8px;
+            margin-bottom: 5px;
+            padding-bottom: 10px;
+            border: 5px solid $topnav-item-color;
             color: $_4th-coffee-red;
             text-overflow: clip;
             font-size: 5vh;
+            background-color: $topnav-color;
+            border-radius: 5px;
         }
         @media screen and (min-width: 1200px) {
             .navbar-brand,
             .navbar-brand:hover,
             .navbar-brand:focus {
-                margin-left: 13.5%;
-                padding-left: 0;
+                padding-left: 10px;
             }
         }
         @media screen and (max-width: 768px) {
@@ -221,37 +248,79 @@ body {
         border-bottom: 5px solid darken(#AD4047, 18%);
         transition-duration: 0.4s;
     }
-
-    /**********************
-     * Login Page Top Nav *
-     **********************/
-    .navbar-default.login-topnav {
-        z-index: 1;
-        overflow: hidden;
-        height: 13vh;
-        border-bottom-width: 0;
-        white-space: nowrap;
-
-        /* Login Page Logo */
-        .navbar-brand,
-        .navbar-brand:hover,
-        .navbar-brand:focus {
-            margin-left: 1%;
-            margin-top: 3vh;
-            color: $_4th-coffee-red;
-            text-overflow: clip;
-            font-size: 8vh;
+    @media screen and (min-width: 768px) {
+        .navbar-default {
+            margin-right: 15vw;
         }
+    }
+    @media screen and (max-width: 768px) {
+        .navbar-default {
+            margin-right: 5vw;
+        }
+    }
+
+    .back-to-top,
+    .back-to-top:focus {
+        display: none;
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        padding: 13px 17px 10px 17px;
+        border-radius: 4px;
+        border: none;
+        background-color: $topnav-item-color;
+        color: white;
+        font-size: 1.2em;
+    }
+    .back-to-top:hover {
+        padding: 15px 19px 12px 19px;
+        background-color: $topnav-item-hovered-color;
+        color: white;
+        font-size: 1.3em;
+        transform: translate(2px, 2px);
+        transition-duration: 0.2s;
+    }
+
+    /***********
+     * Wrapper *
+     ***********/
+    .wrapper {
+        min-width: 300px;
+        margin-right: 15vw;
+        margin-bottom: 50px;
+        min-height: 85vh;
+        height: auto;
+        background-color: $topnav-color;
+        box-shadow: 5px 20px 30px 20px rgba(0, 0, 0, 0.8);
+        border-bottom: 5px solid $topnav-item-color;
+    }
+    @media screen and (max-width: 768px) {
+        .wrapper {
+            margin-right: 5vw;
+        }
+    }
+    @media screen and (max-width: 480px) {
+        .wrapper {
+            margin-right: 4vw;
+        }
+    }
+    .login-wrapper {
+        @extend .wrapper;
+        border-top: 5px solid $topnav-item-color;
+        margin-top: 55px;
+
     }
 
     /***********
      * Content *
      ***********/
     .general-container {
-        margin-right: 20%;
-        margin-left: 20%;
-        margin-bottom: 50px;
-        padding-top: 80px;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 50px;
+        min-height: 85vh;
+        height: auto;
+        box-shadow: -15px 10px 50px 25px rgba(0, 0, 0, 0.2), inset 10px 0 25px 2px rgba(0, 0, 0, 0.3);
         .form-group {
             margin-bottom: 8px;
             button {
@@ -402,95 +471,31 @@ body {
                         transition-duration: 0.2s;
                     }
                 }
-            }
-        }
-    }
-
-    /**************
-     * Login Page *
-     **************/
-    .login-container {
-        @extend .general-container;
-        margin: 0;
-        padding-top: 12vh;
-        height: 95vh;
-        text-align: center;
-        a#redirect-button {
-            position: absolute;
-            top: 50%;
-            margin-right: auto;
-            margin-left: -15vh;
-            width: 30vh;
-            color: white;
-            -ms-text-overflow: clip;
-            text-overflow: clip;
-            font-size: 1em;
-        }
-        // might belong in the login page later
-        .welcome-poster {
-            font-family: $welcome-font;
-        }
-        .carousel {
-            position: relative;
-            z-index: 2;
-            overflow: hidden;
-            width: 100%;
-            height: 100%;
-            border-top: 5px solid $topnav-item-color;
-            border-bottom: 5px solid $topnav-item-color;
-            background: #333;
-            text-align: center;
-            align-content: center;
-            .login-button {
-                position: absolute;
-                bottom: 7vh;
-                z-index: 1;
-                margin-left: -15vh;
-                width: 30vh;
-                height: 7vh;
-                background-color: rgba(0, 0, 0, 0.6);
-                color: white;
-                -ms-text-overflow: clip;
-                text-overflow: clip;
-                font-size: 3vh;
-            }
-            .carousel-indicators {
-                bottom: 1vh;
-            }
-            .carousel-inner {
-                position: relative;
-                top: 50%;
-                transform: translateY(-50%);
-                img {
-                    display: table-cell;
-                    margin-right: auto;
-                    margin-left: auto;
-                    max-height: 95vh;
-                    width: auto;
-                    height: auto;
+                @media screen and (max-width: 768px) {
+                    .list-group-item {
+                        font-size: 0.9em;
+                        margin-left: 10px;
+                        margin-right: 10px;
+                        padding-right: 10px;
+                        .list-group-item-name {
+                            width: 79%;
+                        }
+                    }
                 }
             }
-            //.right.carousel-control {
-            //    border-radius: 0 10px 10px 0;
-            //    background: linear-gradient(to left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
-            //}
-            //.left.carousel-control {
-            //    border-radius: 10px 0 0 10px;
-            //    background: linear-gradient(to right,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
-            //}
-        }
-        .dim-background {
-            position: absolute;
-            z-index: 10;
-            width: 100vw;
-            height: 100vh;
-            //background-image: url(http://images.all-free-download.com/images/graphiclarge/plain_white_background_211387.jpg);
-            opacity: 0.5;
         }
     }
-    @media screen and (max-device-width: 380px) {
-        .login-container {
-            height: 90vh;
+    @media screen and (max-width: 768px) {
+        .general-container {
+            margin-left: 8vw !important;
+            padding: 25px !important;
+        }
+    }
+    @media screen and (max-width: 480px) {
+        .general-container {
+            margin-left: 3vw !important;
+            padding: 20px !important;
+            padding-bottom: 30px !important;
         }
     }
 
@@ -499,6 +504,7 @@ body {
      *************/
     .home-container {
         @extend .general-container;
+        margin-left: 15vw;
         h4 {
             margin-bottom: 6px;
         }
@@ -517,45 +523,43 @@ body {
         div.add-cake-form {
             position: relative;
             padding: 20px;
-            border: 1px solid #DDD;
+            border: 2px solid $border-color;
             border-radius: 4px;
 
         }
     }
-    @media screen and (min-width: 768px) {
-        .home-container {
-            margin-right: 20%;
-            margin-left: 20%;
-        }
-    }
-    @media screen and (max-width: 768px) {
-        .home-container {
-            margin-right: 10%;
-            margin-left: 10%;
-        }
-    }
-    @media screen and (max-width: 480px) {
-        .home-container {
-            margin-right: 20px;
-            margin-left: 20px;
-            min-width: 440px;
-        }
-    }
-    @media screen and (max-width: 380px) {
-        .home-container {
-            margin-right: 2px;
-            margin-left: 2px;
-        }
-    }
+    //@media screen and (min-width: 768px) {
+    //    .home-container {
+    //        margin-right: 20vw;
+    //        margin-right: 20vw;
+    //    }
+    //}
+    //@media screen and (max-width: 768px) {
+    //    .home-container {
+    //        margin-right: 10%;
+    //        margin-left: 10%;
+    //    }
+    //}
+    //@media screen and (max-width: 480px) {
+    //    .home-container {
+    //        margin-right: 20px;
+    //        margin-left: 20px;
+    //        min-width: 440px;
+    //    }
+    //}
+    //@media screen and (max-width: 380px) {
+    //    .home-container {
+    //        margin-right: 2px;
+    //        margin-left: 2px;
+    //    }
+    //}
 
     /****************
      * Cake Details *
      ****************/
     .details-container {
         @extend .general-container;
-        min-width: 300px;
         margin-left: 14%;
-        margin-right: 14%;
         word-break: break-all;
         .cake-info {
             .cake-image {
@@ -570,7 +574,7 @@ body {
                     img {
                         width: 100%;
                         border-radius: 10px !important;
-                        border: 2px solid #DDD;
+                        border: 2px solid $border-color;
                     }
                 }
                 input {
@@ -647,12 +651,139 @@ body {
     @media screen and (max-width: 768px) {
         .details-container {
             margin-left: 5%;
-            margin-right: 6%;
         }
     }
+
+    ///*************
+    // * Left Page *
+    // *************/
+    //.left-page {
+    //    //margin-top: 75px;
+    //    position: absolute;
+    //    float: left;
+    //    height: 100vh;
+    //    width: 20vw;
+    //    background-color: $topnav-color;
+    //    //border-top: 5px solid $topnav-item-color;
+    //    box-shadow: inset -10px 0 50px rgba(0, 0, 0, 0.3);
+    //}
+    //@media screen and (max-width: 768px) {
+    //    .left-page {
+    //        width: 10vw;
+    //    }
+    //}
+    //@media screen and (min-width: 768px) {
+    //    .left-page {
+    //        width: 15vw;
+    //    }
+    //}
 }
 
+/**************
+ * Login Page *
+ **************/
 .login-body {
     height: 100vh;
-    background-color: $_2nd-light-cream;
+    background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/bamboo-wood-flooring-texture.jpg");
+    background-repeat: repeat;
+
+    /*******************
+     * Login Container *
+     *******************/
+    .login-container {
+        margin: 0 auto;
+        width: 450px;
+        height: 600px;
+        text-align: center;
+        box-shadow: 15px 20px 30px 20px rgba(0, 0, 0, 0.8);
+
+        // might belong in the login page later
+        .welcome-poster {
+            font-family: $welcome-font;
+        }
+
+        /**********************
+         * Login Page Top Nav *
+         **********************/
+        .navbar-default.login-topnav {
+            z-index: 1;
+            overflow: hidden;
+            height: 13vh;
+            border-bottom-width: 0;
+            white-space: nowrap;
+
+            /* Login Page Logo */
+            .navbar-brand,
+            .navbar-brand:hover,
+            .navbar-brand:focus {
+                margin-left: 1%;
+                margin-top: 3vh;
+                color: $_4th-coffee-red;
+                text-overflow: clip;
+                font-size: 8vh;
+            }
+        }
+        .carousel {
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            border-top: 5px solid $topnav-item-color;
+            border-bottom: 5px solid $topnav-item-color;
+            background: $topnav-item-color;
+            text-align: center;
+            align-content: center;
+            .login-button {
+                position: absolute;
+                bottom: 7vh;
+                z-index: 1;
+                margin-left: -15vh;
+                width: 30vh;
+                height: 7vh;
+                background-color: rgba(0, 0, 0, 0.6);
+                color: white;
+                -ms-text-overflow: clip;
+                text-overflow: clip;
+                font-size: 3vh;
+            }
+            .carousel-indicators {
+                bottom: 1vh;
+            }
+            .carousel-inner {
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+                img {
+                    display: table-cell;
+                    margin-right: auto;
+                    margin-left: auto;
+                    max-height: 95vh;
+                    width: auto;
+                    height: auto;
+                }
+            }
+            //.right.carousel-control {
+            //    border-radius: 0 10px 10px 0;
+            //    background: linear-gradient(to left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
+            //}
+            //.left.carousel-control {
+            //    border-radius: 10px 0 0 10px;
+            //    background: linear-gradient(to right,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
+            //}
+        }
+        .dim-background {
+            position: absolute;
+            z-index: 10;
+            width: 100vw;
+            height: 100vh;
+            //background-image: url(http://images.all-free-download.com/images/graphiclarge/plain_white_background_211387.jpg);
+            opacity: 0.5;
+        }
+    }
+    @media screen and (max-device-width: 380px) {
+        .login-container {
+            height: 90vh;
+        }
+    }
 }
