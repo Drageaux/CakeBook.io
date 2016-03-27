@@ -206,9 +206,14 @@ body {
         .navbar-brand:hover,
         .navbar-brand:focus {
             margin-left: -8px;
+            margin-bottom: 5px;
+            padding-bottom: 10px;
+            border: 5px solid $topnav-item-color;
             color: $_4th-coffee-red;
             text-overflow: clip;
             font-size: 5vh;
+            background-color: $topnav-color;
+            border-radius: 5px;
         }
         @media screen and (min-width: 1200px) {
             .navbar-brand,

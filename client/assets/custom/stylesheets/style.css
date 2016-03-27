@@ -143,9 +143,14 @@ body {
     body .navbar-default .navbar-brand:hover,
     body .navbar-default .navbar-brand:focus {
       margin-left: -8px;
+      margin-bottom: 5px;
+      padding-bottom: 10px;
+      border: 5px solid #AD4047;
       color: #593836;
       text-overflow: clip;
-      font-size: 5vh; }
+      font-size: 5vh;
+      background-color: #FCE9DC;
+      border-radius: 5px; }
     @media screen and (min-width: 1200px) {
       body .navbar-default .navbar-brand,
       body .navbar-default .navbar-brand:hover,
