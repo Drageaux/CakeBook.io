@@ -64,3 +64,7 @@
         <!--<div class="dimmed-background">&nbsp;</div>-->
     </div>
 </div>
+
+<div *ngIf="loggedIn() && atLoginPage()">
+    <a class="btn btn-primary" id="redirect-button" href="/home">Login Successful<br>(click here)</a>
+</div>
