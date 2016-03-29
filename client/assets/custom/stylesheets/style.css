@@ -66,8 +66,7 @@ body {
     font-size: 1.1em;
     font-family: "Chewy", cursive;
     /* Normal Menu */
-    /* Dropdown Menu */
-    /* General Logo */ }
+    /* Dropdown Menu */ }
     @media screen and (min-width: 480px) {
       body .navbar-default .navbar-nav#normalMenu {
         border-radius: 6px 6px 0 0;
@@ -139,38 +138,6 @@ body {
             border-radius: 8px 0 0 0; }
           body .navbar-default .btn-group#dropdownMenu ul li:last-child a {
             border-radius: 0 0 8px 8px; } }
-    body .navbar-default .navbar-brand,
-    body .navbar-default .navbar-brand:hover,
-    body .navbar-default .navbar-brand:focus {
-      margin-left: -8px;
-      margin-bottom: 5px;
-      padding-bottom: 10px;
-      border: 5px solid #AD4047;
-      color: #593836;
-      text-overflow: clip;
-      font-size: 5vh;
-      background-color: #FCE9DC;
-      border-radius: 5px; }
-    @media screen and (min-width: 1200px) {
-      body .navbar-default .navbar-brand,
-      body .navbar-default .navbar-brand:hover,
-      body .navbar-default .navbar-brand:focus {
-        padding-left: 10px; } }
-    @media screen and (max-width: 768px) {
-      body .navbar-default .navbar-brand,
-      body .navbar-default .navbar-brand:hover,
-      body .navbar-default .navbar-brand:focus {
-        font-size: 4vh; } }
-    @media screen and (max-width: 320px) {
-      body .navbar-default .navbar-brand,
-      body .navbar-default .navbar-brand:hover,
-      body .navbar-default .navbar-brand:focus {
-        font-size: 3vh; } }
-    @media screen and (max-width: 200px) {
-      body .navbar-default .navbar-brand,
-      body .navbar-default .navbar-brand:hover,
-      body .navbar-default .navbar-brand:focus {
-        display: none; } }
   body .navbar-default.topnav:hover {
     border-bottom: 5px solid #6a272b;
     transition-duration: 0.4s; }
@@ -442,81 +409,79 @@ body {
  **************/
 .login-body {
   height: 100vh;
-  background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/bamboo-wood-flooring-texture.jpg");
-  background-repeat: repeat;
+  width: 100%;
+  min-width: 320px;
+  position: relative;
+  background-color: #FCE9DC;
   /*******************
    * Login Container *
-   *******************/ }
+   *******************/
+  /**********************
+   * Login Page Top Nav *
+   **********************/ }
   .login-body .login-container {
-    margin: 0 auto;
-    width: 450px;
-    height: 600px;
+    height: 80vh;
     text-align: center;
-    box-shadow: 15px 20px 30px 20px rgba(0, 0, 0, 0.8);
-    /**********************
-     * Login Page Top Nav *
-     **********************/ }
-    .login-body .login-container .welcome-poster {
-      font-family: "Lobster", cursive; }
-    .login-body .login-container .navbar-default.login-topnav {
-      z-index: 1;
-      overflow: hidden;
-      height: 13vh;
-      border-bottom-width: 0;
-      white-space: nowrap;
-      /* Login Page Logo */ }
-      .login-body .login-container .navbar-default.login-topnav .navbar-brand,
-      .login-body .login-container .navbar-default.login-topnav .navbar-brand:hover,
-      .login-body .login-container .navbar-default.login-topnav .navbar-brand:focus {
-        margin-left: 1%;
-        margin-top: 3vh;
-        color: #593836;
-        text-overflow: clip;
-        font-size: 8vh; }
-    .login-body .login-container .carousel {
-      position: relative;
-      z-index: 2;
-      overflow: hidden;
-      width: 100%;
-      height: 100%;
-      border-top: 5px solid #AD4047;
-      border-bottom: 5px solid #AD4047;
-      background: #AD4047;
-      text-align: center;
-      align-content: center; }
-      .login-body .login-container .carousel .login-button {
-        position: absolute;
-        bottom: 7vh;
-        z-index: 1;
-        margin-left: -15vh;
-        width: 30vh;
-        height: 7vh;
-        background-color: rgba(0, 0, 0, 0.6);
-        color: white;
-        -ms-text-overflow: clip;
-        text-overflow: clip;
-        font-size: 3vh; }
-      .login-body .login-container .carousel .carousel-indicators {
-        bottom: 1vh; }
-      .login-body .login-container .carousel .carousel-inner {
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%); }
-        .login-body .login-container .carousel .carousel-inner img {
-          display: table-cell;
-          margin-right: auto;
-          margin-left: auto;
-          max-height: 95vh;
-          width: auto;
-          height: auto; }
-    .login-body .login-container .dim-background {
+    border-top: 5px solid #AD4047;
+    border-bottom: 5px solid #AD4047; }
+  .login-body .login-topnav, .login-body .login-botnav {
+    margin: 0 !important;
+    background-color: #FCE9DC;
+    z-index: 3;
+    overflow: hidden;
+    height: 10vh;
+    min-height: 50px;
+    border-bottom-width: 0;
+    white-space: nowrap;
+    /* Login Page Logo */ }
+    .login-body .login-topnav .navbar-brand, .login-body .login-botnav .navbar-brand,
+    .login-body .login-topnav .navbar-brand:hover,
+    .login-body .login-botnav .navbar-brand:hover,
+    .login-body .login-topnav .navbar-brand:focus,
+    .login-body .login-botnav .navbar-brand:focus {
+      margin-left: 1%;
+      margin: 1vh;
+      height: 10vh;
+      color: #593836;
+      text-overflow: clip;
+      font-size: 36px; }
+  .login-body .carousel {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background: #333333;
+    text-align: center;
+    align-content: center; }
+    .login-body .carousel .login-button {
       position: absolute;
-      z-index: 10;
-      width: 100vw;
-      height: 100vh;
-      opacity: 0.5; }
-  @media screen and (max-device-width: 380px) {
-    .login-body .login-container {
-      height: 90vh; } }
+      bottom: 7vh;
+      z-index: 1;
+      margin-left: -15vh;
+      padding: 1vh;
+      width: 30vh;
+      height: 7vh;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.6);
+      -ms-text-overflow: clip;
+      text-overflow: clip;
+      font-size: 3vh; }
+    .login-body .carousel .carousel-indicators {
+      bottom: 1vh; }
+    .login-body .carousel .carousel-inner {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%); }
+      .login-body .carousel .carousel-inner img {
+        display: table-cell;
+        margin-right: auto;
+        margin-left: auto;
+        max-height: 80vh;
+        width: auto;
+        height: auto; }
+  .login-body .login-botnav {
+    min-height: 0;
+    height: 7vh; }
 
 /*# sourceMappingURL=style.css.map */

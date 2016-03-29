@@ -201,48 +201,47 @@ body {
             }
         }
 
-        /* General Logo */
-        .navbar-brand,
-        .navbar-brand:hover,
-        .navbar-brand:focus {
-            margin-left: -8px;
-            margin-bottom: 5px;
-            padding-bottom: 10px;
-            border: 5px solid $topnav-item-color;
-            color: $_4th-coffee-red;
-            text-overflow: clip;
-            font-size: 5vh;
-            background-color: $topnav-color;
-            border-radius: 5px;
-        }
-        @media screen and (min-width: 1200px) {
-            .navbar-brand,
-            .navbar-brand:hover,
-            .navbar-brand:focus {
-                padding-left: 10px;
-            }
-        }
-        @media screen and (max-width: 768px) {
-            .navbar-brand,
-            .navbar-brand:hover,
-            .navbar-brand:focus {
-                font-size: 4vh;
-            }
-        }
-        @media screen and (max-width: 320px) {
-            .navbar-brand,
-            .navbar-brand:hover,
-            .navbar-brand:focus {
-                font-size: 3vh;
-            }
-        }
-        @media screen and (max-width: 200px) {
-            .navbar-brand,
-            .navbar-brand:hover,
-            .navbar-brand:focus {
-                display: none;
-            }
-        }
+        ///* General Logo */
+        //.navbar-brand,
+        //.navbar-brand:hover,
+        //.navbar-brand:focus {
+        //    margin-left: -8px;
+        //    margin-bottom: 5px;
+        //    padding-bottom: 10px;
+        //    color: $_4th-coffee-red;
+        //    text-overflow: clip;
+        //    font-size: 5vh;
+        //    background-color: $topnav-color;
+        //    border-radius: 5px;
+        //}
+        //@media screen and (min-width: 1200px) {
+        //    .navbar-brand,
+        //    .navbar-brand:hover,
+        //    .navbar-brand:focus {
+        //        padding-left: 10px;
+        //    }
+        //}
+        //@media screen and (max-width: 768px) {
+        //    .navbar-brand,
+        //    .navbar-brand:hover,
+        //    .navbar-brand:focus {
+        //        font-size: 4vh;
+        //    }
+        //}
+        //@media screen and (max-width: 320px) {
+        //    .navbar-brand,
+        //    .navbar-brand:hover,
+        //    .navbar-brand:focus {
+        //        font-size: 3vh;
+        //    }
+        //}
+        //@media screen and (max-width: 200px) {
+        //    .navbar-brand,
+        //    .navbar-brand:hover,
+        //    .navbar-brand:focus {
+        //        display: none;
+        //    }
+        //}
     }
     .navbar-default.topnav:hover {
         border-bottom: 5px solid darken(#AD4047, 18%);
@@ -308,7 +307,6 @@ body {
         @extend .wrapper;
         border-top: 5px solid $topnav-item-color;
         margin-top: 55px;
-
     }
 
     /***********
@@ -684,106 +682,89 @@ body {
  **************/
 .login-body {
     height: 100vh;
-    background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/bamboo-wood-flooring-texture.jpg");
-    background-repeat: repeat;
+    width: 100%;
+    min-width: 320px;
+    position: relative;
+    background-color: $topnav-color;
 
     /*******************
      * Login Container *
      *******************/
     .login-container {
-        margin: 0 auto;
-        width: 450px;
-        height: 600px;
+        height: 80vh;
         text-align: center;
-        box-shadow: 15px 20px 30px 20px rgba(0, 0, 0, 0.8);
+        border-top: 5px solid $topnav-item-color;
+        border-bottom: 5px solid $topnav-item-color;
+    }
 
-        // might belong in the login page later
-        .welcome-poster {
-            font-family: $welcome-font;
-        }
+    /**********************
+     * Login Page Top Nav *
+     **********************/
+    .login-topnav {
+        margin: 0 !important;
+        background-color: $topnav-color;
+        z-index: 3;
+        overflow: hidden;
+        height: 10vh;
+        min-height: 50px;
+        border-bottom-width: 0;
+        white-space: nowrap;
 
-        /**********************
-         * Login Page Top Nav *
-         **********************/
-        .navbar-default.login-topnav {
-            z-index: 1;
-            overflow: hidden;
-            height: 13vh;
-            border-bottom-width: 0;
-            white-space: nowrap;
-
-            /* Login Page Logo */
-            .navbar-brand,
-            .navbar-brand:hover,
-            .navbar-brand:focus {
-                margin-left: 1%;
-                margin-top: 3vh;
-                color: $_4th-coffee-red;
-                text-overflow: clip;
-                font-size: 8vh;
-            }
-        }
-        .carousel {
-            position: relative;
-            z-index: 2;
-            overflow: hidden;
-            width: 100%;
-            height: 100%;
-            border-top: 5px solid $topnav-item-color;
-            border-bottom: 5px solid $topnav-item-color;
-            background: $topnav-item-color;
-            text-align: center;
-            align-content: center;
-            .login-button {
-                position: absolute;
-                bottom: 7vh;
-                z-index: 1;
-                margin-left: -15vh;
-                width: 30vh;
-                height: 7vh;
-                background-color: rgba(0, 0, 0, 0.6);
-                color: white;
-                -ms-text-overflow: clip;
-                text-overflow: clip;
-                font-size: 3vh;
-            }
-            .carousel-indicators {
-                bottom: 1vh;
-            }
-            .carousel-inner {
-                position: relative;
-                top: 50%;
-                transform: translateY(-50%);
-                img {
-                    display: table-cell;
-                    margin-right: auto;
-                    margin-left: auto;
-                    max-height: 95vh;
-                    width: auto;
-                    height: auto;
-                }
-            }
-            //.right.carousel-control {
-            //    border-radius: 0 10px 10px 0;
-            //    background: linear-gradient(to left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
-            //}
-            //.left.carousel-control {
-            //    border-radius: 10px 0 0 10px;
-            //    background: linear-gradient(to right,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
-            //}
-        }
-        .dim-background {
-            position: absolute;
-            z-index: 10;
-            width: 100vw;
-            height: 100vh;
-            //background-image: url(http://images.all-free-download.com/images/graphiclarge/plain_white_background_211387.jpg);
-            opacity: 0.5;
+        /* Login Page Logo */
+        .navbar-brand,
+        .navbar-brand:hover,
+        .navbar-brand:focus {
+            margin-left: 1%;
+            margin: 1vh;
+            height: 10vh;
+            color: $_4th-coffee-red;
+            text-overflow: clip;
+            font-size: 36px;
         }
     }
-    @media screen and (max-device-width: 380px) {
-        .login-container {
-            height: 90vh;
+    .carousel {
+        position: relative;
+        z-index: 2;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        background: #333333;
+        text-align: center;
+        align-content: center;
+        .login-button {
+            position: absolute;
+            bottom: 7vh;
+            z-index: 1;
+            margin-left: -15vh;
+            padding: 1vh;
+            width: 30vh;
+            height: 7vh;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.6);
+            -ms-text-overflow: clip;
+            text-overflow: clip;
+            font-size: 3vh;
         }
+        .carousel-indicators {
+            bottom: 1vh;
+        }
+        .carousel-inner {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            img {
+                display: table-cell;
+                margin-right: auto;
+                margin-left: auto;
+                max-height: 80vh;
+                width: auto;
+                height: auto;
+            }
+        }
+    }
+    .login-botnav {
+        @extend .login-topnav;
+        min-height: 0;
+        height: 7vh
     }
 }
