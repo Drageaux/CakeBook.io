@@ -200,48 +200,6 @@ body {
                 }
             }
         }
-
-        ///* General Logo */
-        //.navbar-brand,
-        //.navbar-brand:hover,
-        //.navbar-brand:focus {
-        //    margin-left: -8px;
-        //    margin-bottom: 5px;
-        //    padding-bottom: 10px;
-        //    color: $_4th-coffee-red;
-        //    text-overflow: clip;
-        //    font-size: 5vh;
-        //    background-color: $topnav-color;
-        //    border-radius: 5px;
-        //}
-        //@media screen and (min-width: 1200px) {
-        //    .navbar-brand,
-        //    .navbar-brand:hover,
-        //    .navbar-brand:focus {
-        //        padding-left: 10px;
-        //    }
-        //}
-        //@media screen and (max-width: 768px) {
-        //    .navbar-brand,
-        //    .navbar-brand:hover,
-        //    .navbar-brand:focus {
-        //        font-size: 4vh;
-        //    }
-        //}
-        //@media screen and (max-width: 320px) {
-        //    .navbar-brand,
-        //    .navbar-brand:hover,
-        //    .navbar-brand:focus {
-        //        font-size: 3vh;
-        //    }
-        //}
-        //@media screen and (max-width: 200px) {
-        //    .navbar-brand,
-        //    .navbar-brand:hover,
-        //    .navbar-brand:focus {
-        //        display: none;
-        //    }
-        //}
     }
     .navbar-default.topnav:hover {
         border-bottom: 5px solid darken(#AD4047, 18%);
@@ -526,31 +484,6 @@ body {
 
         }
     }
-    //@media screen and (min-width: 768px) {
-    //    .home-container {
-    //        margin-right: 20vw;
-    //        margin-right: 20vw;
-    //    }
-    //}
-    //@media screen and (max-width: 768px) {
-    //    .home-container {
-    //        margin-right: 10%;
-    //        margin-left: 10%;
-    //    }
-    //}
-    //@media screen and (max-width: 480px) {
-    //    .home-container {
-    //        margin-right: 20px;
-    //        margin-left: 20px;
-    //        min-width: 440px;
-    //    }
-    //}
-    //@media screen and (max-width: 380px) {
-    //    .home-container {
-    //        margin-right: 2px;
-    //        margin-left: 2px;
-    //    }
-    //}
 
     /****************
      * Cake Details *
@@ -651,30 +584,6 @@ body {
             margin-left: 5%;
         }
     }
-
-    ///*************
-    // * Left Page *
-    // *************/
-    //.left-page {
-    //    //margin-top: 75px;
-    //    position: absolute;
-    //    float: left;
-    //    height: 100vh;
-    //    width: 20vw;
-    //    background-color: $topnav-color;
-    //    //border-top: 5px solid $topnav-item-color;
-    //    box-shadow: inset -10px 0 50px rgba(0, 0, 0, 0.3);
-    //}
-    //@media screen and (max-width: 768px) {
-    //    .left-page {
-    //        width: 10vw;
-    //    }
-    //}
-    //@media screen and (min-width: 768px) {
-    //    .left-page {
-    //        width: 15vw;
-    //    }
-    //}
 }
 
 /**************
@@ -691,7 +600,7 @@ body {
      * Login Container *
      *******************/
     .login-container {
-        height: 80vh;
+        height: 83vh;
         text-align: center;
         border-top: 5px solid $topnav-item-color;
         border-bottom: 5px solid $topnav-item-color;

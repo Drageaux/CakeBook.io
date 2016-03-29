@@ -28,10 +28,10 @@ System.register(["angular2/core", "./cake", "./cake.service", "./editable-item-f
             AddCakeFormComponent = (function () {
                 function AddCakeFormComponent(_cakeService) {
                     this._cakeService = _cakeService;
+                    this.userId = JSON.parse(localStorage.getItem("profile")).user_id; // must be defined first
                     this.saved = new core_1.EventEmitter();
                     this.model = new cake_1.Cake(0, this.userId, "", "", "", "", [], []);
                     this.active = false;
-                    this.userId = JSON.parse(localStorage.getItem("profile")).user_id;
                 }
                 AddCakeFormComponent.prototype.openForm = function () {
                     this.active = true;
@@ -113,6 +113,7 @@ System.register(["angular2/core", "./cake", "./cake.service", "./editable-item-f
                     configurable: true
                 });
                 __decorate([
+                    // must be defined first
                     core_1.Output(), 
                     __metadata('design:type', Object)
                 ], AddCakeFormComponent.prototype, "saved", void 0);
