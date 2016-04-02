@@ -297,9 +297,11 @@ body {
                 margin-top: 5px;
                 padding: 5px 0;
                 height: auto !important;
-                border: 1px solid #DDD;
+                border: 3px solid #DDD;
                 border-radius: 4px;
                 background-color: #EEE;
+                max-height: 200px;
+                overflow-y: scroll;
                 .list-group-item {
                     overflow: hidden;
                     margin: 2px 20px 2px 20px;
