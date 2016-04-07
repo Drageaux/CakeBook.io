@@ -1,34 +1,9 @@
-<form class="form-group editable-item-list">
-    <label>{{listLabel}}</label><br>
+<!-- Editable List View -->
+<form class="form-group">
     <!-- Add Item -->
-    <div class="input-group">
-        <input type="text" class="form-control" placeholder="{{placeholder}}"
-               [(ngModel)]="currItem" pattern=".{10,}">
-                    <span class="input-group-btn">
-                        <button type="submit" class="btn btn-primary"
-                                [class.disabled]="isValidInput(currItem)"
-                                (click)="addItem(currItem)">
-                            Add
-                        </button>
-                    </span>
-    </div>
-    <!-- Normal List View -->
-    <ul *ngIf="itemList.length>0" class="list-group normal-list-group">
-        <li *ngFor="#item of itemList; #idx = index" class="list-group-item">
-            <!-- Item number -->
-            <div class="number-label"><span>{{idx+1}}</span></div>
-            <!-- Item name -->
-            <div class="list-group-item-name">
-                <span>
-                    {{item.value}}
-                </span>
-            </div>
-        </li>
-    </ul>
-
-    <!-- Editable List View -->
     <ul *ngIf="itemList.length>0" class="list-group editable-list-group">
-        <li *ngFor="#item of itemList; #idx = index" class="list-group-item">
+        <li *ngFor="#item of itemList; #idx = index"
+            class="list-group-item editable-list-group-item">
             <!-- Item number -->
             <div class="number-label"><span>{{idx+1}}</span></div>
             <!-- Item name -->
@@ -54,7 +29,7 @@
                 </button>
             </div>
             <div class="save-cancel" [class.hidden]="!isEditing(idx)">
-                <button type="submit" class="btn btn-success save-button"
+                <button type="button" class="btn btn-success save-button"
                         (click)="saveEdit(idx, editValue.value)">
                     <span class="glyphicon glyphicon-check"></span>
                 </button>
@@ -65,4 +40,17 @@
             </div>
         </li>
     </ul>
+
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="{{placeholder}}"
+               [(ngModel)]="currItem" pattern=".{10,}">
+        <span class="input-group-btn">
+            <button type="submit" class="btn btn-primary"
+                    [class.disabled]="!isValidInput(currItem)"
+                    (click)="addItem(currItem)">
+                Add
+            </button>
+        </span>
+    </div>
+
 </form>

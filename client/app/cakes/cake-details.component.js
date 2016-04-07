@@ -34,6 +34,8 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake.ser
                     this._routeParams = _routeParams;
                     this._service = _service;
                     this.currDesc = { "value": "", "editing": false };
+                    this.formIngr = false;
+                    this.formStep = false;
                 }
                 CakeDetailsComponent.prototype.ngOnInit = function () {
                     var _this = this;
@@ -117,6 +119,25 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake.ser
                 CakeDetailsComponent.prototype.isEditing = function (itemType) {
                     if (itemType == "desc") {
                         return this.currDesc["editing"];
+                    }
+                };
+                CakeDetailsComponent.prototype.openForm = function (itemType) {
+                    console.log('clicked');
+                    if (itemType == "ingr") {
+                        console.log(this.formIngr);
+                        this.formIngr = true;
+                        console.log(this.formIngr);
+                    }
+                    else if (itemType == "step") {
+                        this.formStep = true;
+                    }
+                };
+                CakeDetailsComponent.prototype.closeForm = function (itemType) {
+                    if (itemType == "ingr") {
+                        this.formIngr == false;
+                    }
+                    else if (itemType == "step") {
+                        this.formStep == false;
                     }
                 };
                 CakeDetailsComponent.prototype.isEmptyString = function (str) {

@@ -32,7 +32,8 @@ System.register(["angular2/core", "ng2-dragula/ng2-dragula"], function(exports_1
                     }
                 };
                 EditableItemForm.prototype.addItem = function (value) {
-                    if (!this.isEmptyString(value)) {
+                    if (this.isValidInput(value)) {
+                        console.log("test");
                         this.onAdded.emit(value);
                         this.currItem = "";
                         this.editing.push(false);
@@ -62,14 +63,10 @@ System.register(["angular2/core", "ng2-dragula/ng2-dragula"], function(exports_1
                 };
                 EditableItemForm.prototype.isValidInput = function (str) {
                     if (!this.isEmptyString(str)) {
-                        return str.length > 10;
+                        return str.length > 4;
                     }
                     return false;
                 };
-                __decorate([
-                    core_1.Input(), 
-                    __metadata('design:type', String)
-                ], EditableItemForm.prototype, "listLabel", void 0);
                 __decorate([
                     core_1.Input(), 
                     __metadata('design:type', String)

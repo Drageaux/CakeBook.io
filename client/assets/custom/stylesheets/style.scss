@@ -278,6 +278,16 @@ body {
         min-height: 85vh;
         height: auto;
         box-shadow: -15px 10px 50px 25px rgba(0, 0, 0, 0.2), inset 10px 0 25px 2px rgba(0, 0, 0, 0.3);
+
+        .normal-list-group {
+            cursor: pointer;
+            height: 100%;
+            background-color: white !important;
+        }
+        .normal-list-group:hover {
+            border-color: $topnav-item-color;
+            background-color: #e3b5b8 !important;
+        }
         .form-group {
             margin-bottom: 8px;
             button {
@@ -294,6 +304,10 @@ body {
                     border-radius: 4px;
                 }
             }
+            .list-group-item {
+                background-color: transparent;
+                border: none;
+            }
             .editable-list-group {
                 margin-top: 5px;
                 padding: 5px 0;
@@ -301,9 +315,9 @@ body {
                 border: 3px solid #DDD;
                 border-radius: 4px;
                 background-color: #EEE;
-                max-height: 200px;
+                max-height: 300px;
                 overflow-y: scroll;
-                .list-group-item {
+                .editable-list-group-item {
                     cursor: move;
                     cursor: grab;
                     overflow: hidden;
@@ -403,28 +417,28 @@ body {
                         }
                     }
                 }
-                .list-group-item:first-child:last-child {
+                .editable-list-group-item:first-child:last-child {
                     .number-label {
                         border-radius: 4px 0 0 4px;
                     }
                 }
-                .list-group-item:first-child {
+                .editable-list-group-item:first-child {
                     .number-label {
                         border-radius: 4px 0 0 0;
                     }
                 }
-                .list-group-item:not(:first-child):not(:last-child) {
+                .editable-list-group-item:not(:first-child):not(:last-child) {
                     .number-label {
                         border-radius: 0;
                     }
                 }
-                .list-group-item:last-child {
+                .editable-list-group-item:last-child {
                     .number-label {
                         border-radius: 0 0 0 4px;
                     }
                 }
-                .list-group-item:hover,
-                .list-group-item:focus {
+                .editable-list-group-item:hover,
+                .editable-list-group-item:focus {
                     background-color: white;
                     transition-duration: 0.2s;
                     .number-label {
@@ -433,7 +447,7 @@ body {
                     }
                 }
                 @media screen and (max-width: 768px) {
-                    .list-group-item {
+                    .editable-list-group-item {
                         font-size: 0.9em;
                         margin-left: 10px;
                         margin-right: 10px;
@@ -444,7 +458,7 @@ body {
                     }
                 }
                 @media screen and (max-width: 480px) {
-                    .list-group-item {
+                    .editable-list-group-item {
                         font-size: 0.9em;
                         margin-left: 5px;
                         margin-right: 5px;

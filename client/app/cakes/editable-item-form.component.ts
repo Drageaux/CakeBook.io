@@ -9,7 +9,6 @@ import {Dragula, DragulaService} from "ng2-dragula/ng2-dragula";
 })
 
 export class EditableItemForm implements OnInit {
-    @Input() listLabel:string;
     @Input() placeholder:string;
     @Input() itemList:Object[];
     editing:boolean[] = [];
@@ -26,7 +25,8 @@ export class EditableItemForm implements OnInit {
     }
 
     addItem(value:string) {
-        if (!this.isEmptyString(value)) {
+        if (this.isValidInput(value)) {
+            console.log("test");
             this.onAdded.emit(value);
             this.currItem = "";
             this.editing.push(false);
@@ -63,7 +63,7 @@ export class EditableItemForm implements OnInit {
 
     isValidInput(str:string) {
         if (!this.isEmptyString(str)) {
-            return str.length > 10
+            return str.length > 4
         }
         return false
     }

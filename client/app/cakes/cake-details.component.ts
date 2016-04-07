@@ -18,6 +18,8 @@ export class CakeDetailsComponent implements OnInit {
     cake:Cake;
     currDesc = {"value": "", "editing": false};
     public uploadCallBack:Function;
+    formIngr = false;
+    formStep = false;
 
     constructor(private _router:Router,
                 private _routeParams:RouteParams,
@@ -113,7 +115,28 @@ export class CakeDetailsComponent implements OnInit {
      ********************/
     isEditing(itemType:string) {
         if (itemType == "desc") {
-            return this.currDesc["editing"];
+            return this.currDesc["editing"]
+        }
+    }
+
+    openForm(itemType:string) {
+        console.log('clicked');
+        if (itemType == "ingr") {
+            console.log(this.formIngr);
+            this.formIngr = true;
+            console.log(this.formIngr);
+        }
+        else if (itemType == "step") {
+            this.formStep = true;
+        }
+    }
+
+    closeForm(itemType:string) {
+        if (itemType == "ingr") {
+            this.formIngr == false;
+        }
+        else if (itemType == "step") {
+            this.formStep == false;
         }
     }
 

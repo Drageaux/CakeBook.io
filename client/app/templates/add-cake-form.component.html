@@ -26,8 +26,8 @@
         <hr>
 
         <!-- Ingredients -->
+        <label>Ingredients</label><br>
         <editable-item-list
-                [listLabel]="'Ingredients'"
                 [placeholder]="'(optional)'"
                 [itemList]="model.ingredients"
                 (onAdded)="addOptionalItem('ingr', $event)"
@@ -36,8 +36,8 @@
         </editable-item-list>
         <hr>
         <!-- Steps -->
+        <label>Steps</label><br>
         <editable-item-list
-                [listLabel]="'Steps'"
                 [placeholder]="'(optional)'"
                 [itemList]="model.steps"
                 (onAdded)="addOptionalItem('step', $event)"
