@@ -294,7 +294,7 @@ body {
                     border-radius: 4px;
                 }
             }
-            .normal-list-group {
+            .editable-list-group {
                 margin-top: 5px;
                 padding: 5px 0;
                 height: auto !important;
@@ -304,6 +304,8 @@ body {
                 max-height: 200px;
                 overflow-y: scroll;
                 .list-group-item {
+                    cursor: move;
+                    cursor: grab;
                     overflow: hidden;
                     margin: 2px 20px 2px 20px;
                     padding: 6px 15px 6px 0;
@@ -332,68 +334,8 @@ body {
                         right: 0;
                         display: inline-block;
                         margin-right: auto;
-                        width: 88%;
                         word-break: break-all;
                         padding-left: 38px !important;
-                    }
-                }
-                .list-group-item:first-child:last-child {
-                    .number-label {
-                        border-radius: 4px 0 0 4px;
-                    }
-                }
-                .list-group-item:first-child {
-                    .number-label {
-                        border-radius: 4px 0 0 0;
-                    }
-                }
-                .list-group-item:not(:first-child):not(:last-child) {
-                    .number-label {
-                        border-radius: 0;
-                    }
-                }
-                .list-group-item:last-child {
-                    .number-label {
-                        border-radius: 0 0 0 4px;
-                    }
-                }
-                .list-group-item:hover,
-                .list-group-item:focus {
-                    background-color: white;
-                    transition-duration: 0.2s;
-                    .number-label {
-                        background-color: $topnav-item-color;
-                        transition-duration: 0.2s;
-                    }
-                }
-                @media screen and (max-width: 768px) {
-                    .list-group-item {
-                        font-size: 0.9em;
-                        margin-left: 10px;
-                        margin-right: 10px;
-                        padding-right: 10px;
-                        .list-group-item-name {
-                            width: 79%;
-                        }
-                    }
-                }
-                @media screen and (max-width: 480px) {
-                    .list-group-item {
-                        font-size: 0.9em;
-                        margin-left: 5px;
-                        margin-right: 5px;
-                        .list-group-item-name {
-                            width: 75%;
-                        }
-                    }
-                }
-            }
-            .editable-list-group {
-                @extend .normal-list-group;
-                .list-group-item {
-                    cursor: move;
-                    cursor: grab;
-                    .list-group-item-name:not(.edit-item) {
                         width: 78%;
                     }
                     .list-group-item-name.edit-item {
@@ -458,6 +400,56 @@ body {
                             span {
                                 color: #C9302C;
                             }
+                        }
+                    }
+                }
+                .list-group-item:first-child:last-child {
+                    .number-label {
+                        border-radius: 4px 0 0 4px;
+                    }
+                }
+                .list-group-item:first-child {
+                    .number-label {
+                        border-radius: 4px 0 0 0;
+                    }
+                }
+                .list-group-item:not(:first-child):not(:last-child) {
+                    .number-label {
+                        border-radius: 0;
+                    }
+                }
+                .list-group-item:last-child {
+                    .number-label {
+                        border-radius: 0 0 0 4px;
+                    }
+                }
+                .list-group-item:hover,
+                .list-group-item:focus {
+                    background-color: white;
+                    transition-duration: 0.2s;
+                    .number-label {
+                        background-color: $topnav-item-color;
+                        transition-duration: 0.2s;
+                    }
+                }
+                @media screen and (max-width: 768px) {
+                    .list-group-item {
+                        font-size: 0.9em;
+                        margin-left: 10px;
+                        margin-right: 10px;
+                        padding-right: 10px;
+                        .list-group-item-name {
+                            width: 79%;
+                        }
+                    }
+                }
+                @media screen and (max-width: 480px) {
+                    .list-group-item {
+                        font-size: 0.9em;
+                        margin-left: 5px;
+                        margin-right: 5px;
+                        .list-group-item-name {
+                            width: 75%;
                         }
                     }
                 }
