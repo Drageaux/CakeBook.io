@@ -218,6 +218,7 @@ body {
 
     .back-to-top,
     .back-to-top:focus {
+        z-index: 10;
         display: none;
         position: fixed;
         right: 20px;
@@ -293,7 +294,7 @@ body {
                     border-radius: 4px;
                 }
             }
-            .list-group.editable-item-list {
+            .normal-list-group {
                 margin-top: 5px;
                 padding: 5px 0;
                 height: auto !important;
@@ -303,8 +304,6 @@ body {
                 max-height: 200px;
                 overflow-y: scroll;
                 .list-group-item {
-                    cursor: move;
-                    cursor: grab;
                     overflow: hidden;
                     margin: 2px 20px 2px 20px;
                     padding: 6px 15px 6px 0;
@@ -333,9 +332,69 @@ body {
                         right: 0;
                         display: inline-block;
                         margin-right: auto;
-                        padding-left: 38px;
-                        width: 78%;
+                        width: 88%;
                         word-break: break-all;
+                        padding-left: 38px !important;
+                    }
+                }
+                .list-group-item:first-child:last-child {
+                    .number-label {
+                        border-radius: 4px 0 0 4px;
+                    }
+                }
+                .list-group-item:first-child {
+                    .number-label {
+                        border-radius: 4px 0 0 0;
+                    }
+                }
+                .list-group-item:not(:first-child):not(:last-child) {
+                    .number-label {
+                        border-radius: 0;
+                    }
+                }
+                .list-group-item:last-child {
+                    .number-label {
+                        border-radius: 0 0 0 4px;
+                    }
+                }
+                .list-group-item:hover,
+                .list-group-item:focus {
+                    background-color: white;
+                    transition-duration: 0.2s;
+                    .number-label {
+                        background-color: $topnav-item-color;
+                        transition-duration: 0.2s;
+                    }
+                }
+                @media screen and (max-width: 768px) {
+                    .list-group-item {
+                        font-size: 0.9em;
+                        margin-left: 10px;
+                        margin-right: 10px;
+                        padding-right: 10px;
+                        .list-group-item-name {
+                            width: 79%;
+                        }
+                    }
+                }
+                @media screen and (max-width: 480px) {
+                    .list-group-item {
+                        font-size: 0.9em;
+                        margin-left: 5px;
+                        margin-right: 5px;
+                        .list-group-item-name {
+                            width: 75%;
+                        }
+                    }
+                }
+            }
+            .editable-list-group {
+                @extend .normal-list-group;
+                .list-group-item {
+                    cursor: move;
+                    cursor: grab;
+                    .list-group-item-name:not(.edit-item) {
+                        width: 78%;
                     }
                     .list-group-item-name.edit-item {
                         width: 77%;
@@ -402,55 +461,17 @@ body {
                         }
                     }
                 }
-                .list-group-item:first-child:last-child {
-                    .number-label {
-                        border-radius: 4px 0 0 4px;
-                    }
-                }
-                .list-group-item:first-child {
-                    .number-label {
-                        border-radius: 4px 0 0 0;
-                    }
-                }
-                .list-group-item:not(:first-child):not(:last-child) {
-                    .number-label {
-                        border-radius: 0;
-                    }
-                }
-                .list-group-item:last-child {
-                    .number-label {
-                        border-radius: 0 0 0 4px;
-                    }
-                }
-                .list-group-item:hover,
-                .list-group-item:focus {
-                    background-color: white;
-                    transition-duration: 0.2s;
-                    .number-label {
-                        background-color: $topnav-item-color;
-                        transition-duration: 0.2s;
-                    }
-                }
-                @media screen and (max-width: 768px) {
-                    .list-group-item {
-                        font-size: 0.9em;
-                        margin-left: 10px;
-                        margin-right: 10px;
-                        padding-right: 10px;
-                        .list-group-item-name {
-                            width: 79%;
-                        }
-                    }
-                }
             }
         }
     }
+
     @media screen and (max-width: 768px) {
         .general-container {
             margin-left: 8vw !important;
             padding: 25px !important;
         }
     }
+
     @media screen and (max-width: 480px) {
         .general-container {
             margin-left: 3vw !important;
@@ -583,11 +604,13 @@ body {
             padding-left: 30px;
         }
     }
+
     @media screen and (max-width: 768px) {
         .details-container {
             margin-left: 5%;
         }
     }
+
 }
 
 /**************

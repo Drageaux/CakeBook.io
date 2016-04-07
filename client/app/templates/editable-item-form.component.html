@@ -12,16 +12,30 @@
                         </button>
                     </span>
     </div>
-    <!-- Item List -->
-    <ul *ngIf="itemList.length>0" class="list-group editable-item-list">
+    <!-- Normal List View -->
+    <ul *ngIf="itemList.length>0" class="list-group normal-list-group">
+        <li *ngFor="#item of itemList; #idx = index" class="list-group-item">
+            <!-- Item number -->
+            <div class="number-label"><span>{{idx+1}}</span></div>
+            <!-- Item name -->
+            <div class="list-group-item-name">
+                <span>
+                    {{item.value}}
+                </span>
+            </div>
+        </li>
+    </ul>
+
+    <!-- Editable List View -->
+    <ul *ngIf="itemList.length>0" class="list-group editable-list-group">
         <li *ngFor="#item of itemList; #idx = index" class="list-group-item">
             <!-- Item number -->
             <div class="number-label"><span>{{idx+1}}</span></div>
             <!-- Item name -->
             <div class="list-group-item-name" [class.edit-item]="isEditing(idx)">
-                                <span [class.hidden]="isEditing(idx)">
-                                    {{item.value}}
-                                </span>
+                <span [class.hidden]="isEditing(idx)">
+                    {{item.value}}
+                </span>
                 <input #editValue type="text" class="form-control"
                        [class.hidden]="!isEditing(idx)"
                        [value]="item.value" autofocus>
@@ -42,10 +56,12 @@
             <div class="save-cancel" [class.hidden]="!isEditing(idx)">
                 <button type="submit" class="btn btn-success save-button"
                         (click)="saveEdit(idx, editValue.value)">
-                    <span class="glyphicon glyphicon-check"></span></button>
+                    <span class="glyphicon glyphicon-check"></span>
+                </button>
                 <button type="button" class="btn btn-danger cancel-button"
                         (click)="cancelEdit(idx)">
-                    <span class="glyphicon glyphicon-remove"></span></button>
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
             </div>
         </li>
     </ul>
