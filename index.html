@@ -32,7 +32,6 @@
     <!-- Configure SystemJS -->
     <script>
         System.config({
-            defaultJSExtensions: true,
             packages: {
                 app: {
                     format: 'register',
@@ -40,17 +39,18 @@
                 },
                 "ng2-dragula": {
                     main: "ng2-dragula.js",
-                    defaultExtension: "js"
+                    defaultExtension: "js",
+                    meta: {
+                        "ng2-dragula/*": {
+                            "format": "global"
+                        }
+                    }
                 }
             },
             map: {
-                "angular2-jwt": "node_modules/angular2-jwt/angular2-jwt.js"
-            },
-            paths: {
+                "angular2-jwt": "node_modules/angular2-jwt/angular2-jwt.js",
                 'dragula': 'node_modules/dragula/dist/dragula.js',
-                'ng2-dragula/*': 'node_modules/ng2-dragula/ng2-dragula.js',
-                'angular2/*': 'node_modules/angular2/*',
-                'rxjs/*': 'node_modules/rxjs/*'
+                'ng2-dragula': 'node_modules/ng2-dragula'
             }
         });
         System.import('app/main')
