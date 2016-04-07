@@ -210,6 +210,8 @@ body {
         max-height: 200px;
         overflow-y: scroll; }
         body .general-container .form-group .list-group.editable-item-list .list-group-item, body .home-container .form-group .list-group.editable-item-list .list-group-item, body .details-container .form-group .list-group.editable-item-list .list-group-item {
+          cursor: move;
+          cursor: grab;
           overflow: hidden;
           margin: 2px 20px 2px 20px;
           padding: 6px 15px 6px 0;
