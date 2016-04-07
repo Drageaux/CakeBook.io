@@ -1,8 +1,11 @@
 import {Component, OnInit, Input, Output, EventEmitter } from "angular2/core";
+import {Dragula, DragulaService} from "ng2-dragula/ng2-dragula";
 
 @Component({
     selector: "editable-item-list",
-    templateUrl: "templates/editable-item-form.component.html"
+    templateUrl: "templates/editable-item-form.component.html",
+    directives: [Dragula],
+    providers: [DragulaService]
 })
 
 export class EditableItemForm implements OnInit {
