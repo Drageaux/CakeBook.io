@@ -48,7 +48,7 @@
         <!-- Ingredients -->
         <label>Ingredients</label><br>
         <ul class="well normal-list-group" data-toggle="modal" data-target="#ingrModal"
-            id="ingr-modal-button" (click)="openForm('ingr')">
+            id="ingr-modal-button" (click)="openForm('ingr')" title="Click to edit">
             <li style="list-style: none" *ngIf="cake.ingredients.length == 0">
                 (click to add ingredients)
             </li>
