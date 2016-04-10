@@ -47,23 +47,39 @@
 
         <!-- Ingredients -->
         <label>Ingredients</label><br>
-        <button type="button" class="btn btn-info" (click)="openForm('ingr')" *ngIf="!formIngr">
-            Update Ingredients</button>
-        <ul class="well normal-list-group" *ngIf="!formIngr">
+        <ul class="well normal-list-group" data-toggle="modal" data-target="#ingrModal"
+            id="ingr-modal-button" (click)="openForm('ingr')">
             <li style="list-style: none" *ngIf="cake.ingredients.length == 0">
-                (click to add ingredients)</li>
+                (click to add ingredients)
+            </li>
             <li *ngFor="#item of cake.ingredients; #idx = index">
                 {{item.value}}
             </li>
         </ul>
-        <editable-item-list
-                *ngIf="formIngr"
-                [placeholder]="'(add new ingredient)'"
-                [itemList]="cake.ingredients"
-                (onAdded)="addDetail('ingr', $event)"
-                (onRemoved)="removeDetail('ingr', $event)"
-                (onSaved)="saveEdit('ingr', $event)">
-        </editable-item-list>
+        <div id="ingrModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Updating Ingredients</h4>
+                    </div>
+                    <div class="modal-body" style="background-color: #DDD;">
+                        <editable-item-list
+                                *ngIf="formIngr"
+                                [placeholder]="'(add new ingredient)'"
+                                [itemList]="cake.ingredients"
+                                (onAdded)="addDetail('ingr', $event)"
+                                (onRemoved)="removeDetail('ingr', $event)"
+                                (onSaved)="saveEdit('ingr', $event)">
+                        </editable-item-list>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" autofocus>Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <br>
 
         <!-- Steps -->
@@ -81,7 +97,8 @@
     <button class="btn btn-default" (click)="gotoCakes()">Back</button>
     <button *ngIf="cake" class="btn btn-danger" (click)="deleteCake()">Remove This Cake</button>
 
-    <!-- Trigger the modal with a button -->
+
+    <!-- Image Upload Error Modal -->
     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"
             id="modal-button" style="display:none">Open Modal
     </button>

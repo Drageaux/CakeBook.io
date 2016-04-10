@@ -120,11 +120,8 @@ export class CakeDetailsComponent implements OnInit {
     }
 
     openForm(itemType:string) {
-        console.log('clicked');
         if (itemType == "ingr") {
-            console.log(this.formIngr);
             this.formIngr = true;
-            console.log(this.formIngr);
         }
         else if (itemType == "step") {
             this.formStep = true;

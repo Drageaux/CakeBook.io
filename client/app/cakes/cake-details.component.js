@@ -122,11 +122,8 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake.ser
                     }
                 };
                 CakeDetailsComponent.prototype.openForm = function (itemType) {
-                    console.log('clicked');
                     if (itemType == "ingr") {
-                        console.log(this.formIngr);
                         this.formIngr = true;
-                        console.log(this.formIngr);
                     }
                     else if (itemType == "step") {
                         this.formStep = true;

@@ -20,6 +20,8 @@ $topnav-color: $_2nd-light-cream;
 $topnav-item-color: #AD4047;
 $topnav-item-hovered-color: darken($topnav-item-color, 18%);
 $border-color: $topnav-item-hovered-color;
+$container-color: #fdf0e8;
+$container-hovered-color: #f9d2b9;
 
 // Fonts
 $topnav-font: "Chewy", cursive;
@@ -282,11 +284,13 @@ body {
         .normal-list-group {
             cursor: pointer;
             height: 100%;
-            background-color: white !important;
+            background-color: $container-color !important;
+            max-height: 300px;
+            overflow-y: scroll;
+            border: 1px solid $container-hovered-color;
         }
         .normal-list-group:hover {
-            border-color: $topnav-item-color;
-            background-color: #e3b5b8 !important;
+            background-color: $container-hovered-color !important;
         }
         .form-group {
             margin-bottom: 8px;
@@ -310,6 +314,7 @@ body {
             }
             .editable-list-group {
                 margin-top: 5px;
+                margin-bottom: 0;
                 padding: 5px 0;
                 height: auto !important;
                 border: 3px solid #DDD;
@@ -342,6 +347,7 @@ body {
                             top: 46%;
                             line-height: 5px;
                             cursor: default;
+                            text-align: left;
                         }
                     }
                     .list-group-item-name {
@@ -570,6 +576,8 @@ body {
                 width: 68%;
                 border-radius: 5px;
                 padding-bottom: 5px;
+                background-color: $container-color;
+                border-color: $container-hovered-color;
                 p {
                     white-space: pre-wrap;
                     font-size: 1em;

@@ -195,10 +195,12 @@ body {
     body .general-container .normal-list-group, body .home-container .normal-list-group, body .details-container .normal-list-group {
       cursor: pointer;
       height: 100%;
-      background-color: white !important; }
+      background-color: #fdf0e8 !important;
+      max-height: 300px;
+      overflow-y: scroll;
+      border: 1px solid #f9d2b9; }
     body .general-container .normal-list-group:hover, body .home-container .normal-list-group:hover, body .details-container .normal-list-group:hover {
-      border-color: #AD4047;
-      background-color: #e3b5b8 !important; }
+      background-color: #f9d2b9 !important; }
     body .general-container .form-group, body .home-container .form-group, body .details-container .form-group {
       margin-bottom: 8px; }
       body .general-container .form-group button, body .home-container .form-group button, body .details-container .form-group button {
@@ -213,6 +215,7 @@ body {
         border: none; }
       body .general-container .form-group .editable-list-group, body .home-container .form-group .editable-list-group, body .details-container .form-group .editable-list-group {
         margin-top: 5px;
+        margin-bottom: 0;
         padding: 5px 0;
         height: auto !important;
         border: 3px solid #DDD;
@@ -245,7 +248,8 @@ body {
               position: absolute;
               top: 46%;
               line-height: 5px;
-              cursor: default; }
+              cursor: default;
+              text-align: left; }
           body .general-container .form-group .editable-list-group .editable-list-group-item .list-group-item-name, body .home-container .form-group .editable-list-group .editable-list-group-item .list-group-item-name, body .details-container .form-group .editable-list-group .editable-list-group-item .list-group-item-name {
             right: 0;
             display: inline-block;
@@ -395,7 +399,9 @@ body {
       vertical-align: top;
       width: 68%;
       border-radius: 5px;
-      padding-bottom: 5px; }
+      padding-bottom: 5px;
+      background-color: #fdf0e8;
+      border-color: #f9d2b9; }
       body .details-container .cake-info .cake-description p {
         white-space: pre-wrap;
         font-size: 1em; }
