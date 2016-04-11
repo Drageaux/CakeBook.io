@@ -34,13 +34,13 @@ System.register(["angular2/core", "ng2-dragula/ng2-dragula"], function(exports_1
                 EditableItemForm.prototype.addItem = function (value) {
                     if (this.isValidInput(value)) {
                         console.log("test");
-                        this.onAdded.emit(value);
+                        //this.onAdded.emit(value);
                         this.currItem = "";
                         this.editing.push(false);
                     }
                 };
                 EditableItemForm.prototype.removeItem = function (index) {
-                    this.onRemoved.emit(index);
+                    //this.onRemoved.emit(index);
                     this.editing.splice(index, 1);
                 };
                 /* Editing Ingredients and Steps */

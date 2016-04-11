@@ -27,14 +27,14 @@ export class EditableItemForm implements OnInit {
     addItem(value:string) {
         if (this.isValidInput(value)) {
             console.log("test");
-            this.onAdded.emit(value);
+            //this.onAdded.emit(value);
             this.currItem = "";
             this.editing.push(false);
         }
     }
 
     removeItem(index:number) {
-        this.onRemoved.emit(index);
+        //this.onRemoved.emit(index);
         this.editing.splice(index, 1);
     }
 
