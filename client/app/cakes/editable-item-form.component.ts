@@ -24,12 +24,16 @@ export class EditableItemForm implements OnInit {
         }
     }
 
-    addItem(value:string) {
+    addItem(value:string, form:any) {
         if (this.isValidInput(value)) {
-            console.log("test");
             this.onAdded.emit(value);
             this.currItem = "";
             this.editing.push(false);
+        }
+        // auto scrolls down to the bottom of the list
+        let ul = form.getElementsByTagName("ul")[0];
+        if (ul) {
+            ul.scrollTop = ul.scrollHeight;
         }
     }
 
