@@ -16,6 +16,8 @@ import {EditableItemForm} from "./editable-item-form.component";
 @CanActivate(() => tokenNotExpired())
 export class CakeDetailsComponent implements OnInit {
     cake:Cake;
+    tempIngrs:Object[] = [];
+    tempSteps:Object[] = [];
     currDesc = {"value": "", "editing": false};
     public uploadCallBack:Function;
     formIngr = false;
@@ -30,7 +32,12 @@ export class CakeDetailsComponent implements OnInit {
         let id = this._routeParams.get('id');
         this._service.getCake(id)
             .subscribe(
-                cake => this.cake = cake,
+                cake => {
+                    this.cake = cake;
+                    for (let i in this.cake.ingredients) {
+                        this.tempIngrs.push(this.cake.ingredients[i]);
+                    }
+                },
                 error => this._router.navigate(["Home"])
             );
         this.uploadCallBack = this.uploadImage.bind(this);
@@ -39,10 +46,15 @@ export class CakeDetailsComponent implements OnInit {
     addDetail(detailType:string, value:string) {
         if (detailType == "desc") {
             this._service.addCakeDetail(this.cake._id, detailType, this.currDesc["value"]);
-        } else if (detailType == "ingr" || detailType == "step") {
+        } else {
             if (!this.isEmptyString(value)) {
-                this._service.addCakeDetail(this.cake._id, detailType, value)
-                    .subscribe(cake => this.cake = cake);
+                //this._service.addCakeDetail(this.cake._id, detailType, value)
+                //    .subscribe(cake => this.cake = cake);
+                if (detailType == "ingr") {
+                    this.tempIngrs.push({"index": this.tempIngrs.length, "value": value});
+                }
+                else if (detailType == "step") {
+                }
             }
         }
     }

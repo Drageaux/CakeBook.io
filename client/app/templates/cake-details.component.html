@@ -68,14 +68,15 @@
                         <editable-item-list
                                 *ngIf="formIngr"
                                 [placeholder]="'(add new ingredient)'"
-                                [itemList]="cake.ingredients"
+                                [itemList]="tempIngrs"
                                 (onAdded)="addDetail('ingr', $event)"
                                 (onRemoved)="removeDetail('ingr', $event)"
                                 (onSaved)="saveEdit('ingr', $event)">
                         </editable-item-list>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" autofocus>Close</button>
+                        <button type="button" class="btn btn-success">Submit</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" autofocus>Close</button>
                     </div>
                 </div>
             </div>

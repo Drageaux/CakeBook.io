@@ -1,7 +1,8 @@
 <!-- Editable List View -->
-<form class="form-group">
+<form class="form-group" #test>
     <!-- Add Item -->
-    <ul *ngIf="itemList.length>0" class="list-group editable-list-group">
+    <ul *ngIf="itemList.length>0" class="list-group editable-list-group"
+        #test>
         <li *ngFor="#item of itemList; #idx = index"
             class="list-group-item editable-list-group-item">
             <!-- Item number -->
@@ -47,7 +48,7 @@
         <span class="input-group-btn">
             <button type="submit" class="btn btn-primary"
                     [class.disabled]="!isValidInput(currItem)"
-                    (click)="addItem(currItem)">
+                    (click)="addItem(currItem, test)">
                 Add
             </button>
         </span>

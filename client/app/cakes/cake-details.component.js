@@ -33,6 +33,8 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake.ser
                     this._router = _router;
                     this._routeParams = _routeParams;
                     this._service = _service;
+                    this.tempIngrs = [];
+                    this.tempSteps = [];
                     this.currDesc = { "value": "", "editing": false };
                     this.formIngr = false;
                     this.formStep = false;
@@ -41,18 +43,27 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake.ser
                     var _this = this;
                     var id = this._routeParams.get('id');
                     this._service.getCake(id)
-                        .subscribe(function (cake) { return _this.cake = cake; }, function (error) { return _this._router.navigate(["Home"]); });
+                        .subscribe(function (cake) {
+                        _this.cake = cake;
+                        for (var i in _this.cake.ingredients) {
+                            _this.tempIngrs.push(_this.cake.ingredients[i]);
+                        }
+                    }, function (error) { return _this._router.navigate(["Home"]); });
                     this.uploadCallBack = this.uploadImage.bind(this);
                 };
                 CakeDetailsComponent.prototype.addDetail = function (detailType, value) {
-                    var _this = this;
                     if (detailType == "desc") {
                         this._service.addCakeDetail(this.cake._id, detailType, this.currDesc["value"]);
                     }
-                    else if (detailType == "ingr" || detailType == "step") {
+                    else {
                         if (!this.isEmptyString(value)) {
-                            this._service.addCakeDetail(this.cake._id, detailType, value)
-                                .subscribe(function (cake) { return _this.cake = cake; });
+                            //this._service.addCakeDetail(this.cake._id, detailType, value)
+                            //    .subscribe(cake => this.cake = cake);
+                            if (detailType == "ingr") {
+                                this.tempIngrs.push({ "index": this.tempIngrs.length, "value": value });
+                            }
+                            else if (detailType == "step") {
+                            }
                         }
                     }
                 };
