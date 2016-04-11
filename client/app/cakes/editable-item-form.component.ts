@@ -32,7 +32,9 @@ export class EditableItemForm implements OnInit {
         }
         // auto scrolls down to the bottom of the list
         let ul = form.getElementsByTagName("ul")[0];
-        ul.scrollTop = ul.scrollHeight;
+        if (ul) {
+            ul.scrollTop = ul.scrollHeight;
+        }
     }
 
     removeItem(index:number) {

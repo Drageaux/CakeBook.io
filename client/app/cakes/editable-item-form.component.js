@@ -39,7 +39,9 @@ System.register(["angular2/core", "ng2-dragula/ng2-dragula"], function(exports_1
                     }
                     // auto scrolls down to the bottom of the list
                     var ul = form.getElementsByTagName("ul")[0];
-                    ul.scrollTop = ul.scrollHeight;
+                    if (ul) {
+                        ul.scrollTop = ul.scrollHeight;
+                    }
                 };
                 EditableItemForm.prototype.removeItem = function (index) {
                     this.onRemoved.emit(index);

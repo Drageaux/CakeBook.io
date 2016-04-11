@@ -36,8 +36,6 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake.ser
                     this.tempIngrs = [];
                     this.tempSteps = [];
                     this.currDesc = { "value": "", "editing": false };
-                    this.formIngr = false;
-                    this.formStep = false;
                 }
                 CakeDetailsComponent.prototype.ngOnInit = function () {
                     var _this = this;
@@ -48,6 +46,9 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake.ser
                         for (var i in _this.cake.ingredients) {
                             _this.tempIngrs.push(_this.cake.ingredients[i]);
                         }
+                        for (var i in _this.cake.steps) {
+                            _this.tempSteps.push(_this.cake.steps[i]);
+                        }
                     }, function (error) { return _this._router.navigate(["Home"]); });
                     this.uploadCallBack = this.uploadImage.bind(this);
                 };
@@ -57,20 +58,28 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake.ser
                     }
                     else {
                         if (!this.isEmptyString(value)) {
-                            //this._service.addCakeDetail(this.cake._id, detailType, value)
-                            //    .subscribe(cake => this.cake = cake);
                             if (detailType == "ingr") {
                                 this.tempIngrs.push({ "index": this.tempIngrs.length, "value": value });
                             }
                             else if (detailType == "step") {
+                                this.tempSteps.push({ "index": this.tempSteps.length, "value": value });
                             }
                         }
                     }
                 };
                 CakeDetailsComponent.prototype.removeDetail = function (detailType, index) {
-                    var _this = this;
-                    this._service.removeCakeDetail(this.cake._id, detailType, index)
-                        .subscribe(function (cake) { return _this.cake = cake; });
+                    if (detailType == "ingr") {
+                        this.tempIngrs.splice(index, 1);
+                        for (var i in this.tempIngrs) {
+                            this.tempIngrs[i][index] = i;
+                        }
+                    }
+                    else if (detailType == "step") {
+                        this.tempSteps.splice(index, 1);
+                        for (var i in this.tempSteps) {
+                            this.tempSteps[i][index] = i;
+                        }
+                    }
                 };
                 CakeDetailsComponent.prototype.editDetail = function (detailType, index) {
                     if (detailType == "desc") {
@@ -84,14 +93,33 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake.ser
                         this._service.addCakeDetail(this.cake._id, "desc", obj.value.replace(/\s+$/, ""))
                             .subscribe(function (cake) { return _this.cake = cake; });
                     }
-                    else if (detailType == "ingr" || detailType == "step") {
-                        this._service.updateCakeDetail(this.cake._id, detailType, obj.index, obj.value)
-                            .subscribe(function (cake) { return _this.cake = cake; });
+                    else {
+                        if (!this.isEmptyString(obj)) {
+                            if (detailType == "ingr") {
+                                this.tempIngrs[obj.index] = obj;
+                            }
+                            else if (detailType == "step") {
+                                this.tempSteps[obj.index] = obj;
+                            }
+                        }
                     }
                 };
                 CakeDetailsComponent.prototype.cancelEdit = function (detailType, index) {
                     if (detailType == "desc") {
                         this.currDesc["editing"] = false;
+                    }
+                };
+                CakeDetailsComponent.prototype.submitEdit = function (detailType) {
+                    var _this = this;
+                    if (detailType == "ingr") {
+                        console.log(JSON.stringify(this.tempIngrs));
+                        this._service.updateCakeDetail(this.cake._id, detailType, 0, JSON.stringify(this.tempIngrs))
+                            .subscribe(function (cake) { return _this.cake = cake; });
+                    }
+                    else if (detailType == "step") {
+                        console.log(JSON.stringify(this.tempSteps));
+                        this._service.updateCakeDetail(this.cake._id, detailType, 0, JSON.stringify(this.tempSteps))
+                            .subscribe(function (cake) { return _this.cake = cake; });
                     }
                 };
                 CakeDetailsComponent.prototype.uploadImage = function (input, oldImage) {
@@ -130,22 +158,6 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake.ser
                 CakeDetailsComponent.prototype.isEditing = function (itemType) {
                     if (itemType == "desc") {
                         return this.currDesc["editing"];
-                    }
-                };
-                CakeDetailsComponent.prototype.openForm = function (itemType) {
-                    if (itemType == "ingr") {
-                        this.formIngr = true;
-                    }
-                    else if (itemType == "step") {
-                        this.formStep = true;
-                    }
-                };
-                CakeDetailsComponent.prototype.closeForm = function (itemType) {
-                    if (itemType == "ingr") {
-                        this.formIngr == false;
-                    }
-                    else if (itemType == "step") {
-                        this.formStep == false;
                     }
                 };
                 CakeDetailsComponent.prototype.isEmptyString = function (str) {
