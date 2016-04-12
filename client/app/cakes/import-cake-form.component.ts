@@ -50,14 +50,16 @@ export class ImportCakeFormComponent {
 
         cursor = 4;
         while (isIngr) {
-            //console.log(modelArray[cursor]);
-            if (modelArray[cursor] && !this.isEmptyString(modelArray[cursor])) {
+            if (modelArray[cursor] && modelArray[cursor] != "none") {
                 this.model.ingredients[indexIngr] = {
                     "index": indexIngr,
                     "value": modelArray[cursor]
                 };
+            } else if (modelArray[cursor] == "none") {
+                this.model.ingredients = [];
             }
             else {
+
                 isIngr = false;
                 break;
             }
@@ -65,20 +67,20 @@ export class ImportCakeFormComponent {
             cursor++;
         }
 
-
-        //cursor++;
+        cursor++;
         isStep = true;
         while (isStep) {
-            console.log(modelArray[cursor]);
-            if (modelArray[cursor] && !this.isEmptyString(modelArray[cursor])) {
+            if (modelArray[cursor] && modelArray[cursor] != "none") {
                 this.model.steps[indexStep] = {
                     "index": indexStep,
                     "value": modelArray[cursor]
                 };
+            } else if (modelArray[cursor] == "none") {
+                this.model.steps = [];
             }
             else {
-                cursor++;
                 isStep = false;
+                break;
             }
             indexStep++;
             cursor++;
