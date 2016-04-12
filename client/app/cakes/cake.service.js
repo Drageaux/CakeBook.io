@@ -66,7 +66,14 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
                         .catch(this.handleError);
                 };
                 CakeService.prototype.updateCakeDetail = function (id, detailType, index, detailValue) {
-                    var body = JSON.stringify({ index: index, value: detailValue });
+                    var body;
+                    if (detailType == "ingr" || detailType == "step") {
+                        body = detailValue;
+                        console.log(body);
+                    }
+                    else {
+                        body = JSON.stringify({ index: index, value: detailValue });
+                    }
                     var headers = new http_1.Headers({ "Content-Type": "application/json" });
                     var options = new http_1.RequestOptions({ headers: headers });
                     return this.http.put("/api/" + this.userId + "/cake/" + id + "/" + detailType, body, options)

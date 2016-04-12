@@ -95,9 +95,9 @@ module.exports.updateDetail = function (req, res) {
             });
         } else {
             if (req.params.type == "ingr") {
-                cake.ingredients[req.body.index]["value"] = req.body.value;
+                cake.ingredients = req.body;
             } else if (req.params.type == "step") {
-                cake.steps[req.body.index]["value"] = req.body.value;
+                cake.steps = req.body;
             }
             cake.save();
             res.json(cake);

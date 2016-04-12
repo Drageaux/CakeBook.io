@@ -62,7 +62,13 @@ export class CakeService {
     }
 
     updateCakeDetail(id:number, detailType:string, index:number, detailValue:string) {
-        let body = JSON.stringify({index: index, value: detailValue});
+        let body;
+        if (detailType == "ingr" || detailType == "step") {
+            body = detailValue;
+            console.log(body);
+        } else {
+            body = JSON.stringify({index: index, value: detailValue});
+        }
         let headers = new Headers({"Content-Type": "application/json"});
         let options = new RequestOptions({headers: headers});
 

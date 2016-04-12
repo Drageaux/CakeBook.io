@@ -20,6 +20,8 @@ $topnav-color: $_2nd-light-cream;
 $topnav-item-color: #AD4047;
 $topnav-item-hovered-color: darken($topnav-item-color, 18%);
 $border-color: $topnav-item-hovered-color;
+$container-color: #fdf0e8;
+$container-hovered-color: #f9d2b9;
 
 // Fonts
 $topnav-font: "Chewy", cursive;
@@ -218,6 +220,7 @@ body {
 
     .back-to-top,
     .back-to-top:focus {
+        z-index: 10;
         display: none;
         position: fixed;
         right: 20px;
@@ -277,6 +280,18 @@ body {
         min-height: 85vh;
         height: auto;
         box-shadow: -15px 10px 50px 25px rgba(0, 0, 0, 0.2), inset 10px 0 25px 2px rgba(0, 0, 0, 0.3);
+
+        .normal-list-group {
+            cursor: pointer;
+            height: 100%;
+            background-color: $container-color !important;
+            max-height: 300px;
+            overflow-y: scroll;
+            border: 1px solid $container-hovered-color;
+        }
+        .normal-list-group:hover {
+            background-color: $container-hovered-color !important;
+        }
         .form-group {
             margin-bottom: 8px;
             button {
@@ -293,16 +308,23 @@ body {
                     border-radius: 4px;
                 }
             }
-            .list-group.editable-item-list {
+            .list-group-item {
+                background-color: transparent;
+                border: none;
+            }
+            .editable-list-group {
                 margin-top: 5px;
+                margin-bottom: 0;
                 padding: 5px 0;
                 height: auto !important;
                 border: 3px solid #DDD;
                 border-radius: 4px;
                 background-color: #EEE;
-                max-height: 200px;
+                max-height: 300px;
                 overflow-y: scroll;
-                .list-group-item {
+                .editable-list-group-item {
+                    cursor: move;
+                    cursor: grab;
                     overflow: hidden;
                     margin: 2px 20px 2px 20px;
                     padding: 6px 15px 6px 0;
@@ -321,19 +343,21 @@ body {
                         color: white;
                         word-wrap: break-word;
                         span {
+                            cursor: move;
+                            cursor: grab;
                             position: absolute;
                             top: 46%;
                             line-height: 5px;
-                            cursor: default;
+                            text-align: left;
                         }
                     }
                     .list-group-item-name {
                         right: 0;
                         display: inline-block;
                         margin-right: auto;
-                        padding-left: 38px;
-                        width: 78%;
                         word-break: break-all;
+                        padding-left: 38px !important;
+                        width: 78%;
                     }
                     .list-group-item-name.edit-item {
                         width: 77%;
@@ -400,28 +424,28 @@ body {
                         }
                     }
                 }
-                .list-group-item:first-child:last-child {
+                .editable-list-group-item:first-child:last-child {
                     .number-label {
                         border-radius: 4px 0 0 4px;
                     }
                 }
-                .list-group-item:first-child {
+                .editable-list-group-item:first-child {
                     .number-label {
                         border-radius: 4px 0 0 0;
                     }
                 }
-                .list-group-item:not(:first-child):not(:last-child) {
+                .editable-list-group-item:not(:first-child):not(:last-child) {
                     .number-label {
                         border-radius: 0;
                     }
                 }
-                .list-group-item:last-child {
+                .editable-list-group-item:last-child {
                     .number-label {
                         border-radius: 0 0 0 4px;
                     }
                 }
-                .list-group-item:hover,
-                .list-group-item:focus {
+                .editable-list-group-item:hover,
+                .editable-list-group-item:focus {
                     background-color: white;
                     transition-duration: 0.2s;
                     .number-label {
@@ -430,7 +454,7 @@ body {
                     }
                 }
                 @media screen and (max-width: 768px) {
-                    .list-group-item {
+                    .editable-list-group-item {
                         font-size: 0.9em;
                         margin-left: 10px;
                         margin-right: 10px;
@@ -440,15 +464,27 @@ body {
                         }
                     }
                 }
+                @media screen and (max-width: 480px) {
+                    .editable-list-group-item {
+                        font-size: 0.9em;
+                        margin-left: 5px;
+                        margin-right: 5px;
+                        .list-group-item-name {
+                            width: 75%;
+                        }
+                    }
+                }
             }
         }
     }
+
     @media screen and (max-width: 768px) {
         .general-container {
             margin-left: 8vw !important;
             padding: 25px !important;
         }
     }
+
     @media screen and (max-width: 480px) {
         .general-container {
             margin-left: 3vw !important;
@@ -541,6 +577,8 @@ body {
                 width: 68%;
                 border-radius: 5px;
                 padding-bottom: 5px;
+                background-color: $container-color;
+                border-color: $container-hovered-color;
                 p {
                     white-space: pre-wrap;
                     font-size: 1em;
@@ -581,9 +619,113 @@ body {
             padding-left: 30px;
         }
     }
+
     @media screen and (max-width: 768px) {
         .details-container {
             margin-left: 5%;
+        }
+    }
+
+    /******************
+     * Dragula Custom *
+     ******************/
+    .gu-mirror {
+        overflow: hidden;
+        margin: 2px 20px 2px 20px;
+        padding: 6px 15px 6px 0;
+        height: auto !important;
+        border-left-width: 0;
+        background-color: darken(white, 2%);
+        font-size: 0.97em;
+        border-radius: 4px !important;
+        .number-label {
+            position: absolute;
+            top: 0;
+            float: left;
+            padding: 10px;
+            width: 28px;
+            height: 100%;
+            background-color: $topnav-item-color;
+            color: white;
+            word-wrap: break-word;
+            span {
+                position: absolute;
+                top: 46%;
+                line-height: 5px;
+                text-align: left;
+            }
+        }
+        .list-group-item-name {
+            right: 0;
+            display: inline-block;
+            margin-right: auto;
+            word-break: break-all;
+            padding-left: 38px !important;
+            width: 78%;
+        }
+        .list-group-item-name.edit-item {
+            width: 77%;
+            input {
+                height: 26px;
+            }
+        }
+        @media screen and (min-device-width: 768px) {
+            .list-group-item-name {
+                width: 82%;
+            }
+            .list-group-item-name.edit-item {
+                width: 82%;
+            }
+        }
+
+        /* Edit and Remove */
+        .btn {
+            position: relative;
+            padding: 3px 7px 1px 7px;
+            vertical-align: baseline;
+            font-size: 10px;
+            transition-duration: 0.2s;
+        }
+        .edit-remove {
+            float: right;
+            .edit-button:hover {
+                border-color: #5BC0DE;
+                background-color: #5BC0DE;
+                span {
+                    color: white;
+                }
+            }
+            .remove-button:hover {
+                border-color: #C9302C;
+                background-color: #C9302C;
+                span {
+                    color: white;
+                }
+            }
+        }
+        .save-cancel {
+            float: right;
+            .btn {
+                height: 26px;
+                border-color: white !important;
+                background-color: white;
+            }
+            .save-button:hover {
+                background-color: #71C171 !important;
+            }
+            .save-button:not(:hover) {
+                span {
+                    color: #5CB85C;
+                }
+            }
+            .cancel-button:hover {
+                background-color: #D64843 !important;
+            }
+            .cancel-button:not(:hover) {
+                span {
+                    color: #C9302C;
+                }
+            }
         }
     }
 }

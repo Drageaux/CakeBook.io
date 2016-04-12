@@ -1,4 +1,4 @@
-System.register(["angular2/core"], function(exports_1) {
+System.register(["angular2/core", "ng2-dragula/ng2-dragula"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,31 +8,49 @@ System.register(["angular2/core"], function(exports_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, ng2_dragula_1;
     var EditableItemForm;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (ng2_dragula_1_1) {
+                ng2_dragula_1 = ng2_dragula_1_1;
             }],
         execute: function() {
             EditableItemForm = (function () {
-                function EditableItemForm() {
+                function EditableItemForm(dragulaService) {
+                    var _this = this;
+                    this.dragulaService = dragulaService;
                     this.editing = [];
                     this.onAdded = new core_1.EventEmitter();
                     this.onRemoved = new core_1.EventEmitter();
                     this.onSaved = new core_1.EventEmitter();
+                    dragulaService.drop.subscribe(function (value) {
+                        _this.onDrop(value.slice(1));
+                    });
                 }
+                EditableItemForm.prototype.onDrop = function (args) {
+                    for (var i in this.itemList) {
+                        this.itemList[i]["index"] = i;
+                    }
+                };
                 EditableItemForm.prototype.ngOnInit = function () {
                     for (var i in this.itemList) {
                         this.editing.push(false);
                     }
                 };
-                EditableItemForm.prototype.addItem = function (value) {
-                    if (!this.isEmptyString(value)) {
+                EditableItemForm.prototype.addItem = function (value, form) {
+                    if (this.isValidInput(value)) {
                         this.onAdded.emit(value);
                         this.currItem = "";
                         this.editing.push(false);
+                    }
+                    // auto scrolls down to the bottom of the list
+                    var ul = form.getElementsByTagName("ul")[0];
+                    if (ul) {
+                        ul.scrollTop = ul.scrollHeight;
                     }
                 };
                 EditableItemForm.prototype.removeItem = function (index) {
@@ -59,14 +77,10 @@ System.register(["angular2/core"], function(exports_1) {
                 };
                 EditableItemForm.prototype.isValidInput = function (str) {
                     if (!this.isEmptyString(str)) {
-                        return str.length > 10;
+                        return str.length > 4;
                     }
                     return false;
                 };
-                __decorate([
-                    core_1.Input(), 
-                    __metadata('design:type', String)
-                ], EditableItemForm.prototype, "listLabel", void 0);
                 __decorate([
                     core_1.Input(), 
                     __metadata('design:type', String)
@@ -90,9 +104,11 @@ System.register(["angular2/core"], function(exports_1) {
                 EditableItemForm = __decorate([
                     core_1.Component({
                         selector: "editable-item-list",
-                        templateUrl: "templates/editable-item-form.component.html"
+                        templateUrl: "templates/editable-item-form.component.html",
+                        directives: [ng2_dragula_1.Dragula],
+                        providers: [ng2_dragula_1.DragulaService]
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [ng2_dragula_1.DragulaService])
                 ], EditableItemForm);
                 return EditableItemForm;
             })();

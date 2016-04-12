@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/custom/images/favicon-32x32.png">
     <!-- Setting the right viewport -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <!-- Load libraries -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -29,6 +29,9 @@
     <!-- Google Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Chewy|Marmelad|Lobster' rel='stylesheet' type='text/css'>
 
+    <!-- Custom/Third-Party -->
+    <link rel="stylesheet" href="assets/custom/stylesheets/dragula.css">
+
     <!-- Configure SystemJS -->
     <script>
         System.config({
@@ -36,10 +39,21 @@
                 app: {
                     format: 'register',
                     defaultExtension: 'js'
+                },
+                "ng2-dragula": {
+                    main: "ng2-dragula.js",
+                    defaultExtension: "js",
+                    meta: {
+                        "ng2-dragula/*": {
+                            "format": "global"
+                        }
+                    }
                 }
             },
             map: {
-                "angular2-jwt": "node_modules/angular2-jwt/angular2-jwt.js"
+                "angular2-jwt": "node_modules/angular2-jwt/angular2-jwt.js",
+                'dragula': 'node_modules/dragula/dist/dragula.js',
+                'ng2-dragula': 'node_modules/ng2-dragula'
             }
         });
         System.import('app/main')

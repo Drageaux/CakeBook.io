@@ -1,12 +1,14 @@
 import {Component, OnInit, Input, Output, EventEmitter } from "angular2/core";
+import {Dragula, DragulaService} from "ng2-dragula/ng2-dragula";
 
 @Component({
     selector: "editable-item-list",
-    templateUrl: "templates/editable-item-form.component.html"
+    templateUrl: "templates/editable-item-form.component.html",
+    directives: [Dragula],
+    providers: [DragulaService]
 })
 
 export class EditableItemForm implements OnInit {
-    @Input() listLabel:string;
     @Input() placeholder:string;
     @Input() itemList:Object[];
     editing:boolean[] = [];
@@ -16,17 +18,34 @@ export class EditableItemForm implements OnInit {
     @Output() onRemoved = new EventEmitter<any>();
     @Output() onSaved = new EventEmitter<Object>();
 
+    constructor(private dragulaService:DragulaService) {
+        dragulaService.drop.subscribe((value) => {
+            this.onDrop(value.slice(1));
+        });
+    }
+
+    onDrop(args) {
+        for (let i in this.itemList) {
+            this.itemList[i]["index"] = i;
+        }
+    }
+
     ngOnInit() {
         for (let i in this.itemList) {
             this.editing.push(false);
         }
     }
 
-    addItem(value:string) {
-        if (!this.isEmptyString(value)) {
+    addItem(value:string, form:any) {
+        if (this.isValidInput(value)) {
             this.onAdded.emit(value);
             this.currItem = "";
             this.editing.push(false);
+        }
+        // auto scrolls down to the bottom of the list
+        let ul = form.getElementsByTagName("ul")[0];
+        if (ul) {
+            ul.scrollTop = ul.scrollHeight;
         }
     }
 
@@ -60,7 +79,7 @@ export class EditableItemForm implements OnInit {
 
     isValidInput(str:string) {
         if (!this.isEmptyString(str)) {
-            return str.length > 10
+            return str.length > 4
         }
         return false
     }
