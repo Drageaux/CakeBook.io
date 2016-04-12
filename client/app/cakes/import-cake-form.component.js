@@ -27,13 +27,9 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     this._cakeService = _cakeService;
                     this.userId = JSON.parse(localStorage.getItem("profile")).user_id; // must be defined first
                     this.saved = new core_1.EventEmitter();
-                    this.modelString = "";
                     this.model = new cake_1.Cake(0, this.userId, "", "", "", "", [], []);
                     this.active = false;
                 }
-                ImportCakeFormComponent.prototype.ngOnInit = function () {
-                    this.modelString = "(name)\n\n(description)\n\n(ingredients)\n\n(steps)";
-                };
                 ImportCakeFormComponent.prototype.openForm = function () {
                     this.active = true;
                 };
@@ -43,23 +39,50 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                 ImportCakeFormComponent.prototype.parsePreview = function () {
                     // split into list of elements
                     console.log(this.modelString);
-                    var isIngr = false;
+                    var cursor;
+                    var isIngr = true;
                     var indexIngr = 0;
                     var isStep = false;
                     var indexStep = 0;
                     var modelArray = this.modelString.split("\n");
-                    for (var i in modelArray) {
-                        if (i == 0) {
-                            this.model.name = modelArray[i];
+                    if (modelArray[0]) {
+                        this.model.name = modelArray[0];
+                    }
+                    if (modelArray[2]) {
+                        this.model.description = modelArray[2];
+                    }
+                    cursor = 4;
+                    while (isIngr) {
+                        //console.log(modelArray[cursor]);
+                        if (modelArray[cursor] && !this.isEmptyString(modelArray[cursor])) {
+                            this.model.ingredients[indexIngr] = {
+                                "index": indexIngr,
+                                "value": modelArray[cursor]
+                            };
                         }
-                        else if (i == 2) {
-                            this.model.description = modelArray[i];
+                        else {
+                            isIngr = false;
+                            break;
                         }
-                        else if (i > 3) {
-                            if (!this.isEmptyString(modelArray[i])) {
-                                this.model.ingredients[indexIngr] = { "index": indexIngr, "value": modelArray[i] };
-                            }
+                        indexIngr++;
+                        cursor++;
+                    }
+                    //cursor++;
+                    isStep = true;
+                    while (isStep) {
+                        console.log(modelArray[cursor]);
+                        if (modelArray[cursor] && !this.isEmptyString(modelArray[cursor])) {
+                            this.model.steps[indexStep] = {
+                                "index": indexStep,
+                                "value": modelArray[cursor]
+                            };
                         }
+                        else {
+                            cursor++;
+                            isStep = false;
+                        }
+                        indexStep++;
+                        cursor++;
                     }
                 };
                 ImportCakeFormComponent.prototype.importCake = function (value) {

@@ -4,9 +4,8 @@
 
 <div *ngIf="active" class="import-cake-form">
     <h4 style="text-align: center"><b>Paste a Recipe Here</b></h4>
-    <form (ngSubmit)="importCake(importCakeForm.value)" #importCakeForm="ngForm">
+    <form (ngSubmit)="importCake(value.value)">
         <textarea rows="10" class="form-control" [(ngModel)]="modelString"
-                  (keyup)="parsePreview($event)"
                   placeholder="(name)
 
 (description)
