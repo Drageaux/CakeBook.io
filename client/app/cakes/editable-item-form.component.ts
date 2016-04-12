@@ -19,9 +19,18 @@ export class EditableItemForm implements OnInit {
     @Output() onSaved = new EventEmitter<Object>();
 
     constructor(private dragulaService:DragulaService) {
+        dragulaService.drag.subscribe((value) => {
+            this.onDrag(value.slice(1));
+        });
         dragulaService.drop.subscribe((value) => {
             this.onDrop(value.slice(1));
         });
+    }
+
+    onDrag(args) {
+        for (let i in this.itemList) {
+            this.editing[i] = false;
+        }
     }
 
     onDrop(args) {

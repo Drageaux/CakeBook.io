@@ -202,6 +202,8 @@ body {
       max-height: 300px;
       overflow-y: scroll;
       border: 1px solid #f9d2b9; }
+      body .general-container .normal-list-group li, body .home-container .normal-list-group li, body .details-container .normal-list-group li {
+        word-break: keep-all; }
     body .general-container .normal-list-group:hover, body .home-container .normal-list-group:hover, body .details-container .normal-list-group:hover {
       background-color: #f9d2b9 !important; }
     body .general-container .form-group, body .home-container .form-group, body .details-container .form-group {
@@ -246,7 +248,7 @@ body {
             height: 100%;
             background-color: #cecece;
             color: white;
-            word-wrap: break-word; }
+            word-break: keep-all; }
             body .general-container .form-group .editable-list-group .editable-list-group-item .number-label span, body .home-container .form-group .editable-list-group .editable-list-group-item .number-label span, body .details-container .form-group .editable-list-group .editable-list-group-item .number-label span {
               cursor: move;
               cursor: grab;
@@ -260,7 +262,7 @@ body {
             margin-right: auto;
             word-break: break-all;
             padding-left: 38px !important;
-            width: 78%; }
+            width: 77%; }
           body .general-container .form-group .editable-list-group .editable-list-group-item .list-group-item-name.edit-item, body .home-container .form-group .editable-list-group .editable-list-group-item .list-group-item-name.edit-item, body .details-container .form-group .editable-list-group .editable-list-group-item .list-group-item-name.edit-item {
             width: 77%; }
             body .general-container .form-group .editable-list-group .editable-list-group-item .list-group-item-name.edit-item input, body .home-container .form-group .editable-list-group .editable-list-group-item .list-group-item-name.edit-item input, body .details-container .form-group .editable-list-group .editable-list-group-item .list-group-item-name.edit-item input {
@@ -329,7 +331,7 @@ body {
             margin-right: 10px;
             padding-right: 10px; }
             body .general-container .form-group .editable-list-group .editable-list-group-item .list-group-item-name, body .home-container .form-group .editable-list-group .editable-list-group-item .list-group-item-name, body .details-container .form-group .editable-list-group .editable-list-group-item .list-group-item-name {
-              width: 79%; } }
+              width: 78%; } }
         @media screen and (max-width: 480px) {
           body .general-container .form-group .editable-list-group .editable-list-group-item, body .home-container .form-group .editable-list-group .editable-list-group-item, body .details-container .form-group .editable-list-group .editable-list-group-item {
             font-size: 0.9em;
@@ -363,6 +365,9 @@ body {
       border-radius: 4px; }
     body .home-container div.import-cake-form {
       margin-top: 20px; }
+      body .home-container div.import-cake-form p {
+        font-size: 1.1em;
+        word-break: keep-all; }
   body .details-container {
     margin-left: 14%;
     word-break: break-all; }
@@ -456,7 +461,7 @@ body {
       height: 100%;
       background-color: #AD4047;
       color: white;
-      word-wrap: break-word; }
+      word-break: keep-all; }
       body .gu-mirror .number-label span {
         position: absolute;
         top: 46%;
@@ -466,7 +471,7 @@ body {
       right: 0;
       display: inline-block;
       margin-right: auto;
-      word-break: break-all;
+      word-wrap: normal;
       padding-left: 38px !important;
       width: 78%; }
     body .gu-mirror .list-group-item-name.edit-item {

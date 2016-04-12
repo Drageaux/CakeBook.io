@@ -15,7 +15,7 @@ export class ImportCakeFormComponent {
     userId = JSON.parse(localStorage.getItem("profile")).user_id; // must be defined first
 
     @Output() saved = new EventEmitter<Cake>();
-    modelString = "";
+    modelString;
     model = new Cake(0, this.userId, "", "", "", "", [], []);
     active = false;
 
@@ -30,11 +30,68 @@ export class ImportCakeFormComponent {
         this.active = false;
     }
 
+    parsePreview() {
+        // split into list of elements
+        console.log(this.modelString);
+        let cursor;
+        let isIngr = true;
+        let indexIngr = 0;
+        let isStep = false;
+        let indexStep = 0;
+
+        let modelArray = this.modelString.split("\n");
+
+        if (modelArray[0]) {
+            this.model.name = modelArray[0];
+        }
+        if (modelArray[2]) {
+            this.model.description = modelArray[2];
+        }
+
+        cursor = 4;
+        while (isIngr) {
+            if (modelArray[cursor] && modelArray[cursor] != "none") {
+                this.model.ingredients[indexIngr] = {
+                    "index": indexIngr,
+                    "value": modelArray[cursor]
+                };
+            } else if (modelArray[cursor] == "none") {
+                this.model.ingredients = [];
+            }
+            else {
+
+                isIngr = false;
+                break;
+            }
+            indexIngr++;
+            cursor++;
+        }
+
+        cursor++;
+        isStep = true;
+        while (isStep) {
+            if (modelArray[cursor] && modelArray[cursor] != "none") {
+                this.model.steps[indexStep] = {
+                    "index": indexStep,
+                    "value": modelArray[cursor]
+                };
+            } else if (modelArray[cursor] == "none") {
+                this.model.steps = [];
+            }
+            else {
+                isStep = false;
+                break;
+            }
+            indexStep++;
+            cursor++;
+        }
+    }
+
     importCake(value:string):Observable<Cake> {
         if (this.isEmptyString(this.modelString)) {
             return;
         }
-        console.log(this.modelString)
+        console.log(this.modelString);
 
         //this._cakeService.addCake(JSON.stringify(this.model))
         //    .subscribe(res => this.saved.emit(res));

@@ -27,10 +27,18 @@ System.register(["angular2/core", "ng2-dragula/ng2-dragula"], function(exports_1
                     this.onAdded = new core_1.EventEmitter();
                     this.onRemoved = new core_1.EventEmitter();
                     this.onSaved = new core_1.EventEmitter();
+                    dragulaService.drag.subscribe(function (value) {
+                        _this.onDrag(value.slice(1));
+                    });
                     dragulaService.drop.subscribe(function (value) {
                         _this.onDrop(value.slice(1));
                     });
                 }
+                EditableItemForm.prototype.onDrag = function (args) {
+                    for (var i in this.itemList) {
+                        this.editing[i] = false;
+                    }
+                };
                 EditableItemForm.prototype.onDrop = function (args) {
                     for (var i in this.itemList) {
                         this.itemList[i]["index"] = i;

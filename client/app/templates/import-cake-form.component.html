@@ -4,14 +4,39 @@
 
 <div *ngIf="active" class="import-cake-form">
     <h4 style="text-align: center"><b>Paste a Recipe Here</b></h4>
-    <form (ngSubmit)="importCake(importCakeForm.value)" #importCakeForm="ngForm">
+    <form (ngSubmit)="importCake(value.value)">
         <textarea rows="10" class="form-control" [(ngModel)]="modelString"
                   placeholder="(name)
 
-(description)"></textarea>
+(description)
+
+(ingredients)
+
+(steps)"></textarea>
+        <button type="button" class="btn btn-info"
+                [class.disabled]="isEmptyString(modelString)"
+                (click)="parsePreview()">
+            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Preview
+        </button>
+        <hr>
+
+        <!-- Preview -->
+        <h4 style="text-align: center"><b>Preview</b></h4>
+        <p><b>Name</b>: {{model.name}}</p>
+        <p><b>Description</b>: {{model.description}}</p>
+        <p><b>Ingredients</b>: </p>
+        <ul>
+            <li *ngFor="#ingr of model.ingredients">{{ingr.value}}</li>
+        </ul>
+        <p><b>Steps</b>: </p>
+        <ul>
+            <li *ngFor="#step of model.steps">{{step.value}}</li>
+        </ul>
+        <hr>
+
         <!-- Main form buttons -->
         <button type="submit" class="btn btn-success"
-                [class.disabled]="isEmptyString(modelString)">
+                [class.disabled]="isEmptyString(model.name)">
             Submit
         </button>
         <button type="button" class="btn btn-danger"

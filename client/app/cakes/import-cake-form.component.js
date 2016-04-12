@@ -27,7 +27,6 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     this._cakeService = _cakeService;
                     this.userId = JSON.parse(localStorage.getItem("profile")).user_id; // must be defined first
                     this.saved = new core_1.EventEmitter();
-                    this.modelString = "";
                     this.model = new cake_1.Cake(0, this.userId, "", "", "", "", [], []);
                     this.active = false;
                 }
@@ -36,6 +35,59 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                 };
                 ImportCakeFormComponent.prototype.closeForm = function () {
                     this.active = false;
+                };
+                ImportCakeFormComponent.prototype.parsePreview = function () {
+                    // split into list of elements
+                    console.log(this.modelString);
+                    var cursor;
+                    var isIngr = true;
+                    var indexIngr = 0;
+                    var isStep = false;
+                    var indexStep = 0;
+                    var modelArray = this.modelString.split("\n");
+                    if (modelArray[0]) {
+                        this.model.name = modelArray[0];
+                    }
+                    if (modelArray[2]) {
+                        this.model.description = modelArray[2];
+                    }
+                    cursor = 4;
+                    while (isIngr) {
+                        if (modelArray[cursor] && modelArray[cursor] != "none") {
+                            this.model.ingredients[indexIngr] = {
+                                "index": indexIngr,
+                                "value": modelArray[cursor]
+                            };
+                        }
+                        else if (modelArray[cursor] == "none") {
+                            this.model.ingredients = [];
+                        }
+                        else {
+                            isIngr = false;
+                            break;
+                        }
+                        indexIngr++;
+                        cursor++;
+                    }
+                    cursor++;
+                    isStep = true;
+                    while (isStep) {
+                        if (modelArray[cursor] && modelArray[cursor] != "none") {
+                            this.model.steps[indexStep] = {
+                                "index": indexStep,
+                                "value": modelArray[cursor]
+                            };
+                        }
+                        else if (modelArray[cursor] == "none") {
+                            this.model.steps = [];
+                        }
+                        else {
+                            isStep = false;
+                            break;
+                        }
+                        indexStep++;
+                        cursor++;
+                    }
                 };
                 ImportCakeFormComponent.prototype.importCake = function (value) {
                     if (this.isEmptyString(this.modelString)) {
