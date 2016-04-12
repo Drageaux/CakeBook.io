@@ -363,6 +363,8 @@ body {
       border-radius: 4px; }
     body .home-container div.import-cake-form {
       margin-top: 20px; }
+      body .home-container div.import-cake-form p {
+        font-size: 1.1em; }
   body .details-container {
     margin-left: 14%;
     word-break: break-all; }

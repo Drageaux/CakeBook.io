@@ -31,11 +31,36 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     this.model = new cake_1.Cake(0, this.userId, "", "", "", "", [], []);
                     this.active = false;
                 }
+                ImportCakeFormComponent.prototype.ngOnInit = function () {
+                    this.modelString = "(name)\n\n(description)\n\n(ingredients)\n\n(steps)";
+                };
                 ImportCakeFormComponent.prototype.openForm = function () {
                     this.active = true;
                 };
                 ImportCakeFormComponent.prototype.closeForm = function () {
                     this.active = false;
+                };
+                ImportCakeFormComponent.prototype.parsePreview = function () {
+                    // split into list of elements
+                    console.log(this.modelString);
+                    var isIngr = false;
+                    var indexIngr = 0;
+                    var isStep = false;
+                    var indexStep = 0;
+                    var modelArray = this.modelString.split("\n");
+                    for (var i in modelArray) {
+                        if (i == 0) {
+                            this.model.name = modelArray[i];
+                        }
+                        else if (i == 2) {
+                            this.model.description = modelArray[i];
+                        }
+                        else if (i > 3) {
+                            if (!this.isEmptyString(modelArray[i])) {
+                                this.model.ingredients[indexIngr] = { "index": indexIngr, "value": modelArray[i] };
+                            }
+                        }
+                    }
                 };
                 ImportCakeFormComponent.prototype.importCake = function (value) {
                     if (this.isEmptyString(this.modelString)) {

@@ -523,6 +523,9 @@ body {
         div.import-cake-form {
             @extend .add-cake-form;
             margin-top: 20px;
+            p {
+                font-size: 1.1em;
+            }
         }
     }
 

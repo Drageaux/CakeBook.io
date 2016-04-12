@@ -5,13 +5,14 @@ import {Observable} from "rxjs/Observable";
 
 import {Cake}       from "./cake";
 import {CakeService} from "./cake.service";
+import {OnInit} from "angular2/core";
 
 @Component({
     selector: "import-cake-form",
     templateUrl: "templates/import-cake-form.component.html",
 })
 
-export class ImportCakeFormComponent {
+export class ImportCakeFormComponent implements OnInit {
     userId = JSON.parse(localStorage.getItem("profile")).user_id; // must be defined first
 
     @Output() saved = new EventEmitter<Cake>();
@@ -22,12 +23,41 @@ export class ImportCakeFormComponent {
     constructor(private _cakeService:CakeService) {
     }
 
+    ngOnInit() {
+        this.modelString = "(name)\n\n(description)\n\n(ingredients)\n\n(steps)"
+    }
+
     openForm() {
         this.active = true;
     }
 
     closeForm() {
         this.active = false;
+    }
+
+    parsePreview() {
+        // split into list of elements
+        console.log(this.modelString);
+        let isIngr = false;
+        let indexIngr = 0;
+        let isStep = false;
+        let indexStep = 0;
+
+        let modelArray = this.modelString.split("\n");
+        for (let i in modelArray) {
+            if (i == 0) {
+                this.model.name = modelArray[i];
+            }
+            else if (i == 2) {
+                this.model.description = modelArray[i];
+            }
+            else if (i > 3) {
+                if (!this.isEmptyString(modelArray[i])) {
+                    this.model.ingredients[indexIngr] = {"index": indexIngr, "value": modelArray[i]};
+                }
+                //this.model.name = modelArray[i];
+            }
+        }
     }
 
     importCake(value:string):Observable<Cake> {
