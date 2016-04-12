@@ -104,11 +104,9 @@ export class CakeDetailsComponent implements OnInit {
 
     submitEdit(detailType:string) {
         if (detailType == "ingr") {
-            console.log(JSON.stringify(this.tempIngrs));
             this._service.updateCakeDetail(this.cake._id, detailType, 0, JSON.stringify(this.tempIngrs))
                 .subscribe(cake => this.cake = cake);
         } else if (detailType == "step") {
-            console.log(JSON.stringify(this.tempSteps));
             this._service.updateCakeDetail(this.cake._id, detailType, 0, JSON.stringify(this.tempSteps))
                 .subscribe(cake => this.cake = cake);
         }

@@ -1,7 +1,8 @@
 <!-- Editable List View -->
 <form class="form-group" #thisForm>
     <!-- Add Item -->
-    <ul *ngIf="itemList.length>0" class="list-group editable-list-group">
+    <ul *ngIf="itemList.length>0" class="list-group editable-list-group"
+        [dragula]='"bag-one"' [dragulaModel]="itemList">
         <li *ngFor="#item of itemList; #idx = index"
             class="list-group-item editable-list-group-item">
             <!-- Item number -->
@@ -52,5 +53,4 @@
             </button>
         </span>
     </div>
-
 </form>

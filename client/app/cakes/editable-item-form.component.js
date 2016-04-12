@@ -20,12 +20,22 @@ System.register(["angular2/core", "ng2-dragula/ng2-dragula"], function(exports_1
             }],
         execute: function() {
             EditableItemForm = (function () {
-                function EditableItemForm() {
+                function EditableItemForm(dragulaService) {
+                    var _this = this;
+                    this.dragulaService = dragulaService;
                     this.editing = [];
                     this.onAdded = new core_1.EventEmitter();
                     this.onRemoved = new core_1.EventEmitter();
                     this.onSaved = new core_1.EventEmitter();
+                    dragulaService.drop.subscribe(function (value) {
+                        _this.onDrop(value.slice(1));
+                    });
                 }
+                EditableItemForm.prototype.onDrop = function (args) {
+                    for (var i in this.itemList) {
+                        this.itemList[i]["index"] = i;
+                    }
+                };
                 EditableItemForm.prototype.ngOnInit = function () {
                     for (var i in this.itemList) {
                         this.editing.push(false);
@@ -98,7 +108,7 @@ System.register(["angular2/core", "ng2-dragula/ng2-dragula"], function(exports_1
                         directives: [ng2_dragula_1.Dragula],
                         providers: [ng2_dragula_1.DragulaService]
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [ng2_dragula_1.DragulaService])
                 ], EditableItemForm);
                 return EditableItemForm;
             })();

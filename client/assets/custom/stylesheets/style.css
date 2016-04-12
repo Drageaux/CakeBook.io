@@ -30,7 +30,10 @@ body {
    *************/
   /****************
    * Cake Details *
-   ****************/ }
+   ****************/
+  /******************
+   * Dragula Custom *
+   ******************/ }
   body p {
     font-size: 1.2em; }
   body h1.welcome-poster {
@@ -245,10 +248,11 @@ body {
             color: white;
             word-wrap: break-word; }
             body .general-container .form-group .editable-list-group .editable-list-group-item .number-label span, body .home-container .form-group .editable-list-group .editable-list-group-item .number-label span, body .details-container .form-group .editable-list-group .editable-list-group-item .number-label span {
+              cursor: move;
+              cursor: grab;
               position: absolute;
               top: 46%;
               line-height: 5px;
-              cursor: default;
               text-align: left; }
           body .general-container .form-group .editable-list-group .editable-list-group-item .list-group-item-name, body .home-container .form-group .editable-list-group .editable-list-group-item .list-group-item-name, body .details-container .form-group .editable-list-group .editable-list-group-item .list-group-item-name {
             right: 0;
@@ -431,6 +435,79 @@ body {
   @media screen and (max-width: 768px) {
     body .details-container {
       margin-left: 5%; } }
+  body .gu-mirror {
+    overflow: hidden;
+    margin: 2px 20px 2px 20px;
+    padding: 6px 15px 6px 0;
+    height: auto !important;
+    border-left-width: 0;
+    background-color: #fafafa;
+    font-size: 0.97em;
+    border-radius: 4px !important;
+    /* Edit and Remove */ }
+    body .gu-mirror .number-label {
+      position: absolute;
+      top: 0;
+      float: left;
+      padding: 10px;
+      width: 28px;
+      height: 100%;
+      background-color: #AD4047;
+      color: white;
+      word-wrap: break-word; }
+      body .gu-mirror .number-label span {
+        position: absolute;
+        top: 46%;
+        line-height: 5px;
+        text-align: left; }
+    body .gu-mirror .list-group-item-name {
+      right: 0;
+      display: inline-block;
+      margin-right: auto;
+      word-break: break-all;
+      padding-left: 38px !important;
+      width: 78%; }
+    body .gu-mirror .list-group-item-name.edit-item {
+      width: 77%; }
+      body .gu-mirror .list-group-item-name.edit-item input {
+        height: 26px; }
+    @media screen and (min-device-width: 768px) {
+      body .gu-mirror .list-group-item-name {
+        width: 82%; }
+      body .gu-mirror .list-group-item-name.edit-item {
+        width: 82%; } }
+    body .gu-mirror .btn {
+      position: relative;
+      padding: 3px 7px 1px 7px;
+      vertical-align: baseline;
+      font-size: 10px;
+      transition-duration: 0.2s; }
+    body .gu-mirror .edit-remove {
+      float: right; }
+      body .gu-mirror .edit-remove .edit-button:hover {
+        border-color: #5BC0DE;
+        background-color: #5BC0DE; }
+        body .gu-mirror .edit-remove .edit-button:hover span {
+          color: white; }
+      body .gu-mirror .edit-remove .remove-button:hover {
+        border-color: #C9302C;
+        background-color: #C9302C; }
+        body .gu-mirror .edit-remove .remove-button:hover span {
+          color: white; }
+    body .gu-mirror .save-cancel {
+      float: right; }
+      body .gu-mirror .save-cancel .btn {
+        height: 26px;
+        border-color: white !important;
+        background-color: white; }
+      body .gu-mirror .save-cancel .save-button:hover {
+        background-color: #71C171 !important; }
+      body .gu-mirror .save-cancel .save-button:not(:hover) span {
+        color: #5CB85C; }
+      body .gu-mirror .save-cancel .cancel-button:hover {
+        background-color: #D64843 !important; }
+      body .gu-mirror .save-cancel .cancel-button:not(:hover) span {
+        color: #C9302C; }
 
 /**************
  * Login Page *

@@ -112,12 +112,10 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake.ser
                 CakeDetailsComponent.prototype.submitEdit = function (detailType) {
                     var _this = this;
                     if (detailType == "ingr") {
-                        console.log(JSON.stringify(this.tempIngrs));
                         this._service.updateCakeDetail(this.cake._id, detailType, 0, JSON.stringify(this.tempIngrs))
                             .subscribe(function (cake) { return _this.cake = cake; });
                     }
                     else if (detailType == "step") {
-                        console.log(JSON.stringify(this.tempSteps));
                         this._service.updateCakeDetail(this.cake._id, detailType, 0, JSON.stringify(this.tempSteps))
                             .subscribe(function (cake) { return _this.cake = cake; });
                     }
