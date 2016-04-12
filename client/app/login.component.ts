@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
 
                 localStorage.setItem('profile', JSON.stringify(profile));
                 localStorage.setItem('id_token', id_token);
+                window.location.reload();
             });
     }
 

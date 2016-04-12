@@ -40,6 +40,7 @@ System.register(['angular2/core', 'angular2/router', 'angular2-jwt'], function(e
                         }
                         localStorage.setItem('profile', JSON.stringify(profile));
                         localStorage.setItem('id_token', id_token);
+                        window.location.reload();
                     });
                 };
                 LoginComponent.prototype.loggedIn = function () {
