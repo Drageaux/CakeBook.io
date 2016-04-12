@@ -44,7 +44,6 @@ System.register(["angular2/core", "./cake", "./cake.service", "./editable-item-f
                     if (!name) {
                         return;
                     }
-                    // parse lists of ingredients and steps and insert to the model
                     this._cakeService.addCake(JSON.stringify(this.model))
                         .subscribe(function (res) { return _this.saved.emit(res); });
                     // TODO: Remove when there's a better way to reset the model
@@ -117,10 +116,6 @@ System.register(["angular2/core", "./cake", "./cake.service", "./editable-item-f
                     core_1.Output(), 
                     __metadata('design:type', Object)
                 ], AddCakeFormComponent.prototype, "saved", void 0);
-                __decorate([
-                    core_1.Input(), 
-                    __metadata('design:type', Object)
-                ], AddCakeFormComponent.prototype, "model", void 0);
                 AddCakeFormComponent = __decorate([
                     core_1.Component({
                         selector: "add-cake-form",

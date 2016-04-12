@@ -3,11 +3,9 @@
     <h2>Home</h2>
     <h3>My Cakes</h3>
     <add-cake-form (saved)="onAdded($event)"></add-cake-form>
+    <import-cake-form (saved)="onAdded($event)"></import-cake-form>
     <br>
     <div class="cake-list list-group">
-        <!--<div class="error" *ngIf="errorMessage">-->
-        <!--{{errorMessage}}-->
-        <!--</div>-->
         <a class="list-group-item" *ngFor="#cake of cakes"
            (click)="onSelect(cake)">{{cake.name}}</a>
     </div>

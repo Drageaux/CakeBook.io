@@ -519,7 +519,10 @@ body {
             padding: 20px;
             border: 2px solid $border-color;
             border-radius: 4px;
-
+        }
+        div.import-cake-form {
+            @extend .add-cake-form;
+            margin-top: 20px;
         }
     }
 

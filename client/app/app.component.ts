@@ -41,10 +41,9 @@ enableProdMode();
 })
 
 @RouteConfig([
-    {path: "/login", name: "Login", component: LoginComponent, useAsDefault: true},
-    {path: "/home", name: "Home", component: HomeComponent},
-    {path: "/cake/:id", name: "CakeDetails", component: CakeDetailsComponent},
-    {path: "/addCakeForm", name: "AddCakeForm", component: AddCakeFormComponent}
+    {path: "/login", name: "Login", component: LoginComponent},
+    {path: "/home", name: "Home", component: HomeComponent, useAsDefault: true},
+    {path: "/cake/:id", name: "CakeDetails", component: CakeDetailsComponent}
 ])
 
 export class AppComponent implements OnInit {

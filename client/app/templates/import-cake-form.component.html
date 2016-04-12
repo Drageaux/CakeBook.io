@@ -1,0 +1,23 @@
+<div *ngIf="!active">
+    <button class="btn btn-primary" (click)="openForm()">Import Recipe</button>
+</div>
+
+<div *ngIf="active" class="import-cake-form">
+    <h4 style="text-align: center"><b>Paste a Recipe Here</b></h4>
+    <form (ngSubmit)="importCake(importCakeForm.value)" #importCakeForm="ngForm">
+        <textarea rows="10" class="form-control" [(ngModel)]="modelString"
+                  placeholder="(name)
+
+(description)"></textarea>
+        <!-- Main form buttons -->
+        <button type="submit" class="btn btn-success"
+                [class.disabled]="isEmptyString(modelString)">
+            Submit
+        </button>
+        <button type="button" class="btn btn-danger"
+                (click)="closeForm()">
+            Cancel
+        </button>
+
+    </form>
+</div>

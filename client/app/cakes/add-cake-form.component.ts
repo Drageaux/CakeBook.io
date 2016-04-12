@@ -17,7 +17,7 @@ export class AddCakeFormComponent {
     userId = JSON.parse(localStorage.getItem("profile")).user_id; // must be defined first
     
     @Output() saved = new EventEmitter<Cake>();
-    @Input() model = new Cake(0, this.userId, "", "", "", "", [], []);
+    model = new Cake(0, this.userId, "", "", "", "", [], []);
     active = false;
 
     constructor(private _cakeService:CakeService) {
@@ -35,7 +35,6 @@ export class AddCakeFormComponent {
         if (!name) {
             return;
         }
-        // parse lists of ingredients and steps and insert to the model
         this._cakeService.addCake(JSON.stringify(this.model))
             .subscribe(res => this.saved.emit(res));
         // TODO: Remove when there's a better way to reset the model
