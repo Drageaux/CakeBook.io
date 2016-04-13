@@ -26,10 +26,15 @@
     <!-- Bootstrap -->
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <!-- Google Fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Chewy|Marmelad|Lobster' rel='stylesheet' type='text/css'>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("body").tooltip({selector: '[data-toggle=tooltip]'});
+            $("body").popover({selector: '[data-toggle=popover]'});
+        });
+    </script>
 
     <!-- Custom/Third-Party -->
+    <link href='https://fonts.googleapis.com/css?family=Chewy|Marmelad|Lobster' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="assets/custom/stylesheets/dragula.css">
 
     <!-- Configure SystemJS -->
@@ -59,8 +64,8 @@
         System.import('app/main')
                 .then(null, console.error.bind(console));
     </script>
-
 </head>
+
 
 <!-- Display the application -->
 <body>
