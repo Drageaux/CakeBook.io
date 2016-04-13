@@ -368,6 +368,21 @@ body {
       body .home-container div.import-cake-form p {
         font-size: 1.1em;
         word-break: keep-all; }
+      body .home-container div.import-cake-form .instruction-sign {
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: 0;
+        border-color: #AD4047;
+        border-radius: 0 0 0 4px;
+        border-width: 0 0 1px 1px;
+        background-color: #AD4047; }
+      body .home-container div.import-cake-form .instruction-sign:hover,
+      body .home-container div.import-cake-form .instruction-sign:focus {
+        border-color: #6a272b;
+        background-color: #6a272b; }
+      body .home-container div.import-cake-form .tooltip-inner {
+        align-content: left; }
   body .details-container {
     margin-left: 14%;
     word-break: break-all; }

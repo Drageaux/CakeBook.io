@@ -530,6 +530,24 @@ body {
                 font-size: 1.1em;
                 word-break: keep-all;
             }
+            .instruction-sign {
+                position: absolute;
+                right: 0;
+                top: 0;
+                margin: 0;
+                border-color: $topnav-item-color;
+                border-radius: 0 0 0 4px;
+                border-width: 0 0 1px 1px;
+                background-color: $topnav-item-color;
+            }
+            .instruction-sign:hover,
+            .instruction-sign:focus {
+                border-color: $topnav-item-hovered-color;
+                background-color: $topnav-item-hovered-color;
+            }
+            .tooltip-inner {
+                align-content: left;
+            }
         }
     }
 

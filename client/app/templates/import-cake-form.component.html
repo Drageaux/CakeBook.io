@@ -3,16 +3,15 @@
 </div>
 
 <div *ngIf="active" class="import-cake-form">
+    <button class="instruction-sign btn btn-info" type="button"
+            data-html="true" data-toggle="tooltip" data-placement="left" data-trigger="click"
+            title="{{tooltipTitle}}">
+        <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+    </button>
+
     <h4 style="text-align: center"><b>Paste a Recipe Here</b></h4>
-    <form (ngSubmit)="importCake(value.value)">
-        <textarea rows="10" class="form-control" [(ngModel)]="modelString"
-                  placeholder="(name)
-
-(description)
-
-(ingredients)
-
-(steps)"></textarea>
+    <form (ngSubmit)="importCake()">
+        <textarea rows="10" class="form-control" [(ngModel)]="modelString"></textarea>
         <button type="button" class="btn btn-info"
                 [class.disabled]="isEmptyString(modelString)"
                 (click)="parsePreview()">
@@ -43,6 +42,5 @@
                 (click)="closeForm()">
             Cancel
         </button>
-
     </form>
 </div>

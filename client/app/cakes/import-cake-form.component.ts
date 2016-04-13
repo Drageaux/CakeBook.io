@@ -15,9 +15,29 @@ export class ImportCakeFormComponent {
     userId = JSON.parse(localStorage.getItem("profile")).user_id; // must be defined first
 
     @Output() saved = new EventEmitter<Cake>();
-    modelString;
+    modelString = "";
     model = new Cake(0, this.userId, "", "", "", "", [], []);
     active = false;
+    tooltipTitle = `
+        <p style='text-align:left; padding: 5px; margin-bottom: 0'>
+            <b>How To</b>:<br>
+            - Add an empty line to <i>separate each detail group</i><br>
+            - Add a new line <i>for each ingredient/step</i><br>
+            - Type 'none' or 'None' to <i>leave blank</i><br>
+            <br>
+            <b>Template</b>:
+        </p>
+<pre style='margin-top: 0; text-align: left'>*name*
+
+*description*
+
+*ingredient #1*
+*ingredient #2*
+*ingredient #3*
+
+*step #1*
+*step #2*</pre>
+        `;
 
     constructor(private _cakeService:CakeService) {
     }
@@ -32,13 +52,11 @@ export class ImportCakeFormComponent {
 
     parsePreview() {
         // split into list of elements
-        console.log(this.modelString);
         let cursor;
         let isIngr = true;
         let indexIngr = 0;
         let isStep = false;
         let indexStep = 0;
-
         let modelArray = this.modelString.split("\n");
 
         if (modelArray[0]) {
@@ -50,12 +68,12 @@ export class ImportCakeFormComponent {
 
         cursor = 4;
         while (isIngr) {
-            if (modelArray[cursor] && modelArray[cursor] != "none") {
+            if (modelArray[cursor] && modelArray[cursor].toLowerCase() != "none") {
                 this.model.ingredients[indexIngr] = {
                     "index": indexIngr,
                     "value": modelArray[cursor]
                 };
-            } else if (modelArray[cursor] == "none") {
+            } else if (modelArray[cursor] && modelArray[cursor].toLowerCase() == "none") {
                 this.model.ingredients = [];
             }
             else {
@@ -70,12 +88,12 @@ export class ImportCakeFormComponent {
         cursor++;
         isStep = true;
         while (isStep) {
-            if (modelArray[cursor] && modelArray[cursor] != "none") {
+            if (modelArray[cursor] && modelArray[cursor].toLowerCase() != "none") {
                 this.model.steps[indexStep] = {
                     "index": indexStep,
                     "value": modelArray[cursor]
                 };
-            } else if (modelArray[cursor] == "none") {
+            } else if (modelArray[cursor] && modelArray[cursor].toLowerCase() == "none") {
                 this.model.steps = [];
             }
             else {
@@ -87,16 +105,16 @@ export class ImportCakeFormComponent {
         }
     }
 
-    importCake(value:string):Observable<Cake> {
-        if (this.isEmptyString(this.modelString)) {
+    importCake():Observable<Cake> {
+        if (this.isEmptyString(this.modelString) || this.isEmptyString(this.model.name)) {
             return;
         }
-        console.log(this.modelString);
 
-        //this._cakeService.addCake(JSON.stringify(this.model))
-        //    .subscribe(res => this.saved.emit(res));
+        this.parsePreview();
+        this._cakeService.addCake(JSON.stringify(this.model))
+            .subscribe(res => this.saved.emit(res));
         // TODO: Remove when there's a better way to reset the model
-        //this.model = new Cake(0, this.userId, "", "", "", "", [], []);
+        this.model = new Cake(0, this.userId, "", "", "", "", [], []);
         this.closeForm();
     }
 
