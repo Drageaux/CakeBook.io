@@ -1,3 +1,4 @@
+var unirest = require('unirest');
 var Cake = require("../models/cake");
 var fs = require("fs");
 var cloudinary = require('cloudinary');
@@ -103,4 +104,13 @@ module.exports.updateDetail = function (req, res) {
             res.json(cake);
         }
     });
+}
+
+module.exports.search = function (req, res) {
+    unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?offset=0&query=" +
+            req.params.query)
+        .header("X-Mashape-Key", process.env.X_MASHAPE_KEY)
+        .end(function (result) {
+            res.send(result)
+        });
 }

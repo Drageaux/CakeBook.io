@@ -4,6 +4,7 @@
     <h3>My Cakes</h3>
     <add-cake-form (saved)="onAdded($event)"></add-cake-form>
     <import-cake-form (saved)="onAdded($event)"></import-cake-form>
+    <button type="button" (click)="searchCake()">Search</button>
     <br>
     <div class="cake-list list-group">
         <a class="list-group-item" *ngFor="#cake of cakes"

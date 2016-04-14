@@ -20,7 +20,6 @@ export class CakeService {
             .catch(this.handleError);
     }
 
-
     /********************
      * Single Cake REST *
      ********************/
@@ -89,6 +88,20 @@ export class CakeService {
         return this.http.put("/api/" + this.userId + "/cake/" + id + "/image", body, options)
             .map(res => <Cake> res.json())
             .catch(this.handleError);
+    }
+
+
+    /*****************
+     * External APIs *
+     *****************/
+    searchCake(query:string) {
+        //.
+        //        .end(function (result) {
+        //            console.log(result.status, result.headers, result.body);
+        //        });
+        //let
+        return this.http.get("/api/search/" + query)
+            .subscribe(results => console.log(results.json()))
     }
 
 

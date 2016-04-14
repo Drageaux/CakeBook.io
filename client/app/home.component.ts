@@ -38,6 +38,10 @@ export class HomeComponent implements OnInit {
                 error => this.errorMessage = <any>error);
     }
 
+    searchCake() {
+        this._cakeService.searchCake("cake");
+    }
+
     onSelect(cake:Cake) {
         this._router.navigate(["CakeDetails", {id: cake._id}]);
     }
