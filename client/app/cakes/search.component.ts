@@ -3,18 +3,23 @@ import {Router, RouteParams, CanActivate} from "angular2/router";
 import {tokenNotExpired} from "angular2-jwt";
 import {Observable} from "rxjs/Observable";
 
-import {Cake} from "./cake";
 import {CakeService} from "./cake.service";
 
 @Component({
     template: `
-        <a type="button" [routerLink]="['Search']">Search</a>
+        <div class="general-container">
+            <ul>
+                <li *ngFor="#result of results.results">
+                    {{result.title}} (ready in {{result.readyInMinutes}})
+                </li>
+            </ul>
+        </div>
     `
 })
 
 @CanActivate(() => tokenNotExpired())
 export class SearchComponent implements OnInit {
-    cakes:Cake[];
+    results:any = {};
 
     constructor(private _router:Router,
                 private _routeParams:RouteParams,
@@ -24,6 +29,12 @@ export class SearchComponent implements OnInit {
     ngOnInit() {
         let query = this._routeParams.get('query');
         console.log(query);
+
+        //this._service.searchCakes(query)
+        //    .subscribe(
+        //        res => this.results = res.body,
+        //        () => console.log(this.results)
+        //    );
     }
 
     isEmptyString(str:string) {

@@ -189,6 +189,7 @@ body {
     border-top: 5px solid #AD4047;
     margin-top: 55px; }
   body .general-container, body .home-container, body .details-container {
+    margin-left: 14vw;
     margin-top: 0;
     margin-bottom: 0;
     padding: 50px;
@@ -349,13 +350,14 @@ body {
       padding: 20px !important;
       padding-bottom: 30px !important; } }
   body .home-container {
-    margin-left: 15vw;
     /* Cake List in Home Page */
     /* Add Cake Form */ }
     body .home-container h4 {
       margin-bottom: 6px; }
     body .home-container button {
       margin: 5px auto; }
+    body .home-container .search-group-btn button {
+      margin: 0; }
     body .home-container .cake-list li {
       cursor: pointer; }
     body .home-container div.add-cake-form, body .home-container div.import-cake-form {
@@ -384,7 +386,6 @@ body {
       body .home-container div.import-cake-form .tooltip-inner {
         align-content: left; }
   body .details-container {
-    margin-left: 14%;
     word-break: break-all; }
     body .details-container .cake-info .cake-image {
       display: inline-block;
@@ -454,9 +455,6 @@ body {
         margin-right: auto; } }
     body .details-container ul, body .details-container ol {
       padding-left: 30px; }
-  @media screen and (max-width: 768px) {
-    body .details-container {
-      margin-left: 5%; } }
   body .gu-mirror {
     overflow: hidden;
     margin: 2px 20px 2px 20px;

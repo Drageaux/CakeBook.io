@@ -176,7 +176,7 @@ export class CakeDetailsComponent implements OnInit {
         document.getElementById("modal-button").click();
     }
 
-    gotoCakes() {
+    goHome() {
         this._router.navigate(["Home"]);
     }
 }

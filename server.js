@@ -25,7 +25,7 @@ app.delete("/api/:user/cake/:id/:type/:index", cakesController.removeDetail);
 app.put("/api/:user/cake/:id/:type", cakesController.updateDetail);
 
 // External APIs
-app.get("/api/search/query=:query", cakesController.search);
+app.get("/api/search/cakes/query=:query", cakesController.search);
 
 // All routes will serve this index page
 app.use("/*", function (req, res) {

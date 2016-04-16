@@ -175,7 +175,7 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake.ser
                 CakeDetailsComponent.prototype.openModal = function () {
                     document.getElementById("modal-button").click();
                 };
-                CakeDetailsComponent.prototype.gotoCakes = function () {
+                CakeDetailsComponent.prototype.goHome = function () {
                     this._router.navigate(["Home"]);
                 };
                 CakeDetailsComponent = __decorate([

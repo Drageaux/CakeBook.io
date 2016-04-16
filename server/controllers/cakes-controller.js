@@ -108,7 +108,7 @@ module.exports.updateDetail = function (req, res) {
 
 module.exports.search = function (req, res) {
     unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?offset=0&query=" +
-            req.params.query)
+            "cake " + req.params.query)
         .header("X-Mashape-Key", process.env.X_MASHAPE_KEY)
         .end(function (result) {
             res.send(result)

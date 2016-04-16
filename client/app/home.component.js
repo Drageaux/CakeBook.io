@@ -48,9 +48,10 @@ System.register(['angular2/core', "angular2/router", "./cakes/add-cake-form.comp
                     this._cakeService.getCakes()
                         .subscribe(function (cakes) { return _this.cakes = cakes; }, function (error) { return _this.errorMessage = error; });
                 };
-                HomeComponent.prototype.searchCakes = function (query) {
-                    //this._cakeService.searchCake("cake");
-                    this._router.navigate(["Search", { query: query }]);
+                HomeComponent.prototype.goSearch = function (query) {
+                    if (query != "" && query != null) {
+                        this._router.navigate(["Search", { query: query }]);
+                    }
                 };
                 HomeComponent.prototype.onSelect = function (cake) {
                     this._router.navigate(["CakeDetails", { id: cake._id }]);

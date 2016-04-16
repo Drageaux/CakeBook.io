@@ -130,12 +130,6 @@ body {
                 }
             }
         }
-        /// screen > 1200px ///
-        @media screen and (min-width: 1200px) {
-            .navbar-nav#normalMenu {
-                //margin-right: 13%;
-            }
-        }
 
         /* Dropdown Menu */
         /// > 480px ///
@@ -274,6 +268,7 @@ body {
      * Content *
      ***********/
     .general-container {
+        margin-left: 14vw;
         margin-top: 0;
         margin-bottom: 0;
         padding: 50px;
@@ -501,12 +496,16 @@ body {
      *************/
     .home-container {
         @extend .general-container;
-        margin-left: 15vw;
         h4 {
             margin-bottom: 6px;
         }
         button {
             margin: 5px auto;
+        }
+        .search-group-btn {
+            button {
+                margin: 0;
+            }
         }
 
         /* Cake List in Home Page */
@@ -556,7 +555,6 @@ body {
      ****************/
     .details-container {
         @extend .general-container;
-        margin-left: 14%;
         word-break: break-all;
         .cake-info {
             .cake-image {
@@ -645,12 +643,6 @@ body {
         }
         ul, ol {
             padding-left: 30px;
-        }
-    }
-
-    @media screen and (max-width: 768px) {
-        .details-container {
-            margin-left: 5%;
         }
     }
 

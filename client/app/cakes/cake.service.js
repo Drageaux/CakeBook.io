@@ -94,9 +94,11 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
                 /*****************
                  * External APIs *
                  *****************/
-                CakeService.prototype.searchCake = function (query) {
-                    return this.http.get("/api/search/query=" + query)
-                        .subscribe(function (results) { return console.log(results.json()); });
+                CakeService.prototype.searchCakes = function (query) {
+                    return this.http.get("/api/search/cakes/query=" + query)
+                        .map(function (res) { return res.json(); })
+                        .catch(this.handleError);
+                    //.subscribe(results => console.log(results.json()));
                 };
                 CakeService.prototype.handleError = function (error) {
                     // in a real world app, we may send the server to some remote logging infrastructure

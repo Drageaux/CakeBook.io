@@ -38,9 +38,10 @@ export class HomeComponent implements OnInit {
                 error => this.errorMessage = <any>error);
     }
 
-    searchCakes(query:string) {
-        //this._cakeService.searchCake("cake");
-        this._router.navigate(["Search", {query: query}]);
+    goSearch(query:string) {
+        if (query != "" && query != null) {
+            this._router.navigate(["Search", {query: query}]);
+        }
     }
 
     onSelect(cake:Cake) {

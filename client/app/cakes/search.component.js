@@ -30,10 +30,16 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake.ser
                     this._router = _router;
                     this._routeParams = _routeParams;
                     this._service = _service;
+                    this.results = {};
                 }
                 SearchComponent.prototype.ngOnInit = function () {
                     var query = this._routeParams.get('query');
                     console.log(query);
+                    //this._service.searchCakes(query)
+                    //    .subscribe(
+                    //        res => this.results = res.body,
+                    //        () => console.log(this.results)
+                    //    );
                 };
                 SearchComponent.prototype.isEmptyString = function (str) {
                     return str == "" || str == null;
@@ -43,7 +49,7 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake.ser
                 };
                 SearchComponent = __decorate([
                     core_1.Component({
-                        template: "\n        <a type=\"button\" [routerLink]=\"['Search']\">Search</a>\n    "
+                        template: "\n        <div class=\"general-container\">\n            <ul>\n                <li *ngFor=\"#result of results.results\">\n                    {{result.title}} (ready in {{result.readyInMinutes}})\n                </li>\n            </ul>\n        </div>\n    "
                     }),
                     router_1.CanActivate(function () { return angular2_jwt_1.tokenNotExpired(); }), 
                     __metadata('design:paramtypes', [router_1.Router, router_1.RouteParams, cake_service_1.CakeService])
