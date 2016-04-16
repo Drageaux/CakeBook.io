@@ -95,12 +95,7 @@ export class CakeService {
      * External APIs *
      *****************/
     searchCake(query:string) {
-        //.
-        //        .end(function (result) {
-        //            console.log(result.status, result.headers, result.body);
-        //        });
-        //let
-        return this.http.get("/api/search/" + query)
+        return this.http.get("/api/search/query=" + query)
             .subscribe(results => console.log(results.json()))
     }
 

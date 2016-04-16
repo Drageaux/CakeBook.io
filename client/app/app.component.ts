@@ -16,9 +16,10 @@ import {AuthHttp,
 import {LoggedInRouterOutlet}   from "./loggedin-outlet";
 import {LoginComponent}         from "./login.component";
 import {HomeComponent}          from "./home.component";
+import {SearchComponent}        from "./cakes/search.component";
 
 import {Cake}                   from "./cakes/cake";
-import {CakeDetailsComponent}    from "./cakes/cake-details.component";
+import {CakeDetailsComponent}   from "./cakes/cake-details.component";
 import {AddCakeFormComponent}   from "./cakes/add-cake-form.component";
 import {CakeService}            from "./cakes/cake.service";
 
@@ -43,7 +44,8 @@ enableProdMode();
 @RouteConfig([
     {path: "/login", name: "Login", component: LoginComponent},
     {path: "/home", name: "Home", component: HomeComponent, useAsDefault: true},
-    {path: "/cake/:id", name: "CakeDetails", component: CakeDetailsComponent}
+    {path: "/cake/:id", name: "CakeDetails", component: CakeDetailsComponent},
+    {path: "/search/query/:query", name: "Search", component: SearchComponent}
 ])
 
 export class AppComponent implements OnInit {
