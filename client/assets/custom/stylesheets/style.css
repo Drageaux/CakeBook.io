@@ -340,6 +340,8 @@ body {
             margin-right: 5px; }
             body .general-container .form-group .editable-list-group .editable-list-group-item .list-group-item-name, body .home-container .form-group .editable-list-group .editable-list-group-item .list-group-item-name, body .details-container .form-group .editable-list-group .editable-list-group-item .list-group-item-name {
               width: 75%; } }
+    body .general-container .results-media.media .media-object, body .home-container .results-media.media .media-object, body .details-container .results-media.media .media-object {
+      width: 30vw; }
   @media screen and (max-width: 768px) {
     body .general-container, body .home-container, body .details-container {
       margin-left: 8vw !important;

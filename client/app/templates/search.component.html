@@ -1,0 +1,15 @@
+<div class="general-container">
+    <div class="results-media media" *ngFor="#result of results.results">
+        <div class="media-left">
+            <a href="#">
+                <img class="media-object"
+                     src="{{results.baseUri}}{{result.image}}"
+                     alt="ME">
+            </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">{{result.title}}</h4>
+            (ready in {{result.readyInMinutes}})
+        </div>
+    </div>
+</div>
