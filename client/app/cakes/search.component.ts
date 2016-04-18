@@ -134,11 +134,21 @@ export class SearchComponent implements OnInit {
         console.log(this.results);
     }
 
+    goSearch(query:string) {
+        if (query != "" && query != null) {
+            this._router.navigate(["Search", {query: query}]);
+        }
+    }
+
+    getInfo(id:string) {
+        // Get info to redirect and import the cake
+    }
+
     isEmptyString(str:string) {
         return str == "" || str == null;
     }
 
-    gotoCakes() {
+    goHome() {
         this._router.navigate(["Home"]);
     }
 }

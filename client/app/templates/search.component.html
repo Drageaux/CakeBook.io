@@ -1,11 +1,23 @@
 <div class="general-container">
+    <!-- Search -->
+    <div class="search-input-group input-group" style="margin-bottom: 20px;">
+        <input #searchInput type="text" class="form-control" placeholder="Search cake recipes...">
+        <span class="input-group-btn search-group-btn">
+            <button class="btn btn-default" type="button" required
+                    (click)="goSearch(searchInput.value)">
+                Go!
+            </button>
+        </span>
+    </div>
+
+    <!-- Display Results -->
+    <h4><b>Displaying results {{results.offset+1}} to
+        {{results.offset+results.totalResults}}</b></h4>
     <div *ngFor="#result of results.results" class="results-media media">
-        <div class="media-left">
-            <!--<a href="#">-->
-                <img class="media-object"
-                     src="{{results.baseUri}}{{result.image}}"
-                     alt="ME">
-            <!--</a>-->
+        <div class="media-left" (click)="getInfo(result.id)">
+            <img class="media-object"
+                 src="{{results.baseUri}}{{result.image}}"
+                 alt="ME">
         </div>
         <div class="media-body">
             <h4 class="media-heading">{{result.title}}</h4>

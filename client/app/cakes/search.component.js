@@ -146,10 +146,18 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake.ser
                     };
                     console.log(this.results);
                 };
+                SearchComponent.prototype.goSearch = function (query) {
+                    if (query != "" && query != null) {
+                        this._router.navigate(["Search", { query: query }]);
+                    }
+                };
+                SearchComponent.prototype.getInfo = function (id) {
+                    // Get info to redirect and import the cake
+                };
                 SearchComponent.prototype.isEmptyString = function (str) {
                     return str == "" || str == null;
                 };
-                SearchComponent.prototype.gotoCakes = function () {
+                SearchComponent.prototype.goHome = function () {
                     this._router.navigate(["Home"]);
                 };
                 SearchComponent = __decorate([
