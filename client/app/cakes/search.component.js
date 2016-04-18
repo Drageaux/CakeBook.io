@@ -28,12 +28,12 @@ System.register(["angular2/core", "angular2/router", "./cake.service"], function
                     this._routeParams = _routeParams;
                     this._service = _service;
                     this.results = {};
+                    this.query = this._routeParams.get('query');
                 }
                 SearchComponent.prototype.ngOnInit = function () {
                     var _this = this;
-                    var query = this._routeParams.get('query');
-                    console.log(query);
-                    this._service.searchCakes(query, this._routeParams.get(("start")), this._routeParams.get("end"))
+                    console.log(this.query);
+                    this._service.searchCakes(this.query, this._routeParams.get(("start")), this._routeParams.get("end"))
                         .subscribe(function (res) {
                         _this.results = res.body;
                         console.log(res.body);
@@ -140,7 +140,6 @@ System.register(["angular2/core", "angular2/router", "./cake.service"], function
                     //    "expires": 1460907924132,
                     //    "isStale": false
                     //}
-                    //console.log(this.results);
                 };
                 SearchComponent.prototype.goSearch = function (query, start, end) {
                     if (query != "" && query != null) {

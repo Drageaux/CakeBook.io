@@ -58,9 +58,6 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                     if (!localStorage.getItem("id_token")) {
                         this._router.navigate(["Login"]);
                     }
-                    else {
-                        this._router.navigate(["Home"]);
-                    }
                     var displayBackToTop = this.displayBackToTop.bind(this);
                     document.onscroll = function () {
                         displayBackToTop(window.scrollY);

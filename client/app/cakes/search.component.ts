@@ -11,6 +11,7 @@ import {CakeService} from "./cake.service";
 @CanActivate(() => localStorage.getItem("id_token"))
 export class SearchComponent implements OnInit {
     results:any = {};
+    query = this._routeParams.get('query');
 
     constructor(private _router:Router,
                 private _routeParams:RouteParams,
@@ -18,10 +19,9 @@ export class SearchComponent implements OnInit {
     }
 
     ngOnInit() {
-        let query = this._routeParams.get('query');
-        console.log(query);
+        console.log(this.query);
 
-        this._service.searchCakes(query,
+        this._service.searchCakes(this.query,
             this._routeParams.get(("start")),
             this._routeParams.get("end")
             )
@@ -133,7 +133,6 @@ export class SearchComponent implements OnInit {
         //    "expires": 1460907924132,
         //    "isStale": false
         //}
-        //console.log(this.results);
     }
 
     goSearch(query:string, start:string, end:string) {

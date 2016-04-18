@@ -55,8 +55,6 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         if (!localStorage.getItem("id_token")) {
             this._router.navigate(["Login"]);
-        } else {
-            this._router.navigate(["Home"]);
         }
 
         let displayBackToTop = this.displayBackToTop.bind(this);
