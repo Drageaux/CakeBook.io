@@ -1,0 +1,149 @@
+{
+  "vegetarian": false,
+  "vegan": false,
+  "glutenFree": false,
+  "dairyFree": false,
+  "veryHealthy": false,
+  "cheap": false,
+  "veryPopular": true,
+  "sustainable": false,
+  "weightWatcherSmartPoints": 44,
+  "gaps": "no",
+  "lowFodmap": false,
+  "ketogenic": false,
+  "whole30": false,
+  "servings": 2,
+  "preparationMinutes": 20,
+  "cookingMinutes": 12,
+  "sourceUrl": "http://allrecipes.com/recipe/222186/pizza-with-ham-asparagus-and-ricotta/",
+  "spoonacularSourceUrl": "https://spoonacular.com/pizza-with-ham-asparagus-and-ricotta-734559",
+  "aggregateLikes": 429,
+  "creditText": "Allrecipes",
+  "sourceName": "Allrecipes",
+  "extendedIngredients": [
+    {
+      "aisle": "Produce",
+      "name": "asparagus",
+      "amount": 1,
+      "unit": "cup",
+      "unitShort": "c",
+      "unitLong": "cup",
+      "originalString": "1 cup fresh asparagus, trimmed",
+      "metaInformation": []
+    },
+    {
+      "aisle": "Cheese",
+      "name": "ricotta cheese",
+      "amount": 0.5,
+      "unit": "cup",
+      "unitShort": "c",
+      "unitLong": "cups",
+      "originalString": "1/2 cup ricotta cheese",
+      "metaInformation": []
+    },
+    {
+      "aisle": "Oil, Vinegar, Salad Dressing",
+      "name": "olive oil",
+      "amount": 0.25,
+      "unit": "cup",
+      "unitShort": "c",
+      "unitLong": "cups",
+      "originalString": "1/4 cup olive oil",
+      "metaInformation": []
+    },
+    {
+      "aisle": "Produce",
+      "name": "garlic",
+      "amount": 2,
+      "unit": "cloves",
+      "unitShort": "cloves",
+      "unitLong": "cloves",
+      "originalString": "2 cloves garlic, minced",
+      "metaInformation": []
+    },
+    {
+      "aisle": "Spices and Seasonings",
+      "name": "red pepper flakes",
+      "amount": 1,
+      "unit": "pinch",
+      "unitShort": "pinch",
+      "unitLong": "pinch",
+      "originalString": "1 pinch red pepper flakes, or to taste",
+      "metaInformation": []
+    },
+    {
+      "aisle": "Spices and Seasonings",
+      "name": "salt and pepper",
+      "amount": 1,
+      "unit": "serving",
+      "unitShort": "serving",
+      "unitLong": "serving",
+      "originalString": "salt and freshly ground black pepper to taste",
+      "metaInformation": []
+    },
+    {
+      "aisle": "Milk, Eggs, Other Dairy",
+      "name": "heavy cream",
+      "amount": 2,
+      "unit": "tablespoons",
+      "unitShort": "T",
+      "unitLong": "tablespoons",
+      "originalString": "2 tablespoons heavy cream",
+      "metaInformation": []
+    },
+    {
+      "aisle": "Produce",
+      "name": "herbs",
+      "amount": 2,
+      "unit": "tablespoons",
+      "unitShort": "T",
+      "unitLong": "tablespoons",
+      "originalString": "2 tablespoons chopped herbs, such as basil, parsley, rosemary, thyme (optional)",
+      "metaInformation": []
+    },
+    {
+      "aisle": "Refrigerated",
+      "name": "pizza dough",
+      "amount": 1,
+      "unit": "pound",
+      "unitShort": "lb",
+      "unitLong": "pound",
+      "originalString": "1 pound pizza dough (see footnote for recipe link)",
+      "metaInformation": []
+    },
+    {
+      "aisle": "Meat",
+      "name": "ham",
+      "amount": 0.5,
+      "unit": "cup",
+      "unitShort": "c",
+      "unitLong": "cups",
+      "originalString": "1/2 cup diced smoked ham",
+      "metaInformation": []
+    },
+    {
+      "aisle": "Cheese",
+      "name": "white sharp cheddar cheese",
+      "amount": 0.5,
+      "unit": "cup",
+      "unitShort": "c",
+      "unitLong": "cups",
+      "originalString": "1/2 cup shredded sharp white Cheddar cheese",
+      "metaInformation": []
+    },
+    {
+      "aisle": "Cheese",
+      "name": "parmigiano reggiano cheese",
+      "amount": 1,
+      "unit": "tablespoon",
+      "unitShort": "T",
+      "unitLong": "tablespoon",
+      "originalString": "1 tablespoon finely grated Parmigiano-Reggiano cheese",
+      "metaInformation": []
+    }
+  ],
+  "id": 734559,
+  "title": "Pizza with Ham, Asparagus, and Ricotta",
+  "readyInMinutes": 37,
+  "image": "https://spoonacular.com/recipeImages/pizza-with-ham-asparagus-and-ricotta-734559.jpg"
+}
