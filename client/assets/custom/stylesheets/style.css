@@ -342,7 +342,8 @@ body {
               width: 75%; } }
     body .general-container .results-media.media, body .home-container .results-media.media, body .details-container .results-media.media {
       cursor: pointer;
-      border-radius: 10px; }
+      border-radius: 10px;
+      border: 2px solid #f9d2b9; }
       body .general-container .results-media.media .media-left, body .home-container .results-media.media .media-left, body .details-container .results-media.media .media-left {
         float: left;
         width: 20vw;
@@ -350,12 +351,14 @@ body {
         max-height: 20vw;
         overflow: hidden;
         margin-right: 10px !important;
-        border: 2px solid #f9d2b9;
         border-radius: 10px; }
         body .general-container .results-media.media .media-left .media-object, body .home-container .results-media.media .media-left .media-object, body .details-container .results-media.media .media-left .media-object {
           position: relative;
           display: block;
           width: 20vw; }
+      body .general-container .results-media.media .media-body h4, body .home-container .results-media.media .media-body h4, body .details-container .results-media.media .media-body h4 {
+        margin-top: 5px;
+        font-size: 17px; }
     body .general-container .results-media.media:hover, body .home-container .results-media.media:hover, body .details-container .results-media.media:hover {
       background-color: #f9d2b9;
       transition-duration: 0.18s; }

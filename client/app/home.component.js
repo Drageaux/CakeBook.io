@@ -50,7 +50,11 @@ System.register(['angular2/core', "angular2/router", "./cakes/add-cake-form.comp
                 };
                 HomeComponent.prototype.goSearch = function (query) {
                     if (query != "" && query != null) {
-                        this._router.navigate(["Search", { query: query }]);
+                        this._router.navigate(["Search", {
+                                query: query,
+                                start: 1,
+                                end: 10
+                            }]);
                     }
                 };
                 HomeComponent.prototype.onSelect = function (cake) {

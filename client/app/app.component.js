@@ -118,7 +118,7 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                         { path: "/login", name: "Login", component: login_component_1.LoginComponent },
                         { path: "/home", name: "Home", component: home_component_1.HomeComponent, useAsDefault: true },
                         { path: "/cake/:id", name: "CakeDetails", component: cake_details_component_1.CakeDetailsComponent },
-                        { path: "/search/query/:query", name: "Search", component: search_component_1.SearchComponent }
+                        { path: "/search/query/:query/start/:start/end/:end", name: "Search", component: search_component_1.SearchComponent }
                     ]), 
                     __metadata('design:paramtypes', [angular2_jwt_1.AuthHttp, router_1.Router, router_1.Location])
                 ], AppComponent);

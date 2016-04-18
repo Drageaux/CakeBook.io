@@ -4,7 +4,7 @@
         <input #searchInput type="text" class="form-control" placeholder="Search cake recipes...">
         <span class="input-group-btn search-group-btn">
             <button class="btn btn-default" type="button" required
-                    (click)="goSearch(searchInput.value)">
+                    (click)="goSearch(searchInput.value, 1, 10)">
                 Go!
             </button>
         </span>

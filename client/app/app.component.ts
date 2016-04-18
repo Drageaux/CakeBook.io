@@ -45,7 +45,7 @@ enableProdMode();
     {path: "/login", name: "Login", component: LoginComponent},
     {path: "/home", name: "Home", component: HomeComponent, useAsDefault: true},
     {path: "/cake/:id", name: "CakeDetails", component: CakeDetailsComponent},
-    {path: "/search/query/:query", name: "Search", component: SearchComponent}
+    {path: "/search/query/:query/start/:start/end/:end", name: "Search", component: SearchComponent}
 ])
 
 export class AppComponent implements OnInit {

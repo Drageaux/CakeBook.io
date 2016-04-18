@@ -94,11 +94,12 @@ export class CakeService {
     /*****************
      * External APIs *
      *****************/
-    searchCakes(query:string) {
-        return this.http.get("/api/search/cakes/query=" + query)
+    searchCakes(query:string, start:string, end:string) {
+        return this.http.get("/api/search/cakes/query=" + query +
+                "/" + start + "/" + end)
             .map(res => <any> res.json())
             .catch(this.handleError);
-            //.subscribe(results => console.log(results.json()));
+        //.subscribe(results => console.log(results.json()));
     }
 
 

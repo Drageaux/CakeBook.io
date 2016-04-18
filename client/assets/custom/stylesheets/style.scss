@@ -478,6 +478,7 @@ body {
         .results-media.media {
             cursor: pointer;
             border-radius: 10px;
+            border: 2px solid $container-hovered-color;
             .media-left {
                 float: left;
                 width: 20vw;
@@ -485,13 +486,16 @@ body {
                 max-height: 20vw;
                 overflow: hidden;
                 margin-right: 10px !important;
-                border: 2px solid $container-hovered-color;
                 border-radius: 10px;
                 .media-object {
                     position: relative;
                     display: block;
                     width: 20vw;
                 }
+            }
+            .media-body h4 {
+                margin-top: 5px;
+                font-size: 17px;
             }
         }
         .results-media.media:hover {
