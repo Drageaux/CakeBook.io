@@ -476,9 +476,27 @@ body {
         }
 
         .results-media.media {
-            .media-object {
-                width: 30vw;
+            cursor: pointer;
+            border-radius: 10px;
+            .media-left {
+                float: left;
+                width: 20vw;
+                height: auto;
+                max-height: 20vw;
+                overflow: hidden;
+                margin-right: 10px !important;
+                border: 2px solid $container-hovered-color;
+                border-radius: 10px;
+                .media-object {
+                    position: relative;
+                    display: block;
+                    width: 20vw;
+                }
             }
+        }
+        .results-media.media:hover {
+            background-color: $container-hovered-color;
+            transition-duration: 0.18s;
         }
     }
 
@@ -508,9 +526,12 @@ body {
         button {
             margin: 5px auto;
         }
-        .search-group-btn {
-            button {
-                margin: 0;
+        .search-input-group {
+            margin-top: 5px;
+            .search-group-btn {
+                button {
+                    margin: 0;
+                }
             }
         }
 
@@ -754,6 +775,7 @@ body {
             }
         }
     }
+
 }
 
 /**************

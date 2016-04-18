@@ -1,15 +1,15 @@
 <div class="general-container">
-    <div class="results-media media" *ngFor="#result of results.results">
+    <div *ngFor="#result of results.results" class="results-media media">
         <div class="media-left">
-            <a href="#">
+            <!--<a href="#">-->
                 <img class="media-object"
                      src="{{results.baseUri}}{{result.image}}"
                      alt="ME">
-            </a>
+            <!--</a>-->
         </div>
         <div class="media-body">
             <h4 class="media-heading">{{result.title}}</h4>
-            (ready in {{result.readyInMinutes}})
+            (ready in {{result.readyInMinutes}} minutes)
         </div>
     </div>
 </div>
