@@ -1,7 +1,6 @@
 <div class="home-container">
     <h1 class="welcome-poster">Welcome to Cake Book!</h1>
     <h2>Home</h2>
-    <h3>My Cakes</h3>
     <!-- Add -->
     <add-cake-form (saved)="onAdded($event)"></add-cake-form>
     <!-- Import -->
@@ -17,6 +16,7 @@
         </span>
     </div>
     <br>
+    <h3>My Cakes</h3>
     <div class="cake-list list-group">
         <a class="list-group-item" *ngFor="#cake of cakes"
            (click)="onSelect(cake)">{{cake.name}}</a>

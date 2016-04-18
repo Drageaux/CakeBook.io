@@ -35,10 +35,12 @@
             </div>
         </div>
         <div class="previous-next">
-            <button class="previous-button">
+            <button class="previous-button" *ngIf="results.offset > 0"
+                    (click)="goSearchPrevious()">
                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Previous 10
             </button>
-            <button class="next-button">
+            <button class="next-button" *ngIf="results.number > results.offset+9"
+                    (click)="goSearchNext()">
                 Next 10 <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             </button>
         </div>

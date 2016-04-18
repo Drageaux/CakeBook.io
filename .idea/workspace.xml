@@ -3,6 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="488cec99-ddf5-4f67-9a37-f9054f020f41" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/cakes/cake.service.js" afterPath="$PROJECT_DIR$/client/app/cakes/cake.service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/cakes/cake.service.js.map" afterPath="$PROJECT_DIR$/client/app/cakes/cake.service.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/cakes/cake.service.ts" afterPath="$PROJECT_DIR$/client/app/cakes/cake.service.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/cakes/search.component.js" afterPath="$PROJECT_DIR$/client/app/cakes/search.component.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/cakes/search.component.js.map" afterPath="$PROJECT_DIR$/client/app/cakes/search.component.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/cakes/search.component.ts" afterPath="$PROJECT_DIR$/client/app/cakes/search.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/templates/home.component.html" afterPath="$PROJECT_DIR$/client/app/templates/home.component.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/templates/search.component.html" afterPath="$PROJECT_DIR$/client/app/templates/search.component.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/assets/custom/stylesheets/style.css" afterPath="$PROJECT_DIR$/client/assets/custom/stylesheets/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/assets/custom/stylesheets/style.css.map" afterPath="$PROJECT_DIR$/client/assets/custom/stylesheets/style.css.map" />
@@ -29,11 +36,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.56727517">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-          <file leaf-file-name="search.component.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="search.component.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/app/templates/search.component.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.16778524">
-                  <caret line="3" column="75" selection-start-line="3" selection-start-column="75" selection-end-line="3" selection-end-column="75" />
+                <state vertical-scroll-proportion="-1.7820513">
+                  <caret line="42" column="43" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
                   <folding>
                     <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#h4#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -42,21 +49,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="app.component.ts" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/client/app/app.component.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="57" column="9" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="search.component.ts" pinned="false" current-in-tab="false">
+          <file leaf-file-name="search.component.ts" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/client/app/cakes/search.component.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+                <state vertical-scroll-proportion="0.4680851">
+                  <caret line="150" column="64" selection-start-line="150" selection-start-column="64" selection-end-line="150" selection-end-column="64" />
                   <folding />
                 </state>
               </provider>
@@ -69,9 +66,12 @@
           <file leaf-file-name="style.scss" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/client/assets/custom/stylesheets/style.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.1655481">
-                  <caret line="488" column="28" selection-start-line="488" selection-start-column="28" selection-end-line="488" selection-end-column="28" />
-                  <folding />
+                <state vertical-scroll-proportion="0.44646925">
+                  <caret line="568" column="31" selection-start-line="568" selection-start-column="31" selection-end-line="568" selection-end-column="31" />
+                  <folding>
+                    <element signature="e#8153#8466#0" expanded="false" />
+                    <element signature="e#9195#15516#0" expanded="false" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -146,16 +146,16 @@
         <option value="$PROJECT_DIR$/client/app/cakes/dummy-cake-info.json" />
         <option value="$PROJECT_DIR$/client/app/cakes/dummy-cake-extract.json" />
         <option value="$PROJECT_DIR$/server.js" />
-        <option value="$PROJECT_DIR$/client/app/cakes/cake.service.ts" />
         <option value="$PROJECT_DIR$/server/controllers/cakes-controller.js" />
         <option value="$PROJECT_DIR$/client/app/home.component.ts" />
         <option value="$PROJECT_DIR$/client/app/cakes/cake-details.component.ts" />
         <option value="$PROJECT_DIR$/client/app/login.component.ts" />
         <option value="$PROJECT_DIR$/client/app/app.component.ts" />
-        <option value="$PROJECT_DIR$/client/app/cakes/search.component.ts" />
+        <option value="$PROJECT_DIR$/client/app/templates/search.component.html" />
+        <option value="$PROJECT_DIR$/client/app/cakes/cake.service.ts" />
         <option value="$PROJECT_DIR$/client/assets/custom/stylesheets/style.scss" />
         <option value="$PROJECT_DIR$/client/app/templates/home.component.html" />
-        <option value="$PROJECT_DIR$/client/app/templates/search.component.html" />
+        <option value="$PROJECT_DIR$/client/app/cakes/search.component.ts" />
       </list>
     </option>
   </component>
@@ -392,7 +392,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../SWEN-356-Weather-Machine" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="ter&#9;ACTION&#9;ActivateTerminalToolWindow&#10;termin&#9;ACTION&#9;ActivateTerminalToolWindow&#10;verti&#9;ACTION&#9;SplitVertically&#10;terminal&#9;ACTION&#9;ActivateTerminalToolWindow&#10;replace&#9;ACTION&#9;Replace&#10;split ver&#9;ACTION&#9;SplitVertically&#10;collapse&#9;ACTION&#9;CollapseDocComments&#10;collapse all&#9;ACTION&#9;CollapseAllRegions" />
+    <property name="SearchEverywhereHistoryKey" value="term&#9;ACTION&#9;ActivateTerminalToolWindow&#10;ter&#9;ACTION&#9;ActivateTerminalToolWindow&#10;termin&#9;ACTION&#9;ActivateTerminalToolWindow&#10;verti&#9;ACTION&#9;SplitVertically&#10;terminal&#9;ACTION&#9;ActivateTerminalToolWindow&#10;replace&#9;ACTION&#9;Replace&#10;split ver&#9;ACTION&#9;SplitVertically&#10;collapse&#9;ACTION&#9;CollapseDocComments&#10;collapse all&#9;ACTION&#9;CollapseAllRegions" />
     <property name="editor.config.accepted" value="true" />
   </component>
   <component name="RecentsManager">
@@ -496,12 +496,12 @@
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript Compiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2942584" sideWeight="0.43480548" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3384434" sideWeight="0.49372384" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33732057" sideWeight="0.4821241" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277512" sideWeight="0.4831756" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3277512" sideWeight="0.5168244" order="11" side_tool="true" content_ui="tabs" x="859" y="341" width="979" height="230" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33732057" sideWeight="0.5178759" order="11" side_tool="true" content_ui="tabs" x="859" y="341" width="979" height="230" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22607781" sideWeight="0.495283" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1859375" sideWeight="0.5055292" order="3" side_tool="true" content_ui="tabs" />
@@ -515,6 +515,30 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278302" sideWeight="0.49791667" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900944" sideWeight="0.49791667" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript Compiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2942584" sideWeight="0.43480548" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3384434" sideWeight="0.49372384" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277512" sideWeight="0.4831756" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3277512" sideWeight="0.5168244" order="11" side_tool="true" content_ui="tabs" x="859" y="341" width="979" height="230" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22607781" sideWeight="0.495283" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278302" sideWeight="0.49791667" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1859375" sideWeight="0.5055292" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Armory" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.48316252" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -840,13 +864,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/cakes/cake.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33267716">
-          <caret line="11" column="29" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/app/login.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.5098425">
@@ -858,13 +875,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.09057971">
           <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/cakes/search.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
           <folding />
         </state>
       </provider>
@@ -879,28 +889,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/assets/custom/stylesheets/style.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1655481">
-          <caret line="488" column="28" selection-start-line="488" selection-start-column="28" selection-end-line="488" selection-end-column="28" />
-          <folding />
+        <state vertical-scroll-proportion="0.44646925">
+          <caret line="568" column="31" selection-start-line="568" selection-start-column="31" selection-end-line="568" selection-end-column="31" />
+          <folding>
+            <element signature="e#8153#8466#0" expanded="false" />
+            <element signature="e#9195#15516#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/app/templates/home.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10183299">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.56935817">
+          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/cakes/cake.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.53911203">
+          <caret line="105" column="5" selection-start-line="105" selection-start-column="5" selection-end-line="105" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/app/templates/search.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16778524">
-          <caret line="3" column="75" selection-start-line="3" selection-start-column="75" selection-end-line="3" selection-end-column="75" />
+        <state vertical-scroll-proportion="-1.7820513">
+          <caret line="42" column="43" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h4#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/cakes/search.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4680851">
+          <caret line="150" column="64" selection-start-line="150" selection-start-column="64" selection-end-line="150" selection-end-column="64" />
+          <folding />
         </state>
       </provider>
     </entry>

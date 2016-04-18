@@ -478,7 +478,7 @@ body {
 
         /* Search */
         .search-input-group {
-            margin-top: 5px;
+            margin-top: 20px;
             .search-group-btn {
                 button {
                     margin: 0;
@@ -571,6 +571,7 @@ body {
         div.import-cake-form {
             @extend .add-cake-form;
             margin-top: 20px;
+            margin-bottom: 20px;
             p {
                 font-size: 1.1em;
                 word-break: keep-all;
