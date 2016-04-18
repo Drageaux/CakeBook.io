@@ -107,18 +107,18 @@ module.exports.updateDetail = function (req, res) {
 }
 
 module.exports.search = function (req, res) {
-    console.log(req.params.query);
-    //for (i in req.params.query) {
-    //
-    //}
-    number = req.params.end-req.params.start+1;
+    var query = "";
+    for (i in req.params.query.split(" ")) {
+        query += "+" + req.params.query.split(" ")[i];
+    }
+    var number = req.params.end - req.params.start + 1;
     number = number.toString();
-    offset = req.params.start-1;
+    var offset = req.params.start - 1;
     offset = offset.toString();
     unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?" +
             "number=" + number + "&" +
             "offset=" + offset + "&" +
-            "query=cake+" + req.params.query)
+            "query=cake" + query)
         .header("X-Mashape-Key", process.env.X_MASHAPE_KEY)
         .end(function (result) {
             res.send(result);
