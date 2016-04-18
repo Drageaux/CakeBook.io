@@ -14,7 +14,7 @@ import {tokenNotExpired} from "angular2-jwt";
     directives: [AddCakeFormComponent, ImportCakeFormComponent]
 })
 
-@CanActivate(() => tokenNotExpired())
+@CanActivate(() => localStorage.getItem("id_token"))
 export class HomeComponent implements OnInit {
     errorMessage:string;
     @Input() cakes:Cake[];
@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit() {
-        if (!tokenNotExpired()) {
+        if (!localStorage.getItem("id_token")) {
             this._router.navigate(["Login"]);
         }
         this.getCakes();

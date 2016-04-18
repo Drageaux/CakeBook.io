@@ -8,10 +8,7 @@ import {Location,
     ROUTER_DIRECTIVES,
     CanActivate} from 'angular2/router';
 import {FORM_PROVIDERS} from 'angular2/common';
-import {AuthHttp,
-    tokenNotExpired,
-    JwtHelper,
-    AuthConfig} from "angular2-jwt";
+import {AuthHttp} from "angular2-jwt";
 
 import {LoggedInRouterOutlet}   from "./loggedin-outlet";
 import {LoginComponent}         from "./login.component";
@@ -56,8 +53,10 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit() {
-        if (!tokenNotExpired()) {
+        if (!localStorage.getItem("id_token")) {
             this._router.navigate(["Login"]);
+        } else {
+            this._router.navigate(["Home"]);
         }
 
         let displayBackToTop = this.displayBackToTop.bind(this);
@@ -67,8 +66,8 @@ export class AppComponent implements OnInit {
     }
 
     logout() {
-        localStorage.removeItem('profile');
-        localStorage.removeItem('id_token');
+        localStorage.removeItem("profile");
+        localStorage.removeItem("id_token");
         this._router.navigate(["Login"]);
     }
 
@@ -96,7 +95,7 @@ export class AppComponent implements OnInit {
      * Helper Functions *
      ********************/
     loggedIn() {
-        return tokenNotExpired();
+        return localStorage.getItem("id_token") != null;
     }
 
     atLoginPage() {

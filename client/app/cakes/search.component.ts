@@ -1,6 +1,5 @@
 import {Component, OnInit} from "angular2/core";
 import {Router, RouteParams, CanActivate} from "angular2/router";
-import {tokenNotExpired} from "angular2-jwt";
 import {Observable} from "rxjs/Observable";
 
 import {CakeService} from "./cake.service";
@@ -9,7 +8,7 @@ import {CakeService} from "./cake.service";
     templateUrl: "templates/search.component.html"
 })
 
-@CanActivate(() => tokenNotExpired())
+@CanActivate(() => localStorage.getItem("id_token"))
 export class SearchComponent implements OnInit {
     results:any = {};
 

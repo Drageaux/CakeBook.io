@@ -55,8 +55,11 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                     this._location = _location;
                 }
                 AppComponent.prototype.ngOnInit = function () {
-                    if (!angular2_jwt_1.tokenNotExpired()) {
+                    if (!localStorage.getItem("id_token")) {
                         this._router.navigate(["Login"]);
+                    }
+                    else {
+                        this._router.navigate(["Home"]);
                     }
                     var displayBackToTop = this.displayBackToTop.bind(this);
                     document.onscroll = function () {
@@ -64,8 +67,8 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                     };
                 };
                 AppComponent.prototype.logout = function () {
-                    localStorage.removeItem('profile');
-                    localStorage.removeItem('id_token');
+                    localStorage.removeItem("profile");
+                    localStorage.removeItem("id_token");
                     this._router.navigate(["Login"]);
                 };
                 /*****************
@@ -91,7 +94,7 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                  * Helper Functions *
                  ********************/
                 AppComponent.prototype.loggedIn = function () {
-                    return angular2_jwt_1.tokenNotExpired();
+                    return localStorage.getItem("id_token") != null;
                 };
                 AppComponent.prototype.atLoginPage = function () {
                     return this._location.path() == "/login";
