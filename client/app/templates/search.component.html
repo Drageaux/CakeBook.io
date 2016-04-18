@@ -1,4 +1,5 @@
 <div class="general-container">
+    <h2>Search</h2>
     <!-- Search -->
     <div class="search-input-group input-group" style="margin-bottom: 20px;">
         <input #searchInput type="text" class="form-control" placeholder="Search cake recipes..."
@@ -12,11 +13,13 @@
     </div>
 
     <!-- Display Results -->
-    <div *ngIf="results">
-        <h4 *ngIf="results.totalResults > 0"><b>
-            Displaying results {{results.offset+1}} to
-            {{results.offset+results.totalResults}}
-        </b></h4>
+    <div *ngIf="results" class="search-results">
+        <div *ngIf="results.totalResults > 0">
+            <h4 style="display: inline; margin-left:auto; margin-right:auto"><b>
+                Displaying results {{results.offset+1}} to
+                {{results.offset+results.totalResults}}
+            </b></h4>
+        </div>
         <h4 *ngIf="results.totalResults == 0"><b>
             Found no results for "{{query}}"
         </b></h4>
@@ -30,6 +33,14 @@
                 <h4 class="media-heading">{{result.title}}</h4>
                 (ready in {{result.readyInMinutes}} minutes)
             </div>
+        </div>
+        <div class="previous-next">
+            <button class="previous-button">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Previous 10
+            </button>
+            <button class="next-button">
+                Next 10 <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            </button>
         </div>
     </div>
 </div>
