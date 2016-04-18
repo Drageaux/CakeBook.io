@@ -94,8 +94,9 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
                 /*****************
                  * External APIs *
                  *****************/
-                CakeService.prototype.searchCakes = function (query) {
-                    return this.http.get("/api/search/cakes/query=" + query)
+                CakeService.prototype.searchCakes = function (query, start, end) {
+                    return this.http.get("/api/search/cakes/query=" + query +
+                        "/" + start + "/" + end)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                     //.subscribe(results => console.log(results.json()));

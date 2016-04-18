@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from "angular2/core";
 import {Router, RouteParams, CanActivate} from "angular2/router";
-import {tokenNotExpired} from "angular2-jwt";
 import {Observable} from "rxjs/Observable";
 
 import {Cake} from "./cake";
@@ -13,7 +12,7 @@ import {EditableItemForm} from "./editable-item-form.component";
     directives: [EditableItemForm]
 })
 
-@CanActivate(() => tokenNotExpired())
+@CanActivate(() => localStorage.getItem("id_token"))
 export class CakeDetailsComponent implements OnInit {
     cake:Cake;
     tempIngrs:Object[] = [];

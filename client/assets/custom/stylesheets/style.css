@@ -193,6 +193,7 @@ body {
     margin-top: 0;
     margin-bottom: 0;
     padding: 50px;
+    padding-bottom: 50px !important;
     min-height: 85vh;
     height: auto;
     box-shadow: -15px 10px 50px 25px rgba(0, 0, 0, 0.2), inset 10px 0 25px 2px rgba(0, 0, 0, 0.3); }
@@ -342,7 +343,8 @@ body {
               width: 75%; } }
     body .general-container .results-media.media, body .home-container .results-media.media, body .details-container .results-media.media {
       cursor: pointer;
-      border-radius: 10px; }
+      border-radius: 10px;
+      border: 2px solid #f9d2b9; }
       body .general-container .results-media.media .media-left, body .home-container .results-media.media .media-left, body .details-container .results-media.media .media-left {
         float: left;
         width: 20vw;
@@ -350,24 +352,27 @@ body {
         max-height: 20vw;
         overflow: hidden;
         margin-right: 10px !important;
-        border: 2px solid #f9d2b9;
         border-radius: 10px; }
         body .general-container .results-media.media .media-left .media-object, body .home-container .results-media.media .media-left .media-object, body .details-container .results-media.media .media-left .media-object {
           position: relative;
           display: block;
           width: 20vw; }
+      body .general-container .results-media.media .media-body h4, body .home-container .results-media.media .media-body h4, body .details-container .results-media.media .media-body h4 {
+        margin-top: 5px;
+        font-size: 17px; }
     body .general-container .results-media.media:hover, body .home-container .results-media.media:hover, body .details-container .results-media.media:hover {
       background-color: #f9d2b9;
       transition-duration: 0.18s; }
   @media screen and (max-width: 768px) {
     body .general-container, body .home-container, body .details-container {
       margin-left: 8vw !important;
-      padding: 25px !important; } }
+      padding: 25px;
+      padding-bottom: 40px !important; } }
   @media screen and (max-width: 480px) {
     body .general-container, body .home-container, body .details-container {
       margin-left: 3vw !important;
-      padding: 20px !important;
-      padding-bottom: 30px !important; } }
+      padding: 20px;
+      padding-bottom: 40px !important; } }
   body .home-container {
     /* Cake List in Home Page */
     /* Add Cake Form */ }

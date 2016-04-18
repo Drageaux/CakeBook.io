@@ -1,27 +1,35 @@
 <div class="general-container">
     <!-- Search -->
     <div class="search-input-group input-group" style="margin-bottom: 20px;">
-        <input #searchInput type="text" class="form-control" placeholder="Search cake recipes...">
+        <input #searchInput type="text" class="form-control" placeholder="Search cake recipes..."
+               [(ngModel)]="query">
         <span class="input-group-btn search-group-btn">
             <button class="btn btn-default" type="button" required
-                    (click)="goSearch(searchInput.value)">
+                    (click)="goSearch(searchInput.value, 1, 10)">
                 Go!
             </button>
         </span>
     </div>
 
     <!-- Display Results -->
-    <h4><b>Displaying results {{results.offset+1}} to
-        {{results.offset+results.totalResults}}</b></h4>
-    <div *ngFor="#result of results.results" class="results-media media">
-        <div class="media-left" (click)="getInfo(result.id)">
-            <img class="media-object"
-                 src="{{results.baseUri}}{{result.image}}"
-                 alt="ME">
-        </div>
-        <div class="media-body">
-            <h4 class="media-heading">{{result.title}}</h4>
-            (ready in {{result.readyInMinutes}} minutes)
+    <div *ngIf="results">
+        <h4 *ngIf="results.totalResults > 0"><b>
+            Displaying results {{results.offset+1}} to
+            {{results.offset+results.totalResults}}
+        </b></h4>
+        <h4 *ngIf="results.totalResults == 0"><b>
+            Found no results for "{{query}}"
+        </b></h4>
+        <div *ngFor="#result of results.results" class="results-media media">
+            <div class="media-left" (click)="getInfo(result.id)">
+                <img class="media-object"
+                     src="{{results.baseUri}}{{result.image}}"
+                     alt="ME">
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">{{result.title}}</h4>
+                (ready in {{result.readyInMinutes}} minutes)
+            </div>
         </div>
     </div>
 </div>
