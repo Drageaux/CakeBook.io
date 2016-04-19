@@ -16,6 +16,7 @@ body {
   font-family: "Marmelad", Arial;
   background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/bamboo-wood-flooring-texture.jpg");
   background-repeat: repeat;
+  /* Semantic Checkbox */
   /*******************
    * General Top Nav *
    *******************/
@@ -58,6 +59,21 @@ body {
     resize: none; }
   body hr {
     border-color: #6a272b; }
+  body .ui.toggle.checkbox input {
+    margin: 0 !important;
+    width: 4rem;
+    height: 1.7rem; }
+  body .ui.toggle.checkbox input:checked ~ label:after {
+    left: 2.3rem !important; }
+  body .ui.toggle.checkbox label {
+    padding-top: 0;
+    font-size: 1.4em; }
+  body .ui.toggle.checkbox label:before {
+    width: 4rem;
+    height: 1.7rem; }
+  body .ui.toggle.checkbox label:after {
+    width: 1.7rem;
+    height: 1.7rem; }
   body .navbar-default {
     height: 40px;
     min-width: 300px;

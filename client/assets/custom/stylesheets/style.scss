@@ -38,6 +38,8 @@ body {
      * General *
      ***********/
     font-family: $normal-font;
+    background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/bamboo-wood-flooring-texture.jpg");
+    background-repeat: repeat;
     p {
         font-size: 1.2em;
     }
@@ -71,8 +73,32 @@ body {
     hr {
         border-color: $border-color;
     }
-    background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/bamboo-wood-flooring-texture.jpg");
-    background-repeat: repeat;
+
+    /* Semantic Checkbox */
+    .ui.toggle.checkbox {
+        input {
+            margin: 0 !important;
+            width: 4rem;
+            height: 1.7rem;
+        }
+
+        input:checked~label:after {
+            left: 2.3rem !important;
+        }
+
+        label {
+            padding-top: 0;
+            font-size: 1.4em;
+        }
+        label:before {
+            width: 4rem;
+            height: 1.7rem;
+        }
+        label:after {
+            width: 1.7rem;
+            height: 1.7rem;
+        }
+    }
 
     /*******************
      * General Top Nav *
