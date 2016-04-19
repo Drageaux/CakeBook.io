@@ -16,7 +16,8 @@ export class ImportCakeFormComponent {
 
     @Output() saved = new EventEmitter<Cake>();
     modelString = "";
-    model = new Cake(0, this.userId, "", "", "", "", [], []);
+    model = new Cake(0, false, this.userId,
+        "", "", "", "", [], []);
     active = false;
     tooltipTitle = `
         <p style='text-align:left; padding: 5px; margin-bottom: 0'>
@@ -114,7 +115,8 @@ export class ImportCakeFormComponent {
         this._cakeService.addCake(JSON.stringify(this.model))
             .subscribe(res => this.saved.emit(res));
         // TODO: Remove when there's a better way to reset the model
-        this.model = new Cake(0, this.userId, "", "", "", "", [], []);
+        this.model = new Cake(0, false, this.userId,
+            "", "", "", "", [], []);
         this.closeForm();
     }
 
