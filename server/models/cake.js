@@ -7,10 +7,15 @@ var DetailSchema = new Schema({
 })
 
 var CakeSchema = new Schema({
+    isPublic: Boolean,
     user: String,
     name: String,
     image: String,
     croppedImage: String,
+    servings: Number,
+    readyInMinutes: Number,
+    preparationMinutes: Number,
+    cookingMinutes: Number,
     description: String,
     ingredients: [DetailSchema],
     steps: [DetailSchema]

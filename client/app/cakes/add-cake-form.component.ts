@@ -17,7 +17,8 @@ export class AddCakeFormComponent {
     userId = JSON.parse(localStorage.getItem("profile")).user_id; // must be defined first
     
     @Output() saved = new EventEmitter<Cake>();
-    model = new Cake(0, this.userId, "", "", "", "", [], []);
+    model = new Cake(0, this.userId, "", "", "",
+        0, 0, 0, 0, "", [], []);
     active = false;
 
     constructor(private _cakeService:CakeService) {
@@ -38,7 +39,8 @@ export class AddCakeFormComponent {
         this._cakeService.addCake(JSON.stringify(this.model))
             .subscribe(res => this.saved.emit(res));
         // TODO: Remove when there's a better way to reset the model
-        this.model = new Cake(0, this.userId, "", "", "", "", [], []);
+        this.model = new Cake(0, this.userId, "", "", "",
+            0, 0, 0, 0, "", [], []);
         this.closeForm();
     }
 

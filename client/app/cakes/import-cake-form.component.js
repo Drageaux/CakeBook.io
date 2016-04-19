@@ -28,7 +28,7 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     this.userId = JSON.parse(localStorage.getItem("profile")).user_id; // must be defined first
                     this.saved = new core_1.EventEmitter();
                     this.modelString = "";
-                    this.model = new cake_1.Cake(0, this.userId, "", "", "", "", [], []);
+                    this.model = new cake_1.Cake(0, this.userId, "", "", "", 0, 0, 0, 0, "", [], []);
                     this.active = false;
                     this.tooltipTitle = "\n        <p style='text-align:left; padding: 5px; margin-bottom: 0'>\n            <b>How To</b>:<br>\n            - Add an empty line to <i>separate each detail group</i><br>\n            - Add a new line <i>for each ingredient/step</i><br>\n            - Type 'none' or 'None' to <i>leave blank</i><br>\n            <br>\n            <b>Template</b>:\n        </p>\n<pre style='margin-top: 0; text-align: left'>*name*\n\n*description*\n\n*ingredient #1*\n*ingredient #2*\n*ingredient #3*\n\n*step #1*\n*step #2*</pre>\n        ";
                 }
@@ -99,7 +99,7 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     this._cakeService.addCake(JSON.stringify(this.model))
                         .subscribe(function (res) { return _this.saved.emit(res); });
                     // TODO: Remove when there's a better way to reset the model
-                    this.model = new cake_1.Cake(0, this.userId, "", "", "", "", [], []);
+                    this.model = new cake_1.Cake(0, this.userId, "", "", "", 0, 0, 0, 0, "", [], []);
                     this.closeForm();
                 };
                 /********************
