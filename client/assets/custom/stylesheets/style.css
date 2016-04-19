@@ -502,8 +502,10 @@ body {
         transition-duration: 0.2s;
         margin-left: 3px; }
       body .details-container .cake-info .cake-description .save-cancel {
+        float: right;
         margin-right: 12px; }
         body .details-container .cake-info .cake-description .save-cancel button {
+          float: left;
           margin-top: 10px;
           margin-bottom: 5px; }
     @media screen and (max-width: 480px) {
@@ -519,6 +521,14 @@ body {
         margin-right: auto; } }
     body .details-container ul, body .details-container ol {
       padding-left: 30px; }
+    body .details-container .ui.toggle.checkbox {
+      width: 100%; }
+    body .details-container .panel {
+      border-color: #f9d2b9; }
+      body .details-container .panel .panel-heading {
+        background-color: #df3e3e; }
+      body .details-container .panel .panel-body {
+        background-color: #FCE9DC; }
   body .gu-mirror {
     overflow: hidden;
     margin: 2px 20px 2px 20px;

@@ -37,6 +37,7 @@ export class CakeDetailsComponent implements OnInit {
                     for (let i in this.cake.steps) {
                         this.tempSteps.push(this.cake.steps[i]);
                     }
+                    console.log(cake);
                 },
                 error => this._router.navigate(["Home"])
             );

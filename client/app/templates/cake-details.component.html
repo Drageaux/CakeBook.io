@@ -31,17 +31,18 @@
                             (click)="editDetail('desc', {})">Edit
                     </button>
                     <div class="save-cancel" [class.hidden]="!isEditing('desc')">
-                        <button type="button" class="cancel-button btn btn-danger"
-                                (click)="cancelEdit('desc', 0)">
-                            <span class="glyphicon glyphicon-remove"></span>&nbsp;Cancel
-                        </button>
                         <button type="submit" class="save-button btn btn-success"
                                 (click)="saveEdit('desc', {'value': newDescription.value})">
                             <span class="glyphicon glyphicon-check"></span>&nbsp;Save
                         </button>
+                        <button type="button" class="cancel-button btn btn-danger"
+                                (click)="cancelEdit('desc', 0)">
+                            <span class="glyphicon glyphicon-remove"></span>&nbsp;Cancel
+                        </button>
                     </div>
                 </div>
             </form>
+
         </div>
         <br>
 
@@ -126,8 +127,18 @@
     </div>
     <hr>
 
-    <button class="btn btn-default" (click)="goHome()">Back</button>
-    <button *ngIf="cake" class="btn btn-danger" (click)="deleteCake()">Remove This Cake</button>
+
+    <!-- Important Options -->
+    <div class="panel panel-default">
+        <div class="panel-heading">Options</div>
+        <div class="panel-body">
+            <div *ngIf="cake" class="ui toggle checkbox">
+                <input type="checkbox" [checked]="cake.isPublic">
+                <label>Share this cake with everyone?</label>
+            </div>
+            <button *ngIf="cake" class="btn btn-danger" (click)="deleteCake()">Remove This Cake</button>
+        </div>
+    </div>
 
 
     <!-- Image Upload Error Modal -->

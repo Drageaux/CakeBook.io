@@ -707,8 +707,10 @@ body {
                     margin-left: 3px;
                 }
                 .save-cancel {
+                    float: right;
                     margin-right: 12px;
                     button {
+                        float: left;
                         margin-top: 10px;
                         margin-bottom: 5px;
                     }
@@ -734,6 +736,19 @@ body {
         }
         ul, ol {
             padding-left: 30px;
+        }
+        .ui.toggle.checkbox {
+            width: 100%;
+        }
+
+        .panel {
+            border-color: $container-hovered-color;
+            .panel-heading {
+                background-color: #df3e3e;
+            }
+            .panel-body {
+                background-color: $_2nd-light-cream;
+            }
         }
     }
 
@@ -933,7 +948,6 @@ body {
         height: 7vh
     }
 }
-
 
 /************************
  * Media Queries - Hide *

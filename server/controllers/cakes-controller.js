@@ -22,6 +22,7 @@ module.exports.get = function (req, res) {
 
 module.exports.create = function (req, res) {
     var cake = new Cake();
+    cake.isPublic = req.body.isPublic;
     cake.user = req.body.user;
     cake.name = req.body.name;
     cake.description = req.body.description;
