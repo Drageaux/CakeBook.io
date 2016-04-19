@@ -30,7 +30,7 @@ System.register(["angular2/core", "./cake", "./cake.service", "./editable-item-f
                     this._cakeService = _cakeService;
                     this.userId = JSON.parse(localStorage.getItem("profile")).user_id; // must be defined first
                     this.saved = new core_1.EventEmitter();
-                    this.model = new cake_1.Cake(0, this.userId, "", "", "", 0, 0, 0, 0, "", [], []);
+                    this.model = new cake_1.Cake(0, this.userId, "", "", "", "", [], []);
                     this.active = false;
                 }
                 AddCakeFormComponent.prototype.openForm = function () {
@@ -47,7 +47,7 @@ System.register(["angular2/core", "./cake", "./cake.service", "./editable-item-f
                     this._cakeService.addCake(JSON.stringify(this.model))
                         .subscribe(function (res) { return _this.saved.emit(res); });
                     // TODO: Remove when there's a better way to reset the model
-                    this.model = new cake_1.Cake(0, this.userId, "", "", "", 0, 0, 0, 0, "", [], []);
+                    this.model = new cake_1.Cake(0, this.userId, "", "", "", "", [], []);
                     this.closeForm();
                 };
                 /* Ingredients and Steps */

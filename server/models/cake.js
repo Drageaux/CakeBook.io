@@ -12,10 +12,6 @@ var CakeSchema = new Schema({
     name: String,
     image: String,
     croppedImage: String,
-    servings: Number,
-    readyInMinutes: Number,
-    preparationMinutes: Number,
-    cookingMinutes: Number,
     description: String,
     ingredients: [DetailSchema],
     steps: [DetailSchema]

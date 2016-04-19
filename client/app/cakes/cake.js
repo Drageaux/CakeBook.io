@@ -4,16 +4,12 @@ System.register([], function(exports_1) {
         setters:[],
         execute: function() {
             Cake = (function () {
-                function Cake(_id, user, name, image, croppedImage, servings, readyInMinutes, preparationMinutes, cookingMinutes, description, ingredients, steps) {
+                function Cake(_id, user, name, image, croppedImage, description, ingredients, steps) {
                     this._id = _id;
                     this.user = user;
                     this.name = name;
                     this.image = image;
                     this.croppedImage = croppedImage;
-                    this.servings = servings;
-                    this.readyInMinutes = readyInMinutes;
-                    this.preparationMinutes = preparationMinutes;
-                    this.cookingMinutes = cookingMinutes;
                     this.description = description;
                     this.ingredients = ingredients;
                     this.steps = steps;

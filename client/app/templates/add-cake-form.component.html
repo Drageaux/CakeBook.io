@@ -9,7 +9,7 @@
         <div class="form-group">
             <label>Cake Name*</label>
             <input type="text" class="form-control" required
-                   [(ngModel)]="model.title">
+                   [(ngModel)]="model.name">
         </div>
         <hr>
 
@@ -45,7 +45,7 @@
 
         <!-- Main form buttons -->
         <button type="submit" class="btn btn-success"
-                [class.disabled]="isEmptyString(model.title)">
+                [class.disabled]="isEmptyString(model.name)">
             Submit
         </button>
         <button type="button" class="btn btn-danger"
