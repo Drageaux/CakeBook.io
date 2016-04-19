@@ -196,7 +196,8 @@ body {
     padding-bottom: 50px !important;
     min-height: 85vh;
     height: auto;
-    box-shadow: -15px 10px 50px 25px rgba(0, 0, 0, 0.2), inset 10px 0 25px 2px rgba(0, 0, 0, 0.3); }
+    box-shadow: -15px 10px 50px 25px rgba(0, 0, 0, 0.2), inset 10px 0 25px 2px rgba(0, 0, 0, 0.3);
+    /* Search */ }
     body .general-container .normal-list-group, body .home-container .normal-list-group, body .details-container .normal-list-group {
       cursor: pointer;
       height: 100%;
@@ -341,28 +342,40 @@ body {
             margin-right: 5px; }
             body .general-container .form-group .editable-list-group .editable-list-group-item .list-group-item-name, body .home-container .form-group .editable-list-group .editable-list-group-item .list-group-item-name, body .details-container .form-group .editable-list-group .editable-list-group-item .list-group-item-name {
               width: 75%; } }
-    body .general-container .results-media.media, body .home-container .results-media.media, body .details-container .results-media.media {
-      cursor: pointer;
-      border-radius: 10px;
-      border: 2px solid #f9d2b9; }
-      body .general-container .results-media.media .media-left, body .home-container .results-media.media .media-left, body .details-container .results-media.media .media-left {
-        float: left;
-        width: 20vw;
-        height: auto;
-        max-height: 20vw;
-        overflow: hidden;
-        margin-right: 10px !important;
-        border-radius: 10px; }
-        body .general-container .results-media.media .media-left .media-object, body .home-container .results-media.media .media-left .media-object, body .details-container .results-media.media .media-left .media-object {
-          position: relative;
-          display: block;
-          width: 20vw; }
-      body .general-container .results-media.media .media-body h4, body .home-container .results-media.media .media-body h4, body .details-container .results-media.media .media-body h4 {
-        margin-top: 5px;
-        font-size: 17px; }
-    body .general-container .results-media.media:hover, body .home-container .results-media.media:hover, body .details-container .results-media.media:hover {
-      background-color: #f9d2b9;
-      transition-duration: 0.18s; }
+    body .general-container .search-input-group, body .home-container .search-input-group, body .details-container .search-input-group {
+      margin-top: 20px; }
+      body .general-container .search-input-group .search-group-btn button, body .home-container .search-input-group .search-group-btn button, body .details-container .search-input-group .search-group-btn button {
+        margin: 0; }
+    body .general-container .search-results, body .home-container .search-results, body .details-container .search-results {
+      margin-bottom: 50px; }
+      body .general-container .search-results .results-media.media, body .home-container .search-results .results-media.media, body .details-container .search-results .results-media.media {
+        cursor: pointer;
+        border-radius: 10px;
+        border: 2px solid #f9d2b9; }
+        body .general-container .search-results .results-media.media .media-left, body .home-container .search-results .results-media.media .media-left, body .details-container .search-results .results-media.media .media-left {
+          float: left;
+          width: 20vw;
+          height: auto;
+          max-height: 20vw;
+          overflow: hidden;
+          margin-right: 10px !important;
+          border-radius: 10px; }
+          body .general-container .search-results .results-media.media .media-left .media-object, body .home-container .search-results .results-media.media .media-left .media-object, body .details-container .search-results .results-media.media .media-left .media-object {
+            position: relative;
+            display: block;
+            width: 20vw; }
+        body .general-container .search-results .results-media.media .media-body h4, body .home-container .search-results .results-media.media .media-body h4, body .details-container .search-results .results-media.media .media-body h4 {
+          margin-top: 5px;
+          font-size: 17px; }
+      body .general-container .search-results .results-media.media:hover, body .home-container .search-results .results-media.media:hover, body .details-container .search-results .results-media.media:hover {
+        background-color: #f9d2b9;
+        transition-duration: 0.18s; }
+      body .general-container .search-results .previous-next, body .home-container .search-results .previous-next, body .details-container .search-results .previous-next {
+        margin-top: 20px; }
+        body .general-container .search-results .previous-next .previous-button, body .home-container .search-results .previous-next .previous-button, body .details-container .search-results .previous-next .previous-button {
+          float: left; }
+        body .general-container .search-results .previous-next .next-button, body .home-container .search-results .previous-next .next-button, body .details-container .search-results .previous-next .next-button {
+          float: right; }
   @media screen and (max-width: 768px) {
     body .general-container, body .home-container, body .details-container {
       margin-left: 8vw !important;
@@ -380,10 +393,6 @@ body {
       margin-bottom: 6px; }
     body .home-container button {
       margin: 5px auto; }
-    body .home-container .search-input-group {
-      margin-top: 5px; }
-      body .home-container .search-input-group .search-group-btn button {
-        margin: 0; }
     body .home-container .cake-list li {
       cursor: pointer; }
     body .home-container div.add-cake-form, body .home-container div.import-cake-form {
@@ -392,7 +401,8 @@ body {
       border: 2px solid #6a272b;
       border-radius: 4px; }
     body .home-container div.import-cake-form {
-      margin-top: 20px; }
+      margin-top: 20px;
+      margin-bottom: 20px; }
       body .home-container div.import-cake-form p {
         font-size: 1.1em;
         word-break: keep-all; }

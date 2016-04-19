@@ -476,32 +476,53 @@ body {
             }
         }
 
-        .results-media.media {
-            cursor: pointer;
-            border-radius: 10px;
-            border: 2px solid $container-hovered-color;
-            .media-left {
-                float: left;
-                width: 20vw;
-                height: auto;
-                max-height: 20vw;
-                overflow: hidden;
-                margin-right: 10px !important;
-                border-radius: 10px;
-                .media-object {
-                    position: relative;
-                    display: block;
-                    width: 20vw;
+        /* Search */
+        .search-input-group {
+            margin-top: 20px;
+            .search-group-btn {
+                button {
+                    margin: 0;
                 }
             }
-            .media-body h4 {
-                margin-top: 5px;
-                font-size: 17px;
-            }
         }
-        .results-media.media:hover {
-            background-color: $container-hovered-color;
-            transition-duration: 0.18s;
+        .search-results {
+            margin-bottom: 50px;
+            .results-media.media {
+                cursor: pointer;
+                border-radius: 10px;
+                border: 2px solid $container-hovered-color;
+                .media-left {
+                    float: left;
+                    width: 20vw;
+                    height: auto;
+                    max-height: 20vw;
+                    overflow: hidden;
+                    margin-right: 10px !important;
+                    border-radius: 10px;
+                    .media-object {
+                        position: relative;
+                        display: block;
+                        width: 20vw;
+                    }
+                }
+                .media-body h4 {
+                    margin-top: 5px;
+                    font-size: 17px;
+                }
+            }
+            .results-media.media:hover {
+                background-color: $container-hovered-color;
+                transition-duration: 0.18s;
+            }
+            .previous-next {
+                margin-top: 20px;
+                .previous-button {
+                    float: left;
+                }
+                .next-button {
+                    float: right;
+                }
+            }
         }
     }
 
@@ -532,14 +553,6 @@ body {
         button {
             margin: 5px auto;
         }
-        .search-input-group {
-            margin-top: 5px;
-            .search-group-btn {
-                button {
-                    margin: 0;
-                }
-            }
-        }
 
         /* Cake List in Home Page */
         .cake-list {
@@ -558,6 +571,7 @@ body {
         div.import-cake-form {
             @extend .add-cake-form;
             margin-top: 20px;
+            margin-bottom: 20px;
             p {
                 font-size: 1.1em;
                 word-break: keep-all;

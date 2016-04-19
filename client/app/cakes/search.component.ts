@@ -146,6 +146,37 @@ export class SearchComponent implements OnInit {
         }
     }
 
+    goSearchPrevious() {
+        let query = this._routeParams.get("query");
+        let start = parseInt(this._routeParams.get("start")) - 10;
+        if (start < 1) {
+            start = 1
+        }
+        let end = start + 9;
+        if (query != "" && query != null) {
+            this._router.navigate(["Search", {
+                    query: query,
+                    start: start,
+                    end: end
+                }]
+            );
+        }
+    }
+
+    goSearchNext() {
+        let query = this._routeParams.get("query");
+        let start = parseInt(this._routeParams.get("start")) + 10;
+        let end = start + 9;
+        if (query != "" && query != null) {
+            this._router.navigate(["Search", {
+                    query: query,
+                    start: start,
+                    end: end
+                }]
+            );
+        }
+    }
+
     getInfo(id:string) {
         // Get info to redirect and import the cake
     }
