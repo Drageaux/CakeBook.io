@@ -166,6 +166,16 @@ System.register(["angular2/core", "angular2/router", "./cake.service"], function
                     }
                 };
                 SearchComponent.prototype.goSearchNext = function () {
+                    var query = this._routeParams.get("query");
+                    var start = parseInt(this._routeParams.get("start")) + 10;
+                    var end = start + 9;
+                    if (query != "" && query != null) {
+                        this._router.navigate(["Search", {
+                                query: query,
+                                start: start,
+                                end: end
+                            }]);
+                    }
                 };
                 SearchComponent.prototype.getInfo = function (id) {
                     // Get info to redirect and import the cake
