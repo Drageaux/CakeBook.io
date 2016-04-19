@@ -73,6 +73,11 @@ body {
     hr {
         border-color: $border-color;
     }
+    .disabled {
+        span {
+            cursor: not-allowed;
+        }
+    }
 
     /* Semantic Checkbox */
     .ui.toggle.checkbox {
@@ -82,7 +87,7 @@ body {
             height: 1.7rem;
         }
 
-        input:checked~label:after {
+        input:checked ~ label:after {
             left: 2.3rem !important;
         }
 
@@ -602,6 +607,8 @@ body {
             p {
                 font-size: 1.1em;
                 word-break: keep-all;
+                word-wrap: break-word;
+                overflow: auto;
             }
             .instruction-sign {
                 position: absolute;
@@ -620,6 +627,16 @@ body {
             }
             .tooltip-inner {
                 align-content: left;
+            }
+            .ui.toggle.checkbox {
+                margin-top: 12px;
+                width: 100%;
+            }
+            @media screen and (min-width: 480px) {
+                .ui.toggle.checkbox {
+                    float: right;
+                    width: auto;
+                }
             }
         }
     }
@@ -914,5 +931,21 @@ body {
         @extend .login-topnav;
         min-height: 0;
         height: 7vh
+    }
+}
+
+
+/************************
+ * Media Queries - Hide *
+ ************************/
+@media screen and (max-width: 720px) {
+    .hide-720 {
+        display: none
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hide-480 {
+        display: none
     }
 }

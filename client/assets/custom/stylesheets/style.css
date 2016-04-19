@@ -59,6 +59,8 @@ body {
     resize: none; }
   body hr {
     border-color: #6a272b; }
+  body .disabled span {
+    cursor: not-allowed; }
   body .ui.toggle.checkbox input {
     margin: 0 !important;
     width: 4rem;
@@ -422,7 +424,9 @@ body {
       margin-bottom: 20px; }
       body .home-container div.import-cake-form p {
         font-size: 1.1em;
-        word-break: keep-all; }
+        word-break: keep-all;
+        word-wrap: break-word;
+        overflow: auto; }
       body .home-container div.import-cake-form .instruction-sign {
         position: absolute;
         right: 0;
@@ -438,6 +442,13 @@ body {
         background-color: #6a272b; }
       body .home-container div.import-cake-form .tooltip-inner {
         align-content: left; }
+      body .home-container div.import-cake-form .ui.toggle.checkbox {
+        margin-top: 12px;
+        width: 100%; }
+      @media screen and (min-width: 480px) {
+        body .home-container div.import-cake-form .ui.toggle.checkbox {
+          float: right;
+          width: auto; } }
   body .details-container {
     word-break: break-all; }
     body .details-container .cake-info .cake-image {
@@ -661,5 +672,15 @@ body {
   .login-body .login-botnav {
     min-height: 0;
     height: 7vh; }
+
+/************************
+ * Media Queries - Hide *
+ ************************/
+@media screen and (max-width: 720px) {
+  .hide-720 {
+    display: none; } }
+@media screen and (max-width: 480px) {
+  .hide-480 {
+    display: none; } }
 
 /*# sourceMappingURL=style.css.map */
