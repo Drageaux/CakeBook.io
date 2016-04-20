@@ -19,7 +19,8 @@
             <span class="hide-720"> Preview</span>
         </button>
         <div class="ui toggle checkbox">
-            <input type="checkbox" [checked]="model.isPublic">
+            <input type="checkbox" [checked]="model.isPublic"
+                   (click)="model.isPublic = !model.isPublic">
             <label>Share this cake with everyone?</label>
         </div>
         <hr>
