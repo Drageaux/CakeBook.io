@@ -30,6 +30,7 @@
     "systemjs": "0.19.6",
     "tsd": "^0.6.5",
     "typescript": "^1.8.7",
+    "unirest": "^0.4.2",
     "zone.js": "^0.6.10"
   },
   "devDependencies": {
