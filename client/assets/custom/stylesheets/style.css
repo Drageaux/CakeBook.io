@@ -397,13 +397,11 @@ body {
   @media screen and (max-width: 768px) {
     body .general-container, body .home-container, body .details-container {
       margin-left: 8vw !important;
-      padding: 25px;
-      padding-bottom: 40px !important; } }
+      padding: 40px 30px; } }
   @media screen and (max-width: 480px) {
     body .general-container, body .home-container, body .details-container {
       margin-left: 3vw !important;
-      padding: 20px;
-      padding-bottom: 40px !important; } }
+      padding: 30px 20px; } }
   body .home-container {
     /* Cake List in Home Page */
     /* Add Cake Form */ }
@@ -456,8 +454,14 @@ body {
       body .details-container .cake-headline h4 {
         display: inline-block;
         margin-right: 5px; }
-      body .details-container .cake-headline .ui.toggle.checkbox {
+      body .details-container .cake-headline .dropdown {
         display: inline-block; }
+        body .details-container .cake-headline .dropdown .dropdown-menu {
+          padding: 10px 20px; }
+        body .details-container .cake-headline .dropdown .ui.toggle.checkbox {
+          width: auto;
+          min-width: 200px;
+          display: inline-block; }
     body .details-container .cake-info .cake-image {
       display: inline-block;
       width: 30%;

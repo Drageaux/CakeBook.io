@@ -560,16 +560,14 @@ body {
     @media screen and (max-width: 768px) {
         .general-container {
             margin-left: 8vw !important;
-            padding: 25px;
-            padding-bottom: 40px !important;
+            padding: 40px 30px;
         }
     }
 
     @media screen and (max-width: 480px) {
         .general-container {
             margin-left: 3vw !important;
-            padding: 20px;
-            padding-bottom: 40px !important;
+            padding: 30px 20px;
         }
     }
 
@@ -653,9 +651,16 @@ body {
                 display: inline-block;
                 margin-right: 5px;
             }
-            .ui.toggle.checkbox {
-                //width: 100%;
+            .dropdown {
                 display: inline-block;
+                .dropdown-menu {
+                    padding: 10px 20px;
+                }
+                .ui.toggle.checkbox {
+                    width: auto;
+                    min-width: 200px;
+                    display: inline-block;
+                }
             }
         }
         .cake-info {
