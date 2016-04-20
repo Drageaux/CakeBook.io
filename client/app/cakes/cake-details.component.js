@@ -46,7 +46,6 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./editab
                         for (var i in _this.cake.steps) {
                             _this.tempSteps.push(_this.cake.steps[i]);
                         }
-                        console.log(cake);
                     }, function (error) { return _this._router.navigate(["Home"]); });
                     this.uploadCallBack = this.uploadImage.bind(this);
                 };
@@ -91,6 +90,10 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./editab
                             if (cake.isPublic != null) {
                                 document.getElementById("publicToggle").checked
                                     = cake.isPublic;
+                            }
+                            else {
+                                document.getElementById("publicToggle").checked
+                                    = false;
                             }
                             console.log(cake.isPublic);
                         });
