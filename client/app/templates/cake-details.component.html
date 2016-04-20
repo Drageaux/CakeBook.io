@@ -16,7 +16,7 @@
                         <div class="ui toggle checkbox">
                             <input type="checkbox" id="publicToggle" [checked]="cake.isPublic"
                                    (click)="editDetail('isPublic', 0)">
-                            <label>Share this cake with everyone?</label>
+                            <label>Allow everyone to see this cake?</label>
                         </div>
                     </li>
                 </ul>
@@ -148,10 +148,10 @@
 
 
         <!-- Important Options -->
-        <button *ngIf="cake" class="btn btn-default" (click)="goHome()">
+        <button *ngIf="cake" class="btn btn-default" (click)="goHome()" style="margin-bottom: 5px">
             <span class="glyphicon glyphicon-chevron-left"></span> Return Home
         </button>
-        <button *ngIf="cake" class="btn btn-danger" (click)="deleteCake()">
+        <button *ngIf="cake" class="btn btn-danger" (click)="deleteCake()" style="margin-bottom: 5px">
             <span class="glyphicon glyphicon-alert"></span> Remove This Cake
         </button>
         <!--<button class="btn btn-warning">Options</button>-->

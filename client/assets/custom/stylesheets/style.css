@@ -69,7 +69,9 @@ body {
     left: 2.3rem !important; }
   body .ui.toggle.checkbox label {
     padding-top: 0;
-    font-size: 1.4em; }
+    font-size: 1.4em;
+    word-wrap: break-word;
+    word-break: keep-all; }
   body .ui.toggle.checkbox label:before {
     width: 4rem;
     height: 1.7rem; }
@@ -452,14 +454,18 @@ body {
     body .details-container .cake-headline {
       width: 100%; }
       body .details-container .cake-headline h4 {
+        position: relative;
         display: inline-block;
-        margin-right: 5px; }
-      body .details-container .cake-headline .dropdown .dropdown-menu {
-        padding: 10px 20px; }
-      body .details-container .cake-headline .dropdown .ui.toggle.checkbox {
-        width: auto;
-        min-width: 200px;
+        margin-right: 5px;
+        top: 4px; }
+      body .details-container .cake-headline .dropdown {
         display: inline-block; }
+        body .details-container .cake-headline .dropdown .dropdown-menu {
+          padding: 10px 20px; }
+        body .details-container .cake-headline .dropdown .ui.toggle.checkbox {
+          width: auto;
+          min-width: 250px;
+          display: inline-block; }
     body .details-container .cake-info .cake-image {
       display: inline-block;
       width: 30%;

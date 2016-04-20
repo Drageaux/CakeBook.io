@@ -94,6 +94,8 @@ body {
         label {
             padding-top: 0;
             font-size: 1.4em;
+            word-wrap: break-word;
+            word-break: keep-all;
         }
         label:before {
             width: 4rem;
@@ -648,17 +650,19 @@ body {
         .cake-headline {
             width: 100%;
             h4 {
+                position: relative;
                 display: inline-block;
                 margin-right: 5px;
+                top: 4px;
             }
             .dropdown {
-                //display: inline-block;
+                display: inline-block;
                 .dropdown-menu {
                     padding: 10px 20px;
                 }
                 .ui.toggle.checkbox {
                     width: auto;
-                    min-width: 200px;
+                    min-width: 250px;
                     display: inline-block;
                 }
             }
