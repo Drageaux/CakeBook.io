@@ -10,7 +10,8 @@
     "tsd": "npm tsd install",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev-start": "heroku local"
   },
   "license": "ISC",
   "dependencies": {

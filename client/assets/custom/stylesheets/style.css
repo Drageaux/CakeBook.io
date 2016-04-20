@@ -219,15 +219,16 @@ body {
     box-shadow: -15px 10px 50px 25px rgba(0, 0, 0, 0.2), inset 10px 0 25px 2px rgba(0, 0, 0, 0.3);
     /* Search */ }
     body .general-container .normal-list-group, body .home-container .normal-list-group, body .details-container .normal-list-group {
-      cursor: pointer;
       height: 100%;
       background-color: #fdf0e8 !important;
       max-height: 300px;
       overflow-y: scroll;
       border: 1px solid #f9d2b9; }
       body .general-container .normal-list-group li, body .home-container .normal-list-group li, body .details-container .normal-list-group li {
-        word-break: keep-all; }
-    body .general-container .normal-list-group:hover, body .home-container .normal-list-group:hover, body .details-container .normal-list-group:hover {
+        word-break: keep-all;
+        word-wrap: break-word; }
+    body .general-container .normal-list-group[data-toggle=modal]:hover, body .home-container .normal-list-group[data-toggle=modal]:hover, body .details-container .normal-list-group[data-toggle=modal]:hover {
+      cursor: pointer;
       background-color: #f9d2b9 !important; }
     body .general-container .form-group, body .home-container .form-group, body .details-container .form-group {
       margin-bottom: 8px; }

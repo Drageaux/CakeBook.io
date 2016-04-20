@@ -46,6 +46,7 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./editab
                         for (var i in _this.cake.steps) {
                             _this.tempSteps.push(_this.cake.steps[i]);
                         }
+                        console.log(cake);
                     }, function (error) { return _this._router.navigate(["Home"]); });
                     this.uploadCallBack = this.uploadImage.bind(this);
                 };
@@ -174,6 +175,9 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./editab
                 CakeDetailsComponent.prototype.isEmptyString = function (str) {
                     return str == "" || str == null;
                 };
+                CakeDetailsComponent.prototype.isOwner = function () {
+                    return (this.cake.user == JSON.parse(localStorage.getItem("profile")).user_id);
+                };
                 CakeDetailsComponent.prototype.readImage = function (event, callback) {
                     if (event.target.files[0]) {
                         var oldImage = this.cake.croppedImage;
@@ -196,8 +200,7 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./editab
                         selector: "cake-details",
                         templateUrl: "templates/cake-details.component.html",
                         directives: [editable_item_form_component_1.EditableItemForm]
-                    }),
-                    router_1.CanActivate(function () { return localStorage.getItem("id_token"); }), 
+                    }), 
                     __metadata('design:paramtypes', [router_1.Router, router_1.RouteParams, cake_service_1.CakeService])
                 ], CakeDetailsComponent);
                 return CakeDetailsComponent;

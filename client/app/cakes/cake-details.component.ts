@@ -14,7 +14,6 @@ declare var jQuery;
     directives: [EditableItemForm]
 })
 
-@CanActivate(() => localStorage.getItem("id_token"))
 export class CakeDetailsComponent implements OnInit {
     cake:Cake;
     tempIngrs:Object[] = [];
@@ -39,6 +38,7 @@ export class CakeDetailsComponent implements OnInit {
                     for (let i in this.cake.steps) {
                         this.tempSteps.push(this.cake.steps[i]);
                     }
+                    console.log(cake)
                 },
                 error => this._router.navigate(["Home"])
             );
@@ -172,6 +172,10 @@ export class CakeDetailsComponent implements OnInit {
 
     isEmptyString(str:string) {
         return str == "" || str == null;
+    }
+
+    isOwner() {
+        return (this.cake.user == JSON.parse(localStorage.getItem("profile")).user_id)
     }
 
     readImage(event:any, callback:Function) {

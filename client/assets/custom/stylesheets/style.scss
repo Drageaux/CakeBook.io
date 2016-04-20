@@ -311,7 +311,6 @@ body {
         box-shadow: -15px 10px 50px 25px rgba(0, 0, 0, 0.2), inset 10px 0 25px 2px rgba(0, 0, 0, 0.3);
 
         .normal-list-group {
-            cursor: pointer;
             height: 100%;
             background-color: $container-color !important;
             max-height: 300px;
@@ -319,9 +318,11 @@ body {
             border: 1px solid $container-hovered-color;
             li {
                 word-break: keep-all;
+                word-wrap: break-word;
             }
         }
-        .normal-list-group:hover {
+        .normal-list-group[data-toggle=modal]:hover {
+            cursor: pointer;
             background-color: $container-hovered-color !important;
         }
         .form-group {

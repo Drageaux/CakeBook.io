@@ -15,9 +15,15 @@ module.exports.list = function (req, res) {
 }
 
 module.exports.get = function (req, res) {
-    Cake.findOne({"_id": req.params.id, "user": req.params.user}, function (err, cake) {
-        res.json(cake);
-    })
+    Cake.findOne({"_id": req.params.id}, function (err, cake) {
+        if (cake.user == req.params.user) {
+            res.json(cake);
+        } else {
+            if (cake.isPublic) {
+                res.json(cake);
+            }
+        }
+    });
 }
 
 module.exports.create = function (req, res) {
