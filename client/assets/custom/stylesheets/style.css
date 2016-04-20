@@ -16,6 +16,7 @@ body {
   font-family: "Marmelad", Arial;
   background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/bamboo-wood-flooring-texture.jpg");
   background-repeat: repeat;
+  /* Semantic Checkbox */
   /*******************
    * General Top Nav *
    *******************/
@@ -58,6 +59,25 @@ body {
     resize: none; }
   body hr {
     border-color: #6a272b; }
+  body .disabled span {
+    cursor: not-allowed; }
+  body .ui.toggle.checkbox input {
+    margin: 0 !important;
+    width: 4rem;
+    height: 1.7rem; }
+  body .ui.toggle.checkbox input:checked ~ label:after {
+    left: 2.3rem !important; }
+  body .ui.toggle.checkbox label {
+    padding-top: 0;
+    font-size: 1.4em;
+    word-wrap: break-word;
+    word-break: keep-all; }
+  body .ui.toggle.checkbox label:before {
+    width: 4rem;
+    height: 1.7rem; }
+  body .ui.toggle.checkbox label:after {
+    width: 1.7rem;
+    height: 1.7rem; }
   body .navbar-default {
     height: 40px;
     min-width: 300px;
@@ -189,12 +209,15 @@ body {
     border-top: 5px solid #AD4047;
     margin-top: 55px; }
   body .general-container, body .home-container, body .details-container {
+    margin-left: 14vw;
     margin-top: 0;
     margin-bottom: 0;
     padding: 50px;
+    padding-bottom: 50px !important;
     min-height: 85vh;
     height: auto;
-    box-shadow: -15px 10px 50px 25px rgba(0, 0, 0, 0.2), inset 10px 0 25px 2px rgba(0, 0, 0, 0.3); }
+    box-shadow: -15px 10px 50px 25px rgba(0, 0, 0, 0.2), inset 10px 0 25px 2px rgba(0, 0, 0, 0.3);
+    /* Search */ }
     body .general-container .normal-list-group, body .home-container .normal-list-group, body .details-container .normal-list-group {
       cursor: pointer;
       height: 100%;
@@ -339,17 +362,49 @@ body {
             margin-right: 5px; }
             body .general-container .form-group .editable-list-group .editable-list-group-item .list-group-item-name, body .home-container .form-group .editable-list-group .editable-list-group-item .list-group-item-name, body .details-container .form-group .editable-list-group .editable-list-group-item .list-group-item-name {
               width: 75%; } }
+    body .general-container .search-input-group, body .home-container .search-input-group, body .details-container .search-input-group {
+      margin-top: 20px; }
+      body .general-container .search-input-group .search-group-btn button, body .home-container .search-input-group .search-group-btn button, body .details-container .search-input-group .search-group-btn button {
+        margin: 0; }
+    body .general-container .search-results, body .home-container .search-results, body .details-container .search-results {
+      margin-bottom: 50px; }
+      body .general-container .search-results .results-media.media, body .home-container .search-results .results-media.media, body .details-container .search-results .results-media.media {
+        cursor: pointer;
+        border-radius: 10px;
+        border: 2px solid #f9d2b9; }
+        body .general-container .search-results .results-media.media .media-left, body .home-container .search-results .results-media.media .media-left, body .details-container .search-results .results-media.media .media-left {
+          float: left;
+          width: 20vw;
+          height: auto;
+          max-height: 20vw;
+          overflow: hidden;
+          margin-right: 10px !important;
+          border-radius: 10px; }
+          body .general-container .search-results .results-media.media .media-left .media-object, body .home-container .search-results .results-media.media .media-left .media-object, body .details-container .search-results .results-media.media .media-left .media-object {
+            position: relative;
+            display: block;
+            width: 20vw; }
+        body .general-container .search-results .results-media.media .media-body h4, body .home-container .search-results .results-media.media .media-body h4, body .details-container .search-results .results-media.media .media-body h4 {
+          margin-top: 5px;
+          font-size: 17px; }
+      body .general-container .search-results .results-media.media:hover, body .home-container .search-results .results-media.media:hover, body .details-container .search-results .results-media.media:hover {
+        background-color: #f9d2b9;
+        transition-duration: 0.18s; }
+      body .general-container .search-results .previous-next, body .home-container .search-results .previous-next, body .details-container .search-results .previous-next {
+        margin-top: 20px; }
+        body .general-container .search-results .previous-next .previous-button, body .home-container .search-results .previous-next .previous-button, body .details-container .search-results .previous-next .previous-button {
+          float: left; }
+        body .general-container .search-results .previous-next .next-button, body .home-container .search-results .previous-next .next-button, body .details-container .search-results .previous-next .next-button {
+          float: right; }
   @media screen and (max-width: 768px) {
     body .general-container, body .home-container, body .details-container {
       margin-left: 8vw !important;
-      padding: 25px !important; } }
+      padding: 40px 30px; } }
   @media screen and (max-width: 480px) {
     body .general-container, body .home-container, body .details-container {
       margin-left: 3vw !important;
-      padding: 20px !important;
-      padding-bottom: 30px !important; } }
+      padding: 30px 20px; } }
   body .home-container {
-    margin-left: 15vw;
     /* Cake List in Home Page */
     /* Add Cake Form */ }
     body .home-container h4 {
@@ -361,13 +416,17 @@ body {
     body .home-container div.add-cake-form, body .home-container div.import-cake-form {
       position: relative;
       padding: 20px;
+      margin-bottom: 5px;
       border: 2px solid #6a272b;
       border-radius: 4px; }
     body .home-container div.import-cake-form {
-      margin-top: 20px; }
+      margin-top: 20px;
+      margin-bottom: 20px; }
       body .home-container div.import-cake-form p {
         font-size: 1.1em;
-        word-break: keep-all; }
+        word-break: keep-all;
+        word-wrap: break-word;
+        overflow: auto; }
       body .home-container div.import-cake-form .instruction-sign {
         position: absolute;
         right: 0;
@@ -383,9 +442,30 @@ body {
         background-color: #6a272b; }
       body .home-container div.import-cake-form .tooltip-inner {
         align-content: left; }
+      body .home-container div.import-cake-form .ui.toggle.checkbox {
+        margin-top: 12px;
+        width: 100%; }
+      @media screen and (min-width: 480px) {
+        body .home-container div.import-cake-form .ui.toggle.checkbox {
+          float: right;
+          width: auto; } }
   body .details-container {
-    margin-left: 14%;
     word-break: break-all; }
+    body .details-container .cake-headline {
+      width: 100%; }
+      body .details-container .cake-headline h4 {
+        position: relative;
+        display: inline-block;
+        margin-right: 5px;
+        top: 4px; }
+      body .details-container .cake-headline .dropdown {
+        display: inline-block; }
+        body .details-container .cake-headline .dropdown .dropdown-menu {
+          padding: 10px 20px; }
+        body .details-container .cake-headline .dropdown .ui.toggle.checkbox {
+          width: auto;
+          min-width: 250px;
+          display: inline-block; }
     body .details-container .cake-info .cake-image {
       display: inline-block;
       width: 30%;
@@ -437,8 +517,10 @@ body {
         transition-duration: 0.2s;
         margin-left: 3px; }
       body .details-container .cake-info .cake-description .save-cancel {
+        float: right;
         margin-right: 12px; }
         body .details-container .cake-info .cake-description .save-cancel button {
+          float: left;
           margin-top: 10px;
           margin-bottom: 5px; }
     @media screen and (max-width: 480px) {
@@ -454,9 +536,6 @@ body {
         margin-right: auto; } }
     body .details-container ul, body .details-container ol {
       padding-left: 30px; }
-  @media screen and (max-width: 768px) {
-    body .details-container {
-      margin-left: 5%; } }
   body .gu-mirror {
     overflow: hidden;
     margin: 2px 20px 2px 20px;
@@ -610,5 +689,15 @@ body {
   .login-body .login-botnav {
     min-height: 0;
     height: 7vh; }
+
+/************************
+ * Media Queries - Hide *
+ ************************/
+@media screen and (max-width: 720px) {
+  .hide-720 {
+    display: none; } }
+@media screen and (max-width: 480px) {
+  .hide-480 {
+    display: none; } }
 
 /*# sourceMappingURL=style.css.map */

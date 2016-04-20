@@ -7,6 +7,7 @@ var DetailSchema = new Schema({
 })
 
 var CakeSchema = new Schema({
+    isPublic: Boolean,
     user: String,
     name: String,
     image: String,

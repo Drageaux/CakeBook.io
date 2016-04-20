@@ -15,8 +15,14 @@
         <button type="button" class="btn btn-info"
                 [class.disabled]="isEmptyString(modelString)"
                 (click)="parsePreview()">
-            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Preview
+            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+            <span class="hide-720"> Preview</span>
         </button>
+        <div class="ui toggle checkbox">
+            <input type="checkbox" [checked]="model.isPublic"
+                   (click)="togglePublicity()">
+            <label>Allow everyone to see this cake?</label>
+        </div>
         <hr>
 
         <!-- Preview -->

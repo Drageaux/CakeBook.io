@@ -10,6 +10,11 @@
             <label>Cake Name*</label>
             <input type="text" class="form-control" required
                    [(ngModel)]="model.name">
+            <div class="ui toggle checkbox">
+                <input type="checkbox" [checked]="model.isPublic"
+                       (click)="togglePublicity()">
+                <label>Allow everyone to see this cake?</label>
+            </div>
         </div>
         <hr>
 

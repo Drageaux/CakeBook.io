@@ -1,3 +1,4 @@
+var unirest = require('unirest');
 var Cake = require("../models/cake");
 var fs = require("fs");
 var cloudinary = require('cloudinary');
@@ -21,6 +22,7 @@ module.exports.get = function (req, res) {
 
 module.exports.create = function (req, res) {
     var cake = new Cake();
+    cake.isPublic = req.body.isPublic;
     cake.user = req.body.user;
     cake.name = req.body.name;
     cake.description = req.body.description;
@@ -98,9 +100,34 @@ module.exports.updateDetail = function (req, res) {
                 cake.ingredients = req.body;
             } else if (req.params.type == "step") {
                 cake.steps = req.body;
+            } else if (req.params.type == "isPublic") {
+                if (cake.isPublic != null) {
+                    cake.isPublic = !cake.isPublic;
+                } else {
+                    cake.isPublic = true;
+                }
             }
             cake.save();
             res.json(cake);
         }
     });
+}
+
+module.exports.search = function (req, res) {
+    var query = "";
+    for (i in req.params.query.split(" ")) {
+        query += "+" + req.params.query.split(" ")[i];
+    }
+    var number = req.params.end - req.params.start + 1;
+    number = number.toString();
+    var offset = req.params.start - 1;
+    offset = offset.toString();
+    unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?" +
+            "number=" + number + "&" +
+            "offset=" + offset + "&" +
+            "query=cake" + query)
+        .header("X-Mashape-Key", process.env.X_MASHAPE_KEY)
+        .end(function (result) {
+            res.send(result);
+        });
 }

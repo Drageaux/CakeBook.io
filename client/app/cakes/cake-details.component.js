@@ -1,4 +1,4 @@
-System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake.service", "./editable-item-form.component"], function(exports_1) {
+System.register(["angular2/core", "angular2/router", "./cake.service", "./editable-item-form.component"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake.ser
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, angular2_jwt_1, cake_service_1, editable_item_form_component_1;
+    var core_1, router_1, cake_service_1, editable_item_form_component_1;
     var CakeDetailsComponent;
     return {
         setters:[
@@ -17,9 +17,6 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake.ser
             },
             function (router_1_1) {
                 router_1 = router_1_1;
-            },
-            function (angular2_jwt_1_1) {
-                angular2_jwt_1 = angular2_jwt_1_1;
             },
             function (cake_service_1_1) {
                 cake_service_1 = cake_service_1_1;
@@ -82,8 +79,24 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake.ser
                     }
                 };
                 CakeDetailsComponent.prototype.editDetail = function (detailType, index) {
+                    var _this = this;
                     if (detailType == "desc") {
                         this.currDesc["editing"] = true;
+                    }
+                    else if (detailType == "isPublic") {
+                        this._service.updateCakeDetail(this.cake._id, detailType, 0, "")
+                            .subscribe(function (cake) {
+                            _this.cake = cake;
+                            if (cake.isPublic != null) {
+                                document.getElementById("publicToggle").checked
+                                    = cake.isPublic;
+                            }
+                            else {
+                                document.getElementById("publicToggle").checked
+                                    = false;
+                            }
+                            console.log(cake.isPublic);
+                        });
                     }
                 };
                 CakeDetailsComponent.prototype.saveEdit = function (detailType, obj) {
@@ -175,7 +188,7 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake.ser
                 CakeDetailsComponent.prototype.openModal = function () {
                     document.getElementById("modal-button").click();
                 };
-                CakeDetailsComponent.prototype.gotoCakes = function () {
+                CakeDetailsComponent.prototype.goHome = function () {
                     this._router.navigate(["Home"]);
                 };
                 CakeDetailsComponent = __decorate([
@@ -184,7 +197,7 @@ System.register(["angular2/core", "angular2/router", "angular2-jwt", "./cake.ser
                         templateUrl: "templates/cake-details.component.html",
                         directives: [editable_item_form_component_1.EditableItemForm]
                     }),
-                    router_1.CanActivate(function () { return angular2_jwt_1.tokenNotExpired(); }), 
+                    router_1.CanActivate(function () { return localStorage.getItem("id_token"); }), 
                     __metadata('design:paramtypes', [router_1.Router, router_1.RouteParams, cake_service_1.CakeService])
                 ], CakeDetailsComponent);
                 return CakeDetailsComponent;

@@ -30,7 +30,7 @@ System.register(["angular2/core", "./cake", "./cake.service", "./editable-item-f
                     this._cakeService = _cakeService;
                     this.userId = JSON.parse(localStorage.getItem("profile")).user_id; // must be defined first
                     this.saved = new core_1.EventEmitter();
-                    this.model = new cake_1.Cake(0, this.userId, "", "", "", "", [], []);
+                    this.model = new cake_1.Cake(0, false, this.userId, "", "", "", "", [], []);
                     this.active = false;
                 }
                 AddCakeFormComponent.prototype.openForm = function () {
@@ -47,8 +47,20 @@ System.register(["angular2/core", "./cake", "./cake.service", "./editable-item-f
                     this._cakeService.addCake(JSON.stringify(this.model))
                         .subscribe(function (res) { return _this.saved.emit(res); });
                     // TODO: Remove when there's a better way to reset the model
-                    this.model = new cake_1.Cake(0, this.userId, "", "", "", "", [], []);
+                    this.model = new cake_1.Cake(0, false, this.userId, "", "", "", "", [], []);
                     this.closeForm();
+                };
+                AddCakeFormComponent.prototype.togglePublicity = function () {
+                    if (this.model.isPublic != null) {
+                        this.model.isPublic = !this.model.isPublic;
+                        document.getElementById("publicToggle").checked
+                            = this.model.isPublic;
+                    }
+                    else {
+                        this.model.isPublic = true;
+                        document.getElementById("publicToggle").checked
+                            = true;
+                    }
                 };
                 /* Ingredients and Steps */
                 AddCakeFormComponent.prototype.addOptionalItem = function (itemType, value) {

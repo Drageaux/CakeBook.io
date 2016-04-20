@@ -1,6 +1,6 @@
 import {Component} from 'angular2/core';
 import {Location, RouteConfig, Router, APP_BASE_HREF, ROUTER_PROVIDERS, ROUTER_DIRECTIVES, CanActivate} from 'angular2/router';
-import {AuthHttp, tokenNotExpired, JwtHelper} from 'angular2-jwt';
+import {AuthHttp} from 'angular2-jwt';
 import {OnInit} from "angular2/core";
 
 import {HomeComponent} from "./home.component";
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
     }
 
     loggedIn() {
-        return tokenNotExpired();
+        return localStorage.getItem("id_token") != null;
     }
 
     atLoginPage() {

@@ -1,10 +1,22 @@
 <div class="home-container">
     <h1 class="welcome-poster">Welcome to Cake Book!</h1>
     <h2>Home</h2>
-    <h3>My Cakes</h3>
+    <!-- Add -->
     <add-cake-form (saved)="onAdded($event)"></add-cake-form>
+    <!-- Import -->
     <import-cake-form (saved)="onAdded($event)"></import-cake-form>
+    <!-- Search -->
+    <div class="search-input-group input-group" style="margin-top: 5px">
+        <input #searchInput type="text" class="form-control" placeholder="Search cake recipes...">
+        <span class="input-group-btn search-group-btn">
+            <button class="btn btn-default" type="button" required
+                    (click)="goSearch(searchInput.value)">
+                Go!
+            </button>
+        </span>
+    </div>
     <br>
+    <h3>My Cakes</h3>
     <div class="cake-list list-group">
         <a class="list-group-item" *ngFor="#cake of cakes"
            (click)="onSelect(cake)">{{cake.name}}</a>

@@ -1,11 +1,12 @@
 import {Component, Input, OnInit} from "angular2/core";
 import {Router, RouteParams, CanActivate} from "angular2/router";
-import {tokenNotExpired} from "angular2-jwt";
 import {Observable} from "rxjs/Observable";
 
 import {Cake} from "./cake";
 import {CakeService} from "./cake.service";
 import {EditableItemForm} from "./editable-item-form.component";
+
+declare var jQuery;
 
 @Component({
     selector: "cake-details",
@@ -13,7 +14,7 @@ import {EditableItemForm} from "./editable-item-form.component";
     directives: [EditableItemForm]
 })
 
-@CanActivate(() => tokenNotExpired())
+@CanActivate(() => localStorage.getItem("id_token"))
 export class CakeDetailsComponent implements OnInit {
     cake:Cake;
     tempIngrs:Object[] = [];
@@ -77,6 +78,19 @@ export class CakeDetailsComponent implements OnInit {
     editDetail(detailType:string, index:number) {
         if (detailType == "desc") {
             this.currDesc["editing"] = true;
+        } else if (detailType == "isPublic") {
+            this._service.updateCakeDetail(this.cake._id, detailType, 0, "")
+                .subscribe(cake => {
+                    this.cake = cake;
+                    if (cake.isPublic != null) {
+                        (<HTMLInputElement> document.getElementById("publicToggle")).checked
+                            = cake.isPublic;
+                    } else {
+                        (<HTMLInputElement> document.getElementById("publicToggle")).checked
+                            = false;
+                    }
+                    console.log(cake.isPublic);
+                });
         }
     }
 
@@ -176,7 +190,7 @@ export class CakeDetailsComponent implements OnInit {
         document.getElementById("modal-button").click();
     }
 
-    gotoCakes() {
+    goHome() {
         this._router.navigate(["Home"]);
     }
 }
