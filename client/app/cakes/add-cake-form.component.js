@@ -50,6 +50,18 @@ System.register(["angular2/core", "./cake", "./cake.service", "./editable-item-f
                     this.model = new cake_1.Cake(0, false, this.userId, "", "", "", "", [], []);
                     this.closeForm();
                 };
+                AddCakeFormComponent.prototype.togglePublicity = function () {
+                    if (this.model.isPublic != null) {
+                        this.model.isPublic = !this.model.isPublic;
+                        document.getElementById("publicToggle").checked
+                            = this.model.isPublic;
+                    }
+                    else {
+                        this.model.isPublic = true;
+                        document.getElementById("publicToggle").checked
+                            = true;
+                    }
+                };
                 /* Ingredients and Steps */
                 AddCakeFormComponent.prototype.addOptionalItem = function (itemType, value) {
                     if (itemType == "ingr") {

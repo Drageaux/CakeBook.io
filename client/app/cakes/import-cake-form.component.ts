@@ -50,6 +50,18 @@ export class ImportCakeFormComponent {
         this.active = false;
     }
 
+    togglePublicity() {
+        if (this.model.isPublic != null) {
+            this.model.isPublic = !this.model.isPublic;
+            (<HTMLInputElement> document.getElementById("publicToggle")).checked
+                = this.model.isPublic;
+        } else {
+            this.model.isPublic = true;
+            (<HTMLInputElement> document.getElementById("publicToggle")).checked
+                = true;
+        }
+    }
+
     parsePreview() {
         // split into list of elements
         let cursor;

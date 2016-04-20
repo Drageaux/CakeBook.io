@@ -38,6 +38,18 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                 ImportCakeFormComponent.prototype.closeForm = function () {
                     this.active = false;
                 };
+                ImportCakeFormComponent.prototype.togglePublicity = function () {
+                    if (this.model.isPublic != null) {
+                        this.model.isPublic = !this.model.isPublic;
+                        document.getElementById("publicToggle").checked
+                            = this.model.isPublic;
+                    }
+                    else {
+                        this.model.isPublic = true;
+                        document.getElementById("publicToggle").checked
+                            = true;
+                    }
+                };
                 ImportCakeFormComponent.prototype.parsePreview = function () {
                     // split into list of elements
                     var cursor;

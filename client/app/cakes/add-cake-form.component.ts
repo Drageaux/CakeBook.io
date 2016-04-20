@@ -43,6 +43,18 @@ export class AddCakeFormComponent {
         this.closeForm();
     }
 
+    togglePublicity() {
+        if (this.model.isPublic != null) {
+            this.model.isPublic = !this.model.isPublic;
+            (<HTMLInputElement> document.getElementById("publicToggle")).checked
+                = this.model.isPublic;
+        } else {
+            this.model.isPublic = true;
+            (<HTMLInputElement> document.getElementById("publicToggle")).checked
+                = true;
+        }
+    }
+
     /* Ingredients and Steps */
     addOptionalItem(itemType:string, value:string) {
         if (itemType == "ingr") {

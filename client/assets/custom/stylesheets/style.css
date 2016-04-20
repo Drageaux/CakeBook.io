@@ -454,14 +454,12 @@ body {
       body .details-container .cake-headline h4 {
         display: inline-block;
         margin-right: 5px; }
-      body .details-container .cake-headline .dropdown {
+      body .details-container .cake-headline .dropdown .dropdown-menu {
+        padding: 10px 20px; }
+      body .details-container .cake-headline .dropdown .ui.toggle.checkbox {
+        width: auto;
+        min-width: 200px;
         display: inline-block; }
-        body .details-container .cake-headline .dropdown .dropdown-menu {
-          padding: 10px 20px; }
-        body .details-container .cake-headline .dropdown .ui.toggle.checkbox {
-          width: auto;
-          min-width: 200px;
-          display: inline-block; }
     body .details-container .cake-info .cake-image {
       display: inline-block;
       width: 30%;
