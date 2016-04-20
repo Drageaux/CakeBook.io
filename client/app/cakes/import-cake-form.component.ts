@@ -16,8 +16,7 @@ export class ImportCakeFormComponent {
 
     @Output() saved = new EventEmitter<Cake>();
     modelString = "";
-    model = new Cake(0, false, this.userId,
-        "", "", "", "", [], []);
+    model = new Cake(0, false, this.userId, "", "", "", "", [], []);
     active = false;
     tooltipTitle = `
         <p style='text-align:left; padding: 5px; margin-bottom: 0'>

@@ -79,18 +79,7 @@ export class CakeDetailsComponent implements OnInit {
         if (detailType == "desc") {
             this.currDesc["editing"] = true;
         } else if (detailType == "isPublic") {
-            this._service.updateCakeDetail(this.cake._id, detailType, 0, "")
-                .subscribe(cake => {
-                    this.cake = cake;
-                    if (cake.isPublic != null) {
-                        (<HTMLInputElement> document.getElementById("publicToggle")).checked
-                            = cake.isPublic;
-                    } else {
-                        (<HTMLInputElement> document.getElementById("publicToggle")).checked
-                            = false;
-                    }
-                    console.log(cake.isPublic);
-                });
+            this._service.updateCakeDetail(this.cake._id, detailType, 0, "");
         }
     }
 

@@ -17,8 +17,7 @@ export class AddCakeFormComponent {
     userId = JSON.parse(localStorage.getItem("profile")).user_id; // must be defined first
     
     @Output() saved = new EventEmitter<Cake>();
-    model = new Cake(0, false, this.userId,
-        "", "", "", "", [], []);
+    model = new Cake(0, false, this.userId, "", "", "", "", [], []);
     active = false;
 
     constructor(private _cakeService:CakeService) {

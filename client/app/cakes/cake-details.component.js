@@ -79,24 +79,11 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./editab
                     }
                 };
                 CakeDetailsComponent.prototype.editDetail = function (detailType, index) {
-                    var _this = this;
                     if (detailType == "desc") {
                         this.currDesc["editing"] = true;
                     }
                     else if (detailType == "isPublic") {
-                        this._service.updateCakeDetail(this.cake._id, detailType, 0, "")
-                            .subscribe(function (cake) {
-                            _this.cake = cake;
-                            if (cake.isPublic != null) {
-                                document.getElementById("publicToggle").checked
-                                    = cake.isPublic;
-                            }
-                            else {
-                                document.getElementById("publicToggle").checked
-                                    = false;
-                            }
-                            console.log(cake.isPublic);
-                        });
+                        this._service.updateCakeDetail(this.cake._id, detailType, 0, "");
                     }
                 };
                 CakeDetailsComponent.prototype.saveEdit = function (detailType, obj) {
