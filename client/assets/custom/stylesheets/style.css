@@ -451,6 +451,13 @@ body {
           width: auto; } }
   body .details-container {
     word-break: break-all; }
+    body .details-container .cake-headline {
+      width: 100%; }
+      body .details-container .cake-headline h4 {
+        display: inline-block;
+        margin-right: 5px; }
+      body .details-container .cake-headline .ui.toggle.checkbox {
+        display: inline-block; }
     body .details-container .cake-info .cake-image {
       display: inline-block;
       width: 30%;
@@ -521,14 +528,6 @@ body {
         margin-right: auto; } }
     body .details-container ul, body .details-container ol {
       padding-left: 30px; }
-    body .details-container .ui.toggle.checkbox {
-      width: 100%; }
-    body .details-container .panel {
-      border-color: #f9d2b9; }
-      body .details-container .panel .panel-heading {
-        background-color: #df3e3e; }
-      body .details-container .panel .panel-body {
-        background-color: #FCE9DC; }
   body .gu-mirror {
     overflow: hidden;
     margin: 2px 20px 2px 20px;

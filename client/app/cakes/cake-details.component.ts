@@ -6,6 +6,8 @@ import {Cake} from "./cake";
 import {CakeService} from "./cake.service";
 import {EditableItemForm} from "./editable-item-form.component";
 
+declare var jQuery;
+
 @Component({
     selector: "cake-details",
     templateUrl: "templates/cake-details.component.html",
@@ -77,6 +79,16 @@ export class CakeDetailsComponent implements OnInit {
     editDetail(detailType:string, index:number) {
         if (detailType == "desc") {
             this.currDesc["editing"] = true;
+        } else if (detailType == "isPublic") {
+            this._service.updateCakeDetail(this.cake._id, detailType, 0, "")
+                .subscribe(cake => {
+                    this.cake = cake;
+                    if (cake.isPublic != null) {
+                        (<HTMLInputElement> document.getElementById("publicToggle")).checked
+                            = cake.isPublic;
+                    }
+                    console.log(cake.isPublic);
+                });
         }
     }
 
@@ -174,9 +186,5 @@ export class CakeDetailsComponent implements OnInit {
 
     openModal() {
         document.getElementById("modal-button").click();
-    }
-
-    goHome() {
-        this._router.navigate(["Home"]);
     }
 }

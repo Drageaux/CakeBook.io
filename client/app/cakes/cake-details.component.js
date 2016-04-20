@@ -80,8 +80,20 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./editab
                     }
                 };
                 CakeDetailsComponent.prototype.editDetail = function (detailType, index) {
+                    var _this = this;
                     if (detailType == "desc") {
                         this.currDesc["editing"] = true;
+                    }
+                    else if (detailType == "isPublic") {
+                        this._service.updateCakeDetail(this.cake._id, detailType, 0, "")
+                            .subscribe(function (cake) {
+                            _this.cake = cake;
+                            if (cake.isPublic != null) {
+                                document.getElementById("publicToggle").checked
+                                    = cake.isPublic;
+                            }
+                            console.log(cake.isPublic);
+                        });
                     }
                 };
                 CakeDetailsComponent.prototype.saveEdit = function (detailType, obj) {
@@ -172,9 +184,6 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./editab
                 };
                 CakeDetailsComponent.prototype.openModal = function () {
                     document.getElementById("modal-button").click();
-                };
-                CakeDetailsComponent.prototype.goHome = function () {
-                    this._router.navigate(["Home"]);
                 };
                 CakeDetailsComponent = __decorate([
                     core_1.Component({

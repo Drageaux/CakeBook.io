@@ -1,7 +1,20 @@
 <div class="details-container">
     <div *ngIf="cake">
-        <!-- Name -->
-        <h3><b>{{cake.name}}</b></h3>
+        <div class="container cake-headline">
+            <!-- Name -->
+            <h4><b>{{cake.name}}</b></h4>
+            <button class="btn btn-primary" data-container="body" data-toggle="popover"
+                    data-placement="bottom" data-html="true" id="checkbox">
+                <span class="glyphicon glyphicon-lock"></span>Private
+            </button>
+
+            <div *ngIf="cake" class="ui toggle checkbox">
+                <input type="checkbox" id="publicToggle" [checked]="cake.isPublic"
+                       (click)="editDetail('isPublic', 0)">
+                <label>Share this cake with everyone?</label>
+            </div>
+        </div>
+
         <hr>
         <div class="cake-info">
             <!-- Image -->
@@ -42,7 +55,6 @@
                     </div>
                 </div>
             </form>
-
         </div>
         <br>
 
@@ -129,13 +141,11 @@
 
 
     <!-- Important Options -->
+    <button class="btn btn-warning">Options</button>
     <div class="panel panel-default">
         <div class="panel-heading">Options</div>
         <div class="panel-body">
-            <div *ngIf="cake" class="ui toggle checkbox">
-                <input type="checkbox" [checked]="cake.isPublic">
-                <label>Share this cake with everyone?</label>
-            </div>
+
             <button *ngIf="cake" class="btn btn-danger" (click)="deleteCake()">Remove This Cake</button>
         </div>
     </div>

@@ -647,6 +647,17 @@ body {
     .details-container {
         @extend .general-container;
         word-break: break-all;
+        .cake-headline {
+            width: 100%;
+            h4 {
+                display: inline-block;
+                margin-right: 5px;
+            }
+            .ui.toggle.checkbox {
+                //width: 100%;
+                display: inline-block;
+            }
+        }
         .cake-info {
             .cake-image {
                 display: inline-block;
@@ -737,19 +748,16 @@ body {
         ul, ol {
             padding-left: 30px;
         }
-        .ui.toggle.checkbox {
-            width: 100%;
-        }
 
-        .panel {
-            border-color: $container-hovered-color;
-            .panel-heading {
-                background-color: #df3e3e;
-            }
-            .panel-body {
-                background-color: $_2nd-light-cream;
-            }
-        }
+        //.panel {
+        //    border-color: $container-hovered-color;
+        //    .panel-heading {
+        //        background-color: #df3e3e;
+        //    }
+        //    .panel-body {
+        //        background-color: $_2nd-light-cream;
+        //    }
+        //}
     }
 
     /******************

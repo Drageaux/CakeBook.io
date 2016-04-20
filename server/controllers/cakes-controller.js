@@ -100,6 +100,12 @@ module.exports.updateDetail = function (req, res) {
                 cake.ingredients = req.body;
             } else if (req.params.type == "step") {
                 cake.steps = req.body;
+            } else if (req.params.type == "isPublic") {
+                if (cake.isPublic != null) {
+                    cake.isPublic = !cake.isPublic;
+                } else {
+                    cake.isPublic = true;
+                }
             }
             cake.save();
             res.json(cake);
