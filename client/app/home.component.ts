@@ -47,7 +47,6 @@ export class HomeComponent implements OnInit {
                 }]
             );
         } else {
-            console.log("NOT a link");
             if (query != "" && query != null) {
                 this._router.navigate(["Search", {
                         query: query,
@@ -57,8 +56,6 @@ export class HomeComponent implements OnInit {
                 );
             }
         }
-
-
     }
 
     onSelect(cake:Cake) {

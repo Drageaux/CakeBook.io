@@ -54,7 +54,6 @@ System.register(['angular2/core', "angular2/router", "./cakes/add-cake-form.comp
                             }]);
                     }
                     else {
-                        console.log("NOT a link");
                         if (query != "" && query != null) {
                             this._router.navigate(["Search", {
                                     query: query,

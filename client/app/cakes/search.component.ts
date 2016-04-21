@@ -26,7 +26,6 @@ export class SearchComponent implements OnInit {
                 .subscribe(res => {
                     this.results = {"results": []};
                     this.results["results"].push(res.body);
-                    console.log(this.results);
                 });
         } else {
             this._service.searchCakes(

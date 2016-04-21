@@ -39,7 +39,6 @@ System.register(["angular2/core", "angular2/router", "./cake.service"], function
                             .subscribe(function (res) {
                             _this.results = { "results": [] };
                             _this.results["results"].push(res.body);
-                            console.log(_this.results);
                         });
                     }
                     else {

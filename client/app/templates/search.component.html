@@ -1,16 +1,18 @@
 <div class="general-container">
     <h2>Search</h2>
     <!-- Search -->
-    <div class="search-input-group input-group" style="margin-bottom: 20px;">
-        <input #searchInput type="text" class="form-control" placeholder="Search cake recipes..."
-               [(ngModel)]="query">
-        <span class="input-group-btn search-group-btn">
-            <button class="btn btn-default" type="button" required
-                    (click)="goSearch(searchInput.value, 1, 10)">
-                Go!
-            </button>
-        </span>
-    </div>
+    <form (ngSubmit)="goSearch(searchInput.value, 1, 10)">
+        <div class="search-input-group input-group" style="margin-bottom: 20px;">
+            <input #searchInput type="text" class="form-control" placeholder="Enter a link or some text..."
+                   [(ngModel)]="query">
+            <div class="input-group-btn search-group-btn">
+
+                <button class="btn btn-default" type="submit" required>
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </div>
+        </div>
+    </form>
 
     <!-- Display Results -->
     <div *ngIf="results" class="search-results">
