@@ -139,7 +139,6 @@ module.exports.search = function (req, res) {
 }
 
 module.exports.extract = function (req, res) {
-    console.log(req.params.query);
     unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/extract?forceExtraction=false&url=" +
             req.params.query)
         .header("X-Mashape-Key", process.env.X_MASHAPE_KEY)

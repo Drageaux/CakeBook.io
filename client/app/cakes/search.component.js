@@ -33,16 +33,18 @@ System.register(["angular2/core", "angular2/router", "./cake.service"], function
                 }
                 SearchComponent.prototype.ngOnInit = function () {
                     var _this = this;
-                    console.log(encodeURI(this.query));
                     if (this._service.isUrl(this.query)) {
-                        this._service.extractCake(encodeURI(this.query))
-                            .subscribe(function (res) { return _this.results = res.body; });
+                        var encodedQuery = encodeURIComponent(this.query);
+                        this._service.extractCake(encodedQuery)
+                            .subscribe(function (res) {
+                            _this.results = { "results": [] };
+                            _this.results["results"].push(res.body);
+                            console.log(_this.results);
+                        });
                     }
                     else {
                         this._service.searchCakes(this.query, this._routeParams.get(("start")), this._routeParams.get("end"))
-                            .subscribe(function (res) {
-                            _this.results = res.body;
-                        });
+                            .subscribe(function (res) { return _this.results = res.body; });
                     }
                 };
                 SearchComponent.prototype.goSearch = function (query, start, end) {

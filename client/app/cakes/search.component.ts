@@ -20,20 +20,20 @@ export class SearchComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log(encodeURI(this.query));
         if (this._service.isUrl(this.query)) {
-            this._service.extractCake(encodeURI(this.query))
-                .subscribe(res => this.results = res.body);
+            let encodedQuery = encodeURIComponent(this.query);
+            this._service.extractCake(encodedQuery)
+                .subscribe(res => {
+                    this.results = {"results": []};
+                    this.results["results"].push(res.body);
+                    console.log(this.results);
+                });
         } else {
             this._service.searchCakes(
                 this.query,
                 this._routeParams.get(("start")),
                 this._routeParams.get("end"))
-                .subscribe(
-                    res => {
-                        this.results = res.body;
-                    }
-                );
+                .subscribe(res => this.results = res.body);
         }
     }
 

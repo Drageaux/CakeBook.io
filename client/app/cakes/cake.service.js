@@ -106,7 +106,7 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
                 };
                 CakeService.prototype.extractCake = function (query) {
                     //console.log(query);
-                    return this.http.get("/api/extract/query='" + query + "'")
+                    return this.http.get("/api/extract/query=" + query)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };
