@@ -46,12 +46,22 @@ System.register(['angular2/core', "angular2/router", "./cakes/add-cake-form.comp
                         .subscribe(function (cakes) { return _this.cakes = cakes; }, function (error) { return _this.errorMessage = error; });
                 };
                 HomeComponent.prototype.goSearch = function (query) {
-                    if (query != "" && query != null) {
+                    if (this._cakeService.isUrl(query)) {
                         this._router.navigate(["Search", {
                                 query: query,
-                                start: 1,
-                                end: 10
+                                start: -1,
+                                end: -1
                             }]);
+                    }
+                    else {
+                        console.log("NOT a link");
+                        if (query != "" && query != null) {
+                            this._router.navigate(["Search", {
+                                    query: query,
+                                    start: 1,
+                                    end: 10
+                                }]);
+                        }
                     }
                 };
                 HomeComponent.prototype.onSelect = function (cake) {

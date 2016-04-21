@@ -38,7 +38,6 @@ export class CakeDetailsComponent implements OnInit {
                     for (let i in this.cake.steps) {
                         this.tempSteps.push(this.cake.steps[i]);
                     }
-                    console.log(cake)
                 },
                 error => this._router.navigate(["Home"])
             );
@@ -89,7 +88,6 @@ export class CakeDetailsComponent implements OnInit {
                         (<HTMLInputElement> document.getElementById("publicToggle")).checked
                             = false;
                     }
-                    console.log(cake.isPublic);
                 });
         }
     }
@@ -138,8 +136,7 @@ export class CakeDetailsComponent implements OnInit {
                 this._service.uploadCakeImage(this.cake._id, parsedInput, fileType)
                     .subscribe(
                         cake => this.cake = cake,
-                        err => this.cake.croppedImage = oldImage,
-                        () => console.log(this.cake)
+                        err => this.cake.croppedImage = oldImage
                     );
             }
             else {

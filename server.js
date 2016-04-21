@@ -26,6 +26,7 @@ app.put("/api/:user/cake/:id/:type", cakesController.updateDetail);
 
 // External APIs
 app.get("/api/search/cakes/query=:query/:start/:end", cakesController.search);
+app.get("/api/extract/query=:query", cakesController.extract);
 
 // All routes will serve this index page
 app.use("/*", function (req, res) {

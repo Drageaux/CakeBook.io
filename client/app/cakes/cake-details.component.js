@@ -46,7 +46,6 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./editab
                         for (var i in _this.cake.steps) {
                             _this.tempSteps.push(_this.cake.steps[i]);
                         }
-                        console.log(cake);
                     }, function (error) { return _this._router.navigate(["Home"]); });
                     this.uploadCallBack = this.uploadImage.bind(this);
                 };
@@ -96,7 +95,6 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./editab
                                 document.getElementById("publicToggle").checked
                                     = false;
                             }
-                            console.log(cake.isPublic);
                         });
                     }
                 };
@@ -145,7 +143,7 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./editab
                         if (fileType.match(/(png|jpg|jpeg)/)) {
                             var parsedInput = input.replace(/^data:image\/(png|jpg|jpeg);base64,/, "");
                             this._service.uploadCakeImage(this.cake._id, parsedInput, fileType)
-                                .subscribe(function (cake) { return _this.cake = cake; }, function (err) { return _this.cake.croppedImage = oldImage; }, function () { return console.log(_this.cake); });
+                                .subscribe(function (cake) { return _this.cake = cake; }, function (err) { return _this.cake.croppedImage = oldImage; });
                         }
                         else {
                             this.openModal();

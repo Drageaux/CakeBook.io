@@ -105,11 +105,30 @@ export class CakeService {
         //.subscribe(results => console.log(results.json()));
     }
 
+    extractCake(query:string) {
+        //console.log(query);
+        return this.http.get("/api/extract/query='" + query + "'")
+            .map(res => <any> res.json())
+            .catch(this.handleError);
+    }
+
+
+    isUrl(input:string) {
+        let regex = new RegExp("^(http|https|ftp)\://([a-zA-Z0-9\.\-]+(\:[a-zA-Z0-9" +
+            "\.&amp;%\$\-]+)*@)*((25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])" +
+            "\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)" +
+            "\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)" +
+            "\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])" +
+            "|localhost|([a-zA-Z0-9\-]+\.)*[a-zA-Z0-9\-]+" +
+            "\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(" +
+            "\:[0-9]+)*(/($|[a-zA-Z0-9\.\,\?\'\\\+&amp;%\$#\=~_\-]+))*$");
+        return input.match(regex);
+    }
 
     private handleError(error:Response) {
         // in a real world app, we may send the server to some remote logging infrastructure
         // instead of just logging it to the console
         console.error(error);
-        return Observable.throw(error.json().error || 'Server error');
+        return Observable.throw(error || 'Server error');
     }
 }

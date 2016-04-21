@@ -21,7 +21,7 @@
             </b></h4>
         </div>
         <h4 *ngIf="results.totalResults == 0"><b>
-            Found no results for "{{query}}"
+            Found no results for "{{lastSearch}}"
         </b></h4>
         <div *ngFor="#result of results.results" class="results-media media">
             <div class="media-left" (click)="getInfo(result.id)">
@@ -35,11 +35,11 @@
             </div>
         </div>
         <div class="previous-next">
-            <button class="previous-button" *ngIf="results.offset > 0"
+            <button class="btn btn-default previous-button" *ngIf="results.offset > 0"
                     (click)="goSearchPrevious()">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Previous 10
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Prev 10
             </button>
-            <button class="next-button" *ngIf="results.totalResults >= 10"
+            <button class="btn btn-default next-button" *ngIf="results.totalResults >= 10"
                     (click)="goSearchNext()">
                 Next 10 <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             </button>
