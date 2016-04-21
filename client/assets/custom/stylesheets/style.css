@@ -465,7 +465,7 @@ body {
           padding: 10px 20px; }
         body .details-container .cake-headline .dropdown .ui.toggle.checkbox {
           width: auto;
-          min-width: 250px;
+          min-width: 257px;
           display: inline-block; }
     body .details-container .cake-info .cake-image {
       display: inline-block;
@@ -473,8 +473,7 @@ body {
       position: relative;
       padding-right: 10px; }
       body .details-container .cake-info .cake-image a {
-        cursor: -webkit-zoom-in;
-        cursor: -moz-zoom-in;
+        cursor: default;
         text-decoration: none; }
         body .details-container .cake-info .cake-image a img {
           width: 100%;
