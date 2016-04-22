@@ -44,7 +44,6 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./import
                             .subscribe(function (res) {
                             _this.results = { "results": [] };
                             _this.results["results"].push(res.body);
-                            console.log(_this.results);
                         });
                     }
                     else {
@@ -143,7 +142,7 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./import
                     }
                     this.dataString += "\n";
                     // compile step list
-                    if (cake.instruction) {
+                    if (cake.instructions) {
                         // create a temporary element to extract instructions
                         var divEl = document.createElement("div");
                         divEl.innerHTML = cake.instructions;

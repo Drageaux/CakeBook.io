@@ -32,7 +32,6 @@ export class SearchComponent implements OnInit {
                 .subscribe(res => {
                     this.results = {"results": []};
                     this.results["results"].push(res.body);
-                    console.log(this.results);
                 });
         }
          else {
@@ -109,7 +108,7 @@ export class SearchComponent implements OnInit {
                                 var newQuery = res.body["sourceUrl"];
                                 newQuery = encodeURIComponent(newQuery);
                                 this._service.extractCake(newQuery)
-                                    .subscribe(res => this.fillInfo(res.body))
+                                    .subscribe(res => this.fillInfo(res.body));
                             }
                         });
                 }
@@ -135,7 +134,7 @@ export class SearchComponent implements OnInit {
         }
         this.dataString += "\n";
         // compile step list
-        if (cake.instruction) {
+        if (cake.instructions) {
             // create a temporary element to extract instructions
             let divEl:any = document.createElement("div");
             divEl.innerHTML = cake.instructions;
