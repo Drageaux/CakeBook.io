@@ -110,7 +110,13 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./import
                             var cake = this.results.results[i];
                             // translate JSON data into desired string format
                             this.dataString += cake.title + "\n\n";
-                            this.dataString += "(ready in " + cake.readyInMinutes + " minutes)\n\n";
+                            if (cake.readyInMinutes) {
+                                this.dataString += "(ready in " + cake.readyInMinutes + " minutes)";
+                            }
+                            else {
+                                this.dataString += "none";
+                            }
+                            this.dataString += "\n\n";
                             // compile ingredient list
                             for (var ingrIndex in cake.extendedIngredients) {
                                 this.dataString +=

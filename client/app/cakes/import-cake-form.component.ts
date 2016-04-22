@@ -24,9 +24,8 @@ export class ImportCakeFormComponent {
     tooltipTitle = `
         <p style='text-align:left; padding: 5px; margin-bottom: 0'>
             <b>How To</b>:<br>
-            - Add an empty line to <i>separate each detail group</i><br>
-            - Add a new line <i>for each ingredient/step</i><br>
-            - Type 'none' or 'None' to <i>leave blank</i><br>
+            - Name is required
+            - <b>Type 'none' or 'None' to <i>leave blank</i></b><br>
             <br>
             <b>Template</b>:
         </p>
@@ -81,7 +80,7 @@ export class ImportCakeFormComponent {
         if (modelArray[0]) {
             this.model.name = modelArray[0];
         }
-        if (modelArray[2]) {
+        if (modelArray[2].toLowerCase() != "none") {
             this.model.description = modelArray[2];
         }
 

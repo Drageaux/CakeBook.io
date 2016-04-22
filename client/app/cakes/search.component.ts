@@ -105,7 +105,12 @@ export class SearchComponent implements OnInit {
                 let cake = this.results.results[i];
                 // translate JSON data into desired string format
                 this.dataString += cake.title + "\n\n";
-                this.dataString += "(ready in " + cake.readyInMinutes + " minutes)\n\n";
+                if (cake.readyInMinutes) {
+                    this.dataString += "(ready in " + cake.readyInMinutes + " minutes)";
+                } else {
+                    this.dataString += "none"
+                }
+                this.dataString += "\n\n";
                 // compile ingredient list
                 for (let ingrIndex in cake.extendedIngredients) {
                     this.dataString +=
