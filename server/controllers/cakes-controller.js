@@ -143,7 +143,6 @@ module.exports.extract = function (req, res) {
             req.params.query)
         .header("X-Mashape-Key", process.env.X_MASHAPE_KEY)
         .end(function (result) {
-            console.log(result);
             res.send(result)
         });
 }
