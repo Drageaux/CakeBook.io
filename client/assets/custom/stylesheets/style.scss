@@ -252,7 +252,7 @@ body {
             border-radius: 10px !important;
             .modal-header,
             .modal-footer {
-                background-color: lighten($container-hovered-color, 3%);
+                background-color: lighten($container-hovered-color, 2%);
             }
             .modal-header {
                 border-radius: 10px 10px 0 0;
@@ -868,6 +868,7 @@ body {
         left: 2.3rem !important;
     }
     label {
+        z-index: 2;
         padding-top: 0;
         font-size: 1.4em;
     }

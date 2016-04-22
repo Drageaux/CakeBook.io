@@ -262,12 +262,24 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./import
                             // translate JSON data into desired string format
                             this.dataString += cake.title + "\n\n";
                             this.dataString += "(ready in " + cake.readyInMinutes + " minutes)\n\n";
+                            // compile ingredient list
                             for (var ingrIndex in cake.extendedIngredients) {
                                 this.dataString +=
                                     cake.extendedIngredients[ingrIndex]["originalString"] +
                                         "\n";
                             }
                             this.dataString += "\n";
+                            // create a temporary element to extract instructions
+                            var divEl = document.createElement("div");
+                            divEl.innerHTML = cake.instructions;
+                            var instructionList = divEl.firstChild.children[0].children;
+                            for (var stepIndex in instructionList) {
+                                if (instructionList[stepIndex].innerHTML) {
+                                    this.dataString +=
+                                        instructionList[stepIndex].innerHTML +
+                                            "\n";
+                                }
+                            }
                             document.querySelector("[data-toggle='modal']").click();
                         }
                     }
@@ -281,7 +293,6 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./import
                     if (this.currModel != null && this.readySubmit) {
                         this._service.addCake(JSON.stringify(this.currModel))
                             .subscribe(function (res) {
-                            console.log(res);
                             _this.currModel = null;
                             _this._router.navigate(["CakeDetails", { id: res._id }]);
                         });

@@ -19,6 +19,7 @@ export class ImportCakeFormComponent {
     @Input() active = false;
     @Input() isModal;
     @Input() modelString = "";
+    @Input() header = "Paste a Recipe Here";
     model = new Cake(0, false, this.userId, "", "", "", "", [], []);
     tooltipTitle = `
         <p style='text-align:left; padding: 5px; margin-bottom: 0'>

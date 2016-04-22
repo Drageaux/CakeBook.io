@@ -183,7 +183,7 @@ body {
     border-radius: 10px !important; }
     body .modal-dialog .modal-content .modal-header,
     body .modal-dialog .modal-content .modal-footer {
-      background-color: #fadbc7; }
+      background-color: #fad8c2; }
     body .modal-dialog .modal-content .modal-header {
       border-radius: 10px 10px 0 0; }
     body .modal-dialog .modal-content .modal-body {
@@ -616,6 +616,7 @@ body {
 .ui.toggle.checkbox input:checked ~ label:after {
   left: 2.3rem !important; }
 .ui.toggle.checkbox label {
+  z-index: 2;
   padding-top: 0;
   font-size: 1.4em; }
 .ui.toggle.checkbox label:before {

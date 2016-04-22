@@ -30,6 +30,7 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     this.previewed = new core_1.EventEmitter();
                     this.active = false;
                     this.modelString = "";
+                    this.header = "Paste a Recipe Here";
                     this.model = new cake_1.Cake(0, false, this.userId, "", "", "", "", [], []);
                     this.tooltipTitle = "\n        <p style='text-align:left; padding: 5px; margin-bottom: 0'>\n            <b>How To</b>:<br>\n            - Add an empty line to <i>separate each detail group</i><br>\n            - Add a new line <i>for each ingredient/step</i><br>\n            - Type 'none' or 'None' to <i>leave blank</i><br>\n            <br>\n            <b>Template</b>:\n        </p>\n<pre style='margin-top: 0; text-align: left'>*name*\n\n*description*\n\n*ingredient #1*\n*ingredient #2*\n*ingredient #3*\n\n*step #1*\n*step #2*</pre>\n        ";
                 }
@@ -154,6 +155,10 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     core_1.Input(), 
                     __metadata('design:type', Object)
                 ], ImportCakeFormComponent.prototype, "modelString", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Object)
+                ], ImportCakeFormComponent.prototype, "header", void 0);
                 ImportCakeFormComponent = __decorate([
                     core_1.Component({
                         selector: "import-cake-form",

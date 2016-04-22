@@ -258,12 +258,24 @@ export class SearchComponent implements OnInit {
                 // translate JSON data into desired string format
                 this.dataString += cake.title + "\n\n";
                 this.dataString += "(ready in " + cake.readyInMinutes + " minutes)\n\n";
+                // compile ingredient list
                 for (let ingrIndex in cake.extendedIngredients) {
                     this.dataString +=
                         cake.extendedIngredients[ingrIndex]["originalString"] +
                         "\n";
                 }
                 this.dataString += "\n";
+                // create a temporary element to extract instructions
+                let divEl:any = document.createElement("div");
+                divEl.innerHTML = cake.instructions;
+                let instructionList = divEl.firstChild.children[0].children;
+                for (let stepIndex in instructionList) {
+                    if (instructionList[stepIndex].innerHTML) {
+                        this.dataString +=
+                            instructionList[stepIndex].innerHTML +
+                            "\n";
+                    }
+                }
                 (<HTMLButtonElement> document.querySelector("[data-toggle='modal']")).click();
             }
         }
@@ -278,7 +290,6 @@ export class SearchComponent implements OnInit {
         if (this.currModel != null && this.readySubmit) {
             this._service.addCake(JSON.stringify(this.currModel))
                 .subscribe(res => {
-                    console.log(res);
                     this.currModel = null;
                     this._router.navigate(["CakeDetails", {id: res._id}]);
                 });
@@ -286,20 +297,14 @@ export class SearchComponent implements OnInit {
     }
 
 
+    /********************
+     * Helper Functions *
+     ********************/
+    isEmptyString(str:string) {
+        return str == "" || str == null;
+    }
 
-/********************
- * Helper Functions *
- ********************/
-isEmptyString(str
-:
-string
-)
-{
-    return str == "" || str == null;
-}
-
-goHome()
-{
-    this._router.navigate(["Home"]);
-}
+    goHome() {
+        this._router.navigate(["Home"]);
+    }
 }
