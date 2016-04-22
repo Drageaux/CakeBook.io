@@ -106,7 +106,6 @@ export class CakeService {
     }
 
     extractCake(query:string) {
-        //console.log(query);
         return this.http.get("/api/extract/query=" + query)
             .map(res => <any> res.json())
             .catch(this.handleError);

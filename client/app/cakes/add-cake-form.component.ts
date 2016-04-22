@@ -46,11 +46,11 @@ export class AddCakeFormComponent {
     togglePublicity() {
         if (this.model.isPublic != null) {
             this.model.isPublic = !this.model.isPublic;
-            (<HTMLInputElement> document.getElementById("publicToggle")).checked
+            (<HTMLInputElement> document.getElementById("publicToggleAdd")).checked
                 = this.model.isPublic;
         } else {
             this.model.isPublic = true;
-            (<HTMLInputElement> document.getElementById("publicToggle")).checked
+            (<HTMLInputElement> document.getElementById("publicToggleAdd")).checked
                 = true;
         }
     }

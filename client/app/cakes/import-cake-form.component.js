@@ -27,9 +27,10 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     this._cakeService = _cakeService;
                     this.userId = JSON.parse(localStorage.getItem("profile")).user_id; // must be defined first
                     this.saved = new core_1.EventEmitter();
+                    this.previewed = new core_1.EventEmitter();
+                    this.active = false;
                     this.modelString = "";
                     this.model = new cake_1.Cake(0, false, this.userId, "", "", "", "", [], []);
-                    this.active = false;
                     this.tooltipTitle = "\n        <p style='text-align:left; padding: 5px; margin-bottom: 0'>\n            <b>How To</b>:<br>\n            - Add an empty line to <i>separate each detail group</i><br>\n            - Add a new line <i>for each ingredient/step</i><br>\n            - Type 'none' or 'None' to <i>leave blank</i><br>\n            <br>\n            <b>Template</b>:\n        </p>\n<pre style='margin-top: 0; text-align: left'>*name*\n\n*description*\n\n*ingredient #1*\n*ingredient #2*\n*ingredient #3*\n\n*step #1*\n*step #2*</pre>\n        ";
                 }
                 ImportCakeFormComponent.prototype.openForm = function () {
@@ -41,14 +42,17 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                 ImportCakeFormComponent.prototype.togglePublicity = function () {
                     if (this.model.isPublic != null) {
                         this.model.isPublic = !this.model.isPublic;
-                        document.getElementById("publicToggle").checked
+                        document.getElementById("publicToggleImport").checked
                             = this.model.isPublic;
                     }
                     else {
                         this.model.isPublic = true;
-                        document.getElementById("publicToggle").checked
+                        document.getElementById("publicToggleImport").checked
                             = true;
                     }
+                };
+                ImportCakeFormComponent.prototype.onPreview = function () {
+                    this.previewed.emit(this.model);
                 };
                 ImportCakeFormComponent.prototype.parsePreview = function () {
                     // split into list of elements
@@ -101,6 +105,7 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                         indexStep++;
                         cursor++;
                     }
+                    this.onPreview();
                 };
                 ImportCakeFormComponent.prototype.importCake = function () {
                     var _this = this;
@@ -133,6 +138,22 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     core_1.Output(), 
                     __metadata('design:type', Object)
                 ], ImportCakeFormComponent.prototype, "saved", void 0);
+                __decorate([
+                    core_1.Output(), 
+                    __metadata('design:type', Object)
+                ], ImportCakeFormComponent.prototype, "previewed", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Object)
+                ], ImportCakeFormComponent.prototype, "active", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Object)
+                ], ImportCakeFormComponent.prototype, "isModal", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Object)
+                ], ImportCakeFormComponent.prototype, "modelString", void 0);
                 ImportCakeFormComponent = __decorate([
                     core_1.Component({
                         selector: "import-cake-form",

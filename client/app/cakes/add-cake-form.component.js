@@ -53,12 +53,12 @@ System.register(["angular2/core", "./cake", "./cake.service", "./editable-item-f
                 AddCakeFormComponent.prototype.togglePublicity = function () {
                     if (this.model.isPublic != null) {
                         this.model.isPublic = !this.model.isPublic;
-                        document.getElementById("publicToggle").checked
+                        document.getElementById("publicToggleAdd").checked
                             = this.model.isPublic;
                     }
                     else {
                         this.model.isPublic = true;
-                        document.getElementById("publicToggle").checked
+                        document.getElementById("publicToggleAdd").checked
                             = true;
                     }
                 };

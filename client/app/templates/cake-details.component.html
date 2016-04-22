@@ -210,7 +210,8 @@
 
     <!-- Important Options -->
     <button class="btn btn-default" (click)="goHome()" style="margin-bottom: 5px">
-        <span class="glyphicon glyphicon-chevron-left"></span> Return Home
+        <span class="glyphicon glyphicon-chevron-left"></span><span class="glyphicon glyphicon-home"></span>
+        Return Home
     </button>
     <button *ngIf="cake && isOwner()" class="btn btn-danger" (click)="deleteCake()" style="margin-bottom: 5px">
         <span class="glyphicon glyphicon-alert"></span> Remove This Cake

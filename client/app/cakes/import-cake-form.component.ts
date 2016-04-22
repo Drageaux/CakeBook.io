@@ -15,9 +15,11 @@ export class ImportCakeFormComponent {
     userId = JSON.parse(localStorage.getItem("profile")).user_id; // must be defined first
 
     @Output() saved = new EventEmitter<Cake>();
-    modelString = "";
+    @Output() previewed = new EventEmitter<Cake>();
+    @Input() active = false;
+    @Input() isModal;
+    @Input() modelString = "";
     model = new Cake(0, false, this.userId, "", "", "", "", [], []);
-    active = false;
     tooltipTitle = `
         <p style='text-align:left; padding: 5px; margin-bottom: 0'>
             <b>How To</b>:<br>
@@ -53,13 +55,17 @@ export class ImportCakeFormComponent {
     togglePublicity() {
         if (this.model.isPublic != null) {
             this.model.isPublic = !this.model.isPublic;
-            (<HTMLInputElement> document.getElementById("publicToggle")).checked
+            (<HTMLInputElement> document.getElementById("publicToggleImport")).checked
                 = this.model.isPublic;
         } else {
             this.model.isPublic = true;
-            (<HTMLInputElement> document.getElementById("publicToggle")).checked
+            (<HTMLInputElement> document.getElementById("publicToggleImport")).checked
                 = true;
         }
+    }
+
+    onPreview(){
+        this.previewed.emit(this.model);
     }
 
     parsePreview() {
@@ -89,7 +95,6 @@ export class ImportCakeFormComponent {
                 this.model.ingredients = [];
             }
             else {
-
                 isIngr = false;
                 break;
             }
@@ -115,13 +120,14 @@ export class ImportCakeFormComponent {
             indexStep++;
             cursor++;
         }
+
+        this.onPreview();
     }
 
     importCake():Observable<Cake> {
         if (this.isEmptyString(this.modelString) || this.isEmptyString(this.model.name)) {
             return;
         }
-
         this.parsePreview();
         this._cakeService.addCake(JSON.stringify(this.model))
             .subscribe(res => this.saved.emit(res));

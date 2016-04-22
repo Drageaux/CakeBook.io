@@ -16,12 +16,16 @@ body {
   font-family: "Marmelad", Arial;
   background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/bamboo-wood-flooring-texture.jpg");
   background-repeat: repeat;
+  word-break: keep-all;
+  word-wrap: break-word;
   /*******************
    * General Top Nav *
    *******************/
   /*********************
    * Custom Components *
    *********************/
+  /* Fixed Buttons */
+  /* Modals */
   /***********
    * Wrapper *
    ***********/
@@ -175,6 +179,17 @@ body {
     font-size: 1.3em;
     transform: translate(2px, 2px);
     transition-duration: 0.2s; }
+  body .modal-dialog .modal-content {
+    border-radius: 10px !important; }
+    body .modal-dialog .modal-content .modal-header,
+    body .modal-dialog .modal-content .modal-footer {
+      background-color: #fadbc7; }
+    body .modal-dialog .modal-content .modal-header {
+      border-radius: 10px 10px 0 0; }
+    body .modal-dialog .modal-content .modal-body {
+      background: #fdf0e8 !important; }
+    body .modal-dialog .modal-content .modal-footer {
+      border-radius: 0 0 10px 10px; }
   body .wrapper, body .login-wrapper {
     min-width: 300px;
     margin-right: 15vw;
@@ -217,8 +232,6 @@ body {
       margin-bottom: 20px; }
       body .general-container div.import-cake-form p, body .home-container div.import-cake-form p, body .details-container div.import-cake-form p {
         font-size: 1.1em;
-        word-break: keep-all;
-        word-wrap: break-word;
         overflow: auto; }
       body .general-container div.import-cake-form button, body .home-container div.import-cake-form button, body .details-container div.import-cake-form button {
         margin: 5px auto; }
@@ -252,9 +265,6 @@ body {
       max-height: 300px;
       overflow-y: scroll;
       border: 1px solid #f9d2b9; }
-      body .general-container .normal-list-group li, body .home-container .normal-list-group li, body .details-container .normal-list-group li {
-        word-break: keep-all;
-        word-wrap: break-word; }
     body .general-container .normal-list-group[data-toggle=modal]:hover, body .home-container .normal-list-group[data-toggle=modal]:hover, body .details-container .normal-list-group[data-toggle=modal]:hover {
       cursor: pointer;
       background-color: #f9d2b9 !important; }
@@ -299,8 +309,7 @@ body {
             width: 28px;
             height: 100%;
             background-color: #cecece;
-            color: white;
-            word-break: keep-all; }
+            color: white; }
             body .general-container .form-group .editable-list-group .editable-list-group-item .number-label span, body .home-container .form-group .editable-list-group .editable-list-group-item .number-label span, body .details-container .form-group .editable-list-group .editable-list-group-item .number-label span {
               cursor: move;
               cursor: grab;
@@ -312,7 +321,6 @@ body {
             right: 0;
             display: inline-block;
             margin-right: auto;
-            word-break: break-all;
             padding-left: 38px !important;
             width: 77%; }
           body .general-container .form-group .editable-list-group .editable-list-group-item .list-group-item-name.edit-item, body .home-container .form-group .editable-list-group .editable-list-group-item .list-group-item-name.edit-item, body .details-container .form-group .editable-list-group .editable-list-group-item .list-group-item-name.edit-item {
@@ -441,92 +449,89 @@ body {
       margin: 5px auto; }
     body .home-container .cake-list li {
       cursor: pointer; }
-  body .details-container {
-    word-break: break-all; }
-    body .details-container .cake-headline {
-      width: 100%; }
-      body .details-container .cake-headline h4 {
-        position: relative;
-        display: inline-block;
-        margin-right: 5px;
-        top: 4px; }
-      body .details-container .cake-headline .dropdown {
-        display: inline-block; }
-        body .details-container .cake-headline .dropdown .dropdown-menu {
-          padding: 10px 20px; }
-        body .details-container .cake-headline .dropdown .ui.toggle.checkbox {
-          width: auto;
-          min-width: 257px;
-          display: inline-block; }
-    body .details-container .cake-info .cake-image {
-      display: inline-block;
-      width: 30%;
+  body .details-container .cake-headline {
+    width: 100%; }
+    body .details-container .cake-headline h4 {
       position: relative;
-      padding-right: 10px; }
-      body .details-container .cake-info .cake-image a {
-        cursor: default;
-        text-decoration: none; }
-        body .details-container .cake-info .cake-image a img {
-          width: 100%;
-          border-radius: 10px !important;
-          border: 2px solid #6a272b; }
-      body .details-container .cake-info .cake-image input {
-        width: 0.1px;
-        height: 0.1px;
-        opacity: 0;
-        overflow: hidden;
-        position: absolute;
-        z-index: -1; }
-      body .details-container .cake-info .cake-image label,
-      body .details-container .cake-info .cake-image label:focus {
-        text-align: center;
-        margin-bottom: 0;
-        cursor: pointer;
-        padding: 6px;
-        margin-top: 6px;
-        width: 100%;
-        background-color: #be4e55;
-        color: white;
-        border-radius: 5px;
-        word-break: keep-all; }
-      body .details-container .cake-info .cake-image label:hover {
-        background-color: #802f35; }
-    body .details-container .cake-info .cake-description {
       display: inline-block;
-      vertical-align: top;
-      width: 68%;
-      border-radius: 5px;
-      padding-bottom: 5px;
-      background-color: #fdf0e8;
-      border-color: #f9d2b9; }
-      body .details-container .cake-info .cake-description p {
-        white-space: pre-wrap;
-        font-size: 1em; }
-      body .details-container .cake-info .cake-description button {
-        float: right;
-        position: relative;
-        transition-duration: 0.2s;
-        margin-left: 3px; }
-      body .details-container .cake-info .cake-description .save-cancel {
-        float: right;
-        margin-right: 12px; }
-        body .details-container .cake-info .cake-description .save-cancel button {
-          float: left;
-          margin-top: 10px;
-          margin-bottom: 5px; }
-    @media screen and (max-width: 480px) {
-      body .details-container .cake-info .cake-image {
-        padding-left: 10px; }
-      body .details-container .cake-info .cake-description {
-        margin-top: 10px; }
-      body .details-container .cake-info .cake-image,
-      body .details-container .cake-info .cake-description {
-        display: block;
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto; } }
-    body .details-container ul, body .details-container ol {
-      padding-left: 30px; }
+      margin-right: 5px;
+      top: 4px; }
+    body .details-container .cake-headline .dropdown {
+      display: inline-block; }
+      body .details-container .cake-headline .dropdown .dropdown-menu {
+        padding: 10px 20px; }
+      body .details-container .cake-headline .dropdown .ui.toggle.checkbox {
+        width: auto;
+        min-width: 257px;
+        display: inline-block; }
+  body .details-container .cake-info .cake-image {
+    display: inline-block;
+    width: 30%;
+    position: relative;
+    padding-right: 10px; }
+    body .details-container .cake-info .cake-image a {
+      cursor: default;
+      text-decoration: none; }
+      body .details-container .cake-info .cake-image a img {
+        width: 100%;
+        border-radius: 10px !important;
+        border: 2px solid #6a272b; }
+    body .details-container .cake-info .cake-image input {
+      width: 0.1px;
+      height: 0.1px;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      z-index: -1; }
+    body .details-container .cake-info .cake-image label,
+    body .details-container .cake-info .cake-image label:focus {
+      text-align: center;
+      margin-bottom: 0;
+      cursor: pointer;
+      padding: 6px;
+      margin-top: 6px;
+      width: 100%;
+      background-color: #be4e55;
+      color: white;
+      border-radius: 5px; }
+    body .details-container .cake-info .cake-image label:hover {
+      background-color: #802f35; }
+  body .details-container .cake-info .cake-description {
+    display: inline-block;
+    vertical-align: top;
+    width: 68%;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    background-color: #fdf0e8;
+    border-color: #f9d2b9; }
+    body .details-container .cake-info .cake-description p {
+      white-space: pre-wrap;
+      font-size: 1em; }
+    body .details-container .cake-info .cake-description button {
+      float: right;
+      position: relative;
+      transition-duration: 0.2s;
+      margin-left: 3px; }
+    body .details-container .cake-info .cake-description .save-cancel {
+      float: right;
+      margin-right: 12px; }
+      body .details-container .cake-info .cake-description .save-cancel button {
+        float: left;
+        margin-top: 10px;
+        margin-bottom: 5px; }
+  @media screen and (max-width: 480px) {
+    body .details-container .cake-info .cake-image {
+      padding-left: 10px; }
+    body .details-container .cake-info .cake-description {
+      margin-top: 10px; }
+    body .details-container .cake-info .cake-image,
+    body .details-container .cake-info .cake-description {
+      display: block;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto; } }
+  body .details-container ul, body .details-container ol {
+    padding-left: 30px; }
   body .login-outer-wrapper {
     height: 100vh;
     width: 100%;
@@ -612,9 +617,7 @@ body {
   left: 2.3rem !important; }
 .ui.toggle.checkbox label {
   padding-top: 0;
-  font-size: 1.4em;
-  word-wrap: break-word;
-  word-break: keep-all; }
+  font-size: 1.4em; }
 .ui.toggle.checkbox label:before {
   width: 4rem;
   height: 1.7rem; }
@@ -641,8 +644,7 @@ body {
     width: 28px;
     height: 100%;
     background-color: #ad4047;
-    color: white;
-    word-break: keep-all; }
+    color: white; }
     .gu-mirror .number-label span {
       position: absolute;
       top: 46%;

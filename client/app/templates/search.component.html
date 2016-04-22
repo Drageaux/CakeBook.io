@@ -25,8 +25,9 @@
         <h4 *ngIf="results.totalResults == 0"><b>
             Found no results for "{{lastSearch}}"
         </b></h4>
-        <div *ngFor="#result of results.results" class="results-media media">
-            <div class="media-left" (click)="getInfo(result.id)">
+        <div *ngFor="#result of results.results" class="results-media media"
+             (click)="getInfo(result.id)">
+            <div class="media-left">
                 <img class="media-object"
                      src="https://spoonacular.com/recipeImages/{{result.image}}"
                      alt="ME">
@@ -36,6 +37,36 @@
                 (ready in {{result.readyInMinutes}} minutes)
             </div>
         </div>
+        <button data-toggle="modal" data-target="#importModal" hidden></button>
+        <div id="importModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Importing...</h4>
+                    </div>
+                    <div class="modal-body" style="background-color: #fce9dc;">
+                        <import-cake-form
+                                [active]="true"
+                                [isModal]="true"
+                                [modelString]="dataString"
+                                (previewed)="prepareSubmit($event)">
+                        </import-cake-form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal" autofocus
+                                (click)="addCake()"
+                                [disabled]="!readySubmit">
+                            Submit
+                        </button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigate Results -->
         <div class="previous-next">
             <button class="btn btn-default previous-button" *ngIf="results.offset > 0"
                     (click)="goSearchPrevious()">
