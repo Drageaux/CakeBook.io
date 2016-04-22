@@ -162,7 +162,7 @@ export class SearchComponent implements OnInit {
     }
 
     addCake() {
-        if (this.isEmptyString(this.currModel.name) && this.readySubmit) {
+        if (!this.isEmptyString(this.currModel.name) && this.readySubmit) {
             this._service.addCake(JSON.stringify(this.currModel))
                 .subscribe(res => {
                     this.currModel = null;

@@ -170,7 +170,7 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./import
                 };
                 SearchComponent.prototype.addCake = function () {
                     var _this = this;
-                    if (this.isEmptyString(this.currModel.name) && this.readySubmit) {
+                    if (!this.isEmptyString(this.currModel.name) && this.readySubmit) {
                         this._service.addCake(JSON.stringify(this.currModel))
                             .subscribe(function (res) {
                             _this.currModel = null;
