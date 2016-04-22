@@ -98,15 +98,20 @@ export class CakeService {
         if (parseInt(start) < 1) {
             start = "1";
         }
-        return this.http.get("/api/search/cakes/query=" + query +
+        return this.http.get("/spoonacular/search/query=" + query +
                 "/" + start + "/" + end)
             .map(res => <any> res.json())
             .catch(this.handleError);
-        //.subscribe(results => console.log(results.json()));
+    }
+
+    searchCakeById(id:string) {
+        return this.http.get("/spoonacular/searchBy/id/query=" + id)
+            .map(res => <any> res.json())
+            .catch(this.handleError)
     }
 
     extractCake(query:string) {
-        return this.http.get("/api/extract/query=" + query)
+        return this.http.get("/spoonacular/extract/query=" + query)
             .map(res => <any> res.json())
             .catch(this.handleError);
     }

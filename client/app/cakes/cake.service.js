@@ -98,14 +98,18 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
                     if (parseInt(start) < 1) {
                         start = "1";
                     }
-                    return this.http.get("/api/search/cakes/query=" + query +
+                    return this.http.get("/spoonacular/search/query=" + query +
                         "/" + start + "/" + end)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
-                    //.subscribe(results => console.log(results.json()));
+                };
+                CakeService.prototype.searchCakeById = function (id) {
+                    return this.http.get("/spoonacular/searchBy/id/query=" + id)
+                        .map(function (res) { return res.json(); })
+                        .catch(this.handleError);
                 };
                 CakeService.prototype.extractCake = function (query) {
-                    return this.http.get("/api/extract/query=" + query)
+                    return this.http.get("/spoonacular/extract/query=" + query)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };

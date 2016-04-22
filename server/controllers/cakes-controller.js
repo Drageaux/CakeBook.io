@@ -138,6 +138,15 @@ module.exports.search = function (req, res) {
         });
 }
 
+module.exports.searchBy = function (req, res) {
+    unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" +
+            req.params.id + "/information?includeNutrition=false")
+        .header("X-Mashape-Key", process.env.X_MASHAPE_KEY)
+        .end(function (result) {
+            res.send(result);
+        });
+}
+
 module.exports.extract = function (req, res) {
     unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/extract?forceExtraction=false&url=" +
             req.params.query)

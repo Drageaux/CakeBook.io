@@ -47,16 +47,12 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./import
                             console.log(_this.results);
                         });
                     }
-                    // else {
-                    //    this._service.searchCakes(
-                    //        this.query,
-                    //        this._routeParams.get(("start")),
-                    //        this._routeParams.get("end"))
-                    //        .subscribe(res => {
-                    //            this.results = res.body;
-                    //            console.log(this.results);
-                    //        });
-                    //}
+                    else {
+                        this._service.searchCakes(this.query, this._routeParams.get(("start")), this._routeParams.get("end"))
+                            .subscribe(function (res) {
+                            _this.results = res.body;
+                        });
+                    }
                 };
                 SearchComponent.prototype.goSearch = function (query, start, end) {
                     if (query != "" && query != null) {
@@ -104,43 +100,63 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./import
                     }
                 };
                 SearchComponent.prototype.getInfo = function (id) {
-                    this.dataString = "";
+                    var _this = this;
+                    // match id
                     for (var i in this.results.results) {
                         if (this.results.results[i]["id"] == id) {
                             var cake = this.results.results[i];
-                            // translate JSON data into desired string format
-                            this.dataString += cake.title + "\n\n";
-                            if (cake.readyInMinutes) {
-                                this.dataString += "(ready in " + cake.readyInMinutes + " minutes)";
+                            // check if already extracted by URL
+                            // else, extract from URL and import
+                            if (this._service.isUrl(this.lastSearch)) {
+                                this.fillInfo(cake);
                             }
                             else {
-                                this.dataString += "none";
-                            }
-                            this.dataString += "\n\n";
-                            // compile ingredient list
-                            for (var ingrIndex in cake.extendedIngredients) {
-                                this.dataString +=
-                                    cake.extendedIngredients[ingrIndex]["originalString"] +
-                                        "\n";
-                            }
-                            this.dataString += "\n";
-                            // compile step list
-                            if (cake.instruction) {
-                                // create a temporary element to extract instructions
-                                var divEl = document.createElement("div");
-                                divEl.innerHTML = cake.instructions;
-                                var instructionList = divEl.firstChild.children[0].children;
-                                for (var stepIndex in instructionList) {
-                                    if (instructionList[stepIndex].innerHTML) {
-                                        this.dataString +=
-                                            instructionList[stepIndex].innerHTML +
-                                                "\n";
+                                this._service.searchCakeById(id)
+                                    .subscribe(function (res) {
+                                    if (res.body["sourceUrl"]) {
+                                        var newQuery = res.body["sourceUrl"];
+                                        newQuery = encodeURIComponent(newQuery);
+                                        _this._service.extractCake(newQuery)
+                                            .subscribe(function (res) { return _this.fillInfo(res.body); });
                                     }
-                                }
+                                });
                             }
-                            document.querySelector("[data-toggle='modal']").click();
                         }
                     }
+                };
+                SearchComponent.prototype.fillInfo = function (cake) {
+                    this.dataString = "";
+                    // translate JSON data into desired string format
+                    this.dataString += cake.title + "\n\n";
+                    if (cake.readyInMinutes) {
+                        this.dataString += "(ready in " + cake.readyInMinutes + " minutes)";
+                    }
+                    else {
+                        this.dataString += "none";
+                    }
+                    this.dataString += "\n\n";
+                    // compile ingredient list
+                    for (var ingrIndex in cake.extendedIngredients) {
+                        this.dataString +=
+                            cake.extendedIngredients[ingrIndex]["originalString"] +
+                                "\n";
+                    }
+                    this.dataString += "\n";
+                    // compile step list
+                    if (cake.instruction) {
+                        // create a temporary element to extract instructions
+                        var divEl = document.createElement("div");
+                        divEl.innerHTML = cake.instructions;
+                        var instructionList = divEl.firstChild.children[0].children;
+                        for (var stepIndex in instructionList) {
+                            if (instructionList[stepIndex].innerHTML) {
+                                this.dataString +=
+                                    instructionList[stepIndex].innerHTML +
+                                        "\n";
+                            }
+                        }
+                    }
+                    document.querySelector("[data-toggle='modal']").click();
                 };
                 SearchComponent.prototype.prepareSubmit = function (event) {
                     this.readySubmit = true;

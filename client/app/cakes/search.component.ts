@@ -35,16 +35,15 @@ export class SearchComponent implements OnInit {
                     console.log(this.results);
                 });
         }
-        // else {
-        //    this._service.searchCakes(
-        //        this.query,
-        //        this._routeParams.get(("start")),
-        //        this._routeParams.get("end"))
-        //        .subscribe(res => {
-        //            this.results = res.body;
-        //            console.log(this.results);
-        //        });
-        //}
+         else {
+            this._service.searchCakes(
+                this.query,
+                this._routeParams.get(("start")),
+                this._routeParams.get("end"))
+                .subscribe(res => {
+                    this.results = res.body;
+                });
+        }
     }
 
     goSearch(query:string, start:string, end:string) {
@@ -54,15 +53,13 @@ export class SearchComponent implements OnInit {
                         query: query,
                         start: -1,
                         end: -1
-                    }]
-                );
+                    }]);
             } else {
                 this._router.navigate(["Search", {
                         query: query,
                         start: start,
                         end: end
-                    }]
-                );
+                    }]);
             }
         }
     }
@@ -79,8 +76,7 @@ export class SearchComponent implements OnInit {
                     query: query,
                     start: start,
                     end: end
-                }]
-            );
+                }]);
         }
     }
 
@@ -93,48 +89,66 @@ export class SearchComponent implements OnInit {
                     query: query,
                     start: start,
                     end: end
-                }]
-            );
+                }]);
         }
     }
 
     getInfo(id:string) {
-        this.dataString = "";
+        // match id
         for (let i in this.results.results) {
             if (this.results.results[i]["id"] == id) {
                 let cake = this.results.results[i];
-                // translate JSON data into desired string format
-                this.dataString += cake.title + "\n\n";
-                if (cake.readyInMinutes) {
-                    this.dataString += "(ready in " + cake.readyInMinutes + " minutes)";
+                // check if already extracted by URL
+                // else, extract from URL and import
+                if (this._service.isUrl(this.lastSearch)) {
+                    this.fillInfo(cake);
                 } else {
-                    this.dataString += "none"
+                    this._service.searchCakeById(id)
+                        .subscribe(res => {
+                            if (res.body["sourceUrl"]) {
+                                var newQuery = res.body["sourceUrl"];
+                                newQuery = encodeURIComponent(newQuery);
+                                this._service.extractCake(newQuery)
+                                    .subscribe(res => this.fillInfo(res.body))
+                            }
+                        });
                 }
-                this.dataString += "\n\n";
-                // compile ingredient list
-                for (let ingrIndex in cake.extendedIngredients) {
-                    this.dataString +=
-                        cake.extendedIngredients[ingrIndex]["originalString"] +
-                        "\n";
-                }
-                this.dataString += "\n";
-                // compile step list
-                if (cake.instruction) {
-                    // create a temporary element to extract instructions
-                    let divEl:any = document.createElement("div");
-                    divEl.innerHTML = cake.instructions;
-                    let instructionList = divEl.firstChild.children[0].children;
-                    for (let stepIndex in instructionList) {
-                        if (instructionList[stepIndex].innerHTML) {
-                            this.dataString +=
-                                instructionList[stepIndex].innerHTML +
-                                "\n";
-                        }
-                    }
-                }
-                (<HTMLButtonElement> document.querySelector("[data-toggle='modal']")).click();
             }
         }
+    }
+
+    fillInfo(cake:any) {
+        this.dataString = "";
+        // translate JSON data into desired string format
+        this.dataString += cake.title + "\n\n";
+        if (cake.readyInMinutes) {
+            this.dataString += "(ready in " + cake.readyInMinutes + " minutes)";
+        } else {
+            this.dataString += "none"
+        }
+        this.dataString += "\n\n";
+        // compile ingredient list
+        for (let ingrIndex in cake.extendedIngredients) {
+            this.dataString +=
+                cake.extendedIngredients[ingrIndex]["originalString"] +
+                "\n";
+        }
+        this.dataString += "\n";
+        // compile step list
+        if (cake.instruction) {
+            // create a temporary element to extract instructions
+            let divEl:any = document.createElement("div");
+            divEl.innerHTML = cake.instructions;
+            let instructionList = divEl.firstChild.children[0].children;
+            for (let stepIndex in instructionList) {
+                if (instructionList[stepIndex].innerHTML) {
+                    this.dataString +=
+                        instructionList[stepIndex].innerHTML +
+                        "\n";
+                }
+            }
+        }
+        (<HTMLButtonElement> document.querySelector("[data-toggle='modal']")).click();
     }
 
     prepareSubmit(event:any) {
