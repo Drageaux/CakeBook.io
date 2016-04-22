@@ -5,7 +5,6 @@ import {CanActivate} from "angular2/router";
 import {tokenNotExpired} from "angular2-jwt";
 
 import {Cake} from "./cake";
-import {Image} from "./image";
 
 @Injectable()
 export class CakeService {
@@ -117,6 +116,9 @@ export class CakeService {
     }
 
 
+    /********************
+     * Helper Functions *
+     ********************/
     isUrl(input:string) {
         let regex = new RegExp("^(http|https|ftp)\://([a-zA-Z0-9\.\-]+(\:[a-zA-Z0-9" +
             "\.&amp;%\$\-]+)*@)*((25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])" +

@@ -113,6 +113,9 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };
+                /********************
+                 * Helper Functions *
+                 ********************/
                 CakeService.prototype.isUrl = function (input) {
                     var regex = new RegExp("^(http|https|ftp)\://([a-zA-Z0-9\.\-]+(\:[a-zA-Z0-9" +
                         "\.&amp;%\$\-]+)*@)*((25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])" +
