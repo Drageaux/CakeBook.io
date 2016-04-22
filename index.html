@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/custom/images/favicon-32x32.png">
     <!-- Setting the right viewport -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=0.95 user-scalable=no"/>
 
     <!-- Load libraries -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -24,18 +24,25 @@
     <script src="//cdn.auth0.com/js/lock-8.2.min.js"></script> <!-- Auth0 Lock script -->
 
     <!-- Bootstrap -->
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Semantic -->
+    <link rel="stylesheet" href="assets/semantic/css/checkbox.min.css">
+    <script src="assets/semantic/js/checkbox.min.js"></script>
+
+    <!-- Custom/Third-Party -->
+    <link href='https://fonts.googleapis.com/css?family=Chewy|Marmelad|Lobster' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="assets/dragula/css/dragula.css">
+
+
+    <!-- Initialize -->
     <script type="text/javascript">
         $(document).ready(function () {
             $("body").tooltip({selector: '[data-toggle=tooltip]'});
             $("body").popover({selector: '[data-toggle=popover]'});
         });
     </script>
-
-    <!-- Custom/Third-Party -->
-    <link href='https://fonts.googleapis.com/css?family=Chewy|Marmelad|Lobster' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="assets/custom/stylesheets/dragula.css">
 
     <!-- Configure SystemJS -->
     <script>

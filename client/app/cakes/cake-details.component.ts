@@ -1,11 +1,12 @@
 import {Component, Input, OnInit} from "angular2/core";
 import {Router, RouteParams, CanActivate} from "angular2/router";
-import {tokenNotExpired} from "angular2-jwt";
 import {Observable} from "rxjs/Observable";
 
 import {Cake} from "./cake";
 import {CakeService} from "./cake.service";
 import {EditableItemForm} from "./editable-item-form.component";
+
+declare var jQuery;
 
 @Component({
     selector: "cake-details",
@@ -13,7 +14,6 @@ import {EditableItemForm} from "./editable-item-form.component";
     directives: [EditableItemForm]
 })
 
-@CanActivate(() => tokenNotExpired())
 export class CakeDetailsComponent implements OnInit {
     cake:Cake;
     tempIngrs:Object[] = [];
@@ -77,6 +77,18 @@ export class CakeDetailsComponent implements OnInit {
     editDetail(detailType:string, index:number) {
         if (detailType == "desc") {
             this.currDesc["editing"] = true;
+        } else if (detailType == "isPublic") {
+            this._service.updateCakeDetail(this.cake._id, detailType, 0, "")
+                .subscribe(cake => {
+                    this.cake = cake;
+                    if (cake.isPublic != null) {
+                        (<HTMLInputElement> document.getElementById("publicToggle")).checked
+                            = cake.isPublic;
+                    } else {
+                        (<HTMLInputElement> document.getElementById("publicToggle")).checked
+                            = false;
+                    }
+                });
         }
     }
 
@@ -124,8 +136,7 @@ export class CakeDetailsComponent implements OnInit {
                 this._service.uploadCakeImage(this.cake._id, parsedInput, fileType)
                     .subscribe(
                         cake => this.cake = cake,
-                        err => this.cake.croppedImage = oldImage,
-                        () => console.log(this.cake)
+                        err => this.cake.croppedImage = oldImage
                     );
             }
             else {
@@ -160,6 +171,10 @@ export class CakeDetailsComponent implements OnInit {
         return str == "" || str == null;
     }
 
+    isOwner() {
+        return (this.cake.user == JSON.parse(localStorage.getItem("profile")).user_id)
+    }
+
     readImage(event:any, callback:Function) {
         if (event.target.files[0]) {
             let oldImage = this.cake.croppedImage;
@@ -176,7 +191,7 @@ export class CakeDetailsComponent implements OnInit {
         document.getElementById("modal-button").click();
     }
 
-    gotoCakes() {
+    goHome() {
         this._router.navigate(["Home"]);
     }
 }

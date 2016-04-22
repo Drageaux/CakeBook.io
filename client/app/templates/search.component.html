@@ -1,0 +1,82 @@
+<div class="general-container">
+    <h2>Search</h2>
+    <!-- Search -->
+    <form (ngSubmit)="goSearch(searchInput.value, 1, 10)">
+        <div class="search-input-group input-group" style="margin-bottom: 20px;">
+            <input #searchInput type="text" class="form-control" placeholder="Enter a link or some text..."
+                   [(ngModel)]="query">
+            <div class="input-group-btn search-group-btn">
+
+                <button class="btn btn-default" type="submit" required>
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Display Results -->
+    <div *ngIf="results" class="search-results">
+        <div *ngIf="results.totalResults > 0">
+            <h4 style="display: inline; margin-left:auto; margin-right:auto"><b>
+                Displaying results {{results.offset+1}} to
+                {{results.offset+results.totalResults}}
+            </b></h4>
+        </div>
+        <h4 *ngIf="results.totalResults == 0"><b>
+            Found no results for "{{lastSearch}}"
+        </b></h4>
+        <div *ngFor="#result of results.results" class="results-media media"
+             (click)="getInfo(result.id)">
+            <div class="media-left">
+                <img class="media-object"
+                     src="https://spoonacular.com/recipeImages/{{result.image}}"
+                     alt="ME">
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">{{result.title}}</h4>
+                (ready in {{result.readyInMinutes}} minutes)
+            </div>
+        </div>
+        <button data-toggle="modal" data-target="#importModal" hidden></button>
+        <div id="importModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Importing...</h4>
+                    </div>
+                    <div class="modal-body" style="background-color: #fce9dc;">
+                        <import-cake-form
+                                [active]="true"
+                                [isModal]="true"
+                                [modelString]="dataString"
+                                [header]="'Edit the Recipe to Your Liking'"
+                                (previewed)="prepareSubmit($event)">
+                        </import-cake-form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal" autofocus
+                                (click)="addCake()"
+                                [disabled]="!readySubmit">
+                            Submit
+                        </button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigate Results -->
+        <div class="previous-next">
+            <button class="btn btn-default previous-button" *ngIf="results.offset > 0"
+                    (click)="goSearchPrevious()">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Prev 10
+            </button>
+            <button class="btn btn-default next-button" *ngIf="results.totalResults >= 10"
+                    (click)="goSearchNext()">
+                Next 10 <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>
+</div>

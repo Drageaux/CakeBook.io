@@ -1,8 +1,30 @@
 <div class="details-container">
     <div *ngIf="cake">
-        <!-- Name -->
-        <h3><b>{{cake.name}}</b></h3>
+        <div class="container cake-headline">
+            <!-- Name -->
+            <h4><b>{{cake.name}}</b></h4>
+            <div class="dropdown" *ngIf="isOwner()">
+                <button class="btn btn-primary" data-toggle="dropdown" id="checkboxLabel"
+                        aria-haspopup="true" aria-expanded="false">
+                    <span *ngIf="!cake.isPublic" class="glyphicon glyphicon-lock"></span>
+                    <span *ngIf="cake.isPublic" class="glyphicon glyphicon-globe"></span>
+                    <span *ngIf="!cake.isPublic"> Private</span>
+                    <span *ngIf="cake.isPublic"> Public</span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="checkboxLabel">
+                    <li>
+                        <div class="ui toggle checkbox">
+                            <input type="checkbox" id="publicToggle" [checked]="cake.isPublic"
+                                   (click)="editDetail('isPublic', 0)">
+                            <label>Allow everyone to see this cake?</label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
         <hr>
+
+
         <div class="cake-info">
             <!-- Image -->
             <div class="cake-image">
@@ -10,10 +32,12 @@
                     <img *ngIf="!isEmptyString(cake.croppedImage)" src="{{cake.croppedImage}}">
                     <img *ngIf="isEmptyString(cake.croppedImage)" src="../assets/custom/images/default-placeholder.png">
                 </a>
-                <input type="file" name="file" id="file" (change)="readImage($event, uploadCallBack)">
-                <label for="file">
-                    <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>&nbsp;Upload an image
-                </label>
+                <div *ngIf="isOwner()">
+                    <input type="file" name="file" id="file" (change)="readImage($event, uploadCallBack)">
+                    <label for="file">
+                        <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>&nbsp;Upload an image
+                    </label>
+                </div>
             </div>
             <!-- Description -->
             <form class="cake-description well container">
@@ -27,17 +51,18 @@
                           [value]="cake.description"></textarea>
                 <div class="row">
                     <button type="button" class="btn btn-default"
+                            *ngIf="isOwner()"
                             [class.hidden]="isEditing('desc')"
                             (click)="editDetail('desc', {})">Edit
                     </button>
                     <div class="save-cancel" [class.hidden]="!isEditing('desc')">
-                        <button type="button" class="cancel-button btn btn-danger"
-                                (click)="cancelEdit('desc', 0)">
-                            <span class="glyphicon glyphicon-remove"></span>&nbsp;Cancel
-                        </button>
                         <button type="submit" class="save-button btn btn-success"
                                 (click)="saveEdit('desc', {'value': newDescription.value})">
                             <span class="glyphicon glyphicon-check"></span>&nbsp;Save
+                        </button>
+                        <button type="button" class="cancel-button btn btn-danger"
+                                (click)="cancelEdit('desc', 0)">
+                            <span class="glyphicon glyphicon-remove"></span>&nbsp;Cancel
                         </button>
                     </div>
                 </div>
@@ -45,113 +70,150 @@
         </div>
         <br>
 
+        <div *ngIf="isOwner()">
+            <!-- Ingredients -->
+            <label>Ingredients</label><br>
+            <ul class="well normal-list-group" data-toggle="modal" data-target="#ingrModal"
+                id="ingr-modal-button" title="Click to edit">
+                <li style="list-style: none; color: #888" *ngIf="cake.ingredients.length == 0">
+                    (click to add ingredients)
+                </li>
+                <li *ngFor="#item of cake.ingredients; #idx = index">
+                    {{item.value}}
+                </li>
+            </ul>
+            <div id="ingrModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Updating Ingredients</h4>
+                        </div>
+                        <div class="modal-body" style="background-color: #DDD;">
+                            <editable-item-list
+                                    [placeholder]="'(add new ingredient)'"
+                                    [itemList]="tempIngrs"
+                                    (onAdded)="addDetail('ingr', $event)"
+                                    (onRemoved)="removeDetail('ingr', $event)"
+                                    (onSaved)="saveEdit('ingr', $event)">
+                            </editable-item-list>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" data-dismiss="modal" autofocus
+                                    (click)="submitEdit('ingr')">
+                                Submit
+                            </button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <!-- Steps -->
+            <label>Steps</label><br>
+            <ul class="well normal-list-group" data-toggle="modal" data-target="#stepModal"
+                id="step-modal-button" title="Click to edit">
+                <li style="list-style: none; color: #888" *ngIf="cake.steps.length == 0">
+                    (click to add steps)
+                </li>
+                <li *ngFor="#item of cake.steps; #idx = index">
+                    {{item.value}}
+                </li>
+            </ul>
+            <div id="stepModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Updating Steps</h4>
+                        </div>
+                        <div class="modal-body" style="background-color: #DDD;">
+                            <editable-item-list
+                                    [placeholder]="'(add new step)'"
+                                    [itemList]="tempSteps"
+                                    (onAdded)="addDetail('step', $event)"
+                                    (onRemoved)="removeDetail('step', $event)"
+                                    (onSaved)="saveEdit('step', $event)">
+                            </editable-item-list>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" data-dismiss="modal" autofocus
+                                    (click)="submitEdit('step')">
+                                Submit
+                            </button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="!isOwner()">
         <!-- Ingredients -->
-        <label>Ingredients</label><br>
-        <ul class="well normal-list-group" data-toggle="modal" data-target="#ingrModal"
-            id="ingr-modal-button" title="Click to edit">
-            <li style="list-style: none; color: #888" *ngIf="cake.ingredients.length == 0">
-                (click to add ingredients)
-            </li>
-            <li *ngFor="#item of cake.ingredients; #idx = index">
-                {{item.value}}
-            </li>
-        </ul>
-        <div id="ingrModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Updating Ingredients</h4>
-                    </div>
-                    <div class="modal-body" style="background-color: #DDD;">
-                        <editable-item-list
-                                [placeholder]="'(add new ingredient)'"
-                                [itemList]="tempIngrs"
-                                (onAdded)="addDetail('ingr', $event)"
-                                (onRemoved)="removeDetail('ingr', $event)"
-                                (onSaved)="saveEdit('ingr', $event)">
-                        </editable-item-list>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal" autofocus
-                                (click)="submitEdit('ingr')">
-                            Submit
-                        </button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
+            <label>Ingredients</label><br>
+            <ul class="well normal-list-group">
+                <li style="list-style: none; color: #888" *ngIf="cake.ingredients.length == 0">
+                    (no ingredients listed)
+                </li>
+                <li *ngFor="#item of cake.ingredients; #idx = index">
+                    {{item.value}}
+                </li>
+            </ul>
+            <br>
+            <!-- Steps -->
+            <label>Steps</label><br>
+            <ul class="well normal-list-group">
+                <li style="list-style: none; color: #888" *ngIf="cake.steps.length == 0">
+                    (no steps listed)
+                </li>
+                <li *ngFor="#item of cake.steps; #idx = index">
+                    {{item.value}}
+                </li>
+            </ul>
         </div>
-        <br>
+        <hr>
+        <!--<button class="btn btn-warning">Options</button>-->
+        <!--<div class="panel panel-default">-->
+        <!--<div class="panel-heading">Options</div>-->
+        <!--<div class="panel-body">-->
+        <!--<button *ngIf="cake" class="btn btn-danger" (click)="deleteCake()">Remove This Cake</button>-->
+        <!--</div>-->
+        <!--</div>-->
 
-        <!-- Steps -->
-        <label>Steps</label><br>
-        <ul class="well normal-list-group" data-toggle="modal" data-target="#stepModal"
-            id="step-modal-button" title="Click to edit">
-            <li style="list-style: none; color: #888" *ngIf="cake.steps.length == 0">
-                (click to add steps)
-            </li>
-            <li *ngFor="#item of cake.steps; #idx = index">
-                {{item.value}}
-            </li>
-        </ul>
-        <div id="stepModal" class="modal fade" role="dialog">
+        <!-- Image Upload Error Modal -->
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"
+                id="modal-button" style="display:none">Open Modal
+        </button>
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Updating Steps</h4>
+                        <h4 style="color:red" class="modal-title">Upload Unsuccesful</h4>
                     </div>
-                    <div class="modal-body" style="background-color: #DDD;">
-                        <editable-item-list
-                                [placeholder]="'(add new step)'"
-                                [itemList]="tempSteps"
-                                (onAdded)="addDetail('step', $event)"
-                                (onRemoved)="removeDetail('step', $event)"
-                                (onSaved)="saveEdit('step', $event)">
-                        </editable-item-list>
+                    <div class="modal-body">
+                        <p style="word-break: keep-all">
+                            Please only upload image of either type JPG, JPEG, or PNG
+                        </p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal" autofocus
-                                (click)="submitEdit('step')">
-                            Submit
-                        </button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" autofocus>Close</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <hr>
 
-    <button class="btn btn-default" (click)="gotoCakes()">Back</button>
-    <button *ngIf="cake" class="btn btn-danger" (click)="deleteCake()">Remove This Cake</button>
-
-
-    <!-- Image Upload Error Modal -->
-    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"
-            id="modal-button" style="display:none">Open Modal
+    <!-- Important Options -->
+    <button class="btn btn-default" (click)="goHome()" style="margin-bottom: 5px">
+        <span class="glyphicon glyphicon-chevron-left"></span><span class="glyphicon glyphicon-home"></span>
+        Return Home
     </button>
-    <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 style="color:red" class="modal-title">Upload Unsuccesful</h4>
-                </div>
-                <div class="modal-body">
-                    <p style="word-break: keep-all">
-                        Please only upload image of either type JPG, JPEG, or PNG
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" autofocus>Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <button *ngIf="cake && isOwner()" class="btn btn-danger" (click)="deleteCake()" style="margin-bottom: 5px">
+        <span class="glyphicon glyphicon-alert"></span> Remove This Cake
+    </button>
 </div>

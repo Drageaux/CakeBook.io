@@ -1,4 +1,4 @@
-System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-jwt", "./loggedin-outlet", "./login.component", "./home.component", "./cakes/cake-details.component", "./cakes/cake.service", 'angular2/core'], function(exports_1) {
+System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-jwt", "./loggedin-outlet", "./login.component", "./home.component", "./cakes/search.component", "./cakes/cake-details.component", "./cakes/cake.service", 'angular2/core'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, router_1, angular2_jwt_1, loggedin_outlet_1, login_component_1, home_component_1, cake_details_component_1, cake_service_1, core_2, core_3;
+    var core_1, http_1, router_1, angular2_jwt_1, loggedin_outlet_1, login_component_1, home_component_1, search_component_1, cake_details_component_1, cake_service_1, core_2, core_3;
     var AppComponent;
     return {
         setters:[
@@ -34,6 +34,9 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
             function (home_component_1_1) {
                 home_component_1 = home_component_1_1;
             },
+            function (search_component_1_1) {
+                search_component_1 = search_component_1_1;
+            },
             function (cake_details_component_1_1) {
                 cake_details_component_1 = cake_details_component_1_1;
             },
@@ -52,7 +55,7 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                     this._location = _location;
                 }
                 AppComponent.prototype.ngOnInit = function () {
-                    if (!angular2_jwt_1.tokenNotExpired()) {
+                    if (!localStorage.getItem("id_token")) {
                         this._router.navigate(["Login"]);
                     }
                     var displayBackToTop = this.displayBackToTop.bind(this);
@@ -61,8 +64,8 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                     };
                 };
                 AppComponent.prototype.logout = function () {
-                    localStorage.removeItem('profile');
-                    localStorage.removeItem('id_token');
+                    localStorage.removeItem("profile");
+                    localStorage.removeItem("id_token");
                     this._router.navigate(["Login"]);
                 };
                 /*****************
@@ -88,7 +91,7 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                  * Helper Functions *
                  ********************/
                 AppComponent.prototype.loggedIn = function () {
-                    return angular2_jwt_1.tokenNotExpired();
+                    return localStorage.getItem("id_token") != null;
                 };
                 AppComponent.prototype.atLoginPage = function () {
                     return this._location.path() == "/login";
@@ -114,7 +117,8 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2-
                     router_1.RouteConfig([
                         { path: "/login", name: "Login", component: login_component_1.LoginComponent },
                         { path: "/home", name: "Home", component: home_component_1.HomeComponent, useAsDefault: true },
-                        { path: "/cake/:id", name: "CakeDetails", component: cake_details_component_1.CakeDetailsComponent }
+                        { path: "/cake/:id", name: "CakeDetails", component: cake_details_component_1.CakeDetailsComponent },
+                        { path: "/search/query/:query/start/:start/end/:end", name: "Search", component: search_component_1.SearchComponent }
                     ]), 
                     __metadata('design:paramtypes', [angular2_jwt_1.AuthHttp, router_1.Router, router_1.Location])
                 ], AppComponent);

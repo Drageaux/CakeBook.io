@@ -15,15 +15,17 @@ export class ImportCakeFormComponent {
     userId = JSON.parse(localStorage.getItem("profile")).user_id; // must be defined first
 
     @Output() saved = new EventEmitter<Cake>();
-    modelString = "";
-    model = new Cake(0, this.userId, "", "", "", "", [], []);
-    active = false;
+    @Output() previewed = new EventEmitter<Cake>();
+    @Input() active = false;
+    @Input() isModal;
+    @Input() modelString = "";
+    @Input() header = "Paste a Recipe Here";
+    model = new Cake(0, false, this.userId, "", "", "", "", [], []);
     tooltipTitle = `
         <p style='text-align:left; padding: 5px; margin-bottom: 0'>
             <b>How To</b>:<br>
-            - Add an empty line to <i>separate each detail group</i><br>
-            - Add a new line <i>for each ingredient/step</i><br>
-            - Type 'none' or 'None' to <i>leave blank</i><br>
+            - Name is required
+            - <b>Type 'none' or 'None' to <i>leave blank</i></b><br>
             <br>
             <b>Template</b>:
         </p>
@@ -50,6 +52,22 @@ export class ImportCakeFormComponent {
         this.active = false;
     }
 
+    togglePublicity() {
+        if (this.model.isPublic != null) {
+            this.model.isPublic = !this.model.isPublic;
+            (<HTMLInputElement> document.getElementById("publicToggleImport")).checked
+                = this.model.isPublic;
+        } else {
+            this.model.isPublic = true;
+            (<HTMLInputElement> document.getElementById("publicToggleImport")).checked
+                = true;
+        }
+    }
+
+    onPreview(){
+        this.previewed.emit(this.model);
+    }
+
     parsePreview() {
         // split into list of elements
         let cursor;
@@ -62,7 +80,7 @@ export class ImportCakeFormComponent {
         if (modelArray[0]) {
             this.model.name = modelArray[0];
         }
-        if (modelArray[2]) {
+        if (modelArray[2].toLowerCase() != "none") {
             this.model.description = modelArray[2];
         }
 
@@ -77,7 +95,6 @@ export class ImportCakeFormComponent {
                 this.model.ingredients = [];
             }
             else {
-
                 isIngr = false;
                 break;
             }
@@ -103,18 +120,20 @@ export class ImportCakeFormComponent {
             indexStep++;
             cursor++;
         }
+
+        this.onPreview();
     }
 
     importCake():Observable<Cake> {
         if (this.isEmptyString(this.modelString) || this.isEmptyString(this.model.name)) {
             return;
         }
-
         this.parsePreview();
         this._cakeService.addCake(JSON.stringify(this.model))
             .subscribe(res => this.saved.emit(res));
         // TODO: Remove when there's a better way to reset the model
-        this.model = new Cake(0, this.userId, "", "", "", "", [], []);
+        this.model = new Cake(0, false, this.userId,
+            "", "", "", "", [], []);
         this.closeForm();
     }
 
