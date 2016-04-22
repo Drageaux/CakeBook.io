@@ -5,6 +5,7 @@ import {Observable} from "rxjs/Observable";
 import {Cake} from "./cake";
 import {CakeService} from "./cake.service";
 import {ImportCakeFormComponent} from "./import-cake-form.component";
+import {isEmpty} from "rxjs/operator/isEmpty";
 
 @Component({
     templateUrl: "templates/search.component.html",
@@ -18,7 +19,7 @@ export class SearchComponent implements OnInit {
     query = this._routeParams.get("query");
     dataString:string = "";
     readySubmit:boolean = false;
-    currModel:Cake;
+    currModel:Cake = null;
 
     constructor(private _router:Router,
                 private _routeParams:RouteParams,
@@ -151,12 +152,17 @@ export class SearchComponent implements OnInit {
     }
 
     prepareSubmit(event:any) {
-        this.readySubmit = true;
-        this.currModel = event;
+        if (this.isEmptyString(event["name"])) {
+            this.readySubmit = false;
+            this.currModel = null;
+        } else {
+            this.readySubmit = true;
+            this.currModel = event;
+        }
     }
 
     addCake() {
-        if (this.currModel != null && this.readySubmit) {
+        if (this.isEmptyString(this.currModel.name) && this.readySubmit) {
             this._service.addCake(JSON.stringify(this.currModel))
                 .subscribe(res => {
                     this.currModel = null;

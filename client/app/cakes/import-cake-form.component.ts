@@ -69,6 +69,7 @@ export class ImportCakeFormComponent {
     }
 
     parsePreview() {
+        this.model = new Cake(0, false, this.userId, "", "", "", "", [], []);
         // split into list of elements
         let cursor;
         let isIngr = true;
@@ -80,45 +81,48 @@ export class ImportCakeFormComponent {
         if (modelArray[0]) {
             this.model.name = modelArray[0];
         }
-        if (modelArray[2].toLowerCase() != "none") {
-            this.model.description = modelArray[2];
-        }
 
-        cursor = 4;
-        while (isIngr) {
-            if (modelArray[cursor] && modelArray[cursor].toLowerCase() != "none") {
-                this.model.ingredients[indexIngr] = {
-                    "index": indexIngr,
-                    "value": modelArray[cursor]
-                };
-            } else if (modelArray[cursor] && modelArray[cursor].toLowerCase() == "none") {
-                this.model.ingredients = [];
+        if (this.model.name) {
+            if (modelArray[2] && modelArray[2].toLowerCase() != "none") {
+                this.model.description = modelArray[2];
             }
-            else {
-                isIngr = false;
-                break;
-            }
-            indexIngr++;
-            cursor++;
-        }
 
-        cursor++;
-        isStep = true;
-        while (isStep) {
-            if (modelArray[cursor] && modelArray[cursor].toLowerCase() != "none") {
-                this.model.steps[indexStep] = {
-                    "index": indexStep,
-                    "value": modelArray[cursor]
-                };
-            } else if (modelArray[cursor] && modelArray[cursor].toLowerCase() == "none") {
-                this.model.steps = [];
+            cursor = 4;
+            while (isIngr) {
+                if (modelArray[cursor] && modelArray[cursor].toLowerCase() != "none") {
+                    this.model.ingredients[indexIngr] = {
+                        "index": indexIngr,
+                        "value": modelArray[cursor]
+                    };
+                } else if (modelArray[cursor] && modelArray[cursor].toLowerCase() == "none") {
+                    this.model.ingredients = [];
+                }
+                else {
+                    isIngr = false;
+                    break;
+                }
+                indexIngr++;
+                cursor++;
             }
-            else {
-                isStep = false;
-                break;
-            }
-            indexStep++;
+
             cursor++;
+            isStep = true;
+            while (isStep) {
+                if (modelArray[cursor] && modelArray[cursor].toLowerCase() != "none") {
+                    this.model.steps[indexStep] = {
+                        "index": indexStep,
+                        "value": modelArray[cursor]
+                    };
+                } else if (modelArray[cursor] && modelArray[cursor].toLowerCase() == "none") {
+                    this.model.steps = [];
+                }
+                else {
+                    isStep = false;
+                    break;
+                }
+                indexStep++;
+                cursor++;
+            }
         }
 
         this.onPreview();

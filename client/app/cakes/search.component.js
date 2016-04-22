@@ -35,6 +35,7 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./import
                     this.query = this._routeParams.get("query");
                     this.dataString = "";
                     this.readySubmit = false;
+                    this.currModel = null;
                 }
                 SearchComponent.prototype.ngOnInit = function () {
                     var _this = this;
@@ -158,12 +159,18 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./import
                     document.querySelector("[data-toggle='modal']").click();
                 };
                 SearchComponent.prototype.prepareSubmit = function (event) {
-                    this.readySubmit = true;
-                    this.currModel = event;
+                    if (this.isEmptyString(event["name"])) {
+                        this.readySubmit = false;
+                        this.currModel = null;
+                    }
+                    else {
+                        this.readySubmit = true;
+                        this.currModel = event;
+                    }
                 };
                 SearchComponent.prototype.addCake = function () {
                     var _this = this;
-                    if (this.currModel != null && this.readySubmit) {
+                    if (this.isEmptyString(this.currModel.name) && this.readySubmit) {
                         this._service.addCake(JSON.stringify(this.currModel))
                             .subscribe(function (res) {
                             _this.currModel = null;
