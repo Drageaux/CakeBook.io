@@ -2,16 +2,23 @@ import {Component, OnInit} from "angular2/core";
 import {Router, RouteParams, CanActivate} from "angular2/router";
 import {Observable} from "rxjs/Observable";
 
+import {Cake} from "./cake";
 import {CakeService} from "./cake.service";
+import {ImportCakeFormComponent} from "./import-cake-form.component";
 
 @Component({
-    templateUrl: "templates/search.component.html"
+    templateUrl: "templates/search.component.html",
+    directives: [ImportCakeFormComponent]
 })
 
 @CanActivate(() => localStorage.getItem("id_token"))
 export class SearchComponent implements OnInit {
+    lastSearch = this._routeParams.get("query");
     results:any = {};
-    query = this._routeParams.get('query');
+    query = this._routeParams.get("query");
+    dataString:string = "";
+    readySubmit:boolean = false;
+    currModel:Cake;
 
     constructor(private _router:Router,
                 private _routeParams:RouteParams,
@@ -19,130 +26,40 @@ export class SearchComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log(this.query);
-
-        this._service.searchCakes(this.query,
-            this._routeParams.get(("start")),
-            this._routeParams.get("end")
-            )
-            .subscribe(
-                res => {
+        if (this._service.isUrl(this.query)) {
+            let encodedQuery = encodeURIComponent(this.query);
+            this._service.extractCake(encodedQuery)
+                .subscribe(res => {
+                    this.results = {"results": []};
+                    this.results["results"].push(res.body);
+                });
+        }
+         else {
+            this._service.searchCakes(
+                this.query,
+                this._routeParams.get(("start")),
+                this._routeParams.get("end"))
+                .subscribe(res => {
                     this.results = res.body;
-                    console.log(res.body)
-                }
-            );
-        //this.results = {
-        //    "results": [
-        //        {
-        //            "id": 130666,
-        //            "title": "Toll House Cake (Layer Cake or Bundt Cake- You Pick)",
-        //            "readyInMinutes": 45,
-        //            "image": "toll-house-cake-2-130666.jpg",
-        //            "imageUrls": [
-        //                "toll-house-cake-2-130666.jpg"
-        //            ]
-        //        },
-        //        {
-        //            "id": 579989,
-        //            "title": "Eggless Wheat Tutti Frutti Cake - Vegan Whole Wheat Cake - Christmas Cake s",
-        //            "readyInMinutes": 45,
-        //            "image": "Eggless-Wheat-Tutti-Frutti-Cake---Vegan-Whole-Wheat-Cake---Christmas-Cake-s-579989.jpg",
-        //            "imageUrls": [
-        //                "Eggless-Wheat-Tutti-Frutti-Cake---Vegan-Whole-Wheat-Cake---Christmas-Cake-s-579989.jpg"
-        //            ]
-        //        },
-        //        {
-        //            "id": 605095,
-        //            "title": "Eggless Mango Tutti Frutti Cake - Vegan Mango Wheat Cake - Eggless Cake s",
-        //            "readyInMinutes": 50,
-        //            "image": "Eggless-Mango-Tutti-Frutti-Cake---Vegan-Mango-Wheat-Cake---Eggless-Cake-s-605095.jpg",
-        //            "imageUrls": [
-        //                "Eggless-Mango-Tutti-Frutti-Cake---Vegan-Mango-Wheat-Cake---Eggless-Cake-s-605095.jpg"
-        //            ]
-        //        },
-        //        {
-        //            "id": 259569,
-        //            "title": "Oreo Mousse Filled Chocolate Trifecta Cake Using Cake Boss Mix",
-        //            "readyInMinutes": 32,
-        //            "image": "Oreo-Mousse-Filled-Chocolate-Trifecta-Cake-Using-Cake-Boss-Mix-259569.jpg",
-        //            "imageUrls": [
-        //                "Oreo-Mousse-Filled-Chocolate-Trifecta-Cake-Using-Cake-Boss-Mix-259569.jpg"
-        //            ]
-        //        },
-        //        {
-        //            "id": 600921,
-        //            "title": "Spiced Apple Cake – this is a wonderful cake to make in the fall, or anytime you have apples around",
-        //            "readyInMinutes": 70,
-        //            "image": "Spiced-Apple-Cake--this-is-a-wonderful-cake-to-make-in-the-fall--or-anytime-you-have-apples-around-600921.jpg",
-        //            "imageUrls": [
-        //                "Spiced-Apple-Cake--this-is-a-wonderful-cake-to-make-in-the-fall--or-anytime-you-have-apples-around-600921.jpg"
-        //            ]
-        //        },
-        //        {
-        //            "id": 130942,
-        //            "title": "Twelfth Night Cake or King Cake(Galette Des Rois)",
-        //            "readyInMinutes": 50,
-        //            "image": "twelfth-night-cake-or-king-cake-2-130942.jpg",
-        //            "imageUrls": [
-        //                "twelfth-night-cake-or-king-cake-2-130942.jpg",
-        //                "twelfth_night_cake_or_king_cake-130942.jpg"
-        //            ]
-        //        },
-        //        {
-        //            "id": 542505,
-        //            "title": "Confession #107: I’m a Lousy Cake Froster… Chocolate Rose Cake",
-        //            "readyInMinutes": 35,
-        //            "image": "Confession--107--Im-a-Lousy-Cake-Froster-Chocolate-Rose-Cake-542505.jpg",
-        //            "imageUrls": [
-        //                "Confession--107--Im-a-Lousy-Cake-Froster-Chocolate-Rose-Cake-542505.jpg"
-        //            ]
-        //        },
-        //        {
-        //            "id": 547965,
-        //            "title": "Funfetti Cake Batter White Chocolate Chip Cookie Cake",
-        //            "readyInMinutes": 45,
-        //            "image": "Funfetti-Cake-Batter-White-Chocolate-Chip-Cookie-Cake-547965.png",
-        //            "imageUrls": [
-        //                "Funfetti-Cake-Batter-White-Chocolate-Chip-Cookie-Cake-547965.png"
-        //            ]
-        //        },
-        //        {
-        //            "id": 612048,
-        //            "title": "Carrot Cake Poke Cake with Salted Caramel Cinnamon Glaze",
-        //            "readyInMinutes": 53,
-        //            "image": "Carrot-Cake-Poke-Cake-with-Salted-Caramel-Cinnamon-Glaze-612048.jpg",
-        //            "imageUrls": [
-        //                "Carrot-Cake-Poke-Cake-with-Salted-Caramel-Cinnamon-Glaze-612048.jpg"
-        //            ]
-        //        },
-        //        {
-        //            "id": 665941,
-        //            "title": "Carrot Cake Sheet Cake with Pineapple Cream Cheese Frosting",
-        //            "readyInMinutes": 60,
-        //            "image": "Carrot-Cake-Sheet-Cake-with-Pineapple-Cream-Cheese-Frosting-665941.jpg",
-        //            "imageUrls": [
-        //                "Carrot-Cake-Sheet-Cake-with-Pineapple-Cream-Cheese-Frosting-665941.jpg"
-        //            ]
-        //        }
-        //    ],
-        //    "baseUri": "https://spoonacular.com/recipeImages/",
-        //    "offset": 0,
-        //    "number": 10,
-        //    "totalResults": 10,
-        //    "processingTimeMs": 252,
-        //    "expires": 1460907924132,
-        //    "isStale": false
-        //}
+                });
+        }
     }
 
     goSearch(query:string, start:string, end:string) {
         if (query != "" && query != null) {
-            this._router.navigate(["Search", {
-                    query: query,
-                    start: start,
-                    end: end
-                }]
-            );
+            if (this._service.isUrl(query)) {
+                this._router.navigate(["Search", {
+                        query: query,
+                        start: -1,
+                        end: -1
+                    }]);
+            } else {
+                this._router.navigate(["Search", {
+                        query: query,
+                        start: start,
+                        end: end
+                    }]);
+            }
         }
     }
 
@@ -158,8 +75,7 @@ export class SearchComponent implements OnInit {
                     query: query,
                     start: start,
                     end: end
-                }]
-            );
+                }]);
         }
     }
 
@@ -172,15 +88,87 @@ export class SearchComponent implements OnInit {
                     query: query,
                     start: start,
                     end: end
-                }]
-            );
+                }]);
         }
     }
 
     getInfo(id:string) {
-        // Get info to redirect and import the cake
+        // match id
+        for (let i in this.results.results) {
+            if (this.results.results[i]["id"] == id) {
+                let cake = this.results.results[i];
+                // check if already extracted by URL
+                // else, extract from URL and import
+                if (this._service.isUrl(this.lastSearch)) {
+                    this.fillInfo(cake);
+                } else {
+                    this._service.searchCakeById(id)
+                        .subscribe(res => {
+                            if (res.body["sourceUrl"]) {
+                                var newQuery = res.body["sourceUrl"];
+                                newQuery = encodeURIComponent(newQuery);
+                                this._service.extractCake(newQuery)
+                                    .subscribe(res => this.fillInfo(res.body));
+                            }
+                        });
+                }
+            }
+        }
     }
 
+    fillInfo(cake:any) {
+        this.dataString = "";
+        // translate JSON data into desired string format
+        this.dataString += cake.title + "\n\n";
+        if (cake.readyInMinutes) {
+            this.dataString += "(ready in " + cake.readyInMinutes + " minutes)";
+        } else {
+            this.dataString += "none"
+        }
+        this.dataString += "\n\n";
+        // compile ingredient list
+        for (let ingrIndex in cake.extendedIngredients) {
+            this.dataString +=
+                cake.extendedIngredients[ingrIndex]["originalString"] +
+                "\n";
+        }
+        this.dataString += "\n";
+        // compile step list
+        if (cake.instructions) {
+            // create a temporary element to extract instructions
+            let divEl:any = document.createElement("div");
+            divEl.innerHTML = cake.instructions;
+            let instructionList = divEl.firstChild.children[0].children;
+            for (let stepIndex in instructionList) {
+                if (instructionList[stepIndex].innerHTML) {
+                    this.dataString +=
+                        instructionList[stepIndex].innerHTML +
+                        "\n";
+                }
+            }
+        }
+        (<HTMLButtonElement> document.querySelector("[data-toggle='modal']")).click();
+    }
+
+    prepareSubmit(event:any) {
+        this.readySubmit = true;
+        this.currModel = event;
+    }
+
+    addCake() {
+        if (this.currModel != null && this.readySubmit) {
+            this._service.addCake(JSON.stringify(this.currModel))
+                .subscribe(res => {
+                    this.currModel = null;
+                    this._router.navigate(["CakeDetails", {id: res._id}]);
+                });
+        }
+    }
+
+
+    /********************
+     * Helper Functions *
+     ********************/
     isEmptyString(str:string) {
         return str == "" || str == null;
     }

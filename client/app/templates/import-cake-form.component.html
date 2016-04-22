@@ -9,7 +9,7 @@
         <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
     </button>
 
-    <h4 style="text-align: center"><b>Paste a Recipe Here</b></h4>
+    <h4 style="text-align: center"><b>{{header}}</b></h4>
     <form (ngSubmit)="importCake()">
         <textarea rows="10" class="form-control" [(ngModel)]="modelString"></textarea>
         <button type="button" class="btn btn-info"
@@ -19,7 +19,7 @@
             <span class="hide-720"> Preview</span>
         </button>
         <div class="ui toggle checkbox">
-            <input type="checkbox" [checked]="model.isPublic"
+            <input type="checkbox" id="publicToggleImport" [checked]="model.isPublic"
                    (click)="togglePublicity()">
             <label>Allow everyone to see this cake?</label>
         </div>
@@ -37,16 +37,18 @@
         <ul>
             <li *ngFor="#step of model.steps">{{step.value}}</li>
         </ul>
-        <hr>
 
         <!-- Main form buttons -->
-        <button type="submit" class="btn btn-success"
-                [class.disabled]="isEmptyString(model.name)">
-            Submit
-        </button>
-        <button type="button" class="btn btn-danger"
-                (click)="closeForm()">
-            Cancel
-        </button>
+        <div *ngIf="isModal != true">
+            <hr>
+            <button type="submit" class="btn btn-success"
+                    [class.disabled]="isEmptyString(model.name)">
+                Submit
+            </button>
+            <button type="button" class="btn btn-danger"
+                    (click)="closeForm()">
+                Cancel
+            </button>
+        </div>
     </form>
 </div>

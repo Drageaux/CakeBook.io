@@ -39,13 +39,22 @@ export class HomeComponent implements OnInit {
     }
 
     goSearch(query:string) {
-        if (query != "" && query != null) {
+        if (this._cakeService.isUrl(query)) {
             this._router.navigate(["Search", {
                     query: query,
-                    start: 1,
-                    end: 10
+                    start: -1,
+                    end: -1
                 }]
             );
+        } else {
+            if (query != "" && query != null) {
+                this._router.navigate(["Search", {
+                        query: query,
+                        start: 1,
+                        end: 10
+                    }]
+                );
+            }
         }
     }
 

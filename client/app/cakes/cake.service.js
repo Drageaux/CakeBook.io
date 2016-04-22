@@ -98,17 +98,40 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
                     if (parseInt(start) < 1) {
                         start = "1";
                     }
-                    return this.http.get("/api/search/cakes/query=" + query +
+                    return this.http.get("/spoonacular/search/query=" + query +
                         "/" + start + "/" + end)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
-                    //.subscribe(results => console.log(results.json()));
+                };
+                CakeService.prototype.searchCakeById = function (id) {
+                    return this.http.get("/spoonacular/searchBy/id/query=" + id)
+                        .map(function (res) { return res.json(); })
+                        .catch(this.handleError);
+                };
+                CakeService.prototype.extractCake = function (query) {
+                    return this.http.get("/spoonacular/extract/query=" + query)
+                        .map(function (res) { return res.json(); })
+                        .catch(this.handleError);
+                };
+                /********************
+                 * Helper Functions *
+                 ********************/
+                CakeService.prototype.isUrl = function (input) {
+                    var regex = new RegExp("^(http|https|ftp)\://([a-zA-Z0-9\.\-]+(\:[a-zA-Z0-9" +
+                        "\.&amp;%\$\-]+)*@)*((25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])" +
+                        "\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)" +
+                        "\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)" +
+                        "\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])" +
+                        "|localhost|([a-zA-Z0-9\-]+\.)*[a-zA-Z0-9\-]+" +
+                        "\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(" +
+                        "\:[0-9]+)*(/($|[a-zA-Z0-9\.\,\?\'\\\+&amp;%\$#\=~_\-]+))*$");
+                    return input.match(regex);
                 };
                 CakeService.prototype.handleError = function (error) {
                     // in a real world app, we may send the server to some remote logging infrastructure
                     // instead of just logging it to the console
                     console.error(error);
-                    return Observable_1.Observable.throw(error.json().error || 'Server error');
+                    return Observable_1.Observable.throw(error || 'Server error');
                 };
                 CakeService = __decorate([
                     core_1.Injectable(), 
