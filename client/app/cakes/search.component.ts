@@ -35,7 +35,7 @@ export class SearchComponent implements OnInit {
                     this.results["results"].push(res.body);
                 });
         }
-         else {
+        else {
             this._service.searchCakes(
                 this.query,
                 this._routeParams.get(("start")),
@@ -50,16 +50,16 @@ export class SearchComponent implements OnInit {
         if (query != "" && query != null) {
             if (this._service.isUrl(query)) {
                 this._router.navigate(["Search", {
-                        query: query,
-                        start: -1,
-                        end: -1
-                    }]);
+                    query: query,
+                    start: -1,
+                    end: -1
+                }]);
             } else {
                 this._router.navigate(["Search", {
-                        query: query,
-                        start: start,
-                        end: end
-                    }]);
+                    query: query,
+                    start: start,
+                    end: end
+                }]);
             }
         }
     }
@@ -73,10 +73,10 @@ export class SearchComponent implements OnInit {
         let end = start + 9;
         if (query != "" && query != null) {
             this._router.navigate(["Search", {
-                    query: query,
-                    start: start,
-                    end: end
-                }]);
+                query: query,
+                start: start,
+                end: end
+            }]);
         }
     }
 
@@ -86,10 +86,10 @@ export class SearchComponent implements OnInit {
         let end = start + 9;
         if (query != "" && query != null) {
             this._router.navigate(["Search", {
-                    query: query,
-                    start: start,
-                    end: end
-                }]);
+                query: query,
+                start: start,
+                end: end
+            }]);
         }
     }
 
