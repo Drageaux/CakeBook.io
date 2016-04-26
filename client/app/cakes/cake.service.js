@@ -118,7 +118,7 @@ System.register(['angular2/core', "rxjs/Observable", "angular2/http"], function(
                  ********************/
                 CakeService.prototype.isUrl = function (input) {
                     var regex = new RegExp('^(ftp|http|https):\/\/[^ "]+$');
-                    return input.match(regex);
+                    return input.match(regex) != null;
                 };
                 CakeService.prototype.handleError = function (error) {
                     // in a real world app, we may send the server to some remote logging infrastructure

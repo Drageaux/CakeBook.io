@@ -68,7 +68,7 @@ export class ImportCakeFormComponent {
         }
     }
 
-    onPreview(){
+    onPreview() {
         this.previewed.emit(this.model);
     }
 

@@ -121,7 +121,7 @@ export class CakeService {
      ********************/
     isUrl(input:string) {
         let regex = new RegExp('^(ftp|http|https):\/\/[^ "]+$');
-        return input.match(regex);
+        return input.match(regex) != null;
     }
 
     private handleError(error:Response) {
