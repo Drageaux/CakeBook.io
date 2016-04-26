@@ -572,17 +572,25 @@ body {
                 border-radius: 10px;
                 border: 2px solid $container-hovered-color;
                 .media-left {
-                    float: left;
+                    position:relative;
+                    //width: 20vw;
+                    //height: 20vw;
+                    //min-width: 110px;
+                    //max-height: 10vw;
+                    //min-height: 110px;
                     width: 20vw;
-                    height: auto;
-                    max-height: 20vw;
+                    height: 20vw;
                     overflow: hidden;
                     margin-right: 10px !important;
-                    border-radius: 10px;
                     .media-object {
-                        position: relative;
+                        border-radius: 9px;
                         display: block;
-                        width: 20vw;
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        -webkit-transform: translate(-50%, -50%);
+                        -ms-transform: translate(-50%, -50%);
+                        transform: translate(-50%, -50%);
                     }
                 }
                 .media-body h4 {

@@ -413,17 +413,20 @@ body {
         border-radius: 10px;
         border: 2px solid #f9d2b9; }
         body .general-container .search-results .results-media.media .media-left, body .home-container .search-results .results-media.media .media-left, body .details-container .search-results .results-media.media .media-left {
-          float: left;
+          position: relative;
           width: 20vw;
-          height: auto;
-          max-height: 20vw;
+          height: 20vw;
           overflow: hidden;
-          margin-right: 10px !important;
-          border-radius: 10px; }
+          margin-right: 10px !important; }
           body .general-container .search-results .results-media.media .media-left .media-object, body .home-container .search-results .results-media.media .media-left .media-object, body .details-container .search-results .results-media.media .media-left .media-object {
-            position: relative;
+            border-radius: 9px;
             display: block;
-            width: 20vw; }
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); }
         body .general-container .search-results .results-media.media .media-body h4, body .home-container .search-results .results-media.media .media-body h4, body .details-container .search-results .results-media.media .media-body h4 {
           margin-top: 5px;
           font-size: 17px; }
