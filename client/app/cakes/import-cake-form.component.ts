@@ -24,7 +24,7 @@ export class ImportCakeFormComponent {
     tooltipTitle = `
         <p style='text-align:left; padding: 5px; margin-bottom: 0'>
             <b>How To</b>:<br>
-            - Name is required
+            - Name is required<br>
             - <b>Type 'none' or 'None' to <i>leave blank</i></b><br>
             <br>
             <b>Template</b>:
@@ -50,6 +50,10 @@ export class ImportCakeFormComponent {
 
     closeForm() {
         this.active = false;
+    }
+
+    updateTextArea(input:string) {
+        this.modelString = input;
     }
 
     togglePublicity() {

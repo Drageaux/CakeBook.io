@@ -21,8 +21,9 @@
         <!-- Cake description -->
         <div class="form-group">
             <label>Description</label>
-            <textarea rows="4" class="form-control" placeholder="(optional)"
-                      [(ngModel)]="model.description"></textarea>
+            <textarea #textareaDesc rows="4" class="form-control" placeholder="(optional)"
+                      value="{{model.description}}"
+                      (keyup)="updateDescription(textareaDesc.value)"></textarea>
         </div>
         <div></div>
         <hr>

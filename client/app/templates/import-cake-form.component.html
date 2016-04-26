@@ -11,7 +11,8 @@
 
     <h4 style="text-align: center"><b>{{header}}</b></h4>
     <form (ngSubmit)="importCake()">
-        <textarea rows="10" class="form-control" [(ngModel)]="modelString"></textarea>
+        <textarea #textArea rows="10" class="form-control"
+            (keyup)="updateTextArea(textArea.value)"></textarea>
         <button type="button" class="btn btn-info"
                 [class.disabled]="isEmptyString(modelString)"
                 (click)="parsePreview()">

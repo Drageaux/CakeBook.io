@@ -55,6 +55,10 @@ export class AddCakeFormComponent {
         }
     }
 
+    updateDescription(input:string){
+        this.model.description = input;
+    }
+
     /* Ingredients and Steps */
     addOptionalItem(itemType:string, value:string) {
         if (itemType == "ingr") {

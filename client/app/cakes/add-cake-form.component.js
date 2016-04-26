@@ -62,6 +62,9 @@ System.register(["angular2/core", "./cake", "./cake.service", "./editable-item-f
                             = true;
                     }
                 };
+                AddCakeFormComponent.prototype.updateDescription = function (input) {
+                    this.model.description = input;
+                };
                 /* Ingredients and Steps */
                 AddCakeFormComponent.prototype.addOptionalItem = function (itemType, value) {
                     if (itemType == "ingr") {
