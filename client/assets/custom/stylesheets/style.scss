@@ -424,13 +424,16 @@ body {
                             cursor: grab;
                             position: absolute;
                             top: 46%;
+                            left: 0;
+                            width: 100%;
                             line-height: 5px;
-                            text-align: left;
+                            text-align: center;
                         }
                     }
                     .list-group-item-name {
                         right: 0;
                         display: inline-block;
+                        margin: 3px;
                         margin-right: auto;
                         padding-left: 38px !important;
                         width: 77%;
