@@ -571,23 +571,34 @@ body {
                 cursor: pointer;
                 border-radius: 10px;
                 border: 2px solid $container-hovered-color;
+                .media-body, .media-left {
+                    display: inline-block;
+                }
                 .media-left {
-                    float: left;
+                    background: $container-hovered-color;
+                    position: relative;
                     width: 20vw;
-                    height: auto;
-                    max-height: 20vw;
+                    height: 13vw;
                     overflow: hidden;
                     margin-right: 10px !important;
-                    border-radius: 10px;
+                    border-radius: 9px;
                     .media-object {
-                        position: relative;
-                        display: block;
-                        width: 20vw;
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        -webkit-transform: translate(-50%, -50%);
+                        -ms-transform: translate(-50%, -50%);
+                        transform: translate(-50%, -50%);
                     }
                 }
-                .media-body h4 {
-                    margin-top: 5px;
-                    font-size: 17px;
+                .media-body {
+                    margin-top: 10px;
+                    width: auto;
+                    max-width: 60%;
+                    h4 {
+                        margin-top: 5px;
+                        font-size: 17px;
+                    }
                 }
             }
             .results-media.media:hover {
