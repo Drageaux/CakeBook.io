@@ -1,8 +1,10 @@
-<div *ngIf="!active">
-    <button class="btn btn-primary" (click)="openForm()">Import Recipe</button>
-</div>
+<!--<div *ngIf="!active">-->
+    <!--<button class="btn btn-primary" (click)="openForm()">-->
+        <!--<span class="glyphicon glyphicon-import"></span> Import A Recipe-->
+    <!--</button>-->
+<!--</div>-->
 
-<div *ngIf="active" class="import-cake-form">
+<div class="import-cake-form">
     <button class="instruction-sign btn btn-info" type="button"
             data-html="true" data-toggle="tooltip" data-placement="left" data-trigger="click"
             title="{{tooltipTitle}}">
@@ -44,11 +46,11 @@
             <hr>
             <button type="submit" class="btn btn-success"
                     [class.disabled]="isEmptyString(model.name)">
-                Submit
+                <span class="glyphicon glyphicon-ok"></span> Submit
             </button>
             <button type="button" class="btn btn-danger"
-                    (click)="closeForm()">
-                Cancel
+                    (click)="clearForm()">
+                <span class="glyphicon glyphicon-remove"></span> Clear
             </button>
         </div>
     </form>

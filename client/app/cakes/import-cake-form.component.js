@@ -34,11 +34,10 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     this.model = new cake_1.Cake(0, false, this.userId, "", "", "", "", [], []);
                     this.tooltipTitle = "\n        <p style='text-align:left; padding: 5px; margin-bottom: 0'>\n            <b>How To</b>:<br>\n            - Name is required<br>\n            - <b>Type 'none' or 'None' to <i>leave blank</i></b><br>\n            <br>\n            <b>Template</b>:\n        </p>\n<pre style='margin-top: 0; text-align: left'>*name*\n\n*description*\n\n*ingredient #1*\n*ingredient #2*\n*ingredient #3*\n\n*step #1*\n*step #2*</pre>\n        ";
                 }
-                ImportCakeFormComponent.prototype.openForm = function () {
-                    this.active = true;
-                };
-                ImportCakeFormComponent.prototype.closeForm = function () {
-                    this.active = false;
+                ImportCakeFormComponent.prototype.clearForm = function () {
+                    // TODO: Remove when there's a better way to reset the model
+                    this.model = new cake_1.Cake(0, false, this.userId, "", "", "", "", [], []);
+                    this.modelString = "";
                 };
                 ImportCakeFormComponent.prototype.updateTextArea = function (input) {
                     this.modelString = input;
@@ -122,9 +121,7 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     this.parsePreview();
                     this._cakeService.addCake(JSON.stringify(this.model))
                         .subscribe(function (res) { return _this.saved.emit(res); });
-                    // TODO: Remove when there's a better way to reset the model
-                    this.model = new cake_1.Cake(0, false, this.userId, "", "", "", "", [], []);
-                    this.closeForm();
+                    this.clearForm();
                 };
                 /********************
                  * Helper Functions *

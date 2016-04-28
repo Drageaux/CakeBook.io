@@ -9,6 +9,9 @@
 /**********
  * Styles *
  **********/
+@media screen and (min-device-width: 420px) {
+  body {
+    min-width: 420px; } }
 body {
   /***********
    * General *
@@ -61,6 +64,8 @@ body {
     font-size: 1em; }
   body button span {
     cursor: pointer; }
+  body button:focus {
+    outline: 0 !important; }
   body textarea {
     resize: none; }
   body hr {
@@ -221,44 +226,62 @@ body {
     /* Import Cake Form */
     /* List Groups */
     /* Search */ }
+    body .general-container .accordion, body .home-container .accordion, body .details-container .accordion {
+      margin-top: 10px; }
+      body .general-container .accordion .panel, body .home-container .accordion .panel, body .details-container .accordion .panel {
+        margin-top: 5px;
+        border: none;
+        background-color: transparent; }
+      body .general-container .accordion .panel-heading, body .home-container .accordion .panel-heading, body .details-container .accordion .panel-heading {
+        cursor: pointer;
+        background-color: #fdf0e8;
+        border: 2px solid #f9d2b9; }
+      body .general-container .accordion .panel-heading:hover, body .home-container .accordion .panel-heading:hover, body .details-container .accordion .panel-heading:hover,
+      body .general-container .accordion .panel-heading[aria-expanded=true],
+      body .home-container .accordion .panel-heading[aria-expanded=true],
+      body .details-container .accordion .panel-heading[aria-expanded=true] {
+        background-color: #f9d2b9;
+        transition-duration: 0.2s; }
+      body .general-container .accordion .panel-body, body .home-container .accordion .panel-body, body .details-container .accordion .panel-body {
+        border-top: none !important;
+        border-radius: 4px;
+        padding: 0; }
     body .general-container div.add-cake-form, body .home-container div.add-cake-form, body .details-container div.add-cake-form, body .general-container div.import-cake-form, body .home-container div.import-cake-form, body .details-container div.import-cake-form {
       position: relative;
       padding: 20px;
-      margin-bottom: 5px;
-      border: 2px solid #6a272b;
-      border-radius: 4px; }
-    body .general-container div.import-cake-form, body .home-container div.import-cake-form, body .details-container div.import-cake-form {
-      margin-top: 20px;
-      margin-bottom: 20px; }
-      body .general-container div.import-cake-form p, body .home-container div.import-cake-form p, body .details-container div.import-cake-form p {
-        font-size: 1.1em;
-        overflow: auto; }
-      body .general-container div.import-cake-form button, body .home-container div.import-cake-form button, body .details-container div.import-cake-form button {
-        margin: 5px auto; }
-      body .general-container div.import-cake-form .instruction-sign, body .home-container div.import-cake-form .instruction-sign, body .details-container div.import-cake-form .instruction-sign {
-        position: absolute;
-        right: 0;
-        top: 0;
-        margin: 0;
-        border-color: #ad4047;
-        border-radius: 0 0 0 4px;
-        border-width: 0 0 1px 1px;
-        background-color: #ad4047; }
-      body .general-container div.import-cake-form .instruction-sign:hover, body .home-container div.import-cake-form .instruction-sign:hover, body .details-container div.import-cake-form .instruction-sign:hover,
-      body .general-container div.import-cake-form .instruction-sign:focus,
-      body .home-container div.import-cake-form .instruction-sign:focus,
-      body .details-container div.import-cake-form .instruction-sign:focus {
-        border-color: #6a272b;
-        background-color: #6a272b; }
-      body .general-container div.import-cake-form .tooltip-inner, body .home-container div.import-cake-form .tooltip-inner, body .details-container div.import-cake-form .tooltip-inner {
-        align-content: left; }
+      margin-top: 0;
+      margin-bottom: 0;
+      border: 4px solid #f9d2b9;
+      border-radius: 0 0 4px 4px; }
+    body .general-container div.import-cake-form p, body .home-container div.import-cake-form p, body .details-container div.import-cake-form p {
+      font-size: 1.1em;
+      overflow: auto; }
+    body .general-container div.import-cake-form button, body .home-container div.import-cake-form button, body .details-container div.import-cake-form button {
+      margin: 5px auto; }
+    body .general-container div.import-cake-form .instruction-sign, body .home-container div.import-cake-form .instruction-sign, body .details-container div.import-cake-form .instruction-sign {
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin: 0;
+      border-color: #ad4047;
+      border-radius: 0 0 0 4px;
+      border-width: 0 0 1px 1px;
+      background-color: #ad4047; }
+    body .general-container div.import-cake-form .instruction-sign:hover, body .home-container div.import-cake-form .instruction-sign:hover, body .details-container div.import-cake-form .instruction-sign:hover,
+    body .general-container div.import-cake-form .instruction-sign:focus,
+    body .home-container div.import-cake-form .instruction-sign:focus,
+    body .details-container div.import-cake-form .instruction-sign:focus {
+      border-color: #6a272b;
+      background-color: #6a272b; }
+    body .general-container div.import-cake-form .tooltip-inner, body .home-container div.import-cake-form .tooltip-inner, body .details-container div.import-cake-form .tooltip-inner {
+      align-content: left; }
+    body .general-container div.import-cake-form .ui.toggle.checkbox, body .home-container div.import-cake-form .ui.toggle.checkbox, body .details-container div.import-cake-form .ui.toggle.checkbox {
+      margin-top: 12px;
+      width: 100%; }
+    @media screen and (min-width: 480px) {
       body .general-container div.import-cake-form .ui.toggle.checkbox, body .home-container div.import-cake-form .ui.toggle.checkbox, body .details-container div.import-cake-form .ui.toggle.checkbox {
-        margin-top: 12px;
-        width: 100%; }
-      @media screen and (min-width: 480px) {
-        body .general-container div.import-cake-form .ui.toggle.checkbox, body .home-container div.import-cake-form .ui.toggle.checkbox, body .details-container div.import-cake-form .ui.toggle.checkbox {
-          float: right;
-          width: auto; } }
+        float: right;
+        width: auto; } }
     body .general-container .normal-list-group, body .home-container .normal-list-group, body .details-container .normal-list-group {
       height: 100%;
       background-color: #fdf0e8 !important;
@@ -717,6 +740,9 @@ body {
  ************************/
 @media screen and (max-width: 720px) {
   .hide-720 {
+    display: none; } }
+@media screen and (max-width: 600px) {
+  .hide-600 {
     display: none; } }
 @media screen and (max-width: 480px) {
   .hide-480 {

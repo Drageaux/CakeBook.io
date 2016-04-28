@@ -22,7 +22,7 @@ export class CakeService {
     /********************
      * Single Cake REST *
      ********************/
-    getCake(id:number | String) {
+    getCake(id:number) {
         return this.http.get("/api/" + this.userId + "/cake/" + id)
             .map(res => <Cake> res.json())
             .catch(this.handleError);
@@ -38,7 +38,7 @@ export class CakeService {
             .catch(this.handleError);
     }
 
-    deleteCake(id:number | String) {
+    deleteCake(id:number) {
         return this.http.delete("/api/" + this.userId + "/cake/" + id)
             .catch(this.handleError);
     }
@@ -79,7 +79,7 @@ export class CakeService {
     /**************
      * Image REST *
      **************/
-    uploadCakeImage(id:number | string, data:string, type:string) {
+    uploadCakeImage(id:number, data:string, type:string) {
         let body = JSON.stringify({data: data, dataType: type});
         let headers = new Headers({"Content-Type": "application/json"});
         let options = new RequestOptions({headers: headers});
