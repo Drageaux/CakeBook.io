@@ -1,5 +1,6 @@
 import {Component} from 'angular2/core';
-import {Location, RouteConfig, Router, APP_BASE_HREF, ROUTER_PROVIDERS, ROUTER_DIRECTIVES, CanActivate} from 'angular2/router';
+import {RouteConfig, Router, ROUTER_PROVIDERS, ROUTER_DIRECTIVES, CanActivate} from 'angular2/router';
+import {Location, APP_BASE_HREF} from "angular2/platform/common";
 import {AuthHttp} from 'angular2-jwt';
 import {OnInit} from "angular2/core";
 

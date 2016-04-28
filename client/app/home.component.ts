@@ -1,5 +1,5 @@
 import {Component, OnInit, Input} from 'angular2/core';
-import {Location, Router} from "angular2/router";
+import {Router} from "angular2/router";
 import {Observable} from "rxjs/Observable";
 
 import {Cake}                   from "./cakes/cake";
@@ -28,7 +28,6 @@ export class HomeComponent implements OnInit {
             this._router.navigate(["Login"]);
         }
         this.getCakes();
-
     }
 
     getCakes() {

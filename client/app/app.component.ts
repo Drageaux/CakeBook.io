@@ -1,12 +1,12 @@
 import {Component, provide, OnInit} from "angular2/core";
 import {HTTP_PROVIDERS, Http} from "angular2/http";
-import {Location,
+import {
     RouteConfig,
     Router,
-    APP_BASE_HREF,
     ROUTER_PROVIDERS,
     ROUTER_DIRECTIVES,
     CanActivate} from 'angular2/router';
+import {Location, APP_BASE_HREF} from "angular2/platform/common";
 import {FORM_PROVIDERS} from 'angular2/common';
 import {AuthHttp} from "angular2-jwt";
 
