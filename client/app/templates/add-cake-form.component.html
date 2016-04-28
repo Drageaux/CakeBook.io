@@ -1,10 +1,10 @@
-<div *ngIf="!active">
-    <button class="btn btn-primary" (click)="openForm()">
-        <span class="glyphicon glyphicon-plus"></span> Make New Cake
-    </button>
-</div>
+<!--<div *ngIf="!active">-->
+    <!--<button class="btn btn-primary" (click)="openForm()">-->
+        <!--<span class="glyphicon glyphicon-plus"></span> Make My Own Cake-->
+    <!--</button>-->
+<!--</div>-->
 
-<div *ngIf="active" class="add-cake-form">
+<div class="add-cake-form">
     <h4 style="text-align: center"><b>Make a Cake</b></h4>
     <form (ngSubmit)="addCake(addCakeForm.value)" #addCakeForm="ngForm">
         <!-- Cake name -->

@@ -33,6 +33,13 @@ $normal-font: "Marmelad", Arial;
 /**********
  * Styles *
  **********/
+@media screen and (min-device-width: 420px) {
+    body {
+        min-width: 420px;
+    }
+}
+
+
 body {
     /***********
      * General *
@@ -68,6 +75,9 @@ body {
         span {
             cursor: pointer;
         }
+    }
+    button:focus {
+        outline: 0 !important;
     }
     textarea {
         resize: none;
@@ -308,19 +318,32 @@ body {
         height: auto;
         box-shadow: -15px 10px 50px 25px rgba(0, 0, 0, 0.2), inset 10px 0 25px 2px rgba(0, 0, 0, 0.3);
 
+        .accordion {
+            .panel {
+                margin-top: 0;
+                border: none;
+                background-color: transparent;
+            }
+            .panel-heading {
+                cursor: pointer;
+            }
+            .panel-body {
+                padding: 0;
+            }
+        }
+
         /* Add Cake Form */
         div.add-cake-form {
             position: relative;
             padding: 20px;
-            margin-top: 10px;
+            margin-top: 0px;
             margin-bottom: 5px;
-            border: 2px solid $border-color;
+            border: 2px solid $container-hovered-color;
             border-radius: 4px;
         }
         /* Import Cake Form */
         div.import-cake-form {
             @extend .add-cake-form;
-            margin-top: 20px;
             p {
                 font-size: 1.1em;
                 overflow: auto;
@@ -1003,6 +1026,13 @@ body {
  ************************/
 @media screen and (max-width: 720px) {
     .hide-720 {
+        display: none
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .hide-600 {
         display: none
     }
 }
