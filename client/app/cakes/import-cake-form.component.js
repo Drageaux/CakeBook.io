@@ -58,7 +58,7 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     this.previewed.emit(this.model);
                 };
                 ImportCakeFormComponent.prototype.parsePreview = function () {
-                    this.model = new cake_1.Cake(0, false, this.userId, "", "", "", "", [], []);
+                    this.model = new cake_1.Cake(0, this.model.isPublic, this.userId, "", "", "", "", [], []);
                     // split into list of elements
                     var cursor;
                     var isIngr = true;

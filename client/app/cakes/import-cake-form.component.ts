@@ -72,7 +72,7 @@ export class ImportCakeFormComponent {
     }
 
     parsePreview() {
-        this.model = new Cake(0, false, this.userId, "", "", "", "", [], []);
+        this.model = new Cake(0, this.model.isPublic, this.userId, "", "", "", "", [], []);
         // split into list of elements
         let cursor;
         let isIngr = true;
