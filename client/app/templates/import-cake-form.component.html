@@ -46,11 +46,11 @@
             <hr>
             <button type="submit" class="btn btn-success"
                     [class.disabled]="isEmptyString(model.name)">
-                Submit
+                <span class="glyphicon glyphicon-ok"></span> Submit
             </button>
             <button type="button" class="btn btn-danger"
-                    (click)="closeForm()">
-                Cancel
+                    (click)="clearForm()">
+                <span class="glyphicon glyphicon-remove"></span> Clear
             </button>
         </div>
     </form>

@@ -18,17 +18,12 @@ export class AddCakeFormComponent {
     
     @Output() saved = new EventEmitter<Cake>();
     model = new Cake(0, false, this.userId, "", "", "", "", [], []);
-    active = false;
 
     constructor(private _cakeService:CakeService) {
     }
 
-    openForm() {
-        this.active = true;
-    }
-
-    closeForm() {
-        this.active = false;
+    clearForm() {
+        this.model = new Cake(0, false, this.userId, "", "", "", "", [], []);
     }
 
     addCake(name:string):Observable<Cake> {
@@ -38,9 +33,7 @@ export class AddCakeFormComponent {
         this._cakeService.addCake(JSON.stringify(this.model))
             .subscribe(res => this.saved.emit(res));
         // TODO: Remove when there's a better way to reset the model
-        this.model = new Cake(0, false, this.userId,
-            "", "", "", "", [], []);
-        this.closeForm();
+        this.clearForm();
     }
 
     togglePublicity() {

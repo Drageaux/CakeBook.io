@@ -44,12 +44,11 @@ export class ImportCakeFormComponent {
     constructor(private _cakeService:CakeService) {
     }
 
-    openForm() {
-        this.active = true;
-    }
-
-    closeForm() {
-        this.active = false;
+    clearForm() {
+        // TODO: Remove when there's a better way to reset the model
+        this.model = new Cake(0, false, this.userId,
+            "", "", "", "", [], []);
+        this.modelString = "";
     }
 
     updateTextArea(input:string) {
@@ -139,10 +138,7 @@ export class ImportCakeFormComponent {
         this.parsePreview();
         this._cakeService.addCake(JSON.stringify(this.model))
             .subscribe(res => this.saved.emit(res));
-        // TODO: Remove when there's a better way to reset the model
-        this.model = new Cake(0, false, this.userId,
-            "", "", "", "", [], []);
-        this.closeForm();
+        this.clearForm();
     }
 
     /********************

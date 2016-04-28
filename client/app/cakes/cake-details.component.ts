@@ -28,7 +28,7 @@ export class CakeDetailsComponent implements OnInit {
 
     ngOnInit() {
         let id = this._routeParams.get('id');
-        this._service.getCake(id)
+        this._service.getCake(parseInt(id))
             .subscribe(
                 cake => {
                     this.cake = cake;

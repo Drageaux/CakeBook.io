@@ -37,7 +37,7 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./editab
                 CakeDetailsComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     var id = this._routeParams.get('id');
-                    this._service.getCake(id)
+                    this._service.getCake(parseInt(id))
                         .subscribe(function (cake) {
                         _this.cake = cake;
                         for (var i in _this.cake.ingredients) {

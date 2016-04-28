@@ -1,9 +1,3 @@
-<!--<div *ngIf="!active">-->
-    <!--<button class="btn btn-primary" (click)="openForm()">-->
-        <!--<span class="glyphicon glyphicon-plus"></span> Make My Own Cake-->
-    <!--</button>-->
-<!--</div>-->
-
 <div class="add-cake-form">
     <h4 style="text-align: center"><b>Make a Cake</b></h4>
     <form (ngSubmit)="addCake(addCakeForm.value)" #addCakeForm="ngForm">
@@ -54,11 +48,11 @@
         <!-- Main form buttons -->
         <button type="submit" class="btn btn-success"
                 [class.disabled]="isEmptyString(model.name)">
-            Submit
+            <span class="glyphicon glyphicon-ok"></span> Submit
         </button>
         <button type="button" class="btn btn-danger"
-                (click)="closeForm()">
-            Cancel
+                (click)="clearForm()">
+            <span class="glyphicon glyphicon-remove"></span> Clear
         </button>
     </form>
 </div>
