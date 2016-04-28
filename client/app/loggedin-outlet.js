@@ -2,7 +2,7 @@
  * Code from Auth0's Angular 2 Authentication on GitHub
  * https://github.com/auth0/angular2-authentication-sample/tree/master/src
  **/
-System.register(['angular2/core', 'angular2/router', "angular2-jwt"], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', "angular2-jwt", "angular2/core"], function(exports_1) {
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
@@ -20,7 +20,7 @@ System.register(['angular2/core', 'angular2/router', "angular2-jwt"], function(e
     var __param = (this && this.__param) || function (paramIndex, decorator) {
         return function (target, key) { decorator(target, key, paramIndex); }
     };
-    var core_1, router_1, angular2_jwt_1;
+    var core_1, router_1, angular2_jwt_1, core_2;
     var LoggedInRouterOutlet;
     return {
         setters:[
@@ -32,12 +32,15 @@ System.register(['angular2/core', 'angular2/router', "angular2-jwt"], function(e
             },
             function (angular2_jwt_1_1) {
                 angular2_jwt_1 = angular2_jwt_1_1;
+            },
+            function (core_2_1) {
+                core_2 = core_2_1;
             }],
         execute: function() {
             LoggedInRouterOutlet = (function (_super) {
                 __extends(LoggedInRouterOutlet, _super);
-                function LoggedInRouterOutlet(_elementRef, _loader, _parentRouter, nameAttr) {
-                    _super.call(this, _elementRef, _loader, _parentRouter, nameAttr);
+                function LoggedInRouterOutlet(_viewContainerRef, _loader, _parentRouter, nameAttr) {
+                    _super.call(this, _viewContainerRef, _loader, _parentRouter, nameAttr);
                     this.parentRouter = _parentRouter;
                     this.publicRoutes = {
                         '/login': true
@@ -57,7 +60,7 @@ System.register(['angular2/core', 'angular2/router', "angular2-jwt"], function(e
                     }),
                     router_1.CanActivate(function () { return angular2_jwt_1.tokenNotExpired(); }),
                     __param(3, core_1.Attribute('name')), 
-                    __metadata('design:paramtypes', [core_1.ElementRef, core_1.DynamicComponentLoader, router_1.Router, String])
+                    __metadata('design:paramtypes', [core_2.ViewContainerRef, core_1.DynamicComponentLoader, router_1.Router, String])
                 ], LoggedInRouterOutlet);
                 return LoggedInRouterOutlet;
             })(router_1.RouterOutlet);

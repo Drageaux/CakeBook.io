@@ -6,6 +6,7 @@
 import {Directive, Attribute, ElementRef, DynamicComponentLoader} from 'angular2/core';
 import {Router, RouterOutlet, ComponentInstruction, CanActivate} from 'angular2/router';
 import {tokenNotExpired} from "angular2-jwt";
+import {ViewContainerRef} from "angular2/core";
 
 @Directive({
     selector: 'loggedin-router-outlet'
@@ -16,9 +17,9 @@ export class LoggedInRouterOutlet extends RouterOutlet {
     publicRoutes: any;
     private parentRouter: Router;
 
-    constructor(_elementRef: ElementRef, _loader: DynamicComponentLoader,
+    constructor(_viewContainerRef: ViewContainerRef, _loader: DynamicComponentLoader,
                 _parentRouter: Router, @Attribute('name') nameAttr: string) {
-        super(_elementRef, _loader, _parentRouter, nameAttr);
+        super(_viewContainerRef, _loader, _parentRouter, nameAttr);
 
         this.parentRouter = _parentRouter;
         this.publicRoutes = {
