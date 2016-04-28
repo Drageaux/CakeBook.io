@@ -224,12 +224,12 @@ body {
     body .general-container div.add-cake-form, body .home-container div.add-cake-form, body .details-container div.add-cake-form, body .general-container div.import-cake-form, body .home-container div.import-cake-form, body .details-container div.import-cake-form {
       position: relative;
       padding: 20px;
+      margin-top: 10px;
       margin-bottom: 5px;
       border: 2px solid #6a272b;
       border-radius: 4px; }
     body .general-container div.import-cake-form, body .home-container div.import-cake-form, body .details-container div.import-cake-form {
-      margin-top: 20px;
-      margin-bottom: 20px; }
+      margin-top: 20px; }
       body .general-container div.import-cake-form p, body .home-container div.import-cake-form p, body .details-container div.import-cake-form p {
         font-size: 1.1em;
         overflow: auto; }

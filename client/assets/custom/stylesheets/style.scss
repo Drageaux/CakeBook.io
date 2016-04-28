@@ -312,6 +312,7 @@ body {
         div.add-cake-form {
             position: relative;
             padding: 20px;
+            margin-top: 10px;
             margin-bottom: 5px;
             border: 2px solid $border-color;
             border-radius: 4px;
@@ -320,7 +321,6 @@ body {
         div.import-cake-form {
             @extend .add-cake-form;
             margin-top: 20px;
-            margin-bottom: 20px;
             p {
                 font-size: 1.1em;
                 overflow: auto;
