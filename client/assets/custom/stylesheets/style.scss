@@ -334,7 +334,6 @@ body {
             .panel-heading[aria-expanded=true] {
                 background-color: $container-hovered-color;
                 transition-duration: 0.2s;
-                //transition: ease;
             }
             .panel-body {
                 border-top: none !important;

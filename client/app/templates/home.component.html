@@ -14,20 +14,6 @@
     </form>
 
     <div class="panel-group accordion" id="accordion" role="tablist" aria-multiselectable="true">
-        <!--<ul class="nav nav-tabs">-->
-        <!--<li data-toggle="tab">-->
-        <!--<a role="button" data-toggle="collapse" data-parent="#accordion"-->
-        <!--href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">-->
-        <!--<span class="glyphicon glyphicon-plus"></span> Make My Own Cake-->
-        <!--</a>-->
-        <!--</li>-->
-        <!--<li data-toggle="tab">-->
-        <!--<a role="button" data-toggle="collapse" data-parent="#accordion"-->
-        <!--href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">-->
-        <!--<span class="glyphicon glyphicon-import"></span> Import A Recipe-->
-        <!--</a>-->
-        <!--</li>-->
-        <!--</ul>-->
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingOne"
                  data-toggle="collapse" data-parent="#accordion"
@@ -61,7 +47,7 @@
 
     <h3>My Cakes</h3>
     <div class="cake-list list-group">
-        <a class="list-group-item" *ngFor="#cake of cakes"
+        <a class="list-group-item" *ngFor="let cake of cakes"
            (click)="onSelect(cake)">{{cake.name}}</a>
     </div>
 </div>
