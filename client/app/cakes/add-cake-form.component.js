@@ -54,6 +54,9 @@ System.register(["angular2/core", "./cake", "./editable-item-form.component", ".
                 };
                 AddCakeFormComponent.prototype.clearForm = function () {
                     this.model = new cake_1.Cake(0, false, this.userId, "", "", "", "", [], []);
+                    jQuery("#cakeName").blur();
+                    jQuery("#addCakeForm").form('reset');
+                    jQuery("#addErrorMessage").empty();
                 };
                 AddCakeFormComponent.prototype.addCake = function () {
                     var _this = this;
@@ -63,12 +66,9 @@ System.register(["angular2/core", "./cake", "./editable-item-form.component", ".
                     this._cakeService.addCake(JSON.stringify(this.model))
                         .subscribe(function (res) {
                         _this.saved.emit(res);
-                        jQuery("#cakeName").blur();
-                        jQuery("#addCakeForm").form('reset');
-                        jQuery("#addErrorMessage").empty();
+                        _this.clearForm();
                     });
                     // TODO: Remove when there's a better way to reset the model
-                    this.clearForm();
                 };
                 AddCakeFormComponent.prototype.togglePublicity = function () {
                     if (this.model.isPublic != null) {

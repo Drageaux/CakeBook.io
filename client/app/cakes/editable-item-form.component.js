@@ -85,7 +85,7 @@ System.register(["angular2/core", "ng2-dragula/ng2-dragula"], function(exports_1
                 };
                 EditableItemForm.prototype.isValidInput = function (str) {
                     if (!this.isEmptyString(str)) {
-                        return str.length > 4;
+                        return str.length > 2;
                     }
                     return false;
                 };

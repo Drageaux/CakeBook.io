@@ -47,6 +47,9 @@ export class AddCakeFormComponent implements OnInit {
 
     clearForm() {
         this.model = new Cake(0, false, this.userId, "", "", "", "", [], []);
+        jQuery("#cakeName").blur();
+        jQuery("#addCakeForm").form('reset');
+        jQuery("#addErrorMessage").empty();
     }
 
     addCake():Observable<Cake> {
@@ -57,12 +60,9 @@ export class AddCakeFormComponent implements OnInit {
         this._cakeService.addCake(JSON.stringify(this.model))
             .subscribe(res => {
                 this.saved.emit(res);
-                jQuery("#cakeName").blur();
-                jQuery("#addCakeForm").form('reset');
-                jQuery("#addErrorMessage").empty();
+                this.clearForm();
             });
         // TODO: Remove when there's a better way to reset the model
-        this.clearForm();
     }
 
     togglePublicity() {

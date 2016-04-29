@@ -234,15 +234,17 @@ body {
         background-color: transparent; }
       body .general-container .accordion .panel-heading, body .home-container .accordion .panel-heading, body .details-container .accordion .panel-heading {
         cursor: pointer;
-        background-color: #fdf0e8;
-        border: 3px solid #f9d2b9; }
+        background-color: #f9d2b9;
+        border: 3px solid #f7c3a2; }
       body .general-container .accordion .panel-heading:hover, body .home-container .accordion .panel-heading:hover, body .details-container .accordion .panel-heading:hover,
       body .general-container .accordion .panel-heading[aria-expanded=true],
       body .home-container .accordion .panel-heading[aria-expanded=true],
       body .details-container .accordion .panel-heading[aria-expanded=true] {
-        background-color: #f9d2b9;
+        background-color: #f7c3a2;
         transition-duration: 0.2s; }
       body .general-container .accordion .panel-body, body .home-container .accordion .panel-body, body .details-container .accordion .panel-body {
+        position: relative;
+        top: -2px;
         border-top: none !important;
         border-radius: 4px;
         padding: 0; }
@@ -251,7 +253,7 @@ body {
       padding: 20px;
       margin-top: 0;
       margin-bottom: 0;
-      border: 4px solid #f9d2b9;
+      border: 4px solid #f7c3a2;
       border-radius: 0 0 4px 4px; }
     body .general-container div.import-cake-form p, body .home-container div.import-cake-form p, body .details-container div.import-cake-form p {
       font-size: 1.1em;
@@ -295,11 +297,13 @@ body {
       margin-bottom: 8px; }
       body .general-container .form-group button, body .home-container .form-group button, body .details-container .form-group button {
         margin: 0; }
-      body .general-container .form-group .input-group .input-group-btn:first-child button, body .home-container .form-group .input-group .input-group-btn:first-child button, body .details-container .form-group .input-group .input-group-btn:first-child button {
-        margin-right: 5px;
-        border-radius: 4px; }
-      body .general-container .form-group .input-group .form-control:last-child, body .home-container .form-group .input-group .form-control:last-child, body .details-container .form-group .input-group .form-control:last-child {
-        border-radius: 4px; }
+      body .general-container .form-group .input-group, body .home-container .form-group .input-group, body .details-container .form-group .input-group {
+        margin-top: 4px; }
+        body .general-container .form-group .input-group .input-group-btn:first-child button, body .home-container .form-group .input-group .input-group-btn:first-child button, body .details-container .form-group .input-group .input-group-btn:first-child button {
+          margin-right: 5px;
+          border-radius: 4px; }
+        body .general-container .form-group .input-group .form-control:last-child, body .home-container .form-group .input-group .form-control:last-child, body .details-container .form-group .input-group .form-control:last-child {
+          border-radius: 4px; }
       body .general-container .form-group .list-group-item, body .home-container .form-group .list-group-item, body .details-container .form-group .list-group-item {
         background-color: transparent;
         border: none; }
