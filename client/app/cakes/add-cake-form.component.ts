@@ -8,13 +8,15 @@ import {EditableItemForm} from "./editable-item-form.component";
 import {CakeService} from "./cake.service";
 import {TransitionService} from "../transition.service";
 
+declare var jQuery;
+
 @Component({
     selector: "add-cake-form",
     templateUrl: "templates/add-cake-form.component.html",
     directives: [EditableItemForm]
 })
 
-export class AddCakeFormComponent {
+export class AddCakeFormComponent implements OnInit {
     userId = JSON.parse(localStorage.getItem("profile")).user_id; // must be defined first
 
     @Output() saved = new EventEmitter<Cake>();
@@ -22,6 +24,21 @@ export class AddCakeFormComponent {
 
     constructor(private _cakeService:CakeService,
                 private _transitionService:TransitionService) {
+    }
+
+    ngOnInit() {
+        //jQuery('.add-cake-form')
+        //  .form({
+        //    fields: {
+        //      name     : 'empty',
+        //      gender   : 'empty',
+        //      username : 'empty',
+        //      password : ['minLength[6]', 'empty'],
+        //      skills   : ['minCount[2]', 'empty'],
+        //      terms    : 'checked'
+        //    }
+        //  })
+        //;
     }
 
     clearForm() {
