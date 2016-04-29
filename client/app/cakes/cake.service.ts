@@ -22,7 +22,7 @@ export class CakeService {
     /********************
      * Single Cake REST *
      ********************/
-    getCake(id:number | string) {
+    getCake(id:string):Observable<Cake> {
         return this.http.get("/api/" + this.userId + "/cake/" + id)
             .map(res => <Cake> res.json())
             .catch(this.handleError);

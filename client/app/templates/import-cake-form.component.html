@@ -34,11 +34,11 @@
         <p><b>Description</b>: {{model.description}}</p>
         <p><b>Ingredients</b>: </p>
         <ul>
-            <li *ngFor="let ingr of model.ingredients">{{ingr.value}}</li>
+            <li *ngFor="#ingr of model.ingredients">{{ingr.value}}</li>
         </ul>
         <p><b>Steps</b>: </p>
         <ul>
-            <li *ngFor="let step of model.steps">{{step.value}}</li>
+            <li *ngFor="#step of model.steps">{{step.value}}</li>
         </ul>
 
         <!-- Main form buttons -->

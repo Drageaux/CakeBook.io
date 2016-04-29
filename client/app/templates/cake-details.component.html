@@ -78,7 +78,7 @@
                 <li style="list-style: none; color: #888888" *ngIf="cake.ingredients.length == 0">
                     (click to add ingredients)
                 </li>
-                <li *ngFor="let item of cake.ingredients; let idx = index">
+                <li *ngFor="#item of cake.ingredients; #idx = index">
                     {{item.value}}
                 </li>
             </ul>
@@ -117,7 +117,7 @@
                 <li style="list-style: none; color: #888888" *ngIf="cake.steps.length == 0">
                     (click to add steps)
                 </li>
-                <li *ngFor="let item of cake.steps; let idx = index">
+                <li *ngFor="#item of cake.steps; #idx = index">
                     {{item.value}}
                 </li>
             </ul>
@@ -157,7 +157,7 @@
                 <li style="list-style: none; color: #888888" *ngIf="cake.ingredients.length == 0">
                     (no ingredients listed)
                 </li>
-                <li *ngFor="let item of cake.ingredients; let idx = index">
+                <li *ngFor="#item of cake.ingredients; #idx = index">
                     {{item.value}}
                 </li>
             </ul>
@@ -168,7 +168,7 @@
                 <li style="list-style: none; color: #888888" *ngIf="cake.steps.length == 0">
                     (no steps listed)
                 </li>
-                <li *ngFor="let item of cake.steps; let idx = index">
+                <li *ngFor="#item of cake.steps; #idx = index">
                     {{item.value}}
                 </li>
             </ul>

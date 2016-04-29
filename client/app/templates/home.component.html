@@ -47,7 +47,7 @@
 
     <h3>My Cakes</h3>
     <div class="cake-list list-group">
-        <a class="list-group-item" *ngFor="let cake of cakes"
+        <a class="list-group-item" *ngFor="#cake of cakes"
            (click)="onSelect(cake)">{{cake.name}}</a>
     </div>
 </div>

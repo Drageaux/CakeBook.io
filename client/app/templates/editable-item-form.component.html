@@ -3,7 +3,7 @@
     <!-- Add Item -->
     <ul *ngIf="itemList.length>0" class="list-group editable-list-group"
         [dragula]='"bag-one"' [dragulaModel]="itemList">
-        <li *ngFor="let item of itemList; let idx = index"
+        <li *ngFor="#item of itemList; #idx = index"
             class="list-group-item editable-list-group-item">
             <!-- Item number -->
             <div class="number-label"><span>{{idx+1}}</span></div>
