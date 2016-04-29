@@ -67,6 +67,7 @@ System.register(["angular2/core", "./cake", "./editable-item-form.component", ".
                     this._cakeService.addCake(JSON.stringify(this.model))
                         .subscribe(function (res) {
                         _this.saved.emit(res);
+                        jQuery("#cakeName").blur();
                     });
                     // TODO: Remove when there's a better way to reset the model
                     this.clearForm();

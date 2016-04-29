@@ -59,6 +59,7 @@ export class AddCakeFormComponent implements OnInit {
         this._cakeService.addCake(JSON.stringify(this.model))
             .subscribe(res => {
                 this.saved.emit(res);
+                jQuery("#cakeName").blur();
             });
         // TODO: Remove when there's a better way to reset the model
         this.clearForm();
