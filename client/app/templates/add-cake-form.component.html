@@ -1,6 +1,6 @@
 <div class="add-cake-form">
     <h4 style="text-align: center"><b>Make a Cake</b></h4>
-    <form (ngSubmit)="addCake(addCakeForm.value)" #addCakeForm="ngForm">
+    <form (ngSubmit)="addCake(addCakeForm.value, message)" #addCakeForm="ngForm">
         <!-- Cake name -->
         <div class="form-group">
             <label>Cake Name*</label>
@@ -56,3 +56,4 @@
         </button>
     </form>
 </div>
+

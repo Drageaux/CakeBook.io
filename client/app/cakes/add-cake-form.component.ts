@@ -4,8 +4,9 @@ import {Json} from "angular2/src/facade/lang";
 import {Observable} from "rxjs/Observable";
 
 import {Cake}       from "./cake";
-import {CakeService} from "./cake.service";
 import {EditableItemForm} from "./editable-item-form.component";
+import {CakeService} from "./cake.service";
+import {TransitionService} from "../transition.service";
 
 @Component({
     selector: "add-cake-form",
@@ -15,23 +16,27 @@ import {EditableItemForm} from "./editable-item-form.component";
 
 export class AddCakeFormComponent {
     userId = JSON.parse(localStorage.getItem("profile")).user_id; // must be defined first
-    
+
     @Output() saved = new EventEmitter<Cake>();
     model = new Cake(0, false, this.userId, "", "", "", "", [], []);
 
-    constructor(private _cakeService:CakeService) {
+    constructor(private _cakeService:CakeService,
+                private _transitionService:TransitionService) {
     }
 
     clearForm() {
         this.model = new Cake(0, false, this.userId, "", "", "", "", [], []);
     }
 
-    addCake(name:string):Observable<Cake> {
+    addCake(name:string, message:any):Observable<Cake> {
         if (!name) {
             return;
         }
         this._cakeService.addCake(JSON.stringify(this.model))
-            .subscribe(res => this.saved.emit(res));
+            .subscribe(res => {
+                this.saved.emit(res);
+                this._transitionService.fadeToggleItem(message);
+            });
         // TODO: Remove when there's a better way to reset the model
         this.clearForm();
     }
@@ -48,7 +53,7 @@ export class AddCakeFormComponent {
         }
     }
 
-    updateDescription(input:string){
+    updateDescription(input:string) {
         this.model.description = input;
     }
 
@@ -59,7 +64,8 @@ export class AddCakeFormComponent {
             if (value != "") {
                 this.model.ingredients.push({
                     "index": this.model.ingredients.length,
-                    "value": value});
+                    "value": value
+                });
             }
         }
         else if (itemType == "step") {
@@ -67,7 +73,8 @@ export class AddCakeFormComponent {
             if (value != "") {
                 this.model.steps.push({
                     "index": this.model.steps.length,
-                    "value": value});
+                    "value": value
+                });
             }
         }
     }

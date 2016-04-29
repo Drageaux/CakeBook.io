@@ -44,7 +44,7 @@ body {
     /***********
      * General *
      ***********/
-    font-family: $normal-font;
+    font-family: $normal-font !important;
     background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/bamboo-wood-flooring-texture.jpg");
     background-repeat: repeat;
     word-break: keep-all;
@@ -54,7 +54,7 @@ body {
     }
     h1.welcome-poster {
         text-align: center;
-        font-family: $welcome-font;
+        font-family: $welcome-font !important;
     }
     a:hover {
         cursor: pointer;
@@ -103,7 +103,7 @@ body {
         border-bottom: 5px solid $topnav-item-color;
         background-color: transparent;
         font-size: 1.1em;
-        font-family: $topnav-font;
+        font-family: $topnav-font !important;
 
         /* Normal Menu */
         /// screen > 480px ///
@@ -276,6 +276,20 @@ body {
         }
     }
 
+    /****************
+     * Pop-Up Alert *
+     ****************/
+    .alert {
+        z-index: 10;
+        position: fixed;
+        width: 63%;
+        top: 10vh;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align: center;
+    }
+
     /***********
      * Wrapper *
      ***********/
@@ -328,7 +342,7 @@ body {
             .panel-heading {
                 cursor: pointer;
                 background-color: $container-color;
-                border: 2px solid $container-hovered-color;
+                border: 3px solid $container-hovered-color;
             }
             .panel-heading:hover,
             .panel-heading[aria-expanded=true] {
@@ -926,6 +940,24 @@ body {
     label:after {
         width: 1.7rem;
         height: 1.7rem;
+    }
+}
+
+
+.ui.message {
+    z-index: 10;
+    position: fixed;
+    width: 63%;
+    top: 10vh;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center !important;
+    .header {
+        font-family: $normal-font !important;
+    }
+    p {
+        margin: 0;
     }
 }
 

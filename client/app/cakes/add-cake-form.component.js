@@ -1,4 +1,4 @@
-System.register(["angular2/core", "./cake", "./cake.service", "./editable-item-form.component"], function(exports_1) {
+System.register(["angular2/core", "./cake", "./editable-item-form.component", "./cake.service", "../transition.service"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(["angular2/core", "./cake", "./cake.service", "./editable-item-f
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, cake_1, cake_service_1, editable_item_form_component_1;
+    var core_1, cake_1, editable_item_form_component_1, cake_service_1, transition_service_1;
     var AddCakeFormComponent;
     return {
         setters:[
@@ -18,16 +18,20 @@ System.register(["angular2/core", "./cake", "./cake.service", "./editable-item-f
             function (cake_1_1) {
                 cake_1 = cake_1_1;
             },
+            function (editable_item_form_component_1_1) {
+                editable_item_form_component_1 = editable_item_form_component_1_1;
+            },
             function (cake_service_1_1) {
                 cake_service_1 = cake_service_1_1;
             },
-            function (editable_item_form_component_1_1) {
-                editable_item_form_component_1 = editable_item_form_component_1_1;
+            function (transition_service_1_1) {
+                transition_service_1 = transition_service_1_1;
             }],
         execute: function() {
             AddCakeFormComponent = (function () {
-                function AddCakeFormComponent(_cakeService) {
+                function AddCakeFormComponent(_cakeService, _transitionService) {
                     this._cakeService = _cakeService;
+                    this._transitionService = _transitionService;
                     this.userId = JSON.parse(localStorage.getItem("profile")).user_id; // must be defined first
                     this.saved = new core_1.EventEmitter();
                     this.model = new cake_1.Cake(0, false, this.userId, "", "", "", "", [], []);
@@ -35,13 +39,16 @@ System.register(["angular2/core", "./cake", "./cake.service", "./editable-item-f
                 AddCakeFormComponent.prototype.clearForm = function () {
                     this.model = new cake_1.Cake(0, false, this.userId, "", "", "", "", [], []);
                 };
-                AddCakeFormComponent.prototype.addCake = function (name) {
+                AddCakeFormComponent.prototype.addCake = function (name, message) {
                     var _this = this;
                     if (!name) {
                         return;
                     }
                     this._cakeService.addCake(JSON.stringify(this.model))
-                        .subscribe(function (res) { return _this.saved.emit(res); });
+                        .subscribe(function (res) {
+                        _this.saved.emit(res);
+                        _this._transitionService.fadeToggleItem(message);
+                    });
                     // TODO: Remove when there's a better way to reset the model
                     this.clearForm();
                 };
@@ -67,7 +74,8 @@ System.register(["angular2/core", "./cake", "./cake.service", "./editable-item-f
                         if (value != "") {
                             this.model.ingredients.push({
                                 "index": this.model.ingredients.length,
-                                "value": value });
+                                "value": value
+                            });
                         }
                     }
                     else if (itemType == "step") {
@@ -75,7 +83,8 @@ System.register(["angular2/core", "./cake", "./cake.service", "./editable-item-f
                         if (value != "") {
                             this.model.steps.push({
                                 "index": this.model.steps.length,
-                                "value": value });
+                                "value": value
+                            });
                         }
                     }
                 };
@@ -132,7 +141,7 @@ System.register(["angular2/core", "./cake", "./cake.service", "./editable-item-f
                         templateUrl: "templates/add-cake-form.component.html",
                         directives: [editable_item_form_component_1.EditableItemForm]
                     }), 
-                    __metadata('design:paramtypes', [cake_service_1.CakeService])
+                    __metadata('design:paramtypes', [cake_service_1.CakeService, transition_service_1.TransitionService])
                 ], AddCakeFormComponent);
                 return AddCakeFormComponent;
             })();

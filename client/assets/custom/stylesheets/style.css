@@ -16,7 +16,7 @@ body {
   /***********
    * General *
    ***********/
-  font-family: "Marmelad", Arial;
+  font-family: "Marmelad", Arial !important;
   background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/bamboo-wood-flooring-texture.jpg");
   background-repeat: repeat;
   word-break: keep-all;
@@ -29,6 +29,9 @@ body {
    *********************/
   /* Fixed Buttons */
   /* Modals */
+  /****************
+   * Pop-Up Alert *
+   ****************/
   /***********
    * Wrapper *
    ***********/
@@ -48,7 +51,7 @@ body {
     font-size: 1.2em; }
   body h1.welcome-poster {
     text-align: center;
-    font-family: "Lobster", cursive; }
+    font-family: "Lobster", cursive !important; }
   body a:hover {
     cursor: pointer; }
   body a#redirect-button {
@@ -81,7 +84,7 @@ body {
     border-bottom: 5px solid #ad4047;
     background-color: transparent;
     font-size: 1.1em;
-    font-family: "Chewy", cursive;
+    font-family: "Chewy", cursive !important;
     /* Normal Menu */
     /* Dropdown Menu */ }
     @media screen and (min-width: 480px) {
@@ -195,6 +198,15 @@ body {
       background: #fdf0e8 !important; }
     body .modal-dialog .modal-content .modal-footer {
       border-radius: 0 0 10px 10px; }
+  body .alert {
+    z-index: 10;
+    position: fixed;
+    width: 63%;
+    top: 10vh;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center; }
   body .wrapper, body .login-wrapper {
     min-width: 300px;
     margin-right: 15vw;
@@ -235,7 +247,7 @@ body {
       body .general-container .accordion .panel-heading, body .home-container .accordion .panel-heading, body .details-container .accordion .panel-heading {
         cursor: pointer;
         background-color: #fdf0e8;
-        border: 2px solid #f9d2b9; }
+        border: 3px solid #f9d2b9; }
       body .general-container .accordion .panel-heading:hover, body .home-container .accordion .panel-heading:hover, body .details-container .accordion .panel-heading:hover,
       body .general-container .accordion .panel-heading[aria-expanded=true],
       body .home-container .accordion .panel-heading[aria-expanded=true],
@@ -660,6 +672,20 @@ body {
 .ui.toggle.checkbox label:after {
   width: 1.7rem;
   height: 1.7rem; }
+
+.ui.message {
+  z-index: 10;
+  position: fixed;
+  width: 63%;
+  top: 10vh;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center !important; }
+  .ui.message .header {
+    font-family: "Marmelad", Arial !important; }
+  .ui.message p {
+    margin: 0; }
 
 /* Dragula */
 .gu-mirror {

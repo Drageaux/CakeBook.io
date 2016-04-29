@@ -1,4 +1,4 @@
-System.register(['angular2/core', "angular2/router", "./cakes/add-cake-form.component", "./cakes/import-cake-form.component", "./cakes/cake.service"], function(exports_1) {
+System.register(['angular2/core', "angular2/router", "./cakes/add-cake-form.component", "./cakes/import-cake-form.component", "./cakes/cake.service", "./transition.service"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', "angular2/router", "./cakes/add-cake-form.comp
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, add_cake_form_component_1, import_cake_form_component_1, cake_service_1, router_2;
+    var core_1, router_1, add_cake_form_component_1, import_cake_form_component_1, cake_service_1, router_2, transition_service_1;
     var HomeComponent;
     return {
         setters:[
@@ -27,12 +27,16 @@ System.register(['angular2/core', "angular2/router", "./cakes/add-cake-form.comp
             },
             function (cake_service_1_1) {
                 cake_service_1 = cake_service_1_1;
+            },
+            function (transition_service_1_1) {
+                transition_service_1 = transition_service_1_1;
             }],
         execute: function() {
             HomeComponent = (function () {
-                function HomeComponent(_router, _cakeService) {
+                function HomeComponent(_router, _cakeService, _transitionService) {
                     this._router = _router;
                     this._cakeService = _cakeService;
+                    this._transitionService = _transitionService;
                 }
                 HomeComponent.prototype.ngOnInit = function () {
                     if (!localStorage.getItem("id_token")) {
@@ -66,8 +70,13 @@ System.register(['angular2/core', "angular2/router", "./cakes/add-cake-form.comp
                 HomeComponent.prototype.onSelect = function (cake) {
                     this._router.navigate(["CakeDetails", { id: cake._id }]);
                 };
-                HomeComponent.prototype.onAdded = function (cake) {
+                HomeComponent.prototype.onAdded = function (cake, heading, message) {
                     this.cakes.push(cake);
+                    heading.click();
+                    this._transitionService.fadeToggleItem(message);
+                };
+                HomeComponent.prototype.closeMessage = function (message) {
+                    this._transitionService.closeItem(message);
                 };
                 __decorate([
                     core_1.Input(), 
@@ -79,7 +88,7 @@ System.register(['angular2/core', "angular2/router", "./cakes/add-cake-form.comp
                         directives: [add_cake_form_component_1.AddCakeFormComponent, import_cake_form_component_1.ImportCakeFormComponent]
                     }),
                     router_2.CanActivate(function () { return localStorage.getItem("id_token"); }), 
-                    __metadata('design:paramtypes', [router_1.Router, cake_service_1.CakeService])
+                    __metadata('design:paramtypes', [router_1.Router, cake_service_1.CakeService, transition_service_1.TransitionService])
                 ], HomeComponent);
                 return HomeComponent;
             })();
