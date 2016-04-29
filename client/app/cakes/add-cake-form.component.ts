@@ -6,7 +6,6 @@ import {Observable} from "rxjs/Observable";
 import {Cake}       from "./cake";
 import {EditableItemForm} from "./editable-item-form.component";
 import {CakeService} from "./cake.service";
-import {TransitionService} from "../transition.service";
 
 declare var jQuery;
 
@@ -22,8 +21,7 @@ export class AddCakeFormComponent implements OnInit {
     @Output() saved = new EventEmitter<Cake>();
     model = new Cake(0, false, this.userId, "", "", "", "", [], []);
 
-    constructor(private _cakeService:CakeService,
-                private _transitionService:TransitionService) {
+    constructor(private _cakeService:CakeService) {
     }
 
     ngOnInit() {
@@ -60,6 +58,8 @@ export class AddCakeFormComponent implements OnInit {
             .subscribe(res => {
                 this.saved.emit(res);
                 jQuery("#cakeName").blur();
+                jQuery("#addCakeForm").form('reset');
+                jQuery("#addErrorMessage").empty();
             });
         // TODO: Remove when there's a better way to reset the model
         this.clearForm();
