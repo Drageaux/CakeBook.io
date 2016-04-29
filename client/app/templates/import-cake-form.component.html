@@ -1,7 +1,7 @@
 <!--<div *ngIf="!active">-->
-    <!--<button class="btn btn-primary" (click)="openForm()">-->
-        <!--<span class="glyphicon glyphicon-import"></span> Import A Recipe-->
-    <!--</button>-->
+<!--<button class="btn btn-primary" (click)="openForm()">-->
+<!--<span class="glyphicon glyphicon-import"></span> Import A Recipe-->
+<!--</button>-->
 <!--</div>-->
 
 <div class="import-cake-form">
@@ -14,7 +14,7 @@
     <h4 style="text-align: center"><b>{{header}}</b></h4>
     <form (ngSubmit)="importCake()">
         <textarea #textArea rows="10" class="form-control" [value]="modelString"
-            (keyup)="updateTextArea(textArea.value)"></textarea>
+                  (keyup)="updateTextArea(textArea.value)"></textarea>
         <button type="button" class="btn btn-info"
                 [class.disabled]="isEmptyString(modelString)"
                 (click)="parsePreview()">

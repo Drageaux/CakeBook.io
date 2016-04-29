@@ -13,7 +13,7 @@ export class CakeService {
     constructor(private http:Http) {
     }
 
-    getCakes() {
+    getCakes():Observable<Cake[]> {
         return this.http.get("/api/" + this.userId + "/cakes")
             .map(res => <Cake[]> res.json())
             .catch(this.handleError);
@@ -22,7 +22,7 @@ export class CakeService {
     /********************
      * Single Cake REST *
      ********************/
-    getCake(id:number) {
+    getCake(id:number | string) {
         return this.http.get("/api/" + this.userId + "/cake/" + id)
             .map(res => <Cake> res.json())
             .catch(this.handleError);
@@ -79,7 +79,7 @@ export class CakeService {
     /**************
      * Image REST *
      **************/
-    uploadCakeImage(id:number, data:string, type:string) {
+    uploadCakeImage(id:number | string, data:string, type:string) {
         let body = JSON.stringify({data: data, dataType: type});
         let headers = new Headers({"Content-Type": "application/json"});
         let options = new RequestOptions({headers: headers});

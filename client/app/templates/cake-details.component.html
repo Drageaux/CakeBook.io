@@ -42,7 +42,7 @@
             <!-- Description -->
             <form class="cake-description well container">
                 <h4 style="margin-top: 0; margin-bottom: 5px;"><b>Description</b></h4>
-                <p style="color: #888" *ngIf="isEmptyString(cake.description)"
+                <p style="color: #888888" *ngIf="isEmptyString(cake.description)"
                    [class.hidden]="isEditing('desc')">(no description yet)</p>
                 <p *ngIf="!isEmptyString(cake.description)"
                    [class.hidden]="isEditing('desc')">{{cake.description}}</p>
@@ -53,7 +53,7 @@
                     <button type="button" class="btn btn-default"
                             *ngIf="isOwner()"
                             [class.hidden]="isEditing('desc')"
-                            (click)="editDetail('desc', {})">Edit
+                            (click)="editDetail('desc', 0)">Edit
                     </button>
                     <div class="save-cancel" [class.hidden]="!isEditing('desc')">
                         <button type="submit" class="save-button btn btn-success"
@@ -75,7 +75,7 @@
             <label>Ingredients</label><br>
             <ul class="well normal-list-group" data-toggle="modal" data-target="#ingrModal"
                 id="ingr-modal-button" title="Click to edit">
-                <li style="list-style: none; color: #888" *ngIf="cake.ingredients.length == 0">
+                <li style="list-style: none; color: #888888" *ngIf="cake.ingredients.length == 0">
                     (click to add ingredients)
                 </li>
                 <li *ngFor="let item of cake.ingredients; let idx = index">
@@ -90,7 +90,7 @@
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                             <h4 class="modal-title">Updating Ingredients</h4>
                         </div>
-                        <div class="modal-body" style="background-color: #DDD;">
+                        <div class="modal-body" style="background-color: #dddddd;">
                             <editable-item-list
                                     [placeholder]="'(add new ingredient)'"
                                     [itemList]="tempIngrs"
@@ -114,7 +114,7 @@
             <label>Steps</label><br>
             <ul class="well normal-list-group" data-toggle="modal" data-target="#stepModal"
                 id="step-modal-button" title="Click to edit">
-                <li style="list-style: none; color: #888" *ngIf="cake.steps.length == 0">
+                <li style="list-style: none; color: #888888" *ngIf="cake.steps.length == 0">
                     (click to add steps)
                 </li>
                 <li *ngFor="let item of cake.steps; let idx = index">
@@ -129,7 +129,7 @@
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                             <h4 class="modal-title">Updating Steps</h4>
                         </div>
-                        <div class="modal-body" style="background-color: #DDD;">
+                        <div class="modal-body" style="background-color: #dddddd;">
                             <editable-item-list
                                     [placeholder]="'(add new step)'"
                                     [itemList]="tempSteps"
@@ -151,10 +151,10 @@
         </div>
 
         <div *ngIf="!isOwner()">
-        <!-- Ingredients -->
+            <!-- Ingredients -->
             <label>Ingredients</label><br>
             <ul class="well normal-list-group">
-                <li style="list-style: none; color: #888" *ngIf="cake.ingredients.length == 0">
+                <li style="list-style: none; color: #888888" *ngIf="cake.ingredients.length == 0">
                     (no ingredients listed)
                 </li>
                 <li *ngFor="let item of cake.ingredients; let idx = index">
@@ -165,7 +165,7 @@
             <!-- Steps -->
             <label>Steps</label><br>
             <ul class="well normal-list-group">
-                <li style="list-style: none; color: #888" *ngIf="cake.steps.length == 0">
+                <li style="list-style: none; color: #888888" *ngIf="cake.steps.length == 0">
                     (no steps listed)
                 </li>
                 <li *ngFor="let item of cake.steps; let idx = index">
