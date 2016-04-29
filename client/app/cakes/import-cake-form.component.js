@@ -41,6 +41,8 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     // TODO: Remove when there's a better way to reset the model
                     this.model = new cake_1.Cake(0, false, this.userId, "", "", "", "", [], []);
                     this.modelString = "";
+                    jQuery("#importValidMessage").empty();
+                    jQuery("#importErrorMessage").empty();
                 };
                 ImportCakeFormComponent.prototype.updateTextArea = function (input) {
                     this.modelString = input;
@@ -61,13 +63,13 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     jQuery("#importErrorMessage").empty();
                     jQuery("#importValidMessage").empty();
                     if (this.model.name.length < 5) {
-                        var html = "<ul>";
+                        var html = "<ul class='list'>";
                         html += "<li>Cake name must have at least 5 characters</li>";
                         html += "</ul>";
                         jQuery("#importErrorMessage").append(html);
                     }
                     else {
-                        var html = "<ul>";
+                        var html = "<ul class='list'>";
                         html += "<li>You're good to go!</li>";
                         html += "</ul>";
                         jQuery("#importValidMessage").append(html);

@@ -60,6 +60,8 @@ export class ImportCakeFormComponent implements OnInit {
         this.model = new Cake(0, false, this.userId,
             "", "", "", "", [], []);
         this.modelString = "";
+        jQuery("#importValidMessage").empty();
+        jQuery("#importErrorMessage").empty();
     }
 
     updateTextArea(input:string) {
@@ -82,13 +84,13 @@ export class ImportCakeFormComponent implements OnInit {
         jQuery("#importErrorMessage").empty();
         jQuery("#importValidMessage").empty();
         if (this.model.name.length < 5) {
-            let html = "<ul>";
+            let html = "<ul class='list'>";
             html += "<li>Cake name must have at least 5 characters</li>";
             html += "</ul>";
             jQuery("#importErrorMessage").append(html);
         }
         else {
-            let html = "<ul>";
+            let html = "<ul class='list'>";
             html += "<li>You're good to go!</li>";
             html += "</ul>";
             jQuery("#importValidMessage").append(html);
