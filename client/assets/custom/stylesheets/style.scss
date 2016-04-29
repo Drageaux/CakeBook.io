@@ -958,10 +958,13 @@ body {
     .ui.message {
         position: inherit;
         width: 100%;
+        text-align: left !important;
     }
+    .ui.success.message:not(:empty),
     .ui.error.message:not(:empty) {
         display: block;
     }
+    .ui.success.message,
     .ui.error.message {
         display: none;
     }

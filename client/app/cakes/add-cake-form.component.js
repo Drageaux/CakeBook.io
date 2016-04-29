@@ -40,17 +40,12 @@ System.register(["angular2/core", "./cake", "./editable-item-form.component", ".
                                 rules: [
                                     {
                                         type: "minLength[5]",
-                                        prompt: "Cake name must be at least 5 characters"
+                                        prompt: "Cake name must have at least 5 characters"
                                     }
                                 ]
                             }
                         }
                     });
-                    //gender   : 'empty',
-                    //              username : 'empty',
-                    //              password : ['minLength[6]', 'empty'],
-                    //              skills   : ['minCount[2]', 'empty'],
-                    //              terms    : 'checked'
                 };
                 AddCakeFormComponent.prototype.clearForm = function () {
                     this.model = new cake_1.Cake(0, false, this.userId, "", "", "", "", [], []);
