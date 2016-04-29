@@ -9,7 +9,10 @@ export class TransitionService {
     fadeToggleItem(item:any) {
         jQuery(item).transition("fade");
         window.setTimeout(function () {
-            this.closeItem; // still not sure why it doesn't need an argument and still knows
+            // TODO Temporary duplicate code until there's a better way to close
+            if (!jQuery(item).hasClass("hidden")) {
+                jQuery(item).transition("fade");
+            }
         }, 4000);
     }
 

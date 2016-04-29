@@ -23,7 +23,10 @@ System.register(['angular2/core'], function(exports_1) {
                 TransitionService.prototype.fadeToggleItem = function (item) {
                     jQuery(item).transition("fade");
                     window.setTimeout(function () {
-                        this.closeItem; // still not sure why it doesn't need an argument and still knows
+                        // TODO Temporary duplicate code until there's a better way to close
+                        if (!jQuery(item).hasClass("hidden")) {
+                            jQuery(item).transition("fade");
+                        }
                     }, 4000);
                 };
                 TransitionService.prototype.closeItem = function (item) {

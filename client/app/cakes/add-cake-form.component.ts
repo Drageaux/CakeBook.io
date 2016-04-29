@@ -27,32 +27,38 @@ export class AddCakeFormComponent implements OnInit {
     }
 
     ngOnInit() {
-        //jQuery('.add-cake-form')
-        //  .form({
-        //    fields: {
-        //      name     : 'empty',
-        //      gender   : 'empty',
-        //      username : 'empty',
-        //      password : ['minLength[6]', 'empty'],
-        //      skills   : ['minCount[2]', 'empty'],
-        //      terms    : 'checked'
-        //    }
-        //  })
-        //;
+        jQuery("#addCakeForm").form({
+            fields: {
+                name: {
+                    identifier: "cakeName",
+                    rules: [
+                        {
+                            type: "minLength[5]",
+                            prompt: "Cake name must be at least 5 characters"
+                        }
+                    ]
+                }
+            }
+        });
+        //gender   : 'empty',
+        //              username : 'empty',
+        //              password : ['minLength[6]', 'empty'],
+        //              skills   : ['minCount[2]', 'empty'],
+        //              terms    : 'checked'
     }
 
     clearForm() {
         this.model = new Cake(0, false, this.userId, "", "", "", "", [], []);
     }
 
-    addCake(name:string, message:any):Observable<Cake> {
-        if (!name) {
+    addCake():Observable<Cake> {
+        if (this.model.name.length < 5) {
             return;
         }
+
         this._cakeService.addCake(JSON.stringify(this.model))
             .subscribe(res => {
                 this.saved.emit(res);
-                this._transitionService.fadeToggleItem(message);
             });
         // TODO: Remove when there's a better way to reset the model
         this.clearForm();
@@ -130,6 +136,7 @@ export class AddCakeFormComponent implements OnInit {
     /********************
      * Helper Functions *
      ********************/
+
     isEmptyString(str:string) {
         return str == "" || str == null;
     }

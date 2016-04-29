@@ -29,9 +29,6 @@ body {
    *********************/
   /* Fixed Buttons */
   /* Modals */
-  /****************
-   * Pop-Up Alert *
-   ****************/
   /***********
    * Wrapper *
    ***********/
@@ -198,15 +195,6 @@ body {
       background: #fdf0e8 !important; }
     body .modal-dialog .modal-content .modal-footer {
       border-radius: 0 0 10px 10px; }
-  body .alert {
-    z-index: 10;
-    position: fixed;
-    width: 63%;
-    top: 10vh;
-    left: 0;
-    right: 0;
-    margin: auto;
-    text-align: center; }
   body .wrapper, body .login-wrapper {
     min-width: 300px;
     margin-right: 15vw;
@@ -688,6 +676,17 @@ body {
     font-family: "Marmelad", Arial !important; }
   .ui.message p {
     margin: 0; }
+
+.add-cake-form .ui.message, body .general-container div.import-cake-form .ui.message, body .home-container div.import-cake-form .ui.message, body .details-container div.import-cake-form .ui.message,
+.import-cake-form .ui.message {
+  position: inherit;
+  width: 100%; }
+.add-cake-form .ui.error.message:not(:empty), body .general-container div.import-cake-form .ui.error.message:not(:empty), body .home-container div.import-cake-form .ui.error.message:not(:empty), body .details-container div.import-cake-form .ui.error.message:not(:empty),
+.import-cake-form .ui.error.message:not(:empty) {
+  display: block; }
+.add-cake-form .ui.error.message, body .general-container div.import-cake-form .ui.error.message, body .home-container div.import-cake-form .ui.error.message, body .details-container div.import-cake-form .ui.error.message,
+.import-cake-form .ui.error.message {
+  display: none; }
 
 /* Dragula */
 .gu-mirror {

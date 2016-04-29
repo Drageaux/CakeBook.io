@@ -37,31 +37,36 @@ System.register(["angular2/core", "./cake", "./editable-item-form.component", ".
                     this.model = new cake_1.Cake(0, false, this.userId, "", "", "", "", [], []);
                 }
                 AddCakeFormComponent.prototype.ngOnInit = function () {
-                    //jQuery('.add-cake-form')
-                    //  .form({
-                    //    fields: {
-                    //      name     : 'empty',
-                    //      gender   : 'empty',
-                    //      username : 'empty',
-                    //      password : ['minLength[6]', 'empty'],
-                    //      skills   : ['minCount[2]', 'empty'],
-                    //      terms    : 'checked'
-                    //    }
-                    //  })
-                    //;
+                    jQuery("#addCakeForm").form({
+                        fields: {
+                            name: {
+                                identifier: "cakeName",
+                                rules: [
+                                    {
+                                        type: "minLength[5]",
+                                        prompt: "Cake name must be at least 5 characters"
+                                    }
+                                ]
+                            }
+                        }
+                    });
+                    //gender   : 'empty',
+                    //              username : 'empty',
+                    //              password : ['minLength[6]', 'empty'],
+                    //              skills   : ['minCount[2]', 'empty'],
+                    //              terms    : 'checked'
                 };
                 AddCakeFormComponent.prototype.clearForm = function () {
                     this.model = new cake_1.Cake(0, false, this.userId, "", "", "", "", [], []);
                 };
-                AddCakeFormComponent.prototype.addCake = function (name, message) {
+                AddCakeFormComponent.prototype.addCake = function () {
                     var _this = this;
-                    if (!name) {
+                    if (this.model.name.length < 5) {
                         return;
                     }
                     this._cakeService.addCake(JSON.stringify(this.model))
                         .subscribe(function (res) {
                         _this.saved.emit(res);
-                        _this._transitionService.fadeToggleItem(message);
                     });
                     // TODO: Remove when there's a better way to reset the model
                     this.clearForm();

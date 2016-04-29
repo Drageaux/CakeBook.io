@@ -276,20 +276,6 @@ body {
         }
     }
 
-    /****************
-     * Pop-Up Alert *
-     ****************/
-    .alert {
-        z-index: 10;
-        position: fixed;
-        width: 63%;
-        top: 10vh;
-        left: 0;
-        right: 0;
-        margin: auto;
-        text-align: center;
-    }
-
     /***********
      * Wrapper *
      ***********/
@@ -960,6 +946,21 @@ body {
     }
     p {
         margin: 0;
+    }
+}
+
+
+.add-cake-form,
+.import-cake-form {
+    .ui.message {
+        position: inherit;
+        width: 100%;
+    }
+    .ui.error.message:not(:empty) {
+        display: block;
+    }
+    .ui.error.message {
+        display: none;
     }
 }
 
