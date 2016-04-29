@@ -19,6 +19,7 @@ import {Cake}                   from "./cakes/cake";
 import {CakeDetailsComponent}   from "./cakes/cake-details.component";
 import {AddCakeFormComponent}   from "./cakes/add-cake-form.component";
 import {CakeService}            from "./cakes/cake.service";
+import {TransitionService}      from "./transition.service";
 
 // Need to be imported later on for some reason
 import {ViewEncapsulation}      from "angular2/core";
@@ -32,6 +33,7 @@ enableProdMode();
     encapsulation: ViewEncapsulation.None,
     providers: [
         CakeService,
+        TransitionService,
         ROUTER_PROVIDERS,
         HTTP_PROVIDERS
     ],

@@ -1,16 +1,18 @@
 <div class="add-cake-form">
     <h4 style="text-align: center"><b>Make a Cake</b></h4>
-    <form (ngSubmit)="addCake(addCakeForm.value)" #addCakeForm="ngForm">
+    <div #addCakeForm id="addCakeForm">
         <!-- Cake name -->
         <div class="form-group">
             <label>Cake Name*</label>
-            <input type="text" class="form-control" required
-                   [(ngModel)]="model.name">
+            <input type="text" class="form-control" id="cakeName" required
+                   [(ngModel)]="model.name"
+                   (keyup.enter)="addCake(message)">
             <div class="ui toggle checkbox">
                 <input type="checkbox" id="publicToggleAdd" [checked]="model.isPublic"
                        (click)="togglePublicity()">
                 <label>Allow everyone to see this cake?</label>
             </div>
+            <div class="ui error message" id="addErrorMessage"></div>
         </div>
         <hr>
 
@@ -46,7 +48,7 @@
         <hr>
 
         <!-- Main form buttons -->
-        <button type="submit" class="btn btn-success"
+        <button type="button" class="btn btn-success" (click)="addCake(message)"
                 [class.disabled]="isEmptyString(model.name)">
             <span class="glyphicon glyphicon-ok"></span> Submit
         </button>
@@ -54,5 +56,6 @@
                 (click)="clearForm()">
             <span class="glyphicon glyphicon-remove"></span> Clear
         </button>
-    </form>
+    </div>
 </div>
+

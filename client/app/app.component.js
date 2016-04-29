@@ -1,4 +1,4 @@
-System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2/platform/common", "angular2-jwt", "./loggedin-outlet", "./login.component", "./home.component", "./cakes/search.component", "./cakes/cake-details.component", "./cakes/cake.service", 'angular2/core'], function(exports_1) {
+System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2/platform/common", "angular2-jwt", "./loggedin-outlet", "./login.component", "./home.component", "./cakes/search.component", "./cakes/cake-details.component", "./cakes/cake.service", "./transition.service", 'angular2/core'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2/
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, router_1, common_1, angular2_jwt_1, loggedin_outlet_1, login_component_1, home_component_1, search_component_1, cake_details_component_1, cake_service_1, core_2, core_3;
+    var core_1, http_1, router_1, common_1, angular2_jwt_1, loggedin_outlet_1, login_component_1, home_component_1, search_component_1, cake_details_component_1, cake_service_1, transition_service_1, core_2, core_3;
     var AppComponent;
     return {
         setters:[
@@ -45,6 +45,9 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2/
             },
             function (cake_service_1_1) {
                 cake_service_1 = cake_service_1_1;
+            },
+            function (transition_service_1_1) {
+                transition_service_1 = transition_service_1_1;
             },
             function (core_3_1) {
                 core_3 = core_3_1;
@@ -112,6 +115,7 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2/
                         encapsulation: core_2.ViewEncapsulation.None,
                         providers: [
                             cake_service_1.CakeService,
+                            transition_service_1.TransitionService,
                             router_1.ROUTER_PROVIDERS,
                             http_1.HTTP_PROVIDERS
                         ],

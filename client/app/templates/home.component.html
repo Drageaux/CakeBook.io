@@ -15,7 +15,7 @@
 
     <div class="panel-group accordion" id="accordion" role="tablist" aria-multiselectable="true">
         <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingOne"
+            <div class="panel-heading" role="tab" id="headingOne" #headingOne
                  data-toggle="collapse" data-parent="#accordion"
                  href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                 <span class="glyphicon glyphicon-plus"></span> Make My Own Cake
@@ -23,13 +23,13 @@
             <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                 <div class="panel-body">
                     <!-- Add -->
-                    <add-cake-form (saved)="onAdded($event)"></add-cake-form>
+                    <add-cake-form (saved)="onAdded($event, headingOne, addSuccess)"></add-cake-form>
                 </div>
             </div>
         </div>
 
         <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingTwo"
+            <div class="panel-heading" role="tab" id="headingTwo" #headingTwo
                  data-toggle="collapse" data-parent="#accordion"
                  href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                 <span class="glyphicon glyphicon-import"></span> Import A Recipe
@@ -37,17 +37,28 @@
             <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                 <div class="panel-body">
                     <!-- Import -->
-                    <import-cake-form (saved)="onAdded($event)"></import-cake-form>
+                    <import-cake-form (saved)="onAdded($event, headingTwo, importSuccess)"></import-cake-form>
                 </div>
             </div>
         </div>
     </div>
-    <br>
     <hr>
 
-    <h3>My Cakes</h3>
+    <h3 style="margin-top: 30px">My Cakes</h3>
     <div class="cake-list list-group">
         <a class="list-group-item" *ngFor="#cake of cakes"
            (click)="onSelect(cake)">{{cake.name}}</a>
     </div>
+</div>
+
+
+<!-- Add Cake Success -->
+<div class="ui positive message hidden" #addSuccess>
+    <i class="close icon" (click)="closeMessage(addSuccess)"></i>
+    <p>Cake successfully added!</p>
+</div>
+<!-- Import Cake Success -->
+<div class="ui positive message hidden" #importSuccess>
+    <i class="close icon" (click)="closeMessage(importSuccess)"></i>
+    <p>Recipe successfully imported!</p>
 </div>

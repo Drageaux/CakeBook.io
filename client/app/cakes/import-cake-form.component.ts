@@ -1,4 +1,9 @@
-import {Component,EventEmitter,Input,Output}  from "angular2/core";
+import {
+    Component,
+    EventEmitter,
+    Input,
+    Output,
+    OnInit} from "angular2/core";
 import {NgForm}     from "angular2/common";
 import {Json} from "angular2/src/facade/lang";
 import {Observable} from "rxjs/Observable";
@@ -6,12 +11,14 @@ import {Observable} from "rxjs/Observable";
 import {Cake}       from "./cake";
 import {CakeService} from "./cake.service";
 
+declare var jQuery;
+
 @Component({
     selector: "import-cake-form",
     templateUrl: "templates/import-cake-form.component.html",
 })
 
-export class ImportCakeFormComponent {
+export class ImportCakeFormComponent implements OnInit {
     userId = JSON.parse(localStorage.getItem("profile")).user_id; // must be defined first
 
     @Output() saved = new EventEmitter<Cake>();
@@ -44,11 +51,17 @@ export class ImportCakeFormComponent {
     constructor(private _cakeService:CakeService) {
     }
 
+    ngOnInit() {
+        jQuery("#importValidMessage").empty();
+    }
+
     clearForm() {
         // TODO: Remove when there's a better way to reset the model
         this.model = new Cake(0, false, this.userId,
             "", "", "", "", [], []);
         this.modelString = "";
+        jQuery("#importValidMessage").empty();
+        jQuery("#importErrorMessage").empty();
     }
 
     updateTextArea(input:string) {
@@ -68,6 +81,20 @@ export class ImportCakeFormComponent {
     }
 
     onPreview() {
+        jQuery("#importErrorMessage").empty();
+        jQuery("#importValidMessage").empty();
+        if (this.model.name.length < 5) {
+            let html = "<ul class='list'>";
+            html += "<li>Cake name must have at least 5 characters</li>";
+            html += "</ul>";
+            jQuery("#importErrorMessage").append(html);
+        }
+        else {
+            let html = "<ul class='list'>";
+            html += "<li>You're good to go!</li>";
+            html += "</ul>";
+            jQuery("#importValidMessage").append(html);
+        }
         this.previewed.emit(this.model);
     }
 

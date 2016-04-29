@@ -88,7 +88,7 @@ export class EditableItemForm implements OnInit {
 
     isValidInput(str:string) {
         if (!this.isEmptyString(str)) {
-            return str.length > 4
+            return str.length > 2
         }
         return false
     }

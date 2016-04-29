@@ -16,7 +16,7 @@ body {
   /***********
    * General *
    ***********/
-  font-family: "Marmelad", Arial;
+  font-family: "Marmelad", Arial !important;
   background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/bamboo-wood-flooring-texture.jpg");
   background-repeat: repeat;
   word-break: keep-all;
@@ -48,7 +48,7 @@ body {
     font-size: 1.2em; }
   body h1.welcome-poster {
     text-align: center;
-    font-family: "Lobster", cursive; }
+    font-family: "Lobster", cursive !important; }
   body a:hover {
     cursor: pointer; }
   body a#redirect-button {
@@ -81,7 +81,7 @@ body {
     border-bottom: 5px solid #ad4047;
     background-color: transparent;
     font-size: 1.1em;
-    font-family: "Chewy", cursive;
+    font-family: "Chewy", cursive !important;
     /* Normal Menu */
     /* Dropdown Menu */ }
     @media screen and (min-width: 480px) {
@@ -234,15 +234,17 @@ body {
         background-color: transparent; }
       body .general-container .accordion .panel-heading, body .home-container .accordion .panel-heading, body .details-container .accordion .panel-heading {
         cursor: pointer;
-        background-color: #fdf0e8;
-        border: 2px solid #f9d2b9; }
+        background-color: #f9d2b9;
+        border: 3px solid #f7c3a2; }
       body .general-container .accordion .panel-heading:hover, body .home-container .accordion .panel-heading:hover, body .details-container .accordion .panel-heading:hover,
       body .general-container .accordion .panel-heading[aria-expanded=true],
       body .home-container .accordion .panel-heading[aria-expanded=true],
       body .details-container .accordion .panel-heading[aria-expanded=true] {
-        background-color: #f9d2b9;
+        background-color: #f7c3a2;
         transition-duration: 0.2s; }
       body .general-container .accordion .panel-body, body .home-container .accordion .panel-body, body .details-container .accordion .panel-body {
+        position: relative;
+        top: -2px;
         border-top: none !important;
         border-radius: 4px;
         padding: 0; }
@@ -251,7 +253,7 @@ body {
       padding: 20px;
       margin-top: 0;
       margin-bottom: 0;
-      border: 4px solid #f9d2b9;
+      border: 4px solid #f7c3a2;
       border-radius: 0 0 4px 4px; }
     body .general-container div.import-cake-form p, body .home-container div.import-cake-form p, body .details-container div.import-cake-form p {
       font-size: 1.1em;
@@ -295,11 +297,13 @@ body {
       margin-bottom: 8px; }
       body .general-container .form-group button, body .home-container .form-group button, body .details-container .form-group button {
         margin: 0; }
-      body .general-container .form-group .input-group .input-group-btn:first-child button, body .home-container .form-group .input-group .input-group-btn:first-child button, body .details-container .form-group .input-group .input-group-btn:first-child button {
-        margin-right: 5px;
-        border-radius: 4px; }
-      body .general-container .form-group .input-group .form-control:last-child, body .home-container .form-group .input-group .form-control:last-child, body .details-container .form-group .input-group .form-control:last-child {
-        border-radius: 4px; }
+      body .general-container .form-group .input-group, body .home-container .form-group .input-group, body .details-container .form-group .input-group {
+        margin-top: 4px; }
+        body .general-container .form-group .input-group .input-group-btn:first-child button, body .home-container .form-group .input-group .input-group-btn:first-child button, body .details-container .form-group .input-group .input-group-btn:first-child button {
+          margin-right: 5px;
+          border-radius: 4px; }
+        body .general-container .form-group .input-group .form-control:last-child, body .home-container .form-group .input-group .form-control:last-child, body .details-container .form-group .input-group .form-control:last-child {
+          border-radius: 4px; }
       body .general-container .form-group .list-group-item, body .home-container .form-group .list-group-item, body .details-container .form-group .list-group-item {
         background-color: transparent;
         border: none; }
@@ -660,6 +664,44 @@ body {
 .ui.toggle.checkbox label:after {
   width: 1.7rem;
   height: 1.7rem; }
+
+.ui.message {
+  z-index: 10;
+  position: fixed;
+  width: 63%;
+  top: 10vh;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center !important;
+  border-width: 1px;
+  border-style: solid; }
+  .ui.message .header {
+    font-family: "Marmelad", Arial !important; }
+  .ui.message p {
+    margin: 0; }
+
+.add-cake-form .ui.message, body .general-container div.import-cake-form .ui.message, body .home-container div.import-cake-form .ui.message, body .details-container div.import-cake-form .ui.message,
+.import-cake-form .ui.message {
+  position: inherit;
+  width: 100%;
+  text-align: left !important; }
+.add-cake-form .ui.success.message:not(:empty), body .general-container div.import-cake-form .ui.success.message:not(:empty), body .home-container div.import-cake-form .ui.success.message:not(:empty), body .details-container div.import-cake-form .ui.success.message:not(:empty),
+.add-cake-form .ui.error.message:not(:empty),
+body .general-container div.import-cake-form .ui.error.message:not(:empty),
+body .home-container div.import-cake-form .ui.error.message:not(:empty),
+body .details-container div.import-cake-form .ui.error.message:not(:empty),
+.import-cake-form .ui.success.message:not(:empty),
+.import-cake-form .ui.error.message:not(:empty) {
+  display: block; }
+.add-cake-form .ui.success.message, body .general-container div.import-cake-form .ui.success.message, body .home-container div.import-cake-form .ui.success.message, body .details-container div.import-cake-form .ui.success.message,
+.add-cake-form .ui.error.message,
+body .general-container div.import-cake-form .ui.error.message,
+body .home-container div.import-cake-form .ui.error.message,
+body .details-container div.import-cake-form .ui.error.message,
+.import-cake-form .ui.success.message,
+.import-cake-form .ui.error.message {
+  display: none; }
 
 /* Dragula */
 .gu-mirror {

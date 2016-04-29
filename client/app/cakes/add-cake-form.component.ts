@@ -4,8 +4,10 @@ import {Json} from "angular2/src/facade/lang";
 import {Observable} from "rxjs/Observable";
 
 import {Cake}       from "./cake";
-import {CakeService} from "./cake.service";
 import {EditableItemForm} from "./editable-item-form.component";
+import {CakeService} from "./cake.service";
+
+declare var jQuery;
 
 @Component({
     selector: "add-cake-form",
@@ -13,27 +15,49 @@ import {EditableItemForm} from "./editable-item-form.component";
     directives: [EditableItemForm]
 })
 
-export class AddCakeFormComponent {
+export class AddCakeFormComponent implements OnInit {
     userId = JSON.parse(localStorage.getItem("profile")).user_id; // must be defined first
-    
+
     @Output() saved = new EventEmitter<Cake>();
     model = new Cake(0, false, this.userId, "", "", "", "", [], []);
 
     constructor(private _cakeService:CakeService) {
     }
 
-    clearForm() {
-        this.model = new Cake(0, false, this.userId, "", "", "", "", [], []);
+    ngOnInit() {
+        jQuery("#addCakeForm").form({
+            fields: {
+                name: {
+                    identifier: "cakeName",
+                    rules: [
+                        {
+                            type: "minLength[5]",
+                            prompt: "Cake name must have at least 5 characters"
+                        }
+                    ]
+                }
+            }
+        });
     }
 
-    addCake(name:string):Observable<Cake> {
-        if (!name) {
+    clearForm() {
+        this.model = new Cake(0, false, this.userId, "", "", "", "", [], []);
+        jQuery("#cakeName").blur();
+        jQuery("#addCakeForm").form('reset');
+        jQuery("#addErrorMessage").empty();
+    }
+
+    addCake():Observable<Cake> {
+        if (this.model.name.length < 5) {
             return;
         }
+
         this._cakeService.addCake(JSON.stringify(this.model))
-            .subscribe(res => this.saved.emit(res));
+            .subscribe(res => {
+                this.saved.emit(res);
+                this.clearForm();
+            });
         // TODO: Remove when there's a better way to reset the model
-        this.clearForm();
     }
 
     togglePublicity() {
@@ -48,7 +72,7 @@ export class AddCakeFormComponent {
         }
     }
 
-    updateDescription(input:string){
+    updateDescription(input:string) {
         this.model.description = input;
     }
 
@@ -59,7 +83,8 @@ export class AddCakeFormComponent {
             if (value != "") {
                 this.model.ingredients.push({
                     "index": this.model.ingredients.length,
-                    "value": value});
+                    "value": value
+                });
             }
         }
         else if (itemType == "step") {
@@ -67,7 +92,8 @@ export class AddCakeFormComponent {
             if (value != "") {
                 this.model.steps.push({
                     "index": this.model.steps.length,
-                    "value": value});
+                    "value": value
+                });
             }
         }
     }
@@ -106,6 +132,7 @@ export class AddCakeFormComponent {
     /********************
      * Helper Functions *
      ********************/
+
     isEmptyString(str:string) {
         return str == "" || str == null;
     }

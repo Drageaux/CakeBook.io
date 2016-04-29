@@ -8,6 +8,9 @@ import {ImportCakeFormComponent}   from "./cakes/import-cake-form.component";
 import {CakeService}            from "./cakes/cake.service";
 import {CanActivate} from "angular2/router";
 import {tokenNotExpired} from "angular2-jwt";
+import {TransitionService} from "./transition.service";
+
+declare var jQuery;
 
 @Component({
     templateUrl: "templates/home.component.html",
@@ -20,7 +23,8 @@ export class HomeComponent implements OnInit {
     @Input() cakes:Cake[];
 
     constructor(private _router:Router,
-                private _cakeService:CakeService) {
+                private _cakeService:CakeService,
+                private _transitionService:TransitionService) {
     }
 
     ngOnInit() {
@@ -61,7 +65,13 @@ export class HomeComponent implements OnInit {
         this._router.navigate(["CakeDetails", {id: cake._id}]);
     }
 
-    onAdded(cake:Cake) {
+    onAdded(cake:Cake, heading:any, message:any) {
         this.cakes.push(cake);
+        heading.click();
+        this._transitionService.fadeToggleItem(message);
+    }
+
+    closeMessage(message:any) {
+        this._transitionService.closeItem(message);
     }
 }
