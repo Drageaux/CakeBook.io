@@ -953,6 +953,8 @@ body {
     right: 0;
     margin: auto;
     text-align: center !important;
+    border-width: 1px;
+    border-style: solid;
     .header {
         font-family: $normal-font !important;
     }

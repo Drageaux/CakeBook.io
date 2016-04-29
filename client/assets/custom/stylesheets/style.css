@@ -681,7 +681,9 @@ body {
   left: 0;
   right: 0;
   margin: auto;
-  text-align: center !important; }
+  text-align: center !important;
+  border-width: 1px;
+  border-style: solid; }
   .ui.message .header {
     font-family: "Marmelad", Arial !important; }
   .ui.message p {
