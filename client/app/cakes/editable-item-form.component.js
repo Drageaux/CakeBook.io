@@ -27,6 +27,11 @@ System.register(["angular2/core", "ng2-dragula/ng2-dragula"], function(exports_1
                     this.onAdded = new core_1.EventEmitter();
                     this.onRemoved = new core_1.EventEmitter();
                     this.onSaved = new core_1.EventEmitter();
+                    dragulaService.setOptions('dragula-bag', {
+                        moves: function (el, container, handle) {
+                            return handle.className == 'handle';
+                        }
+                    });
                     dragulaService.drag.subscribe(function (value) {
                         _this.onDrag(value.slice(1));
                     });

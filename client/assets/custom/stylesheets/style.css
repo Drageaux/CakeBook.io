@@ -319,6 +319,17 @@ body {
         background-color: transparent;
         border: none; }
       body .general-container .form-group .editable-list-group, body .home-container .form-group .editable-list-group, body .details-container .form-group .editable-list-group {
+        -webkit-touch-callout: none;
+        /* iOS Safari */
+        -webkit-user-select: none;
+        /* Chrome/Safari/Opera */
+        -khtml-user-select: none;
+        /* Konqueror */
+        -moz-user-select: none;
+        /* Firefox */
+        -ms-user-select: none;
+        /* Internet Explorer/Edge */
+        user-select: none;
         margin-top: 5px;
         margin-bottom: 0;
         padding: 5px 0;
@@ -329,8 +340,7 @@ body {
         max-height: 300px;
         overflow-y: auto; }
         body .general-container .form-group .editable-list-group .editable-list-group-item, body .home-container .form-group .editable-list-group .editable-list-group-item, body .details-container .form-group .editable-list-group .editable-list-group-item {
-          cursor: move;
-          cursor: grab;
+          cursor: default;
           overflow: hidden;
           margin: 2px 20px 2px 20px;
           padding: 6px 15px 6px 0;
@@ -340,6 +350,9 @@ body {
           font-size: 0.97em;
           /* Edit and Remove */ }
           body .general-container .form-group .editable-list-group .editable-list-group-item .number-label, body .home-container .form-group .editable-list-group .editable-list-group-item .number-label, body .details-container .form-group .editable-list-group .editable-list-group-item .number-label {
+            z-index: 2;
+            cursor: move;
+            cursor: grab;
             position: absolute;
             top: 0;
             float: left;
@@ -349,6 +362,7 @@ body {
             background-color: #cecece;
             color: white; }
             body .general-container .form-group .editable-list-group .editable-list-group-item .number-label span, body .home-container .form-group .editable-list-group .editable-list-group-item .number-label span, body .details-container .form-group .editable-list-group .editable-list-group-item .number-label span {
+              z-index: 2;
               cursor: move;
               cursor: grab;
               position: absolute;

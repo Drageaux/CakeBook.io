@@ -2,11 +2,11 @@
 <form class="form-group" #thisForm>
     <!-- Add Item -->
     <ul *ngIf="itemList.length>0" class="list-group editable-list-group"
-        [dragula]='"bag-one"' [dragulaModel]="itemList">
+        [dragula]='"dragula-bag"' [dragulaModel]="itemList">
         <li *ngFor="#item of itemList; #idx = index"
             class="list-group-item editable-list-group-item">
             <!-- Item number -->
-            <div class="number-label"><span>{{idx+1}}</span></div>
+            <div class="number-label handle"><span class="handle">{{idx+1}}</span></div>
             <!-- Item name -->
             <div class="list-group-item-name" [class.edit-item]="isEditing(idx)">
                 <span [class.hidden]="isEditing(idx)">

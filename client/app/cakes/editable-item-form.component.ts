@@ -19,6 +19,11 @@ export class EditableItemForm implements OnInit {
     @Output() onSaved = new EventEmitter<Object>();
 
     constructor(private dragulaService:DragulaService) {
+        dragulaService.setOptions('dragula-bag', {
+            moves: function (el, container, handle) {
+                return handle.className == 'handle';
+            }
+        });
         dragulaService.drag.subscribe((value) => {
             this.onDrag(value.slice(1));
         });
