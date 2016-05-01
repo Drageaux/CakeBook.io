@@ -527,6 +527,7 @@ body {
     body .details-container .cake-headline input[type=text].change-name-input {
       position: relative;
       left: -5px;
+      right: -5px;
       font-weight: bold;
       font-size: 18px;
       background-color: #fef6f1;

@@ -109,13 +109,17 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./editab
                 CakeDetailsComponent.prototype.saveEdit = function (detailType, obj) {
                     var _this = this;
                     if (detailType == "name") {
-                        this.currName["editing"] = false;
-                        this._service.updateCakeDetail(this.cake._id, "name", 0, obj.value.replace(/\s+$/, ""))
-                            .subscribe(function (cake) { return _this.cake = cake; });
+                        obj.value = obj.value.replace(/\s+$/, "");
+                        if (obj.value.length > 4) {
+                            this.currName["editing"] = false;
+                            this._service.updateCakeDetail(this.cake._id, "name", 0, obj.value)
+                                .subscribe(function (cake) { return _this.cake = cake; });
+                        }
                     }
                     else if (detailType == "desc") {
+                        obj.value = obj.value.replace(/\s+$/, "");
                         this.currDesc["editing"] = false;
-                        this._service.updateCakeDetail(this.cake._id, "desc", 0, obj.value.replace(/\s+$/, ""))
+                        this._service.updateCakeDetail(this.cake._id, "desc", 0, obj.value)
                             .subscribe(function (cake) { return _this.cake = cake; });
                     }
                     else {
