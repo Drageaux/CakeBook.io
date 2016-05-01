@@ -32,6 +32,7 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./editab
                     this._service = _service;
                     this.tempIngrs = [];
                     this.tempSteps = [];
+                    this.currName = { "value": "", "editing": false };
                     this.currDesc = { "value": "", "editing": false };
                 }
                 CakeDetailsComponent.prototype.ngOnInit = function () {
@@ -78,9 +79,16 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./editab
                         }
                     }
                 };
-                CakeDetailsComponent.prototype.editDetail = function (detailType, index) {
+                CakeDetailsComponent.prototype.editDetail = function (detailType) {
                     var _this = this;
-                    if (detailType == "desc") {
+                    if (detailType == "name") {
+                        this.currName["editing"] = true;
+                        window.setTimeout(function () {
+                            jQuery("#newName").focus();
+                            jQuery("#newName").select();
+                        }, 100);
+                    }
+                    else if (detailType == "desc") {
                         this.currDesc["editing"] = true;
                     }
                     else if (detailType == "isPublic") {
@@ -100,7 +108,10 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./editab
                 };
                 CakeDetailsComponent.prototype.saveEdit = function (detailType, obj) {
                     var _this = this;
-                    if (detailType == "desc") {
+                    if (detailType == "name") {
+                        this.currName["editing"] = false;
+                    }
+                    else if (detailType == "desc") {
                         this.currDesc["editing"] = false;
                         this._service.addCakeDetail(this.cake._id, "desc", obj.value.replace(/\s+$/, ""))
                             .subscribe(function (cake) { return _this.cake = cake; });
@@ -166,7 +177,10 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./editab
                  * Helper Functions *
                  ********************/
                 CakeDetailsComponent.prototype.isEditing = function (itemType) {
-                    if (itemType == "desc") {
+                    if (itemType == "name") {
+                        return this.currName["editing"];
+                    }
+                    else if (itemType == "desc") {
                         return this.currDesc["editing"];
                     }
                 };

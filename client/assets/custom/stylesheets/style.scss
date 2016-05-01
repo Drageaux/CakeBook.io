@@ -719,11 +719,28 @@ body {
         @extend .general-container;
         .cake-headline {
             width: 100%;
-            h4 {
+            h4.cake-name {
+                cursor: pointer;
                 position: relative;
                 display: inline-block;
                 margin-right: 5px;
+                margin-bottom: 14px;
                 top: 4px;
+            }
+            h4.cake-name.hidden {
+                z-index: -1;
+            }
+            input[type=text].change-name-input {
+                position: relative;
+                left: -5px;
+                font-weight: bold;
+                font-size: 18px;
+                background-color: lighten($container-color, 2%);
+                border: none !important;
+                box-shadow: none !important;
+                padding: 0 5px;
+                margin: 6px auto 3px auto;
+                line-height: 1.1;
             }
             .dropdown {
                 display: inline-block;

@@ -515,11 +515,26 @@ body {
       cursor: pointer; }
   body .details-container .cake-headline {
     width: 100%; }
-    body .details-container .cake-headline h4 {
+    body .details-container .cake-headline h4.cake-name {
+      cursor: pointer;
       position: relative;
       display: inline-block;
       margin-right: 5px;
+      margin-bottom: 14px;
       top: 4px; }
+    body .details-container .cake-headline h4.cake-name.hidden {
+      z-index: -1; }
+    body .details-container .cake-headline input[type=text].change-name-input {
+      position: relative;
+      left: -5px;
+      font-weight: bold;
+      font-size: 18px;
+      background-color: #fef6f1;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 5px;
+      margin: 6px auto 3px auto;
+      line-height: 1.1; }
     body .details-container .cake-headline .dropdown {
       display: inline-block; }
       body .details-container .cake-headline .dropdown .dropdown-menu {

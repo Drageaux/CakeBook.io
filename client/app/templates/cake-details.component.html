@@ -2,7 +2,14 @@
     <div *ngIf="cake">
         <div class="container cake-headline">
             <!-- Name -->
-            <h4><b>{{cake.name}}</b></h4>
+            <h4 class="cake-name" (click)="editDetail('name')"
+                *ngIf="!isEditing('name')"><b>{{cake.name}}</b></h4>
+            <input #newName id="newName" type="text" class="form-control change-name-input"
+                   [value]="cake.name"
+                   *ngIf="isEditing('name')"
+                   (blur)="saveEdit('name', {'value': newName.value})"
+                   (keyup.enter)="saveEdit('name', {'value': newName.value})"
+                   autofocus>
             <div class="dropdown" *ngIf="isOwner()">
                 <button class="btn btn-primary" data-toggle="dropdown" id="checkboxLabel"
                         aria-haspopup="true" aria-expanded="false">
@@ -15,7 +22,7 @@
                     <li>
                         <div class="ui toggle checkbox">
                             <input type="checkbox" id="publicToggle" [checked]="cake.isPublic"
-                                   (click)="editDetail('isPublic', 0)">
+                                   (click)="editDetail('isPublic')">
                             <label>Allow everyone to see this cake?</label>
                         </div>
                     </li>
@@ -53,7 +60,7 @@
                     <button type="button" class="btn btn-default"
                             *ngIf="isOwner()"
                             [class.hidden]="isEditing('desc')"
-                            (click)="editDetail('desc', 0)">Edit
+                            (click)="editDetail('desc')">Edit
                     </button>
                     <div class="save-cancel" [class.hidden]="!isEditing('desc')">
                         <button type="submit" class="save-button btn btn-success"
