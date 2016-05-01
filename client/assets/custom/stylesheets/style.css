@@ -11,27 +11,7 @@
  **********/
 html {
   background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/bamboo-wood-flooring-texture.jpg");
-  background-repeat: repeat;
-  overflow-y: auto;
-  overflow-x: hidden;
-  width: 101%;
-  /* Scrollbar */
-  -webkit-overflow-scrolling: touch;
-  /* lets it scroll lazy */ }
-  html ::-webkit-scrollbar {
-    position: relative;
-    width: 12px;
-    margin-right: 5px;
-    right: 5px; }
-  html ::-webkit-scrollbar-track {
-    background-color: rgba(0, 0, 0, 0.15);
-    opacity: 0.2;
-    -webkit-border-radius: 7px;
-    border-radius: 7px; }
-  html ::-webkit-scrollbar-thumb:vertical {
-    background-color: #ad4047;
-    -webkit-border-radius: 6px;
-    border-radius: 6px; }
+  background-repeat: repeat; }
 
 @media screen and (min-device-width: 420px) {
   body {
