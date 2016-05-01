@@ -102,10 +102,11 @@ export class CakeDetailsComponent implements OnInit {
     saveEdit(detailType:string, obj:any) {
         if (detailType == "name") {
             this.currName["editing"] = false;
-
+            this._service.updateCakeDetail(this.cake._id, "name", 0, obj.value.replace(/\s+$/, ""))
+                .subscribe(cake => this.cake = cake);
         } else if (detailType == "desc") {
             this.currDesc["editing"] = false;
-            this._service.addCakeDetail(this.cake._id, "desc", obj.value.replace(/\s+$/, ""))
+            this._service.updateCakeDetail(this.cake._id, "desc", 0, obj.value.replace(/\s+$/, ""))
                 .subscribe(cake => this.cake = cake);
         } else {
             if (!this.isEmptyString(obj)) {

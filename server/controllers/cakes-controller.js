@@ -47,9 +47,7 @@ module.exports.remove = function (req, res) {
 
 module.exports.addDetail = function (req, res) {
     Cake.findOne({"_id": req.params.id, "user": req.params.user}, function (err, cake) {
-        if (req.params.type == "desc") {
-            cake.description = req.body.value;
-        } else if (req.params.type == "ingr") {
+        if (req.params.type == "ingr") {
             cake.ingredients.push({"index": cake.ingredients.length, "value": req.body.value});
         } else if (req.params.type == "step") {
             cake.steps.push({"index": cake.steps.length, "value": req.body.value});
@@ -102,7 +100,11 @@ module.exports.updateDetail = function (req, res) {
                 });
             });
         } else {
-            if (req.params.type == "ingr") {
+            if (req.params.type == "name") {
+                cake.name = req.body.value;
+            } else if (req.params.type == "desc") {
+                cake.description = req.body.value;
+            } else if (req.params.type == "ingr") {
                 cake.ingredients = req.body;
             } else if (req.params.type == "step") {
                 cake.steps = req.body;
