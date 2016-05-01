@@ -256,6 +256,21 @@ body {
         transition-duration: 0.2s;
     }
 
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+        background-color: lighten($container-hovered-color, 4%);
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:vertical {
+        background-color: darken($container-hovered-color, 5%);
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+    }
+
     /* Modals */
     .modal-dialog {
         .modal-content {
@@ -398,7 +413,7 @@ body {
             height: 100%;
             background-color: $container-color !important;
             max-height: 300px;
-            overflow-y: scroll;
+            overflow-y: auto;
             border: 1px solid $container-hovered-color;
         }
         .normal-list-group[data-toggle=modal]:hover {
@@ -431,11 +446,11 @@ body {
                 margin-bottom: 0;
                 padding: 5px 0;
                 height: auto !important;
-                border: 3px solid #dddddd;
+                border: 3px solid $container-hovered-color;
                 border-radius: 4px;
-                background-color: #eeeeee;
+                background-color: darken($container-color, 2%);
                 max-height: 300px;
-                overflow-y: scroll;
+                overflow-y: auto;
                 .editable-list-group-item {
                     cursor: move;
                     cursor: grab;

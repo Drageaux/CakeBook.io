@@ -28,6 +28,7 @@ body {
    * Custom Components *
    *********************/
   /* Fixed Buttons */
+  /* Scrollbar */
   /* Modals */
   /***********
    * Wrapper *
@@ -184,6 +185,16 @@ body {
     font-size: 1.3em;
     transform: translate(2px, 2px);
     transition-duration: 0.2s; }
+  body ::-webkit-scrollbar {
+    width: 8px; }
+  body ::-webkit-scrollbar-track {
+    background-color: #fbdecc;
+    -webkit-border-radius: 3px;
+    border-radius: 3px; }
+  body ::-webkit-scrollbar-thumb:vertical {
+    background-color: #f7c3a2;
+    -webkit-border-radius: 3px;
+    border-radius: 3px; }
   body .modal-dialog .modal-content {
     border-radius: 10px !important; }
     body .modal-dialog .modal-content .modal-header,
@@ -288,7 +299,7 @@ body {
       height: 100%;
       background-color: #fdf0e8 !important;
       max-height: 300px;
-      overflow-y: scroll;
+      overflow-y: auto;
       border: 1px solid #f9d2b9; }
     body .general-container .normal-list-group[data-toggle=modal]:hover, body .home-container .normal-list-group[data-toggle=modal]:hover, body .details-container .normal-list-group[data-toggle=modal]:hover {
       cursor: pointer;
@@ -312,11 +323,11 @@ body {
         margin-bottom: 0;
         padding: 5px 0;
         height: auto !important;
-        border: 3px solid #dddddd;
+        border: 3px solid #f9d2b9;
         border-radius: 4px;
-        background-color: #eeeeee;
+        background-color: #fceadf;
         max-height: 300px;
-        overflow-y: scroll; }
+        overflow-y: auto; }
         body .general-container .form-group .editable-list-group .editable-list-group-item, body .home-container .form-group .editable-list-group .editable-list-group-item, body .details-container .form-group .editable-list-group .editable-list-group-item {
           cursor: move;
           cursor: grab;
