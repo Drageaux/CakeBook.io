@@ -514,8 +514,18 @@ body {
       margin-bottom: 6px; }
     body .home-container button {
       margin: 5px auto; }
-    body .home-container .cake-list li {
-      cursor: pointer; }
+    body .home-container .cake-list .cake-list-name {
+      position: relative;
+      width: calc(100% - 40px);
+      display: inline-block; }
+    body .home-container .cake-list .cake-list-favorite {
+      width: 40px;
+      display: inline-block;
+      float: right; }
+      body .home-container .cake-list .cake-list-favorite i {
+        font-size: 1.5em;
+        float: right;
+        color: #ff3333; }
   body .details-container .cake-headline {
     width: 100%; }
     body .details-container .cake-headline h4.cake-name {

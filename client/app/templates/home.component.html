@@ -47,7 +47,12 @@
     <h3 style="margin-top: 30px">My Cakes</h3>
     <div class="cake-list list-group">
         <a class="list-group-item" *ngFor="#cake of cakes"
-           (click)="onSelect(cake)">{{cake.name}}</a>
+           (click)="onSelect(cake)">
+            <div [class.cake-list-name]="cake.isFavorite">{{cake.name}}</div>
+            <div *ngIf="cake.isFavorite" class="cake-list-favorite">
+                <i class="fa fa-heart" aria-hidden="true"></i>
+            </div>
+        </a>
     </div>
 </div>
 

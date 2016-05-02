@@ -14,8 +14,9 @@ $_2nd-light-cream: #fce9dc;
 $_3rd-cream: #debaa9;
 $_4th-coffee-red: #593836;
 $_5th-soft-pink: #db8f8f;
+$_heart-color: #ff3333;
 
-// Colors
+// Component Colors
 $topnav-color: $_2nd-light-cream;
 $topnav-item-color: #ad4047;
 $topnav-item-hovered-color: darken($topnav-item-color, 18%);
@@ -710,11 +711,22 @@ body {
 
         /* Cake List in Home Page */
         .cake-list {
-            li {
-                cursor: pointer;
+            .cake-list-name {
+                position: relative;
+                width: calc(100% - 40px);
+                display: inline-block;
+            }
+            .cake-list-favorite {
+                width: 40px;
+                display: inline-block;
+                float: right;
+                i {
+                    font-size: 1.5em;
+                    float: right;
+                    color: $_heart-color;
+                }
             }
         }
-
     }
 
     /****************
@@ -767,10 +779,10 @@ body {
             }
             .favorite-button:hover,
             .favorite-button.active {
-                background-color: rgba(0,0,0,0.15);
+                background-color: rgba(0, 0, 0, 0.15);
             }
             .favorite-button.active:hover {
-                background-color: rgba(0,0,0, 0.25);
+                background-color: rgba(0, 0, 0, 0.25);
             }
             // Publicity
             .dropdown {
