@@ -724,6 +724,7 @@ body {
         @extend .general-container;
         .cake-headline {
             width: 100%;
+            // Name
             h4.cake-name {
                 cursor: pointer;
                 position: relative;
@@ -748,6 +749,30 @@ body {
                 margin: 6px auto 3px auto;
                 line-height: 1.1;
             }
+            // Favorite
+            .favorite-button {
+                box-shadow: none !important;
+                background-color: rgba(0, 0, 0, 0.08);
+                height: 34px;
+                border: none;
+                i {
+                    font-weight: bold;
+                    position: relative;
+                    top: 1px;
+                    font-size: 1.6em;
+                }
+                i.fa-heart {
+                    color: red;
+                }
+            }
+            .favorite-button:hover,
+            .favorite-button.active {
+                background-color: rgba(0,0,0,0.15);
+            }
+            .favorite-button.active:hover {
+                background-color: rgba(0,0,0, 0.25);
+            }
+            // Publicity
             .dropdown {
                 display: inline-block;
                 .dropdown-menu {
@@ -761,6 +786,7 @@ body {
             }
         }
         .cake-info {
+            // Image
             .cake-image {
                 display: inline-block;
                 width: 30%;
@@ -801,6 +827,7 @@ body {
                     background-color: lighten($topnav-item-hovered-color, 6%);
                 }
             }
+            // Description
             .cake-description {
                 display: inline-block;
                 vertical-align: top;

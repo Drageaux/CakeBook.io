@@ -9,7 +9,12 @@ cloudinary.config({
 });
 
 module.exports.list = function (req, res) {
-    Cake.find({"user": req.params.user}, function (err, cakes) {
+    Cake.find({"user": req.params.user})
+        .sort({
+            isFavorite: -1,
+            date: -1
+        }).exec(function (err, cakes) {
+        console.log(cakes);
         res.json(cakes);
     });
 }
@@ -29,6 +34,7 @@ module.exports.get = function (req, res) {
 module.exports.create = function (req, res) {
     var cake = new Cake();
     cake.isPublic = req.body.isPublic;
+    cake.isFavorite = req.body.isFavorite;
     cake.user = req.body.user;
     cake.name = req.body.name;
     cake.description = req.body.description;
@@ -113,6 +119,12 @@ module.exports.updateDetail = function (req, res) {
                     cake.isPublic = !cake.isPublic;
                 } else {
                     cake.isPublic = true;
+                }
+            } else if (req.params.type == "isFavorite") {
+                if (cake.isFavorite != null) {
+                    cake.isFavorite = !cake.isFavorite;
+                } else {
+                    cake.isFavorite = true;
                 }
             }
             cake.save();

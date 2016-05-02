@@ -8,6 +8,7 @@ var DetailSchema = new Schema({
 
 var CakeSchema = new Schema({
     isPublic: Boolean,
+    isFavorite: Boolean,
     user: String,
     name: String,
     image: String,

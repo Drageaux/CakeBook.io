@@ -96,6 +96,9 @@ export class CakeDetailsComponent implements OnInit {
                             = false;
                     }
                 });
+        } else if (detailType == "isFavorite") {
+            this._service.updateCakeDetail(this.cake._id, detailType, 0, "")
+                .subscribe(cake => this.cake = cake);
         }
     }
 

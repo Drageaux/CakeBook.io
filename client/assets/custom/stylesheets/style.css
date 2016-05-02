@@ -539,6 +539,23 @@ body {
       padding: 0 5px;
       margin: 6px auto 3px auto;
       line-height: 1.1; }
+    body .details-container .cake-headline .favorite-button {
+      box-shadow: none !important;
+      background-color: rgba(0, 0, 0, 0.08);
+      height: 34px;
+      border: none; }
+      body .details-container .cake-headline .favorite-button i {
+        font-weight: bold;
+        position: relative;
+        top: 1px;
+        font-size: 1.6em; }
+      body .details-container .cake-headline .favorite-button i.fa-heart {
+        color: red; }
+    body .details-container .cake-headline .favorite-button:hover,
+    body .details-container .cake-headline .favorite-button.active {
+      background-color: rgba(0, 0, 0, 0.15); }
+    body .details-container .cake-headline .favorite-button.active:hover {
+      background-color: rgba(0, 0, 0, 0.25); }
     body .details-container .cake-headline .dropdown {
       display: inline-block; }
       body .details-container .cake-headline .dropdown .dropdown-menu {

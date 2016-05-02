@@ -105,6 +105,10 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./editab
                             }
                         });
                     }
+                    else if (detailType == "isFavorite") {
+                        this._service.updateCakeDetail(this.cake._id, detailType, 0, "")
+                            .subscribe(function (cake) { return _this.cake = cake; });
+                    }
                 };
                 CakeDetailsComponent.prototype.saveEdit = function (detailType, obj) {
                     var _this = this;

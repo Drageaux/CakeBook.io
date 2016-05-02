@@ -10,6 +10,13 @@
                    (blur)="saveEdit('name', {'value': newName.value})"
                    (keyup.enter)="saveEdit('name', {'value': newName.value})"
                    autofocus>
+            <button class="btn btn-default favorite-button" *ngIf="isOwner()"
+                    (click)="editDetail('isFavorite')"
+                    [class.active]="cake.isFavorite">
+                <i class="fa" aria-hidden="true"
+                   [class.fa-heart]="cake.isFavorite"
+                   [class.fa-heart-o]="!cake.isFavorite"></i>
+            </button>
             <div class="dropdown" *ngIf="isOwner()">
                 <button class="btn btn-primary" data-toggle="dropdown" id="checkboxLabel"
                         aria-haspopup="true" aria-expanded="false">
