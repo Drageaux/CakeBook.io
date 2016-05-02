@@ -47,7 +47,7 @@ System.register(['angular2/core', "angular2/router", "./cakes/add-cake-form.comp
                 HomeComponent.prototype.getCakes = function () {
                     var _this = this;
                     this._cakeService.getCakes()
-                        .subscribe(function (cakes) { return _this.cakes = cakes; }, function (error) { return _this.errorMessage = error; });
+                        .subscribe(function (cakes) { return _this.cakes = _this.sortCakeList(cakes); }, function (error) { return _this.errorMessage = error; });
                 };
                 HomeComponent.prototype.goSearch = function (query) {
                     if (this._cakeService.isUrl(query)) {
@@ -71,12 +71,34 @@ System.register(['angular2/core', "angular2/router", "./cakes/add-cake-form.comp
                     this._router.navigate(["CakeDetails", { id: cake._id }]);
                 };
                 HomeComponent.prototype.onAdded = function (cake, heading, message) {
-                    this.cakes.push(cake);
+                    this.getCakes();
                     heading.click();
                     this._transitionService.fadeToggleItem(message);
                 };
                 HomeComponent.prototype.closeMessage = function (message) {
                     this._transitionService.closeItem(message);
+                };
+                HomeComponent.prototype.sortCakeList = function (array) {
+                    var results = [];
+                    var favorite = [];
+                    var nonFavorite = [];
+                    for (var i in array) {
+                        if (array[i].isFavorite == true) {
+                            favorite.push(array[i]);
+                        }
+                        else {
+                            nonFavorite.push(array[i]);
+                        }
+                    }
+                    favorite.sort(function (first, second) {
+                        return first.name.localeCompare(second.name);
+                    });
+                    nonFavorite.sort(function (first, second) {
+                        return first.name.localeCompare(second.name);
+                    });
+                    favorite.push.apply(favorite, nonFavorite);
+                    results.push.apply(results, favorite);
+                    return results;
                 };
                 __decorate([
                     core_1.Input(), 

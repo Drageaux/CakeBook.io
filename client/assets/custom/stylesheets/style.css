@@ -560,7 +560,7 @@ body {
         top: 1px;
         font-size: 1.6em; }
       body .details-container .cake-headline .favorite-button i.fa-heart {
-        color: red; }
+        color: #ff3333; }
     body .details-container .cake-headline .favorite-button:hover,
     body .details-container .cake-headline .favorite-button.active {
       background-color: rgba(0, 0, 0, 0.15); }
