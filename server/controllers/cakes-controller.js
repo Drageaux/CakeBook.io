@@ -11,10 +11,8 @@ cloudinary.config({
 module.exports.list = function (req, res) {
     Cake.find({"user": req.params.user})
         .sort({
-            isFavorite: -1,
-            date: -1
+            isFavorite: -1
         }).exec(function (err, cakes) {
-        console.log(cakes);
         res.json(cakes);
     });
 }
