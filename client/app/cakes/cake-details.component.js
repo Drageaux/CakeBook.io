@@ -32,6 +32,7 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./editab
                     this._service = _service;
                     this.tempIngrs = [];
                     this.tempSteps = [];
+                    this.currName = { "value": "", "editing": false };
                     this.currDesc = { "value": "", "editing": false };
                 }
                 CakeDetailsComponent.prototype.ngOnInit = function () {
@@ -48,6 +49,12 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./editab
                         }
                     }, function (error) { return _this._router.navigate(["Home"]); });
                     this.uploadCallBack = this.uploadImage.bind(this);
+                };
+                CakeDetailsComponent.prototype.viewImage = function (cake) {
+                    jQuery(".ui.dimmer").dimmer('show');
+                };
+                CakeDetailsComponent.prototype.closeImage = function () {
+                    jQuery(".ui.dimmer").dimmer("hide");
                 };
                 CakeDetailsComponent.prototype.addDetail = function (detailType, value) {
                     if (detailType == "desc") {
@@ -78,9 +85,16 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./editab
                         }
                     }
                 };
-                CakeDetailsComponent.prototype.editDetail = function (detailType, index) {
+                CakeDetailsComponent.prototype.editDetail = function (detailType) {
                     var _this = this;
-                    if (detailType == "desc") {
+                    if (detailType == "name") {
+                        this.currName["editing"] = true;
+                        window.setTimeout(function () {
+                            jQuery("#newName").focus();
+                            jQuery("#newName").select();
+                        }, 100);
+                    }
+                    else if (detailType == "desc") {
                         this.currDesc["editing"] = true;
                     }
                     else if (detailType == "isPublic") {
@@ -97,12 +111,25 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./editab
                             }
                         });
                     }
+                    else if (detailType == "isFavorite") {
+                        this._service.updateCakeDetail(this.cake._id, detailType, 0, "")
+                            .subscribe(function (cake) { return _this.cake = cake; });
+                    }
                 };
                 CakeDetailsComponent.prototype.saveEdit = function (detailType, obj) {
                     var _this = this;
-                    if (detailType == "desc") {
+                    if (detailType == "name") {
+                        obj.value = obj.value.replace(/\s+$/, "");
+                        if (obj.value.length > 4) {
+                            this.currName["editing"] = false;
+                            this._service.updateCakeDetail(this.cake._id, "name", 0, obj.value)
+                                .subscribe(function (cake) { return _this.cake = cake; });
+                        }
+                    }
+                    else if (detailType == "desc") {
+                        obj.value = obj.value.replace(/\s+$/, "");
                         this.currDesc["editing"] = false;
-                        this._service.addCakeDetail(this.cake._id, "desc", obj.value.replace(/\s+$/, ""))
+                        this._service.updateCakeDetail(this.cake._id, "desc", 0, obj.value)
                             .subscribe(function (cake) { return _this.cake = cake; });
                     }
                     else {
@@ -166,7 +193,10 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./editab
                  * Helper Functions *
                  ********************/
                 CakeDetailsComponent.prototype.isEditing = function (itemType) {
-                    if (itemType == "desc") {
+                    if (itemType == "name") {
+                        return this.currName["editing"];
+                    }
+                    else if (itemType == "desc") {
                         return this.currDesc["editing"];
                     }
                 };

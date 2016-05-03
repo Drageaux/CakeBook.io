@@ -31,7 +31,7 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     this.active = false;
                     this.modelString = "";
                     this.header = "Paste a Recipe Here";
-                    this.model = new cake_1.Cake(0, false, this.userId, "", "", "", "", [], []);
+                    this.model = new cake_1.Cake(0, false, false, this.userId, "", "", "", "", [], []);
                     this.tooltipTitle = "\n        <p style='text-align:left; padding: 5px; margin-bottom: 0'>\n            <b>How To</b>:<br>\n            - Name is required<br>\n            - <b>Type 'none' or 'None' to <i>leave blank</i></b><br>\n            <br>\n            <b>Template</b>:\n        </p>\n<pre style='margin-top: 0; text-align: left'>*name*\n\n*description*\n\n*ingredient #1*\n*ingredient #2*\n*ingredient #3*\n\n*step #1*\n*step #2*</pre>\n        ";
                 }
                 ImportCakeFormComponent.prototype.ngOnInit = function () {
@@ -39,7 +39,7 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                 };
                 ImportCakeFormComponent.prototype.clearForm = function () {
                     // TODO: Remove when there's a better way to reset the model
-                    this.model = new cake_1.Cake(0, false, this.userId, "", "", "", "", [], []);
+                    this.model = new cake_1.Cake(0, false, false, this.userId, "", "", "", "", [], []);
                     this.modelString = "";
                     jQuery("#importValidMessage").empty();
                     jQuery("#importErrorMessage").empty();
@@ -77,7 +77,7 @@ System.register(["angular2/core", "./cake", "./cake.service"], function(exports_
                     this.previewed.emit(this.model);
                 };
                 ImportCakeFormComponent.prototype.parsePreview = function () {
-                    this.model = new cake_1.Cake(0, this.model.isPublic, this.userId, "", "", "", "", [], []);
+                    this.model = new cake_1.Cake(0, this.model.isPublic, false, this.userId, "", "", "", "", [], []);
                     // split into list of elements
                     var cursor;
                     var isIngr = true;

@@ -9,7 +9,11 @@ cloudinary.config({
 });
 
 module.exports.list = function (req, res) {
-    Cake.find({"user": req.params.user}, function (err, cakes) {
+    Cake.find({"user": req.params.user})
+        .sort({
+            isFavorite: -1,
+            name: 1
+        }).exec(function (err, cakes) {
         res.json(cakes);
     });
 }
@@ -29,6 +33,7 @@ module.exports.get = function (req, res) {
 module.exports.create = function (req, res) {
     var cake = new Cake();
     cake.isPublic = req.body.isPublic;
+    cake.isFavorite = req.body.isFavorite;
     cake.user = req.body.user;
     cake.name = req.body.name;
     cake.description = req.body.description;
@@ -47,9 +52,7 @@ module.exports.remove = function (req, res) {
 
 module.exports.addDetail = function (req, res) {
     Cake.findOne({"_id": req.params.id, "user": req.params.user}, function (err, cake) {
-        if (req.params.type == "desc") {
-            cake.description = req.body.value;
-        } else if (req.params.type == "ingr") {
+        if (req.params.type == "ingr") {
             cake.ingredients.push({"index": cake.ingredients.length, "value": req.body.value});
         } else if (req.params.type == "step") {
             cake.steps.push({"index": cake.steps.length, "value": req.body.value});
@@ -102,7 +105,11 @@ module.exports.updateDetail = function (req, res) {
                 });
             });
         } else {
-            if (req.params.type == "ingr") {
+            if (req.params.type == "name") {
+                cake.name = req.body.value;
+            } else if (req.params.type == "desc") {
+                cake.description = req.body.value;
+            } else if (req.params.type == "ingr") {
                 cake.ingredients = req.body;
             } else if (req.params.type == "step") {
                 cake.steps = req.body;
@@ -111,6 +118,12 @@ module.exports.updateDetail = function (req, res) {
                     cake.isPublic = !cake.isPublic;
                 } else {
                     cake.isPublic = true;
+                }
+            } else if (req.params.type == "isFavorite") {
+                if (cake.isFavorite != null) {
+                    cake.isFavorite = !cake.isFavorite;
+                } else {
+                    cake.isFavorite = true;
                 }
             }
             cake.save();
@@ -131,7 +144,8 @@ module.exports.search = function (req, res) {
     unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?" +
             "number=" + number + "&" +
             "offset=" + offset + "&" +
-            "query=cake" + query)
+            "query=" + query + "&" +
+            "type=dessert")
         .header("X-Mashape-Key", process.env.X_MASHAPE_KEY)
         .end(function (result) {
             res.send(result);

@@ -27,7 +27,7 @@ export class ImportCakeFormComponent implements OnInit {
     @Input() isModal;
     @Input() modelString = "";
     @Input() header = "Paste a Recipe Here";
-    model = new Cake(0, false, this.userId, "", "", "", "", [], []);
+    model = new Cake(0, false, false, this.userId, "", "", "", "", [], []);
     tooltipTitle = `
         <p style='text-align:left; padding: 5px; margin-bottom: 0'>
             <b>How To</b>:<br>
@@ -57,7 +57,7 @@ export class ImportCakeFormComponent implements OnInit {
 
     clearForm() {
         // TODO: Remove when there's a better way to reset the model
-        this.model = new Cake(0, false, this.userId,
+        this.model = new Cake(0, false, false, this.userId,
             "", "", "", "", [], []);
         this.modelString = "";
         jQuery("#importValidMessage").empty();
@@ -99,7 +99,7 @@ export class ImportCakeFormComponent implements OnInit {
     }
 
     parsePreview() {
-        this.model = new Cake(0, this.model.isPublic, this.userId, "", "", "", "", [], []);
+        this.model = new Cake(0, this.model.isPublic, false, this.userId, "", "", "", "", [], []);
         // split into list of elements
         let cursor;
         let isIngr = true;

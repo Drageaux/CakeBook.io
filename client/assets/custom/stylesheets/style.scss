@@ -14,8 +14,9 @@ $_2nd-light-cream: #fce9dc;
 $_3rd-cream: #debaa9;
 $_4th-coffee-red: #593836;
 $_5th-soft-pink: #db8f8f;
+$_heart-color: #ff3333;
 
-// Colors
+// Component Colors
 $topnav-color: $_2nd-light-cream;
 $topnav-item-color: #ad4047;
 $topnav-item-hovered-color: darken($topnav-item-color, 18%);
@@ -33,6 +34,12 @@ $normal-font: "Marmelad", Arial;
 /**********
  * Styles *
  **********/
+html {
+    background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/bamboo-wood-flooring-texture.jpg");
+    background-repeat: repeat;
+}
+
+
 @media screen and (min-device-width: 420px) {
     body {
         min-width: 420px;
@@ -45,8 +52,7 @@ body {
      * General *
      ***********/
     font-family: $normal-font !important;
-    background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/bamboo-wood-flooring-texture.jpg");
-    background-repeat: repeat;
+    background-color: transparent;
     word-break: keep-all;
     word-wrap: break-word;
     p {
@@ -705,11 +711,22 @@ body {
 
         /* Cake List in Home Page */
         .cake-list {
-            li {
-                cursor: pointer;
+            .cake-list-name {
+                position: relative;
+                width: calc(100% - 40px);
+                display: inline-block;
+            }
+            .cake-list-favorite {
+                width: 40px;
+                display: inline-block;
+                float: right;
+                i {
+                    font-size: 1.5em;
+                    float: right;
+                    color: $_heart-color;
+                }
             }
         }
-
     }
 
     /****************
@@ -719,12 +736,55 @@ body {
         @extend .general-container;
         .cake-headline {
             width: 100%;
-            h4 {
+            // Name
+            h4.cake-name {
+                cursor: pointer;
                 position: relative;
                 display: inline-block;
                 margin-right: 5px;
+                margin-bottom: 14px;
                 top: 4px;
             }
+            h4.cake-name.hidden {
+                z-index: -1;
+            }
+            input[type=text].change-name-input {
+                position: relative;
+                left: -5px;
+                right: -5px;
+                font-weight: bold;
+                font-size: 18px;
+                background-color: lighten($container-color, 2%);
+                border: none !important;
+                box-shadow: none !important;
+                padding: 0 5px;
+                margin: 6px auto 3px auto;
+                line-height: 1.1;
+            }
+            // Favorite
+            .favorite-button {
+                box-shadow: none !important;
+                background-color: rgba(0, 0, 0, 0.08);
+                height: 34px;
+                border: none;
+                i {
+                    font-weight: bold;
+                    position: relative;
+                    top: 1px;
+                    font-size: 1.6em;
+                }
+                i.fa-heart {
+                    color: $_heart-color;
+                }
+            }
+            .favorite-button:hover,
+            .favorite-button.active {
+                background-color: rgba(0, 0, 0, 0.15);
+            }
+            .favorite-button.active:hover {
+                background-color: rgba(0, 0, 0, 0.25);
+            }
+            // Publicity
             .dropdown {
                 display: inline-block;
                 .dropdown-menu {
@@ -738,6 +798,7 @@ body {
             }
         }
         .cake-info {
+            // Image
             .cake-image {
                 display: inline-block;
                 width: 30%;
@@ -746,13 +807,12 @@ body {
                 a {
                     //cursor: -webkit-zoom-in;
                     //cursor: -moz-zoom-in;
-                    cursor: default;
                     text-decoration: none;
-                    img {
-                        width: 100%;
-                        border-radius: 10px !important;
-                        border: 2px solid $border-color;
-                    }
+                }
+                img {
+                    width: 100%;
+                    border-radius: 10px !important;
+                    border: 2px solid $border-color;
                 }
                 input {
                     width: 0.1px;
@@ -762,8 +822,8 @@ body {
                     position: absolute;
                     z-index: -1;
                 }
-                label,
-                label:focus {
+                label.image-input-label,
+                label.image-input-label:focus {
                     text-align: center;
                     margin-bottom: 0;
                     cursor: pointer;
@@ -774,10 +834,11 @@ body {
                     color: white;
                     border-radius: 5px;
                 }
-                label:hover {
+                label.image-input-label:hover {
                     background-color: lighten($topnav-item-hovered-color, 6%);
                 }
             }
+            // Description
             .cake-description {
                 display: inline-block;
                 vertical-align: top;
@@ -953,6 +1014,27 @@ body {
     label:after {
         width: 1.7rem;
         height: 1.7rem;
+    }
+}
+
+
+.ui.dimmer {
+    align-content: center;
+    vertical-align: middle;
+    .content {
+        //position: relative;
+        width: auto;
+        height: auto;
+        max-width: 80vw;
+        max-height: 80vh;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        img {
+            width: 100%;
+            height: auto;
+        }
     }
 }
 

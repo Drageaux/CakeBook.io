@@ -9,6 +9,10 @@
 /**********
  * Styles *
  **********/
+html {
+  background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/bamboo-wood-flooring-texture.jpg");
+  background-repeat: repeat; }
+
 @media screen and (min-device-width: 420px) {
   body {
     min-width: 420px; } }
@@ -17,8 +21,7 @@ body {
    * General *
    ***********/
   font-family: "Marmelad", Arial !important;
-  background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/bamboo-wood-flooring-texture.jpg");
-  background-repeat: repeat;
+  background-color: transparent;
   word-break: keep-all;
   word-wrap: break-word;
   /*******************
@@ -511,15 +514,58 @@ body {
       margin-bottom: 6px; }
     body .home-container button {
       margin: 5px auto; }
-    body .home-container .cake-list li {
-      cursor: pointer; }
+    body .home-container .cake-list .cake-list-name {
+      position: relative;
+      width: calc(100% - 40px);
+      display: inline-block; }
+    body .home-container .cake-list .cake-list-favorite {
+      width: 40px;
+      display: inline-block;
+      float: right; }
+      body .home-container .cake-list .cake-list-favorite i {
+        font-size: 1.5em;
+        float: right;
+        color: #ff3333; }
   body .details-container .cake-headline {
     width: 100%; }
-    body .details-container .cake-headline h4 {
+    body .details-container .cake-headline h4.cake-name {
+      cursor: pointer;
       position: relative;
       display: inline-block;
       margin-right: 5px;
+      margin-bottom: 14px;
       top: 4px; }
+    body .details-container .cake-headline h4.cake-name.hidden {
+      z-index: -1; }
+    body .details-container .cake-headline input[type=text].change-name-input {
+      position: relative;
+      left: -5px;
+      right: -5px;
+      font-weight: bold;
+      font-size: 18px;
+      background-color: #fef6f1;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 5px;
+      margin: 6px auto 3px auto;
+      line-height: 1.1; }
+    body .details-container .cake-headline .favorite-button {
+      box-shadow: none !important;
+      background-color: rgba(0, 0, 0, 0.08);
+      height: 34px;
+      border: none; }
+      body .details-container .cake-headline .favorite-button i {
+        font-weight: bold;
+        position: relative;
+        top: 1px;
+        font-size: 1.6em; }
+      body .details-container .cake-headline .favorite-button i.fa-heart {
+        color: #ff3333; }
+    body .details-container .cake-headline .favorite-button:hover,
+    body .details-container .cake-headline .favorite-button.active {
+      background-color: rgba(0, 0, 0, 0.15); }
+    body .details-container .cake-headline .favorite-button.active:hover {
+      background-color: rgba(0, 0, 0, 0.25); }
     body .details-container .cake-headline .dropdown {
       display: inline-block; }
       body .details-container .cake-headline .dropdown .dropdown-menu {
@@ -534,12 +580,11 @@ body {
     position: relative;
     padding-right: 10px; }
     body .details-container .cake-info .cake-image a {
-      cursor: default;
       text-decoration: none; }
-      body .details-container .cake-info .cake-image a img {
-        width: 100%;
-        border-radius: 10px !important;
-        border: 2px solid #6a272b; }
+    body .details-container .cake-info .cake-image img {
+      width: 100%;
+      border-radius: 10px !important;
+      border: 2px solid #6a272b; }
     body .details-container .cake-info .cake-image input {
       width: 0.1px;
       height: 0.1px;
@@ -547,8 +592,8 @@ body {
       overflow: hidden;
       position: absolute;
       z-index: -1; }
-    body .details-container .cake-info .cake-image label,
-    body .details-container .cake-info .cake-image label:focus {
+    body .details-container .cake-info .cake-image label.image-input-label,
+    body .details-container .cake-info .cake-image label.image-input-label:focus {
       text-align: center;
       margin-bottom: 0;
       cursor: pointer;
@@ -558,7 +603,7 @@ body {
       background-color: #be4e55;
       color: white;
       border-radius: 5px; }
-    body .details-container .cake-info .cake-image label:hover {
+    body .details-container .cake-info .cake-image label.image-input-label:hover {
       background-color: #802f35; }
   body .details-container .cake-info .cake-description {
     display: inline-block;
@@ -689,6 +734,22 @@ body {
 .ui.toggle.checkbox label:after {
   width: 1.7rem;
   height: 1.7rem; }
+
+.ui.dimmer {
+  align-content: center;
+  vertical-align: middle; }
+  .ui.dimmer .content {
+    width: auto;
+    height: auto;
+    max-width: 80vw;
+    max-height: 80vh;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); }
+    .ui.dimmer .content img {
+      width: 100%;
+      height: auto; }
 
 .ui.message {
   z-index: 10;

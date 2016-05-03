@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
     getCakes() {
         this._cakeService.getCakes()
             .subscribe(
-                cakes => this.cakes = cakes,
+                cakes => this.cakes = this.sortCakeList(cakes),
                 error => this.errorMessage = <any>error);
     }
 
@@ -65,13 +65,38 @@ export class HomeComponent implements OnInit {
         this._router.navigate(["CakeDetails", {id: cake._id}]);
     }
 
-    onAdded(cake:Cake, heading:any, message:any) {
-        this.cakes.push(cake);
+    onAdded(heading:any, message:any) {
+        this.getCakes();
         heading.click();
         this._transitionService.fadeToggleItem(message);
     }
 
     closeMessage(message:any) {
         this._transitionService.closeItem(message);
+    }
+
+    sortCakeList(array:Cake[]):Cake[] {
+        let results:Cake[] = [];
+        let favorite:Cake[] = [];
+        let nonFavorite:Cake[] = [];
+
+        for (let i in array) {
+            if (array[i].isFavorite == true) {
+                favorite.push(array[i]);
+            } else {
+                nonFavorite.push(array[i]);
+            }
+        }
+        favorite.sort(function(first,second){
+            return first.name.localeCompare(second.name)
+        });
+        nonFavorite.sort(function(first,second){
+            return first.name.localeCompare(second.name)
+        });
+
+        favorite.push.apply(favorite,nonFavorite);
+        results.push.apply(results, favorite);
+
+        return results
     }
 }

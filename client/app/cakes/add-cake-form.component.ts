@@ -19,7 +19,7 @@ export class AddCakeFormComponent implements OnInit {
     userId = JSON.parse(localStorage.getItem("profile")).user_id; // must be defined first
 
     @Output() saved = new EventEmitter<Cake>();
-    model = new Cake(0, false, this.userId, "", "", "", "", [], []);
+    model = new Cake(0, false, false, this.userId, "", "", "", "", [], []);
 
     constructor(private _cakeService:CakeService) {
     }
@@ -41,7 +41,7 @@ export class AddCakeFormComponent implements OnInit {
     }
 
     clearForm() {
-        this.model = new Cake(0, false, this.userId, "", "", "", "", [], []);
+        this.model = new Cake(0, false, false, this.userId, "", "", "", "", [], []);
         jQuery("#cakeName").blur();
         jQuery("#addCakeForm").form('reset');
         jQuery("#addErrorMessage").empty();

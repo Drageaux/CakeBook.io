@@ -18,6 +18,7 @@ export class CakeDetailsComponent implements OnInit {
     cake:Cake;
     tempIngrs:Object[] = [];
     tempSteps:Object[] = [];
+    currName = {"value": "", "editing": false};
     currDesc = {"value": "", "editing": false};
     public uploadCallBack:Function;
 
@@ -42,6 +43,14 @@ export class CakeDetailsComponent implements OnInit {
                 error => this._router.navigate(["Home"])
             );
         this.uploadCallBack = this.uploadImage.bind(this);
+    }
+
+    viewImage(cake:Cake) {
+        jQuery(".ui.dimmer").dimmer('show');
+    }
+
+    closeImage() {
+        jQuery(".ui.dimmer").dimmer("hide");
     }
 
     addDetail(detailType:string, value:string) {
@@ -74,8 +83,14 @@ export class CakeDetailsComponent implements OnInit {
         }
     }
 
-    editDetail(detailType:string, index:number) {
-        if (detailType == "desc") {
+    editDetail(detailType:string) {
+        if (detailType == "name") {
+            this.currName["editing"] = true;
+            window.setTimeout(function () {
+                jQuery("#newName").focus();
+                jQuery("#newName").select();
+            }, 100);
+        } else if (detailType == "desc") {
             this.currDesc["editing"] = true;
         } else if (detailType == "isPublic") {
             this._service.updateCakeDetail(this.cake._id, detailType, 0, "")
@@ -89,13 +104,24 @@ export class CakeDetailsComponent implements OnInit {
                             = false;
                     }
                 });
+        } else if (detailType == "isFavorite") {
+            this._service.updateCakeDetail(this.cake._id, detailType, 0, "")
+                .subscribe(cake => this.cake = cake);
         }
     }
 
     saveEdit(detailType:string, obj:any) {
-        if (detailType == "desc") {
+        if (detailType == "name") {
+            obj.value = obj.value.replace(/\s+$/, "");
+            if (obj.value.length > 4) {
+                this.currName["editing"] = false;
+                this._service.updateCakeDetail(this.cake._id, "name", 0, obj.value)
+                    .subscribe(cake => this.cake = cake);
+            }
+        } else if (detailType == "desc") {
+            obj.value = obj.value.replace(/\s+$/, "");
             this.currDesc["editing"] = false;
-            this._service.addCakeDetail(this.cake._id, "desc", obj.value.replace(/\s+$/, ""))
+            this._service.updateCakeDetail(this.cake._id, "desc", 0, obj.value)
                 .subscribe(cake => this.cake = cake);
         } else {
             if (!this.isEmptyString(obj)) {
@@ -162,7 +188,9 @@ export class CakeDetailsComponent implements OnInit {
      * Helper Functions *
      ********************/
     isEditing(itemType:string) {
-        if (itemType == "desc") {
+        if (itemType == "name") {
+            return this.currName["editing"];
+        } else if (itemType == "desc") {
             return this.currDesc["editing"]
         }
     }
