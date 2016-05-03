@@ -65,7 +65,7 @@ export class HomeComponent implements OnInit {
         this._router.navigate(["CakeDetails", {id: cake._id}]);
     }
 
-    onAdded(cake:Cake, heading:any, message:any) {
+    onAdded(heading:any, message:any) {
         this.getCakes();
         heading.click();
         this._transitionService.fadeToggleItem(message);

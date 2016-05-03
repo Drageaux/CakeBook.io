@@ -45,6 +45,14 @@ export class CakeDetailsComponent implements OnInit {
         this.uploadCallBack = this.uploadImage.bind(this);
     }
 
+    viewImage(cake:Cake) {
+        jQuery(".ui.dimmer").dimmer('show');
+    }
+
+    closeImage() {
+        jQuery(".ui.dimmer").dimmer("hide");
+    }
+
     addDetail(detailType:string, value:string) {
         if (detailType == "desc") {
             this._service.addCakeDetail(this.cake._id, detailType, this.currDesc["value"]);

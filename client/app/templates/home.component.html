@@ -23,7 +23,7 @@
             <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                 <div class="panel-body">
                     <!-- Add -->
-                    <add-cake-form (saved)="onAdded($event, headingOne, addSuccess)"></add-cake-form>
+                    <add-cake-form (saved)="onAdded(headingOne, addSuccess)"></add-cake-form>
                 </div>
             </div>
         </div>
@@ -37,7 +37,7 @@
             <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                 <div class="panel-body">
                     <!-- Import -->
-                    <import-cake-form (saved)="onAdded($event, headingTwo, importSuccess)"></import-cake-form>
+                    <import-cake-form (saved)="onAdded(headingTwo, importSuccess)"></import-cake-form>
                 </div>
             </div>
         </div>

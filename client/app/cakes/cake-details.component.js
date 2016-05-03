@@ -50,6 +50,12 @@ System.register(["angular2/core", "angular2/router", "./cake.service", "./editab
                     }, function (error) { return _this._router.navigate(["Home"]); });
                     this.uploadCallBack = this.uploadImage.bind(this);
                 };
+                CakeDetailsComponent.prototype.viewImage = function (cake) {
+                    jQuery(".ui.dimmer").dimmer('show');
+                };
+                CakeDetailsComponent.prototype.closeImage = function () {
+                    jQuery(".ui.dimmer").dimmer("hide");
+                };
                 CakeDetailsComponent.prototype.addDetail = function (detailType, value) {
                     if (detailType == "desc") {
                         this._service.addCakeDetail(this.cake._id, detailType, this.currDesc["value"]);

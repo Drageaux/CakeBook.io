@@ -580,12 +580,11 @@ body {
     position: relative;
     padding-right: 10px; }
     body .details-container .cake-info .cake-image a {
-      cursor: default;
       text-decoration: none; }
-      body .details-container .cake-info .cake-image a img {
-        width: 100%;
-        border-radius: 10px !important;
-        border: 2px solid #6a272b; }
+    body .details-container .cake-info .cake-image img {
+      width: 100%;
+      border-radius: 10px !important;
+      border: 2px solid #6a272b; }
     body .details-container .cake-info .cake-image input {
       width: 0.1px;
       height: 0.1px;
@@ -593,8 +592,8 @@ body {
       overflow: hidden;
       position: absolute;
       z-index: -1; }
-    body .details-container .cake-info .cake-image label,
-    body .details-container .cake-info .cake-image label:focus {
+    body .details-container .cake-info .cake-image label.image-input-label,
+    body .details-container .cake-info .cake-image label.image-input-label:focus {
       text-align: center;
       margin-bottom: 0;
       cursor: pointer;
@@ -604,7 +603,7 @@ body {
       background-color: #be4e55;
       color: white;
       border-radius: 5px; }
-    body .details-container .cake-info .cake-image label:hover {
+    body .details-container .cake-info .cake-image label.image-input-label:hover {
       background-color: #802f35; }
   body .details-container .cake-info .cake-description {
     display: inline-block;
@@ -735,6 +734,22 @@ body {
 .ui.toggle.checkbox label:after {
   width: 1.7rem;
   height: 1.7rem; }
+
+.ui.dimmer {
+  align-content: center;
+  vertical-align: middle; }
+  .ui.dimmer .content {
+    width: auto;
+    height: auto;
+    max-width: 80vw;
+    max-height: 80vh;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); }
+    .ui.dimmer .content img {
+      width: 100%;
+      height: auto; }
 
 .ui.message {
   z-index: 10;

@@ -70,7 +70,7 @@ System.register(['angular2/core', "angular2/router", "./cakes/add-cake-form.comp
                 HomeComponent.prototype.onSelect = function (cake) {
                     this._router.navigate(["CakeDetails", { id: cake._id }]);
                 };
-                HomeComponent.prototype.onAdded = function (cake, heading, message) {
+                HomeComponent.prototype.onAdded = function (heading, message) {
                     this.getCakes();
                     heading.click();
                     this._transitionService.fadeToggleItem(message);
