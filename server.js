@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 // Resource loading
 app.use("/node_modules", express.static(__dirname + "/node_modules"));
 app.use("/app", express.static(__dirname + "/client/app"));
-app.use("/templates", express.static(__dirname + "/client/app/templates"));
+app.use("/templates", express.static(__dirname + "/client/templates"));
 app.use("/assets", express.static(__dirname + "/client/assets"));
 
 // Internal REST API
