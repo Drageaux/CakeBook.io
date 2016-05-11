@@ -30,7 +30,7 @@ System.register(["angular2/core", "./cake", "./editable-item-form.component", ".
                     this._cakeService = _cakeService;
                     this.userId = JSON.parse(localStorage.getItem("profile")).user_id; // must be defined first
                     this.saved = new core_1.EventEmitter();
-                    this.model = new cake_1.Cake(0, false, false, this.userId, "", "", "", "", [], []);
+                    this.model = new cake_1.Cake("", false, false, this.userId, "", "", "", "", [], []);
                 }
                 AddCakeFormComponent.prototype.ngOnInit = function () {
                     jQuery("#addCakeForm").form({
@@ -48,7 +48,7 @@ System.register(["angular2/core", "./cake", "./editable-item-form.component", ".
                     });
                 };
                 AddCakeFormComponent.prototype.clearForm = function () {
-                    this.model = new cake_1.Cake(0, false, false, this.userId, "", "", "", "", [], []);
+                    this.model = new cake_1.Cake("", false, false, this.userId, "", "", "", "", [], []);
                     jQuery("#cakeName").blur();
                     jQuery("#addCakeForm").form('reset');
                     jQuery("#addErrorMessage").empty();

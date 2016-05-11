@@ -38,12 +38,12 @@ export class CakeService {
             .catch(this.handleError);
     }
 
-    deleteCake(id:number) {
+    deleteCake(id:string) {
         return this.http.delete("/api/" + this.userId + "/cake/" + id)
             .catch(this.handleError);
     }
 
-    addCakeDetail(id:number, detailType:string, detailValue:string):Observable<Cake> {
+    addCakeDetail(id:string, detailType:string, detailValue:string):Observable<Cake> {
         let body = JSON.stringify({value: detailValue});
         let headers = new Headers({"Content-Type": "application/json"});
         let options = new RequestOptions({headers: headers});
@@ -53,13 +53,13 @@ export class CakeService {
             .catch(this.handleError);
     }
 
-    removeCakeDetail(id:number, detailType:string, index:number) {
+    removeCakeDetail(id:string, detailType:string, index:number) {
         return this.http.delete("/api/" + this.userId + "/cake/" + id + "/" + detailType + "/" + index)
             .map(res => <Cake> res.json())
             .catch(this.handleError);
     }
 
-    updateCakeDetail(id:number, detailType:string, index:number, detailValue:string) {
+    updateCakeDetail(id:string, detailType:string, index:number, detailValue:string) {
         let body;
         if (detailType == "ingr" || detailType == "step") {
             body = detailValue;
@@ -79,7 +79,7 @@ export class CakeService {
     /**************
      * Image REST *
      **************/
-    uploadCakeImage(id:number | string, data:string, type:string) {
+    uploadCakeImage(id:string, data:string, type:string) {
         let body = JSON.stringify({data: data, dataType: type});
         let headers = new Headers({"Content-Type": "application/json"});
         let options = new RequestOptions({headers: headers});

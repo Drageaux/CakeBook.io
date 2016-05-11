@@ -15,6 +15,7 @@ import {LoginComponent}         from "./login.component";
 import {HomeComponent}          from "./home.component";
 import {SearchComponent}        from "./cakes/search.component";
 
+import {UserService}            from "./users/user.service";
 import {Cake}                   from "./cakes/cake";
 import {CakeDetailsComponent}   from "./cakes/cake-details.component";
 import {AddCakeFormComponent}   from "./cakes/add-cake-form.component";
@@ -23,7 +24,7 @@ import {TransitionService}      from "./transition.service";
 
 // Need to be imported later on for some reason
 import {ViewEncapsulation}      from "angular2/core";
-import {enableProdMode}         from 'angular2/core';
+import {enableProdMode}         from "angular2/core";
 enableProdMode();
 
 @Component({
@@ -32,6 +33,7 @@ enableProdMode();
     styleUrls: ["assets/custom/stylesheets/style.css"],
     encapsulation: ViewEncapsulation.None,
     providers: [
+        UserService,
         CakeService,
         TransitionService,
         ROUTER_PROVIDERS,
