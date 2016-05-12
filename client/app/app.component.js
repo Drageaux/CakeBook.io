@@ -62,7 +62,7 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2/
                     this._location = _location;
                 }
                 AppComponent.prototype.ngOnInit = function () {
-                    if (!localStorage.getItem("id_token")) {
+                    if (!this.loggedIn()) {
                         this._router.navigate(["Login"]);
                     }
                     var displayBackToTop = this.displayBackToTop.bind(this);

@@ -25,20 +25,41 @@ System.register(["angular2/core", "rxjs/Observable", "angular2/http"], function(
             UserService = (function () {
                 function UserService(http) {
                     this.http = http;
-                    this.userId = JSON.parse(localStorage.getItem("profile")).user_id;
+                    this.userProfile = JSON.parse(localStorage.getItem("profile"));
                 }
+                UserService.prototype.isLoggedIn = function () {
+                    return localStorage.getItem("id_token") != null;
+                };
                 UserService.prototype.getUser = function () {
-                    return this.http.get("/api/user/" + this.userId)
+                    return this.http.get("/api/user/" + this.userProfile.user_id)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };
-                UserService.prototype.addUser = function (user) {
-                    var body = user;
+                UserService.prototype.addUser = function () {
+                    if (this.userProfile == null) {
+                        return;
+                    }
+                    var body = JSON.stringify({
+                        "userId": this.userProfile.user_id,
+                        "name": this.userProfile.name,
+                        "firstName": this.userProfile.given_name,
+                        "lastName": this.userProfile.family_name,
+                        "image": "",
+                        "croppedImage": ""
+                    });
                     var headers = new http_1.Headers({ "Content-Type": "application/json" });
                     var options = new http_1.RequestOptions({ headers: headers });
-                    return this.http.post("/api/user/" + this.userId, body, options)
-                        .map(function (res) { return res.json(); })
-                        .catch(this.handleError);
+                    if (this.getUser() == null) {
+                        return this.http.post("/api/user/" + this.userProfile.user_id, body, options)
+                            .map(function (res) { return res.json(); })
+                            .catch(this.handleError);
+                    }
+                    else {
+                        return this.http.put("/api/user/" + this.userProfile.user_id, body, options)
+                            .map(function (res) { return res.json(); })
+                            .do(function (res) { return console.log(res); })
+                            .catch(this.handleError);
+                    }
                 };
                 /********************
                  * Helper Functions *

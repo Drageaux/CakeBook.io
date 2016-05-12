@@ -1,14 +1,16 @@
-import {Component, OnInit, Input} from 'angular2/core';
-import {Router} from "angular2/router";
-import {Observable} from "rxjs/Observable";
+import {Component, OnInit, Input}   from 'angular2/core';
+import {Router, CanActivate}        from "angular2/router";
+import {Observable}                 from "rxjs/Observable";
 
-import {Cake}                   from "./cakes/cake";
-import {AddCakeFormComponent}   from "./cakes/add-cake-form.component";
-import {ImportCakeFormComponent}   from "./cakes/import-cake-form.component";
-import {CakeService}            from "./cakes/cake.service";
-import {CanActivate} from "angular2/router";
-import {tokenNotExpired} from "angular2-jwt";
-import {TransitionService} from "./transition.service";
+import {User}                       from "./users/user";
+import {UserService}                from "./users/user.service";
+
+import {Cake}                       from "./cakes/cake";
+import {AddCakeFormComponent}       from "./cakes/add-cake-form.component";
+import {ImportCakeFormComponent}    from "./cakes/import-cake-form.component";
+import {CakeService}                from "./cakes/cake.service";
+
+import {TransitionService}          from "./transition.service";
 
 declare var jQuery;
 
@@ -23,12 +25,17 @@ export class HomeComponent implements OnInit {
     @Input() cakes:Cake[];
 
     constructor(private _router:Router,
+                private _userService:UserService,
                 private _cakeService:CakeService,
                 private _transitionService:TransitionService) {
     }
 
     ngOnInit() {
-        if (!localStorage.getItem("id_token")) {
+        if (this._userService.isLoggedIn()) {
+            this._userService.addUser()
+                .subscribe(res => console.log(res));
+        }
+        else {
             this._router.navigate(["Login"]);
         }
         this.getCakes();
@@ -87,14 +94,14 @@ export class HomeComponent implements OnInit {
                 nonFavorite.push(array[i]);
             }
         }
-        favorite.sort(function(first,second){
+        favorite.sort(function (first, second) {
             return first.name.localeCompare(second.name)
         });
-        nonFavorite.sort(function(first,second){
+        nonFavorite.sort(function (first, second) {
             return first.name.localeCompare(second.name)
         });
 
-        favorite.push.apply(favorite,nonFavorite);
+        favorite.push.apply(favorite, nonFavorite);
         results.push.apply(results, favorite);
 
         return results

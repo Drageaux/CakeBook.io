@@ -3,30 +3,49 @@ import {Observable} from "rxjs/Observable";
 import {Http, Headers, RequestOptions, Response} from "angular2/http";
 
 import {User} from "./user";
-import {} from "angular2/http";
-import {} from "angular2/http";
 
 @Injectable()
 export class UserService {
-    userId = JSON.parse(localStorage.getItem("profile")).user_id;
+    userProfile = JSON.parse(localStorage.getItem("profile"));
 
     constructor(private http:Http) {
     }
 
+    isLoggedIn() {
+        return localStorage.getItem("id_token") != null;
+    }
+
     getUser():Observable<User> {
-        return this.http.get("/api/user/" + this.userId)
+        return this.http.get("/api/user/" + this.userProfile.user_id)
             .map(res => <User> res.json())
             .catch(this.handleError)
     }
 
-    addUser(user:string):Observable<User> {
-        let body = user;
+    addUser():Observable<User> {
+        if (this.userProfile == null) {
+            return
+        }
+        let body = JSON.stringify({
+            "userId": this.userProfile.user_id,
+            "name": this.userProfile.name,
+            "firstName": this.userProfile.given_name,
+            "lastName": this.userProfile.family_name,
+            "image": "",
+            "croppedImage": ""
+        });
         let headers = new Headers({"Content-Type": "application/json"});
         let options = new RequestOptions({headers: headers});
 
-        return this.http.post("/api/user/" + this.userId, body, options)
-            .map(res => <User> res.json())
-            .catch(this.handleError);
+        if (this.getUser() == null) {
+            return this.http.post("/api/user/" + this.userProfile.user_id, body, options)
+                .map(res => <User> res.json())
+                .catch(this.handleError)
+        } else {
+            return this.http.put("/api/user/" + this.userProfile.user_id, body, options)
+                .map(res => <User> res.json())
+                .do(res => console.log(res))
+                .catch(this.handleError);
+        }
     }
 
     /********************

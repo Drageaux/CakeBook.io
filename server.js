@@ -2,6 +2,7 @@ var express = require("express"),
     app = express(),
     bodyParser = require("body-parser"),
     mongoose = require("mongoose"),
+    usersController = require("./server/controllers/users-controller.js"),
     cakesController = require("./server/controllers/cakes-controller.js");
 
 mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost:27017/cake-book");
@@ -18,6 +19,7 @@ app.use("/assets", express.static(__dirname + "/client/assets"));
 // Internal REST API
 app.get("/api/user/:id", usersController.get);
 app.post("/api/user/:id", usersController.create);
+app.put("/api/user/:id", usersController.update);
 app.get("/api/:user/cakes", cakesController.list);
 app.get("/api/:user/cake/:id", cakesController.get);
 app.post("/api/:user/cakes", cakesController.create);

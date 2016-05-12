@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', "angular2/platform/common"], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', "angular2/platform/common", "./users/user.service"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', 'angular2/router', "angular2/platform/common"]
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, common_1;
+    var core_1, router_1, common_1, user_service_1;
     var LoginComponent;
     return {
         setters:[
@@ -20,12 +20,16 @@ System.register(['angular2/core', 'angular2/router', "angular2/platform/common"]
             },
             function (common_1_1) {
                 common_1 = common_1_1;
+            },
+            function (user_service_1_1) {
+                user_service_1 = user_service_1_1;
             }],
         execute: function() {
             LoginComponent = (function () {
-                function LoginComponent(_router, _location) {
+                function LoginComponent(_router, _location, _userService) {
                     this._router = _router;
                     this._location = _location;
+                    this._userService = _userService;
                     this.lock = new Auth0Lock('1w9uIYPLBxZzbciPImlhyG39EPDqzv8e', 'drageaux.auth0.com');
                 }
                 LoginComponent.prototype.ngOnInit = function () {
@@ -44,7 +48,7 @@ System.register(['angular2/core', 'angular2/router', "angular2/platform/common"]
                     });
                 };
                 LoginComponent.prototype.loggedIn = function () {
-                    return localStorage.getItem("id_token") != null;
+                    return this._userService.isLoggedIn();
                 };
                 LoginComponent.prototype.atLoginPage = function () {
                     return this._location.path() == "/login";
@@ -53,7 +57,7 @@ System.register(['angular2/core', 'angular2/router', "angular2/platform/common"]
                     core_1.Component({
                         templateUrl: "templates/login.component.html"
                     }), 
-                    __metadata('design:paramtypes', [router_1.Router, common_1.Location])
+                    __metadata('design:paramtypes', [router_1.Router, common_1.Location, user_service_1.UserService])
                 ], LoginComponent);
                 return LoginComponent;
             })();
