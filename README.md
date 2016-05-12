@@ -1,6 +1,12 @@
 #CakeBook.io
 ####An easy-to-use recipe book for cake lovers
 
+##Tech Stack: M.E.A.N 
+1. [Mongoose/MongoDB](https://mongoosejs.com/) (object-oriented NoSQL data storage)
+2. [Express](https://expressjs.com/) (web app framework)
+4. [Angular2 in TypeScript](https://angular.io/) (front-end application)
+3. [Node](https://nodejs.org/en/) (back-end environment)
+
 ##Development Instructions:
 1. Clone the repo https://github.com/Drageaux/cake-book.git 
 2. Navigate to the cloned project directory using the command line
