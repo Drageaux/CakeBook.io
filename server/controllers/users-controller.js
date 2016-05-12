@@ -1,11 +1,10 @@
 var User = require("../models/user");
 
 module.exports.get = function (req, res) {
-    User.findOne({"userId": req.params.userId}, function (err, user) {
+    User.findOne({"userId": req.params.id}, function (err, user) {
         if (err) {
             console.log(err)
-        }
-        ;
+        };
         res.json(user);
     });
 }
@@ -13,7 +12,8 @@ module.exports.get = function (req, res) {
 module.exports.create = function (req, res) {
     var user = new User();
     user.userId = req.body.userId;
-    user.email = req.body.userId;
+    user.userUrl = req.body.userId;
+    user.email = req.body.email;
     user.nickname = req.body.nickname;
     user.name = req.body.name;
     user.firstName = req.body.firstName;
@@ -22,24 +22,21 @@ module.exports.create = function (req, res) {
         if (err) {
             console.log(err)
         }
+        console.log("New user: " + user);
         res.json(user);
     });
 }
 
-module.exports.update = function (req, res) {
-    User.findOneAndUpdate(
-        {"userId": req.body.userId}, {
-            $set: {
-                "email": req.body.email,
-                "nickname": req.body.nickname,
-                "name": req.body.name,
-                "firstName": req.body.firstName,
-                "lastName": req.body.lastName
-            }
-        }, {
-            new: true,
-            upsert: true
-        }, function (err, user) {
-            console.log(user)
-        })
+module.exports.updateImportant = function (req, res) {
+    console.log("updating");
+    User.findOne({"userId": req.body.userId}, function(err,user){
+        if (!user.email) {
+            user.email = req.body.email;
+        }
+        if (!user.userUrl) {
+            user.userUrl = req.body.userId;
+        }
+        console.log("Updated user: " + user);
+        res.json(user);
+    })
 }

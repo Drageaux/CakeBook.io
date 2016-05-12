@@ -41,23 +41,33 @@ System.register(["angular2/core", "rxjs/Observable", "angular2/http"], function(
                     }
                     var body = JSON.stringify({
                         "userId": this.userProfile.user_id,
+                        "nickname": this.userProfile.nickname,
+                        "email": this.userProfile.email,
                         "name": this.userProfile.name,
                         "firstName": this.userProfile.given_name,
                         "lastName": this.userProfile.family_name
                     });
                     var headers = new http_1.Headers({ "Content-Type": "application/json" });
                     var options = new http_1.RequestOptions({ headers: headers });
-                    if (this.getUser() == null) {
-                        return this.http.post("/api/user/" + this.userProfile.user_id, body, options)
-                            .map(function (res) { return res.json(); })
-                            .catch(this.handleError);
+                    return this.http.post("/api/user/" + this.userProfile.user_id, body, options)
+                        .map(function (res) { return res.json(); })
+                        .catch(this.handleError);
+                };
+                UserService.prototype.updateImportantDetails = function () {
+                    if (this.userProfile == null) {
+                        return;
                     }
-                    else {
-                        return this.http.put("/api/user/" + this.userProfile.user_id, body, options)
-                            .map(function (res) { return res.json(); })
-                            .do(function (res) { return console.log(res); })
-                            .catch(this.handleError);
-                    }
+                    var body = JSON.stringify({
+                        "userId": this.userProfile.user_id,
+                        "email": this.userProfile.email
+                    });
+                    console.log("updating");
+                    var headers = new http_1.Headers({ "Content-Type": "application/json" });
+                    var options = new http_1.RequestOptions({ headers: headers });
+                    return this.http.put("/api/user/" + this.userProfile.user_id + "/important", body, options)
+                        .map(function (res) { return res.json(); })
+                        .do(function (res) { return console.log("Updated just now"); })
+                        .catch(this.handleError);
                 };
                 /********************
                  * Helper Functions *

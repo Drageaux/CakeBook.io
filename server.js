@@ -19,7 +19,8 @@ app.use("/assets", express.static(__dirname + "/client/assets"));
 // Internal REST API
 app.get("/api/user/:id", usersController.get);
 app.post("/api/user/:id", usersController.create);
-app.put("/api/user/:id", usersController.update);
+app.put("/api/user/:id/important", usersController.updateImportant);
+
 app.get("/api/:user/cakes", cakesController.list);
 app.get("/api/:user/cake/:id", cakesController.get);
 app.post("/api/:user/cakes", cakesController.create);

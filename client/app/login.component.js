@@ -33,8 +33,18 @@ System.register(['angular2/core', 'angular2/router', "angular2/platform/common",
                     this.lock = new Auth0Lock('1w9uIYPLBxZzbciPImlhyG39EPDqzv8e', 'drageaux.auth0.com');
                 }
                 LoginComponent.prototype.ngOnInit = function () {
+                    var _this = this;
                     if (this.loggedIn()) {
-                        this._router.navigate(["Home"]);
+                        this._userService.getUser()
+                            .subscribe(function (res) {
+                            if (res == null) {
+                                _this._userService.addUser()
+                                    .subscribe(function () { return _this._router.navigate(["Home"]); });
+                            }
+                            else {
+                                _this._router.navigate(["Home"]);
+                            }
+                        });
                     }
                 };
                 LoginComponent.prototype.login = function () {

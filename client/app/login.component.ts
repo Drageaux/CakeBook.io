@@ -1,8 +1,6 @@
-import {Component} from 'angular2/core';
-import {RouteConfig, Router, ROUTER_PROVIDERS, ROUTER_DIRECTIVES, CanActivate} from 'angular2/router';
+import {Component, OnInit} from 'angular2/core';
+import {RouteConfig, Router, ROUTER_PROVIDERS, ROUTER_DIRECTIVES} from 'angular2/router';
 import {Location, APP_BASE_HREF} from "angular2/platform/common";
-import {AuthHttp} from 'angular2-jwt';
-import {OnInit} from "angular2/core";
 
 import {HomeComponent} from "./home.component";
 import {UserService} from "./users/user.service";
@@ -23,7 +21,16 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
         if (this.loggedIn()) {
-            this._router.navigate(["Home"]);
+            this._userService.getUser()
+                .subscribe(res => {
+                    if (res == null) {
+                        this._userService.addUser()
+                            .subscribe(() => this._router.navigate(["Home"]))
+                    }
+                    else {
+                        this._router.navigate(["Home"]);
+                    }
+                });
         }
     }
 

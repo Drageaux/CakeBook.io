@@ -1,4 +1,4 @@
-System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2/platform/common", "angular2-jwt", "./loggedin-outlet", "./login.component", "./home.component", "./cakes/search.component", "./users/user.service", "./cakes/cake-details.component", "./cakes/cake.service", "./transition.service"], function(exports_1) {
+System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2/platform/common", "angular2-jwt", "./loggedin-outlet", "./login.component", "./home.component", "./cakes/search.component", "./users/profile.component", "./users/user.service", "./cakes/cake-details.component", "./cakes/cake.service", "./transition.service"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2/
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, router_1, common_1, angular2_jwt_1, loggedin_outlet_1, login_component_1, home_component_1, search_component_1, user_service_1, cake_details_component_1, cake_service_1, transition_service_1, core_2, core_3;
+    var core_1, http_1, router_1, common_1, angular2_jwt_1, loggedin_outlet_1, login_component_1, home_component_1, search_component_1, profile_component_1, user_service_1, cake_details_component_1, cake_service_1, transition_service_1, core_2, core_3;
     var AppComponent;
     return {
         setters:[
@@ -41,6 +41,9 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2/
             function (search_component_1_1) {
                 search_component_1 = search_component_1_1;
             },
+            function (profile_component_1_1) {
+                profile_component_1 = profile_component_1_1;
+            },
             function (user_service_1_1) {
                 user_service_1 = user_service_1_1;
             },
@@ -56,19 +59,36 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2/
         execute: function() {
             core_3.enableProdMode();
             AppComponent = (function () {
-                function AppComponent(authHttp, _router, _location) {
+                function AppComponent(authHttp, _router, _location, _userService) {
                     this.authHttp = authHttp;
                     this._router = _router;
                     this._location = _location;
+                    this._userService = _userService;
                 }
                 AppComponent.prototype.ngOnInit = function () {
+                    var _this = this;
                     if (!this.loggedIn()) {
                         this._router.navigate(["Login"]);
                     }
+                    else {
+                        // if logged in, update if missing info
+                        this._userService.getUser()
+                            .subscribe(function (res) {
+                            if (res == null) {
+                                _this._userService.addUser();
+                            }
+                        });
+                        this._userService.updateImportantDetails();
+                    }
+                    // back-to-top button
                     var displayBackToTop = this.displayBackToTop.bind(this);
                     document.onscroll = function () {
                         displayBackToTop(window.scrollY);
                     };
+                };
+                AppComponent.prototype.goToProfile = function () {
+                    this._userService.getUser()
+                        .subscribe(function (res) { return console.log(res); });
                 };
                 AppComponent.prototype.logout = function () {
                     localStorage.removeItem("profile");
@@ -126,10 +146,11 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2/
                     router_1.RouteConfig([
                         { path: "/login", name: "Login", component: login_component_1.LoginComponent },
                         { path: "/home", name: "Home", component: home_component_1.HomeComponent, useAsDefault: true },
+                        { path: "/profile/:user", name: "Profile", component: profile_component_1.ProfileComponent },
                         { path: "/cake/:id", name: "CakeDetails", component: cake_details_component_1.CakeDetailsComponent },
                         { path: "/search/query/:query/start/:start/end/:end", name: "Search", component: search_component_1.SearchComponent }
                     ]), 
-                    __metadata('design:paramtypes', [angular2_jwt_1.AuthHttp, router_1.Router, common_1.Location])
+                    __metadata('design:paramtypes', [angular2_jwt_1.AuthHttp, router_1.Router, common_1.Location, user_service_1.UserService])
                 ], AppComponent);
                 return AppComponent;
             })();

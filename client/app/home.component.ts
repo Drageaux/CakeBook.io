@@ -31,14 +31,11 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit() {
-        if (this._userService.isLoggedIn()) {
-            this._userService.addUser()
-                .subscribe(res => console.log(res));
-        }
-        else {
+        if (!this._userService.isLoggedIn()) {
             this._router.navigate(["Login"]);
+        } else {
+            this.getCakes();
         }
-        this.getCakes();
     }
 
     getCakes() {

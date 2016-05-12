@@ -42,14 +42,12 @@ System.register(['angular2/core', "angular2/router", "./users/user.service", "./
                     this._transitionService = _transitionService;
                 }
                 HomeComponent.prototype.ngOnInit = function () {
-                    if (this._userService.isLoggedIn()) {
-                        this._userService.addUser()
-                            .subscribe(function (res) { return console.log(res); });
-                    }
-                    else {
+                    if (!this._userService.isLoggedIn()) {
                         this._router.navigate(["Login"]);
                     }
-                    this.getCakes();
+                    else {
+                        this.getCakes();
+                    }
                 };
                 HomeComponent.prototype.getCakes = function () {
                     var _this = this;

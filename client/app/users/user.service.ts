@@ -27,6 +27,8 @@ export class UserService {
         }
         let body = JSON.stringify({
             "userId": this.userProfile.user_id,
+            "nickname": this.userProfile.nickname,
+            "email": this.userProfile.email,
             "name": this.userProfile.name,
             "firstName": this.userProfile.given_name,
             "lastName": this.userProfile.family_name
@@ -34,16 +36,27 @@ export class UserService {
         let headers = new Headers({"Content-Type": "application/json"});
         let options = new RequestOptions({headers: headers});
 
-        if (this.getUser() == null) {
-            return this.http.post("/api/user/" + this.userProfile.user_id, body, options)
-                .map(res => <User> res.json())
-                .catch(this.handleError)
-        } else {
-            return this.http.put("/api/user/" + this.userProfile.user_id, body, options)
-                .map(res => <User> res.json())
-                .do(res => console.log(res))
-                .catch(this.handleError);
+        return this.http.post("/api/user/" + this.userProfile.user_id, body, options)
+            .map(res => <User> res.json())
+            .catch(this.handleError)
+    }
+
+    updateImportantDetails():Observable<User> {
+        if (this.userProfile == null) {
+            return
         }
+        let body = JSON.stringify({
+            "userId": this.userProfile.user_id,
+            "email": this.userProfile.email
+        });
+        console.log("updating");
+        let headers = new Headers({"Content-Type": "application/json"});
+        let options = new RequestOptions({headers: headers});
+
+        return this.http.put("/api/user/" + this.userProfile.user_id + "/important", body, options)
+            .map(res => <User> res.json())
+            .do(res => console.log("Updated just now"))
+            .catch(this.handleError);
     }
 
     /********************
