@@ -3,16 +3,16 @@
 
 ##Technology
 ####Tech Stack: M.E.A.N 
-1. [Mongoose/MongoDB](https://mongoosejs.com/) (object-oriented NoSQL data storage)
-2. [Express](https://expressjs.com/) (web-app framework)
-4. [Angular2 in TypeScript](https://angular.io/) (front-end application)
-3. [Node](https://nodejs.org/en/) (back-end environment)
+- [Mongoose/MongoDB](https://mongoosejs.com/) (object-oriented NoSQL data storage)
+- [Express](https://expressjs.com/) (web-app framework)
+- [Angular2 in TypeScript](https://angular.io/) (front-end application)
+- [Node](https://nodejs.org/en/) (back-end environment)
 
 ####Other Software
-1. [Trello](https://trello.com/) (project management)
-1. [WebStorm](https://www.jetbrains.com/webstorm/) (IDE)
-2. [Auth0](https://auth0.com/) (authentication system)
-2. [Heroku](https://www.heroku.com/) (deployment platform)
+- [Trello](https://trello.com/) (project management)
+- [WebStorm](https://www.jetbrains.com/webstorm/) (IDE)
+- [Auth0](https://auth0.com/) (authentication system)
+- [Heroku](https://www.heroku.com/) (deployment platform)
 
 ##Development Instructions:
 1. Clone the repo https://github.com/Drageaux/cake-book.git 
