@@ -29,9 +29,7 @@ export class UserService {
             "userId": this.userProfile.user_id,
             "name": this.userProfile.name,
             "firstName": this.userProfile.given_name,
-            "lastName": this.userProfile.family_name,
-            "image": "",
-            "croppedImage": ""
+            "lastName": this.userProfile.family_name
         });
         let headers = new Headers({"Content-Type": "application/json"});
         let options = new RequestOptions({headers: headers});

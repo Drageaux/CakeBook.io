@@ -13,11 +13,11 @@ module.exports.get = function (req, res) {
 module.exports.create = function (req, res) {
     var user = new User();
     user.userId = req.body.userId;
+    user.email = req.body.userId;
+    user.nickname = req.body.nickname;
     user.name = req.body.name;
     user.firstName = req.body.firstName;
     user.lastName = req.body.lastName;
-    user.image = req.body.image;
-    user.croppedImage = req.body.croppedImage;
     user.save(function (err, user) {
         if (err) {
             console.log(err)
@@ -30,12 +30,11 @@ module.exports.update = function (req, res) {
     User.findOneAndUpdate(
         {"userId": req.body.userId}, {
             $set: {
-                "userId": req.body.userId,
+                "email": req.body.email,
+                "nickname": req.body.nickname,
                 "name": req.body.name,
                 "firstName": req.body.firstName,
-                "lastName": req.body.lastName,
-                "image": req.body.image,
-                "croppedImage": req.body.croppedImage
+                "lastName": req.body.lastName
             }
         }, {
             new: true,

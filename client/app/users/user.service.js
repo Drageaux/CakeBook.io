@@ -43,9 +43,7 @@ System.register(["angular2/core", "rxjs/Observable", "angular2/http"], function(
                         "userId": this.userProfile.user_id,
                         "name": this.userProfile.name,
                         "firstName": this.userProfile.given_name,
-                        "lastName": this.userProfile.family_name,
-                        "image": "",
-                        "croppedImage": ""
+                        "lastName": this.userProfile.family_name
                     });
                     var headers = new http_1.Headers({ "Content-Type": "application/json" });
                     var options = new http_1.RequestOptions({ headers: headers });
