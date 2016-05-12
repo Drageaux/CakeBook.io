@@ -1,5 +1,6 @@
 #CakeBook.io
 ####An easy-to-use recipe book for cake lovers
+![alt tag](https://trello-attachments.s3.amazonaws.com/56a7cbd10d4205bdaf804d6a/1803x865/d17b864183041249c80ebf16dec1ae5d/cakebook-1.5.png)
 
 ##Technology
 ####Tech Stack: M.E.A.N 
