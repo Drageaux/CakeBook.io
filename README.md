@@ -1,6 +1,19 @@
 #CakeBook.io
 ####An easy-to-use recipe book for cake lovers
 
+##Technology
+####Tech Stack: M.E.A.N 
+- [Mongoose/MongoDB](https://mongoosejs.com/) (object-oriented NoSQL data storage)
+- [Express](https://expressjs.com/) (web-app framework)
+- [Angular2 in TypeScript](https://angular.io/) (front-end application)
+- [Node](https://nodejs.org/en/) (back-end environment)
+
+####Other Software
+- [Trello](https://trello.com/) (project management)
+- [WebStorm](https://www.jetbrains.com/webstorm/) (IDE)
+- [Auth0](https://auth0.com/) (authentication system)
+- [Heroku](https://www.heroku.com/) (deployment platform)
+
 ##Development Instructions:
 1. Clone the repo https://github.com/Drageaux/cake-book.git 
 2. Navigate to the cloned project directory using the command line
@@ -15,5 +28,5 @@
    - Google (https://developers.google.com/google-apps/)
    - Facebook (https://developers.facebook.com)
 
-##Production Notes:
+##Development Notes:
 - App is public at http://cakebook.io 
