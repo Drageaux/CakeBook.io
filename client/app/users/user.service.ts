@@ -49,13 +49,11 @@ export class UserService {
             "userId": this.userProfile.user_id,
             "email": this.userProfile.email
         });
-        console.log("updating");
         let headers = new Headers({"Content-Type": "application/json"});
         let options = new RequestOptions({headers: headers});
 
-        return this.http.put("/api/user/" + this.userProfile.user_id + "/important", body, options)
+        return this.http.put("/api/user/" + this.userProfile.user_id, body, options)
             .map(res => <User> res.json())
-            .do(res => console.log("Updated just now"))
             .catch(this.handleError);
     }
 

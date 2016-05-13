@@ -61,12 +61,10 @@ System.register(["angular2/core", "rxjs/Observable", "angular2/http"], function(
                         "userId": this.userProfile.user_id,
                         "email": this.userProfile.email
                     });
-                    console.log("updating");
                     var headers = new http_1.Headers({ "Content-Type": "application/json" });
                     var options = new http_1.RequestOptions({ headers: headers });
-                    return this.http.put("/api/user/" + this.userProfile.user_id + "/important", body, options)
+                    return this.http.put("/api/user/" + this.userProfile.user_id, body, options)
                         .map(function (res) { return res.json(); })
-                        .do(function (res) { return console.log("Updated just now"); })
                         .catch(this.handleError);
                 };
                 /********************

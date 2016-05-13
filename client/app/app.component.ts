@@ -70,9 +70,12 @@ export class AppComponent implements OnInit {
                 .subscribe(res => {
                     if (res == null) {
                         this._userService.addUser()
+                            .subscribe(res => console.log("New User: " + res));
+                    } else {
+                        this._userService.updateImportantDetails()
+                            .subscribe(res => console.log("Updated user information"));
                     }
                 });
-            this._userService.updateImportantDetails();
         }
 
         // back-to-top button

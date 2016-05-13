@@ -20,7 +20,7 @@ module.exports.create = function (req, res) {
     user.lastName = req.body.lastName;
     user.save(function (err, user) {
         if (err) {
-            console.log(err)
+            console.log(err);
         }
         console.log("New user: " + user);
         res.json(user);
@@ -28,15 +28,19 @@ module.exports.create = function (req, res) {
 }
 
 module.exports.updateImportant = function (req, res) {
-    console.log("updating");
-    User.findOne({"userId": req.body.userId}, function(err,user){
-        if (!user.email) {
+    User.findOne({"userId": req.body.userId}, function (err, user) {
+        if (user.email == null) {
             user.email = req.body.email;
         }
-        if (!user.userUrl) {
+        if (user.userUrl == null) {
             user.userUrl = req.body.userId;
         }
-        console.log("Updated user: " + user);
-        res.json(user);
+        user.save(function (err, user) {
+            if (err) {
+                console.log(err);
+            }
+            console.log("Updated user: " + user);
+            res.json(user);
+        });
     })
 }

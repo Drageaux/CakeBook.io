@@ -75,10 +75,14 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2/
                         this._userService.getUser()
                             .subscribe(function (res) {
                             if (res == null) {
-                                _this._userService.addUser();
+                                _this._userService.addUser()
+                                    .subscribe(function (res) { return console.log("New User: " + res); });
+                            }
+                            else {
+                                _this._userService.updateImportantDetails()
+                                    .subscribe(function (res) { return console.log("Updated user information"); });
                             }
                         });
-                        this._userService.updateImportantDetails();
                     }
                     // back-to-top button
                     var displayBackToTop = this.displayBackToTop.bind(this);
