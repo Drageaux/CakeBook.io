@@ -91,8 +91,11 @@ System.register(["angular2/core", "angular2/http", 'angular2/router', "angular2/
                     };
                 };
                 AppComponent.prototype.goToProfile = function () {
+                    var _this = this;
                     this._userService.getUser()
-                        .subscribe(function (res) { return console.log(res); });
+                        .subscribe(function (res) { return _this._router.navigate(["Profile", {
+                            user: res.userId
+                        }]); });
                 };
                 AppComponent.prototype.logout = function () {
                     localStorage.removeItem("profile");

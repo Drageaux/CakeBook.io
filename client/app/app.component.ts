@@ -87,7 +87,9 @@ export class AppComponent implements OnInit {
 
     goToProfile() {
         this._userService.getUser()
-            .subscribe(res => console.log(res))
+            .subscribe(res => this._router.navigate(["Profile", {
+               user: res.userId
+            }]))
     }
 
     logout() {
