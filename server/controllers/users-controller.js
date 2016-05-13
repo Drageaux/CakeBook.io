@@ -35,6 +35,9 @@ module.exports.updateImportant = function (req, res) {
         if (user.userUrl == null) {
             user.userUrl = req.body.userId;
         }
+        if (user.nickname == null) {
+            user.nickname = req.body.nickname;
+        }
         user.save(function (err, user) {
             if (err) {
                 console.log(err);

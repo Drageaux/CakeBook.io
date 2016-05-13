@@ -59,7 +59,8 @@ System.register(["angular2/core", "rxjs/Observable", "angular2/http"], function(
                     }
                     var body = JSON.stringify({
                         "userId": this.userProfile.user_id,
-                        "email": this.userProfile.email
+                        "email": this.userProfile.email,
+                        "nickname": this.userProfile.nickname
                     });
                     var headers = new http_1.Headers({ "Content-Type": "application/json" });
                     var options = new http_1.RequestOptions({ headers: headers });

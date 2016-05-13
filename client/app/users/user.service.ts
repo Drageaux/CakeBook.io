@@ -47,7 +47,8 @@ export class UserService {
         }
         let body = JSON.stringify({
             "userId": this.userProfile.user_id,
-            "email": this.userProfile.email
+            "email": this.userProfile.email,
+            "nickname": this.userProfile.nickname
         });
         let headers = new Headers({"Content-Type": "application/json"});
         let options = new RequestOptions({headers: headers});
