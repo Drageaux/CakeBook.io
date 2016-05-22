@@ -7,7 +7,7 @@
     "url": "https://github.com/Drageaux/cakebook.io.git"
   },
   "scripts": {
-    "preinstall": "npm install typings -g",
+    "preinstall": "npm install typings",
     "postinstall": "typings install",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
