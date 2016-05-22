@@ -19,9 +19,9 @@
     <script src="node_modules/reflect-metadata/Reflect.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
     <script src="node_modules/rxjs/bundles/Rx.js"></script>
-    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
-    <script src="node_modules/angular2/bundles/router.dev.js"></script> <!-- Routing and Navigation -->
-    <script src="node_modules/angular2/bundles/http.dev.js"></script> <!-- Server Communication -->
+    <!--<script src="node_modules/angular2/bundles/angular2.dev.js"></script>-->
+    <!--<script src="node_modules/angular2/bundles/router.dev.js"></script> &lt;!&ndash; Routing and Navigation &ndash;&gt;-->
+    <!--<script src="node_modules/angular2/bundles/http.dev.js"></script> &lt;!&ndash; Server Communication &ndash;&gt;-->
     <script src="//cdn.auth0.com/js/lock-8.2.min.js"></script> <!-- Auth0 Lock script -->
 
     <!-- Bootstrap -->
@@ -55,7 +55,7 @@
     </script>
 
     <!-- Configure SystemJS -->
-    <script src="systemjs.config.js"></script>
+    <script src="/systemjs.config.js"></script>
     <script>
         System.config({
             packages: {
@@ -75,8 +75,7 @@
                 'ng2-dragula': 'node_modules/ng2-dragula'
             }
         });
-        System.import('app/main')
-                .then(null, console.error.bind(console));
+        System.import('app/main').catch(function(err){ console.error(err); });
     </script>
 </head>
 

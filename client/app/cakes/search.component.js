@@ -8,7 +8,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
 var router_deprecated_1 = require("@angular/router-deprecated");
 var cake_service_1 = require("./cake.service");
 var import_cake_form_component_1 = require("./import-cake-form.component");
@@ -180,7 +179,7 @@ var SearchComponent = (function () {
             directives: [import_cake_form_component_1.ImportCakeFormComponent]
         }),
         router_deprecated_1.CanActivate(function () { return localStorage.getItem("id_token"); }), 
-        __metadata('design:paramtypes', [router_1.Router, router_deprecated_1.RouteParams, cake_service_1.CakeService])
+        __metadata('design:paramtypes', [router_deprecated_1.Router, router_deprecated_1.RouteParams, cake_service_1.CakeService])
     ], SearchComponent);
     return SearchComponent;
 })();

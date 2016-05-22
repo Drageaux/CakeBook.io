@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 var router_deprecated_1 = require('@angular/router-deprecated');
-//import {Location, APP_BASE_HREF} from "@angular/platform/common";
 var common_1 = require("@angular/common");
 var angular2_jwt_1 = require("angular2-jwt");
 var loggedin_outlet_1 = require("./loggedin-outlet");

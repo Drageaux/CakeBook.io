@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from "@angular/core";
-import {Router} from "@angular/router";
-import {RouteParams} from '@angular/router-deprecated';
+import {Router, RouteParams} from '@angular/router-deprecated';
 import {Observable} from "rxjs/Observable";
 
 import {Cake} from "./cake";

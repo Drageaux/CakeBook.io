@@ -1,13 +1,13 @@
 import {Component, provide, OnInit} from "@angular/core";
 import {HTTP_PROVIDERS, Http} from "@angular/http";
+
 import {
     RouteConfig,
     Router,
     ROUTER_PROVIDERS,
     ROUTER_DIRECTIVES,
     CanActivate} from '@angular/router-deprecated';
-//import {Location, APP_BASE_HREF} from "@angular/platform/common";
-import {Location} from "@angular/common";
+import {Location, APP_BASE_HREF} from "@angular/common";
 import {FORM_PROVIDERS} from '@angular/common';
 import {AuthHttp} from "angular2-jwt";
 

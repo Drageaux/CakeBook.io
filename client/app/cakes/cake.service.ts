@@ -64,7 +64,6 @@ export class CakeService {
         let body;
         if (detailType == "ingr" || detailType == "step") {
             body = detailValue;
-            console.log(body);
         } else {
             body = JSON.stringify({index: index, value: detailValue});
         }

@@ -58,7 +58,6 @@ var CakeService = (function () {
         var body;
         if (detailType == "ingr" || detailType == "step") {
             body = detailValue;
-            console.log(body);
         }
         else {
             body = JSON.stringify({ index: index, value: detailValue });
