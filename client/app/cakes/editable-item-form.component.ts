@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, Output, EventEmitter } from "angular2/core";
+import {Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import {Dragula, DragulaService} from "ng2-dragula/ng2-dragula";
 
 @Component({

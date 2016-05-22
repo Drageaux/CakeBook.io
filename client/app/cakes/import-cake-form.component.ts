@@ -3,9 +3,9 @@ import {
     EventEmitter,
     Input,
     Output,
-    OnInit} from "angular2/core";
-import {NgForm}     from "angular2/common";
-import {Json} from "angular2/src/facade/lang";
+    OnInit} from "@angular/core";
+import {NgForm}     from "@angular/common";
+//import {Json} from "@angular/src/facade/lang";
 import {Observable} from "rxjs/Observable";
 
 import {Cake}       from "./cake";

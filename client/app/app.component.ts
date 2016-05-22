@@ -1,13 +1,14 @@
-import {Component, provide, OnInit} from "angular2/core";
-import {HTTP_PROVIDERS, Http} from "angular2/http";
+import {Component, provide, OnInit} from "@angular/core";
+import {HTTP_PROVIDERS, Http} from "@angular/http";
 import {
     RouteConfig,
     Router,
     ROUTER_PROVIDERS,
     ROUTER_DIRECTIVES,
-    CanActivate} from 'angular2/router';
-import {Location, APP_BASE_HREF} from "angular2/platform/common";
-import {FORM_PROVIDERS} from 'angular2/common';
+    CanActivate} from '@angular/router-deprecated';
+//import {Location, APP_BASE_HREF} from "@angular/platform/common";
+import {Location} from "@angular/common";
+import {FORM_PROVIDERS} from '@angular/common';
 import {AuthHttp} from "angular2-jwt";
 
 import {LoggedInRouterOutlet}   from "./loggedin-outlet";
@@ -25,8 +26,8 @@ import {CakeService}            from "./cakes/cake.service";
 import {TransitionService}      from "./transition.service";
 
 // Need to be imported later on for some reason
-import {ViewEncapsulation}      from "angular2/core";
-import {enableProdMode}         from "angular2/core";
+import {ViewEncapsulation}      from "@angular/core";
+import {enableProdMode}         from "@angular/core";
 import {User} from "./users/user";
 enableProdMode();
 

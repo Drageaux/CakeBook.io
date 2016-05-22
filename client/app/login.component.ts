@@ -1,6 +1,6 @@
-import {Component, OnInit} from 'angular2/core';
-import {RouteConfig, Router, ROUTER_PROVIDERS, ROUTER_DIRECTIVES} from 'angular2/router';
-import {Location, APP_BASE_HREF} from "angular2/platform/common";
+import {Component, OnInit} from "@angular/core";
+import {Router, ROUTER_PROVIDERS, ROUTER_DIRECTIVES} from "@angular/router-deprecated";
+import {Location} from "@angular/common";
 
 import {HomeComponent} from "./home.component";
 import {UserService} from "./users/user.service";

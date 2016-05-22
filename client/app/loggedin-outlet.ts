@@ -3,10 +3,10 @@
  * https://github.com/auth0/angular2-authentication-sample/tree/master/src
  **/
 
-import {Directive, Attribute, ElementRef, DynamicComponentLoader} from 'angular2/core';
-import {Router, RouterOutlet, ComponentInstruction, CanActivate} from 'angular2/router';
+import {Directive, Attribute, ElementRef, DynamicComponentLoader} from '@angular/core';
+import {Router, RouterOutlet, ComponentInstruction, CanActivate} from '@angular/router-deprecated';
 import {tokenNotExpired} from "angular2-jwt";
-import {ViewContainerRef} from "angular2/core";
+import {ViewContainerRef} from "@angular/core";
 
 @Directive({
     selector: 'loggedin-router-outlet'

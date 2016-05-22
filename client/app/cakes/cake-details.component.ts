@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from "angular2/core";
-import {Router, RouteParams, CanActivate} from "angular2/router";
+import {Component, Input, OnInit} from "@angular/core";
+import {Router} from "@angular/router";
+import {RouteParams} from '@angular/router-deprecated';
 import {Observable} from "rxjs/Observable";
 
 import {Cake} from "./cake";
