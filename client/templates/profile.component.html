@@ -2,16 +2,20 @@
     <!--<h2>Profile</h2>-->
     <!-- Profile Info -->
     <div class="profile-info">
-        <h3>{{user.nickname}}</h3>
         <!--<img src="">-->
         <div class="profile-picture">
             <img *ngIf="user.image" src="user.image">
             <img *ngIf="!user.image" src="../assets/custom/images/user.png">
         </div>
+        <h3>{{user.nickname}}</h3>
     </div>
+    <hr>
 
     <!-- Cake Album -->
-    <div>
-
+    <div class="cake-album container-fluid">
+        <a *ngFor="let cake of cakes" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <img *ngIf="!isEmptyString(cake.image)" src="{{cake.croppedImage}}">
+            <img *ngIf="isEmptyString(cake.image)" src="../assets/custom/images/default-placeholder.png">
+        </a>
     </div>
 </div>

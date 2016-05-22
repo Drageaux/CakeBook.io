@@ -9,22 +9,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var user_service_1 = require("./user.service");
+var cake_service_1 = require("../cakes/cake.service");
 var ProfileComponent = (function () {
-    function ProfileComponent(service) {
-        this.service = service;
+    function ProfileComponent(userService, cakeService) {
+        this.userService = userService;
+        this.cakeService = cakeService;
         this.user = {};
+        this.cakes = [];
     }
     ProfileComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.service.getUser()
-            .subscribe(function (res) { return _this.user = res; });
+        this.userService.getUser()
+            .subscribe(function (user) {
+            _this.user = user;
+            _this.cakeService.getCakes()
+                .subscribe(function (cakes) {
+                _this.cakes = cakes;
+                console.log(_this.cakes);
+            });
+        });
+    };
+    ProfileComponent.prototype.isEmptyString = function (str) {
+        return str == "" || str == null;
     };
     ProfileComponent = __decorate([
         core_1.Component({
             selector: "profile",
             templateUrl: "templates/profile.component.html"
         }), 
-        __metadata('design:paramtypes', [user_service_1.UserService])
+        __metadata('design:paramtypes', [user_service_1.UserService, cake_service_1.CakeService])
     ], ProfileComponent);
     return ProfileComponent;
 })();
