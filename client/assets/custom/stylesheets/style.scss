@@ -39,13 +39,11 @@ html {
     background-repeat: repeat;
 }
 
-
 @media screen and (min-device-width: 420px) {
     body {
         min-width: 420px;
     }
 }
-
 
 body {
     /***********
@@ -900,6 +898,26 @@ body {
         //}
     }
 
+    /****************
+     * Profile Page *
+     ****************/
+    .profile-container {
+        @extend .general-container;
+
+        .profile-info {
+            align-content: center;
+            .profile-picture {
+                background-color: #E9EEF1;
+                border-radius: 100px;
+                width: 20%;
+                img {
+                    position: relative;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
     /**************
      * Login Page *
      **************/
@@ -988,7 +1006,6 @@ body {
     }
 }
 
-
 /*******************
  * Style Overrides *
  *******************/
@@ -1017,7 +1034,6 @@ body {
     }
 }
 
-
 .ui.dimmer {
     align-content: center;
     vertical-align: middle;
@@ -1036,7 +1052,6 @@ body {
         }
     }
 }
-
 
 .ui.message {
     z-index: 10;
@@ -1057,7 +1072,6 @@ body {
     }
 }
 
-
 .add-cake-form,
 .import-cake-form {
     .ui.message {
@@ -1074,7 +1088,6 @@ body {
         display: none;
     }
 }
-
 
 /* Dragula */
 .gu-mirror {
@@ -1176,7 +1189,6 @@ body {
     }
 }
 
-
 /************************
  * Media Queries - Hide *
  ************************/
@@ -1186,13 +1198,11 @@ body {
     }
 }
 
-
 @media screen and (max-width: 600px) {
     .hide-600 {
         display: none
     }
 }
-
 
 @media screen and (max-width: 480px) {
     .hide-480 {

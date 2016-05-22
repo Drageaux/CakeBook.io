@@ -1,3 +1,17 @@
-<div class="general-container">
-    <h2>Profile</h2>
+<div class="profile-container">
+    <!--<h2>Profile</h2>-->
+    <!-- Profile Info -->
+    <div class="profile-info">
+        <h3>{{user.nickname}}</h3>
+        <!--<img src="">-->
+        <div class="profile-picture">
+            <img *ngIf="user.image" src="user.image">
+            <img *ngIf="!user.image" src="../assets/custom/images/user.png">
+        </div>
+    </div>
+
+    <!-- Cake Album -->
+    <div>
+
+    </div>
 </div>
