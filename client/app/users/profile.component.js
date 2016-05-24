@@ -8,26 +8,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var router_deprecated_1 = require("@angular/router-deprecated");
 var user_service_1 = require("./user.service");
 var cake_service_1 = require("../cakes/cake.service");
 var ProfileComponent = (function () {
-    function ProfileComponent(userService, cakeService) {
+    function ProfileComponent(router, routeParams, userService, cakeService) {
+        this.router = router;
+        this.routeParams = routeParams;
         this.userService = userService;
         this.cakeService = cakeService;
+        this.localProfile = {};
         this.user = {};
         this.cakes = [];
     }
     ProfileComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.userService.getUser()
-            .subscribe(function (user) {
-            _this.user = user;
-            _this.cakeService.getCakes()
-                .subscribe(function (cakes) {
-                _this.cakes = cakes;
-                console.log(_this.cakes);
+        if (!this.userService.isLoggedIn()) {
+            this.router.navigate(["Login"]);
+        }
+        else {
+            this.localProfile = this.userService.getLocalProfile();
+            this.userService.getUser(this.routeParams.get("user"))
+                .subscribe(function (user) {
+                _this.user = user;
+                _this.cakeService.getCakes(_this.user.userId)
+                    .subscribe(function (cakes) { return _this.cakes = cakes; });
             });
-        });
+        }
+    };
+    ProfileComponent.prototype.isMyPage = function () {
+        var decodedParams = decodeURIComponent(this.routeParams.get("user"));
+        return (this.localProfile.user_id === decodedParams);
     };
     ProfileComponent.prototype.isEmptyString = function (str) {
         return str == "" || str == null;
@@ -36,8 +47,9 @@ var ProfileComponent = (function () {
         core_1.Component({
             selector: "profile",
             templateUrl: "templates/profile.component.html"
-        }), 
-        __metadata('design:paramtypes', [user_service_1.UserService, cake_service_1.CakeService])
+        }),
+        router_deprecated_1.CanActivate(function () { return localStorage.getItem("id_token"); }), 
+        __metadata('design:paramtypes', [router_deprecated_1.Router, router_deprecated_1.RouteParams, user_service_1.UserService, cake_service_1.CakeService])
     ], ProfileComponent);
     return ProfileComponent;
 })();

@@ -13,13 +13,18 @@ var http_1 = require("@angular/http");
 var UserService = (function () {
     function UserService(http) {
         this.http = http;
-        this.userProfile = JSON.parse(localStorage.getItem("profile"));
+        this.userProfile = {};
+        this.userProfile = this.getLocalProfile();
     }
     UserService.prototype.isLoggedIn = function () {
         return localStorage.getItem("id_token") != null;
     };
-    UserService.prototype.getUser = function () {
-        return this.http.get("/api/user/" + this.userProfile.user_id)
+    UserService.prototype.getLocalProfile = function () {
+        return JSON.parse(localStorage.getItem("profile"));
+    };
+    UserService.prototype.getUser = function (id) {
+        var decodedId = decodeURIComponent(id);
+        return this.http.get("/api/user/" + decodedId)
             .map(function (res) { return res.json(); })
             .catch(this.handleError);
     };

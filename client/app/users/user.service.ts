@@ -6,17 +6,23 @@ import {User} from "./user";
 
 @Injectable()
 export class UserService {
-    userProfile = JSON.parse(localStorage.getItem("profile"));
+    userProfile = {};
 
     constructor(private http:Http) {
+        this.userProfile = this.getLocalProfile();
     }
 
     isLoggedIn() {
         return localStorage.getItem("id_token") != null;
     }
 
-    getUser():Observable<User> {
-        return this.http.get("/api/user/" + this.userProfile.user_id)
+    getLocalProfile() {
+        return JSON.parse(localStorage.getItem("profile"));
+    }
+
+    getUser(id:string):Observable<User> {
+        let decodedId = decodeURIComponent(id);
+        return this.http.get("/api/user/" + decodedId)
             .map(res => <User> res.json())
             .catch(this.handleError)
     }

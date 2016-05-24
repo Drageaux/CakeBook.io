@@ -55,6 +55,7 @@ enableProdMode();
 ])
 
 export class AppComponent implements OnInit {
+    localProfile = {};
 
     constructor(public authHttp:AuthHttp,
                 private _router:Router,
@@ -66,8 +67,9 @@ export class AppComponent implements OnInit {
         if (!this.loggedIn()) {
             this._router.navigate(["Login"]);
         } else {
+            this.localProfile = this._userService.getLocalProfile();
             // if logged in, update if missing info
-            this._userService.getUser()
+            this._userService.getUser(this.localProfile.user_id)
                 .subscribe(res => {
                     if (res == null) {
                         this._userService.addUser()
@@ -87,7 +89,7 @@ export class AppComponent implements OnInit {
     }
 
     goToProfile() {
-        this._userService.getUser()
+        this._userService.getUser(this.localProfile.user_id)
             .subscribe(res => this._router.navigate(["Profile", {
                user: res.userId
             }]))

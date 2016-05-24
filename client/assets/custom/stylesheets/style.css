@@ -652,8 +652,8 @@ body {
     text-align: center; }
     body .profile-container .profile-info .profile-picture {
       background-color: #E9EEF1;
-      border-radius: 100px;
-      width: 20%;
+      border-radius: 200px;
+      width: 20vw;
       margin-left: auto;
       margin-right: auto; }
       body .profile-container .profile-info .profile-picture img {
@@ -663,11 +663,17 @@ body {
       margin-top: 8px; }
   body .profile-container .cake-album {
     margin-top: 20px; }
-    body .profile-container .cake-album a {
+    body .profile-container .cake-album .card {
       padding-bottom: 15px; }
-      body .profile-container .cake-album a img {
+      body .profile-container .cake-album .card img {
         position: relative;
         width: 100%; }
+      body .profile-container .cake-album .card div {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        height: 37px; }
   body .login-outer-wrapper {
     height: 100vh;
     width: 100%;

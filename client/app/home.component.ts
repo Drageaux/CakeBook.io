@@ -21,6 +21,7 @@ declare var jQuery;
 
 @CanActivate(() => localStorage.getItem("id_token"))
 export class HomeComponent implements OnInit {
+    localProfile = {};
     errorMessage:string;
     @Input() cakes:Cake[];
 
@@ -34,14 +35,19 @@ export class HomeComponent implements OnInit {
         if (!this._userService.isLoggedIn()) {
             this._router.navigate(["Login"]);
         } else {
-            this.getCakes();
+            this.localProfile = this._userService.getLocalProfile();
+            this._userService.getUser(this.localProfile.user_id)
+                .subscribe(user => {
+                    this.user = user;
+                    this.getCakes(user.userId);
+                });
         }
     }
 
-    getCakes() {
-        this._cakeService.getCakes()
+    getCakes(id:string) {
+        this._cakeService.getCakes(id)
             .subscribe(
-                cakes => this.cakes = this.sortCakeList(cakes),
+                cakes => this.cakes = this._cakeService.sortCakeList(cakes),
                 error => this.errorMessage = <any>error);
     }
 
@@ -77,30 +83,5 @@ export class HomeComponent implements OnInit {
 
     closeMessage(message:any) {
         this._transitionService.closeItem(message);
-    }
-
-    sortCakeList(array:Cake[]):Cake[] {
-        let results:Cake[] = [];
-        let favorite:Cake[] = [];
-        let nonFavorite:Cake[] = [];
-
-        for (let i in array) {
-            if (array[i].isFavorite == true) {
-                favorite.push(array[i]);
-            } else {
-                nonFavorite.push(array[i]);
-            }
-        }
-        favorite.sort(function (first, second) {
-            return first.name.localeCompare(second.name)
-        });
-        nonFavorite.sort(function (first, second) {
-            return first.name.localeCompare(second.name)
-        });
-
-        favorite.push.apply(favorite, nonFavorite);
-        results.push.apply(results, favorite);
-
-        return results
     }
 }

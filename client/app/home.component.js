@@ -20,19 +20,26 @@ var HomeComponent = (function () {
         this._userService = _userService;
         this._cakeService = _cakeService;
         this._transitionService = _transitionService;
+        this.localProfile = {};
     }
     HomeComponent.prototype.ngOnInit = function () {
+        var _this = this;
         if (!this._userService.isLoggedIn()) {
             this._router.navigate(["Login"]);
         }
         else {
-            this.getCakes();
+            this.localProfile = this._userService.getLocalProfile();
+            this._userService.getUser(this.localProfile.user_id)
+                .subscribe(function (user) {
+                _this.user = user;
+                _this.getCakes(user.userId);
+            });
         }
     };
-    HomeComponent.prototype.getCakes = function () {
+    HomeComponent.prototype.getCakes = function (id) {
         var _this = this;
-        this._cakeService.getCakes()
-            .subscribe(function (cakes) { return _this.cakes = _this.sortCakeList(cakes); }, function (error) { return _this.errorMessage = error; });
+        this._cakeService.getCakes(id)
+            .subscribe(function (cakes) { return _this.cakes = _this._cakeService.sortCakeList(cakes); }, function (error) { return _this.errorMessage = error; });
     };
     HomeComponent.prototype.goSearch = function (query) {
         if (this._cakeService.isUrl(query)) {
@@ -62,28 +69,6 @@ var HomeComponent = (function () {
     };
     HomeComponent.prototype.closeMessage = function (message) {
         this._transitionService.closeItem(message);
-    };
-    HomeComponent.prototype.sortCakeList = function (array) {
-        var results = [];
-        var favorite = [];
-        var nonFavorite = [];
-        for (var i in array) {
-            if (array[i].isFavorite == true) {
-                favorite.push(array[i]);
-            }
-            else {
-                nonFavorite.push(array[i]);
-            }
-        }
-        favorite.sort(function (first, second) {
-            return first.name.localeCompare(second.name);
-        });
-        nonFavorite.sort(function (first, second) {
-            return first.name.localeCompare(second.name);
-        });
-        favorite.push.apply(favorite, nonFavorite);
-        results.push.apply(results, favorite);
-        return results;
     };
     __decorate([
         core_1.Input(), 

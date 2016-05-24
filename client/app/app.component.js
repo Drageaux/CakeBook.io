@@ -31,6 +31,7 @@ var AppComponent = (function () {
         this._router = _router;
         this._location = _location;
         this._userService = _userService;
+        this.localProfile = {};
     }
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -38,8 +39,9 @@ var AppComponent = (function () {
             this._router.navigate(["Login"]);
         }
         else {
+            this.localProfile = this._userService.getLocalProfile();
             // if logged in, update if missing info
-            this._userService.getUser()
+            this._userService.getUser(this.localProfile.user_id)
                 .subscribe(function (res) {
                 if (res == null) {
                     _this._userService.addUser()
@@ -59,7 +61,7 @@ var AppComponent = (function () {
     };
     AppComponent.prototype.goToProfile = function () {
         var _this = this;
-        this._userService.getUser()
+        this._userService.getUser(this.localProfile.user_id)
             .subscribe(function (res) { return _this._router.navigate(["Profile", {
                 user: res.userId
             }]); });

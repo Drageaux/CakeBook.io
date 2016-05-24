@@ -908,8 +908,8 @@ body {
             text-align: center;
             .profile-picture {
                 background-color: #E9EEF1;
-                border-radius: 100px;
-                width: 20%;
+                border-radius: 200px;
+                width: 20vw;
                 margin-left: auto;
                 margin-right: auto;
                 img {
@@ -923,11 +923,18 @@ body {
         }
         .cake-album {
             margin-top: 20px;
-            a {
+            .card {
                 padding-bottom: 15px;
                 img {
                     position: relative;
                     width: 100%;
+                }
+                div {
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    height: 37px;
                 }
             }
         }

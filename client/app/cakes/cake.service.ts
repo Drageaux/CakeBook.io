@@ -9,13 +9,15 @@ import {Cake} from "./cake";
 
 @Injectable()
 export class CakeService {
-    userId = JSON.parse(localStorage.getItem("profile")).user_id;
+    userId = decodeURIComponent(JSON.parse(localStorage.getItem("profile")).user_id);
 
     constructor(private http:Http) {
     }
 
-    getCakes():Observable<Cake[]> {
-        return this.http.get("/api/" + this.userId + "/cakes")
+    getCakes(id:string):Observable<Cake[]> {
+        let decodedId = decodeURIComponent(id);
+        // search-by-id for user to search for another user's cakes
+        return this.http.get("/api/" + decodedId + "/cakes")
             .map(res => <Cake[]> res.json())
             .catch(this.handleError);
     }
@@ -119,6 +121,31 @@ export class CakeService {
     /********************
      * Helper Functions *
      ********************/
+    sortCakeList(array:Cake[]):Cake[] {
+        let results:Cake[] = [];
+        let favorite:Cake[] = [];
+        let nonFavorite:Cake[] = [];
+
+        for (let i in array) {
+            if (array[i].isFavorite == true) {
+                favorite.push(array[i]);
+            } else {
+                nonFavorite.push(array[i]);
+            }
+        }
+        favorite.sort(function (first, second) {
+            return first.name.localeCompare(second.name)
+        });
+        nonFavorite.sort(function (first, second) {
+            return first.name.localeCompare(second.name)
+        });
+
+        favorite.push.apply(favorite, nonFavorite);
+        results.push.apply(results, favorite);
+
+        return results
+    }
+
     isUrl(input:string) {
         let regex = new RegExp('^(ftp|http|https):\/\/[^ "]+$');
         return input.match(regex) != null;

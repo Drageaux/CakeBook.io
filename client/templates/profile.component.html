@@ -13,9 +13,15 @@
 
     <!-- Cake Album -->
     <div class="cake-album container-fluid">
-        <a *ngFor="let cake of cakes" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            <img *ngIf="!isEmptyString(cake.image)" src="{{cake.croppedImage}}">
-            <img *ngIf="isEmptyString(cake.image)" src="../assets/custom/images/default-placeholder.png">
-        </a>
+        <!-- show if you own the cake or the cake is public -->
+        <div *ngFor="let cake of cakes; let idx = index"
+             [class.hidden]="!(isMyPage() || cake.isPublic)"
+             class="card col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <a>
+                <img *ngIf="!isEmptyString(cake.image)" src="{{cake.croppedImage}}">
+                <img *ngIf="isEmptyString(cake.image)" src="../assets/custom/images/default-placeholder.png">
+                <div>{{cake.name}}</div>
+            </a>
+        </div>
     </div>
 </div>

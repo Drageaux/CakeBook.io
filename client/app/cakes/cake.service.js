@@ -14,10 +14,12 @@ var http_1 = require("@angular/http");
 var CakeService = (function () {
     function CakeService(http) {
         this.http = http;
-        this.userId = JSON.parse(localStorage.getItem("profile")).user_id;
+        this.userId = decodeURIComponent(JSON.parse(localStorage.getItem("profile")).user_id);
     }
-    CakeService.prototype.getCakes = function () {
-        return this.http.get("/api/" + this.userId + "/cakes")
+    CakeService.prototype.getCakes = function (id) {
+        var decodedId = decodeURIComponent(id);
+        // search-by-id for user to search for another user's cakes
+        return this.http.get("/api/" + decodedId + "/cakes")
             .map(function (res) { return res.json(); })
             .catch(this.handleError);
     };
@@ -104,6 +106,28 @@ var CakeService = (function () {
     /********************
      * Helper Functions *
      ********************/
+    CakeService.prototype.sortCakeList = function (array) {
+        var results = [];
+        var favorite = [];
+        var nonFavorite = [];
+        for (var i in array) {
+            if (array[i].isFavorite == true) {
+                favorite.push(array[i]);
+            }
+            else {
+                nonFavorite.push(array[i]);
+            }
+        }
+        favorite.sort(function (first, second) {
+            return first.name.localeCompare(second.name);
+        });
+        nonFavorite.sort(function (first, second) {
+            return first.name.localeCompare(second.name);
+        });
+        favorite.push.apply(favorite, nonFavorite);
+        results.push.apply(results, favorite);
+        return results;
+    };
     CakeService.prototype.isUrl = function (input) {
         var regex = new RegExp('^(ftp|http|https):\/\/[^ "]+$');
         return input.match(regex) != null;
