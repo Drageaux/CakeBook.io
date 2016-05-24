@@ -1,8 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Observable} from "rxjs/Observable";
-import "../rxjs-operators";
 import {Http, Response, RequestOptions, Headers} from "@angular/http";
-//import {CanActivate} from "@angular/router";
 import {tokenNotExpired} from "angular2-jwt";
 
 import {Cake} from "./cake";

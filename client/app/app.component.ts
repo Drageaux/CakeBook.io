@@ -1,6 +1,5 @@
 import {Component, provide, OnInit} from "@angular/core";
 import {HTTP_PROVIDERS, Http} from "@angular/http";
-
 import {
     RouteConfig,
     Router,
@@ -16,6 +15,7 @@ import {LoginComponent}         from "./login.component";
 import {HomeComponent}          from "./home.component";
 import {SearchComponent}        from "./cakes/search.component";
 
+import {User}                   from "./users/user";
 import {ProfileComponent}       from "./users/profile.component";
 import {UserService}            from "./users/user.service";
 
@@ -28,7 +28,6 @@ import {TransitionService}      from "./transition.service";
 // Need to be imported later on for some reason
 import {ViewEncapsulation}      from "@angular/core";
 import {enableProdMode}         from "@angular/core";
-import {User} from "./users/user";
 enableProdMode();
 
 @Component({
